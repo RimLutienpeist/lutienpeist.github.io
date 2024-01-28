@@ -1,0 +1,114 @@
+site_name: Lutienpeist重开的计算机生活
+
+nav: 
+  - 封面: index.md
+  - CS自学指南: 
+    - 前言: CSself/first.md
+    - Chap1-Crash Course Computer Science: 
+      - 本章概述: CSself/Chap1intro/intro.md
+      - 历史&硬件发展：从算盘到电子计算机，从晶体管到CPU: CSself/Chap1intro/05.md
+      - 早期的编程发展——从接线板到面向对象: CSself/Chap1intro/510.md
+      - 计算机的早期发展——从集成电路到操作系统，从文件系统到屏幕: CSself/Chap1intro/600.md
+      - 计算机图形学: CSself/Chap1intro/710.md
+      - 计算机网络学: CSself/Chap1intro/790.md
+      - 计算机安全学: CSself/Chap1intro/880.md
+      - 计算机科学其它分支: CSself/Chap1intro/996.md
+    - Chap2-tools:
+      - 本章概述: CSself/Chap2tool/intro.md
+      - git: CSself/Chap2tool/git.md
+      - 个人强推的工具: CSself/Chap2tool/mine.md
+  - ZJU_Courses:
+    - 前言: ZJU_Courses/前言.md
+    - 数学基础课程: 
+      - 数学分析Ⅰ(H): ZJU_Courses/math/shufen1/不要忘记反证法.md
+      - 数学分析Ⅱ(H): building.md
+      - 线性代数Ⅱ(H): building.md
+      - 概率论与数理统计: building.md
+      - 离散数学(CKC):
+        - 课堂规则: ZJU_Courses/math/离散数学/DM.md
+        - 第一课: ZJU_Courses/math/离散数学/DM1.md
+    - CS基础课程:
+      - 数字逻辑设计: ZJU_Courses/CSbasic/数字逻辑设计/shuluo.md
+      - 数据结构基础: 
+        - 前言: ZJU_Courses/CSbasic/FDS/qianyan.md
+        - 基础知识: ZJU_Courses/CSbasic/FDS/基础知识.md
+        - 线性结构: ZJU_Courses/CSbasic/FDS/线性结构.md
+        - 树: ZJU_Courses/CSbasic/FDS/树.md
+        - 图: ZJU_Courses/CSbasic/FDS/图.md
+        - 排序: ZJU_Courses/CSbasic/FDS/排序.md
+        - 错题: ZJU_Courses/CSbasic/FDS/题目.md
+      - 高级数据结构与算法分析:
+        - 前言: ZJU_Courses/CSbasic/ABS/前言.md
+        - Chap1: ZJU_Courses/CSbasic/ABS/Chap1.md
+      - 数据库系统:
+        - 前言: ZJU_Courses/CSbasic/数据库系统/前言.md
+        - Chapter 1":" Introduction: ZJU_Courses/CSbasic/数据库系统/Chap1.md
+      - 计算机组成: building.md
+      - 面向对象程序:
+        - 前言: ZJU_Courses/CSbasic/OOP/前言.md
+        - Chapter 1: ZJU_Courses/CSbasic/OOP/Chap1.md
+    - 其它有意思的课程:
+      - 博弈论基础: building.md
+      - 马克思主义原理(H): ZJU_Courses/其它有意思的课程/马原/马原.md
+      - 无线网络应用: ZJU_Courses/其它有意思的课程/无线网络应用/无线网络应用.md
+      - 微信小程序综合实践: building.md
+      - 生命科学导论(H): building.md
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  features:
+    - navigation.instant
+    - navigation.tracking    
+    - navigation.tabs
+  icon:
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
+
+plugins:
+  - statistics
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.arithmatex:
+      generic: true
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js

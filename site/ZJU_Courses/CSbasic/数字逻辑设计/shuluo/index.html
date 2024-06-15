@@ -1,0 +1,4840 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../../math/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/DM1/">
+      
+      
+        <link rel="next" href="../../FDS/qianyan/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+    
+    
+      
+        <title>数字逻辑设计 - Lutienpeist重开的计算机生活</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#chap-1-digital-systems-and-information" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Lutienpeist重开的计算机生活" class="md-header__button md-logo" aria-label="Lutienpeist重开的计算机生活" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Lutienpeist重开的计算机生活
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              数字逻辑设计
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  封面
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../CSself/first/" class="md-tabs__link">
+          
+  
+  CS自学指南
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../%E5%89%8D%E8%A8%80/" class="md-tabs__link">
+          
+  
+  ZJU_Courses
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../Programming%20Language/C%2B%2B%20Programming%20Tutorial/0/" class="md-tabs__link">
+          
+  
+  Programming Language
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../SRTP/" class="md-tabs__link">
+          
+  
+  SRTP
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Lutienpeist重开的计算机生活" class="md-nav__button md-logo" aria-label="Lutienpeist重开的计算机生活" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Lutienpeist重开的计算机生活
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    封面
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    CS自学指南
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            CS自学指南
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/first/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap1-Crash Course Computer Science
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Chap1-Crash Course Computer Science
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap1intro/intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    本章概述
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap1intro/05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    历史&硬件发展：从算盘到电子计算机，从晶体管到CPU
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap1intro/510/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    早期的编程发展——从接线板到面向对象
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap1intro/600/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机的早期发展——从集成电路到操作系统，从文件系统到屏幕
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap1intro/710/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机图形学
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap1intro/790/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机网络学
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap1intro/880/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机安全学
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap1intro/996/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机科学其它分支
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap2-The Missing Semester of Your CS Education
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chap2-The Missing Semester of Your CS Education
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap2lost/intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    本章概述
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap2lost/1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture1 shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap2lost/2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture2 Shell 工具和脚本
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap2lost/3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture3 Vim
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap2lost/4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture4 Data Wrangling
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap2lost/5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture5 命令行环境
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap2lost/6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture6 版本控制
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap2lost/7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture7 调试及性能分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap2lost/8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture8 元编程
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap2lost/9/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture9 安全与密码学
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap2lost/10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture10 大杂烩
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    ZJU_Courses
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ZJU_Courses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数学基础课程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            数学基础课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/shufen1/%E4%B8%8D%E8%A6%81%E5%BF%98%E8%AE%B0%E5%8F%8D%E8%AF%81%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学分析Ⅰ(H)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90%E2%85%A1%28H%29/building/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学分析Ⅱ(H)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E2%85%A1%28H%29/building/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    线性代数Ⅱ(H)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B8%8E%E6%95%B0%E7%90%86%E7%BB%9F%E8%AE%A1/building/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概率论与数理统计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    离散数学(CKC)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            离散数学(CKC)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/DM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课堂规则
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/DM1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第一课
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CS基础课程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            CS基础课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    数字逻辑设计
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    数字逻辑设计
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#information-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      信息表达 | Information Representation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abstraction-layers-in-computer-systems-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算机系统设计中的抽象层 | Abstraction Layers in Computer Systems Design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#number-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      数字系统 | Number Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数字系统 | Number Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      进制转换
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arithmetic-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      算术运算 | Arithmetic Operations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      编码 | Codes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="编码 | Codes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      独热码 &amp; 独冷码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bcd" class="md-nav__link">
+    <span class="md-ellipsis">
+      BCD 码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      余三码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      格雷码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ascii" class="md-nav__link">
+    <span class="md-ellipsis">
+      ASCII 码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      奇偶校验位
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数据结构基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            数据结构基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FDS/qianyan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FDS/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FDS/%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    线性结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FDS/%E6%A0%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    树
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FDS/%E5%9B%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FDS/%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    排序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FDS/%E9%A2%98%E7%9B%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    错题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    高级数据结构与算法分析
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            高级数据结构与算法分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADS/%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADS/1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADS/2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADS/3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ADS/4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_4" id="__nav_3_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数据库系统
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            数据库系统
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBS/%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBS/Chap1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBS/2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBS/3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DBS/4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 4
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_5" id="__nav_3_3_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    计算机组成
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            计算机组成
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CO/%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CO/1%2B2.1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 1+2.2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CO/2.2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 2.2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CO/3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CO/4.1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 4.1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CO/4.2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 4.2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CO/5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 5
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_6" id="__nav_3_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    面向对象程序
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            面向对象程序
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OOP/%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OOP/Chap1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../OOP/2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    其它有意思的课程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            其它有意思的课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%85%B6%E5%AE%83%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E8%AF%BE%E7%A8%8B/%E5%8D%9A%E5%BC%88%E8%AE%BA%E5%9F%BA%E7%A1%80/building/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    博弈论基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%85%B6%E5%AE%83%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E8%AF%BE%E7%A8%8B/%E9%A9%AC%E5%8E%9F/%E9%A9%AC%E5%8E%9F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    马克思主义原理(H)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%85%B6%E5%AE%83%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E8%AF%BE%E7%A8%8B/%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8/%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E5%BA%94%E7%94%A8/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    无线网络应用
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%85%B6%E5%AE%83%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E8%AF%BE%E7%A8%8B/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%BB%BC%E5%90%88%E5%AE%9E%E8%B7%B5/building/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    微信小程序综合实践
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4_5" id="__nav_3_4_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    生命科学导论(H)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_4_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4_5">
+            <span class="md-nav__icon md-icon"></span>
+            生命科学导论(H)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%85%B6%E5%AE%83%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E8%AF%BE%E7%A8%8B/%E7%94%9F%E5%91%BD%E7%A7%91%E5%AD%A6%E5%AF%BC%E8%AE%BA%28H%29/%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%85%B6%E5%AE%83%E6%9C%89%E6%84%8F%E6%80%9D%E7%9A%84%E8%AF%BE%E7%A8%8B/%E7%94%9F%E5%91%BD%E7%A7%91%E5%AD%A6%E5%AF%BC%E8%AE%BA%28H%29/1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Lecture 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Programming Language
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Programming Language
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    C++ Programming Tutorial
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            C++ Programming Tutorial
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Programming%20Language/C%2B%2B%20Programming%20Tutorial/0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Programming%20Language/C%2B%2B%20Programming%20Tutorial/1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Programming%20Language/C%2B%2B%20Programming%20Tutorial/2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    More Basics
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Programming%20Language/C%2B%2B%20Programming%20Tutorial/3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Object-Oriented Programming (OOP) in C++
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Programming%20Language/C%2B%2B%20Programming%20Tutorial/gccmake/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    gccmake
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Python
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            Python
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Programming%20Language/Python/0/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Installtion and Getting Started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../Programming%20Language/Python/1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Basic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    SRTP
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            SRTP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SRTP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SRTP/Intro%20to%20Large%20Language%20Models/1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Intro to Large Language Models
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    文献阅读
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            文献阅读
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../SRTP/%E6%96%87%E7%8C%AE%E9%98%85%E8%AF%BB/2302.12173v2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    2302.12173v2
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#information-representation" class="md-nav__link">
+    <span class="md-ellipsis">
+      信息表达 | Information Representation
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#abstraction-layers-in-computer-systems-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      计算机系统设计中的抽象层 | Abstraction Layers in Computer Systems Design
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#number-systems" class="md-nav__link">
+    <span class="md-ellipsis">
+      数字系统 | Number Systems
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="数字系统 | Number Systems">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      进制转换
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arithmetic-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      算术运算 | Arithmetic Operations
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      编码 | Codes
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="编码 | Codes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      独热码 &amp; 独冷码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bcd" class="md-nav__link">
+    <span class="md-ellipsis">
+      BCD 码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      余三码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      格雷码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ascii" class="md-nav__link">
+    <span class="md-ellipsis">
+      ASCII 码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      奇偶校验位
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>下面的内容其实就是修佬的笔记cv过来的，只是根据个人的情况进行了内容筛选，加了几行个人用的注释，所以没必要往下看了，放这里是个人复习用的。直接去看原版，修佬yyds——<a href="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/">💎 数字逻辑设计 | Digital Design - Isshiki修's Notebook (isshikih.top)</a></p>
+</div>
+<h1 id="chap-1-digital-systems-and-information">Chap 1 Digital Systems and Information</h1>
+<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+:material-circle-edit-outline: 约 19771 个字 :material-clock-time-two-outline: 预计阅读时间 66 分钟
+</div>
+
+<h2 id="information-representation">信息表达 | Information Representation</h2>
+<p>现实世界中的信息往往是 <strong>连续(continuous)</strong> 的。</p>
+<p>但在人造物的世界中，大部分信息都是 <strong>离散(discrete)</strong> 的。</p>
+<p>在电子信息系统中，信号分为 <strong>模拟信号(analog signal)</strong> 和 <strong>数字信号(digital signal)</strong> 两种。</p>
+<p>在 <strong>数字信号(digital signal)</strong> 中又有多种表示方法，如今我们最常用的是 <strong>二进制(binary)</strong>。对应到电路层面，我们常常用 <strong>高电位(HIGH)</strong> 和 <strong>低电位(LOW)</strong> 来表征 <code>1</code> 和 <code>0</code>。</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/1.png" /></p>
+<blockquote>
+<p>值得注意的是，在输入和输出中，高低电位的接受范围是不同的。</p>
+<p>可以发现，输入的判定范围比输出的判定范围大，即 <strong>宽进严出</strong>。</p>
+<p>其目的是为了进一步提高电路在噪音等异常影响下也能正常表现的能力。</p>
+</blockquote>
+<p>HIGH 的接受范围和 LOW 的接受范围之间还存在一段区域。落在这一部分的电平是 <strong>未定义(undefined)</strong> 的，也被称为是 <strong>浮动(floating)</strong> 的。</p>
+<p>如果输出的电平是在浮动区间的，那么其认定值将是随机的。</p>
+<blockquote>
+<p>事实上，在信息的对应上，虽然将高低电平同 HIGH/LOW 联系是很自然的，但是将他们同 true/false 或者 1/0 联系其实并不唯一。但是在一般情况下（我们称之为 positive logic），我们都认为 HIGH ~ true ~ 1， LOW ~ false ~ 0。</p>
+</blockquote>
+<p>可以发现，(b) 图中的模拟信号在经过我们的器件后，会被认为是 (c) 图所示的信号。而这些操作在硬件层面，我们通过 <strong>晶体管(transistors)</strong> 来实现。</p>
+<blockquote>
+<p>这也牵扯到我们为什么最终使用二进制来表示信息。一方面是因为二值器件比较常见，亦即这里提到的晶体管；另外一方面是使用二进制可以降低电路成本。</p>
+</blockquote>
+<h2 id="abstraction-layers-in-computer-systems-design">计算机系统设计中的抽象层 | Abstraction Layers in Computer Systems Design</h2>
+<table>
+<thead>
+<tr>
+<th>越上层抽象程度越高</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Algorithms</td>
+</tr>
+<tr>
+<td>Programing Languages</td>
+</tr>
+<tr>
+<td>Operating Systems</td>
+</tr>
+<tr>
+<td>Instruction Set Architecture</td>
+</tr>
+<tr>
+<td>Microarchitecture</td>
+</tr>
+<tr>
+<td>Register Transfers</td>
+</tr>
+<tr>
+<td>Logic Gates</td>
+</tr>
+<tr>
+<td>Transistor Circuits</td>
+</tr>
+</tbody>
+</table>
+<h2 id="number-systems">数字系统 | Number Systems</h2>
+<h3 id="_1">进制转换</h3>
+<p>对于一个 <span class="arithmatex">\(r\)</span> 进制数，它一般被写成这样：</p>
+<p><img alt="image-20240101192539707" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240101192539707.png" /></p>
+<p>而它对应的十进制真值为：</p>
+<p><img alt="image-20240101192551544" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240101192551544.png" /></p>
+<p>计算机领域常见的进制主要是 <strong>二进制(binary)</strong>，<strong>八进制(octal)</strong>，<strong>十进制(decimal)</strong> 和 <strong>十六进制(hexadecimal)</strong>。</p>
+<p>其中二、八、十六进制之间的转换非常简单，存在多位到一位之间的无后效性映射，例如二进制转换到十六进制只需要将从低到高每四位转化成十六进制中的一位即可。</p>
+<blockquote>
+<p>需要注意，由于二进制和十进制在零位上的权重相同，这意味着在整数部分，二进制和十进制是可以相互精准转化的（即最小精度是一致的，都是 1）；</p>
+<p>然而该性质在小数部分并不成立（因为小数部分不存在“最小精度”一说），即十进制无法精准转化为二进制，但二进制可以转化为十进制。</p>
+</blockquote>
+<h2 id="arithmetic-operations">算术运算 | Arithmetic Operations</h2>
+<p>这里涉及的主要是 <strong>加法(Addition)</strong>、<strong>减法(Subtraction)</strong>、<strong>乘法(Multiplication)</strong>。</p>
+<h2 id="codes">编码 | Codes</h2>
+<p>二进制编码主要分为这么几种：</p>
+<ul>
+<li>Numeric</li>
+<li>必须表达一定范围内的数字；</li>
+<li>能够支持简单且普遍的计算；</li>
+<li>和二进制数值本身有较大关联；</li>
+<li>Non-numeric</li>
+<li>相对灵活，因为不需要适配普遍的运算法则；<ul>
+<li>灵活是指，保证编码映射关系是唯一的的情况下都可以称为合法编码；</li>
+</ul>
+</li>
+<li>和二进制数值本身未必有关系；</li>
+</ul>
+<h3 id="_2">独热码 &amp; 独冷码</h3>
+<p><strong>独热码(one-hot)</strong> 要求比特向量中只有一位是 <code>1</code>；对应的还有 <strong>独冷码(one-cold)</strong>。</p>
+<p>使用这种编码的好处是，决定或改变状态机目前的状态的成本相对较低，容易设计也容易检测非法行为等。</p>
+<p>但是相对应的，缺点是信息表示率较低，非法状态非常多而有效状态很少。</p>
+<h3 id="bcd">BCD 码</h3>
+<p>真实世界中大部分数据表述都是以十进制实现的，所以我们需要研究如何用二进制来表示十进制。</p>
+<p>一位二进制数能包含的信息是 1bit，也就是一个“真”或者一个“假”。</p>
+<p>我们称一个拥有 n 个元素的二进制向量为一个 <strong>n位二进制编码(n-bit binary code)</strong>。一个 n 位二进制数拥有 <span class="arithmatex">\(2^{2n}\)</span> 种可能的组合，因而可以表示 <span class="arithmatex">\(2^{2n}\)</span> 种信息。</p>
+<p>我们需要设计的编码系统，就是将我们需要的信息映射到这 <span class="arithmatex">\(2^{2n}\)</span> 个“空位”中。当然，当我们需要表示的信息数量并不是 2 的幂次时候，会出现一些 未分配(unassigned) 的比特组合。</p>
+<p>在这种编码中，最常用的就是 <strong>BCD码(binary-coded demical)</strong>。其核心思路就是，将十进制的每一位 <strong>分别</strong> 用 <strong>真值相等的 4 位二进制</strong> 表示，即 <code>0</code> ~ <code>9</code> 分别用 <code>0000</code> ~ <code>1001</code> 表示。</p>
+<p>eg</p>
+<p><span class="arithmatex">\((185)_{10}=(000110000101)_{BCD}=(10111001)_2\)</span></p>
+<h3 id="_3">余三码</h3>
+<p>一种 <strong>BCD码</strong> 的改进是 <strong>余三码(Excess3)</strong>。</p>
+<p>其核心思路是在 BCD码的基础上，增加一个大小为 3 的偏移量，即每个二进制编码＋3。</p>
+<p>这个 3 来自于 <span class="arithmatex">\(\frac{16-10}{2}\)</span> ，也就是 8421 码的容量减去我们需要表示的数字数量，再除以二。</p>
+<p>这样的好处是，十进制下能进位的两个数，在余三码下相加也刚好进位。</p>
+<h3 id="_4">格雷码</h3>
+<p>格雷码的特征，也是他的优点，就是相邻的两个数在二进制下的表示只差一位（当在占满时，对于整个编码序列，环状满足该条件）。</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/5.png" /></p>
+<p>从笔试做题角度来说，格雷码最麻烦的其实是与十进制数的转换。</p>
+<p>假设我们要找的是第 k 个格雷码，则对应的格雷码为：</p>
+<p><img alt="image-20240101195657603" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240101195657603.png" /></p>
+<h3 id="ascii">ASCII 码</h3>
+<p>字符编码所使用的一般是 ASCII 编码</p>
+<h3 id="_5">奇偶校验位</h3>
+<p>在信号传输过程中，可能由于环境干扰等原因，出现各种信号抖动，所以为了保证数据的可信度，我们需要一个错误检测机制。</p>
+<p>一种常见的方法是 <strong>冗余(Redundancy)</strong>，即加入一些额外的信息用以校验。</p>
+<p>其中一种做法是引入 <strong>奇偶校验位(Parity Bit)</strong>。它分为 <strong>奇校验(Odd Parity)</strong> 和 <strong>偶校验(Even Parity)</strong>。</p>
+<p>分别通过引入额外的一位，来保证整个信息串中 <code>1</code> 的数量是奇数/偶数。</p>
+<ul>
+<li>比如，如果我们采用偶校验，原始信息为 <code>1101</code>，其中有 3 个 <code>1</code>，这时我们在后面再加上一个 <code>1</code>，保证了整个信息串中有偶数个 <code>1</code>；</li>
+<li>或者如果原始信息为 <code>1001</code>，其中有 2 个 <code>1</code>，这时我们则在后面加一个 <code>0</code>。此时，如果传输过程中出现了问题，那么 <code>1</code> 的数量很可能变成了一个奇数，此时我们就知道，这个信息是不对的。</li>
+</ul>
+<h1 id="chap-2-combinational-logic-circuits">Chap 2 Combinational Logic Circuits</h1>
+<h2 id="_6">逻辑运算</h2>
+<p>逻辑运算的对象是布尔变量，也就是 0/1 二值。</p>
+<p>主要的运算就是 <strong>与(AND)</strong>，<strong>或(OR)</strong>，<strong>非(NOT)</strong>，<strong>异或(XOR)</strong>，以及 <strong>与非(NAND)</strong>，<strong>或非(NOR)</strong>，<strong>同或(XNOR)</strong>。</p>
+<blockquote>
+<p>多输入的<strong>异或</strong>和<strong>同或</strong>被称为<strong>奇函数</strong>和<strong>偶函数</strong>。</p>
+<p>可以用它们来实现<strong>奇校验</strong>和<strong>偶校验</strong>。</p>
+<p>而且观察其卡诺图的形状（棋盘形），可以发现，它们是天然优化的，即不可优化的。</p>
+</blockquote>
+<ul>
+<li>NOR: <span class="arithmatex">\(\overline{A+B}\)</span></li>
+<li>NAND: $ \overline{A\cdot B}$</li>
+</ul>
+<p><strong>德·摩根定律(De Morgan's Laws)</strong></p>
+<ul>
+<li><span class="arithmatex">\(\overline{A+B}=\overline{A} \cdot \overline{B}\)</span></li>
+<li><span class="arithmatex">\(\overline{A\cdot B} = \overline A+\overline B\)</span></li>
+</ul>
+<h2 id="_7">逻辑门</h2>
+<p>逻辑门是在硬件层面上实现布尔代数的逻辑单元。其操作对象为高低电平。</p>
+<p><strong>通用门(Universal Gate)</strong></p>
+<p>一个功能完全的，能够表示其他所有门的逻辑门被称为通用门。</p>
+<p>在我们学过的逻辑门中，NAND 和 NOR 都是通用门。</p>
+<h2 id="_8">布尔代数</h2>
+<blockquote>
+<p>literal ~ 字面量，也就是“变量”。</p>
+</blockquote>
+<h3 id="_9">运算律</h3>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/10.jpeg" /></p>
+<p>主要注意第15条</p>
+<blockquote>
+<p>一定要建立 <strong>与</strong> 和 <strong>或</strong> 是<strong>对等</strong>的观念</p>
+<p>我们习惯用“真”去理解这两个运算，但是实际上如果你以“假”为主体去分析这两个运算，会发现和“真”是完全对称的。换言之， <strong>与</strong> 和 <strong>或</strong> 是完全对称的运算，而非像他们借用的符号 × 和 + 那样存在非对称关系。</p>
+<p>但是让这件事变得又没那么简单的事情是，虽然 <strong>与</strong> 和 <strong>或</strong> 是对等的，但是我们在借用普通代数符号体系的同时，又人为地给他们添加了优先级（但是这也是必要的，否则表达式就会充满括号）。</p>
+</blockquote>
+<h3 id="_10">运算律推广</h3>
+<p><a href="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/11.jpg"><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/11.jpg" /></a><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/12.jpg" /></p>
+<blockquote>
+<p>对比前三个和后三个，我们再次发现，与 和 或 在逻辑上是对称的。</p>
+</blockquote>
+<h3 id="_11">对偶法则</h3>
+<p><strong>对偶法则(Duality Rule)</strong>：一个表达式的 <strong>对偶(dual)</strong> 为，将所有的 <strong>与</strong> 和 <strong>或</strong> 对调得到的式子</p>
+<p>注意：需要保证参与运算的结构不能变（是“<strong>带括号</strong>”的宏展开）。</p>
+<blockquote>
+<p><strong>eg</strong></p>
+<p><img alt="image-20240101173750559" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240101173750559.png" /></p>
+</blockquote>
+<p>一般情况下，除非某个表达式是 <strong>自对偶(self-dual)</strong> 的，那么它的表现都与原表达式不同。</p>
+<p>对偶表达式具有如下性质：</p>
+<ul>
+<li>如果 F 的对偶是 G，那么 F 也是 G 的对偶，即对偶关系是对成的；</li>
+<li>如果表达式 F 和 G 等价，那么他们的对偶也等价；</li>
+</ul>
+<h3 id="_12">互补函数</h3>
+<p>一个 <strong>函数的互补(Complement of a Function)</strong> 指的是，将它的 <strong>对偶函数</strong> 中每一个 <strong>变量</strong> 都 <strong>取反</strong> 得到的函数，而该函数正好等于原函数的 <strong>非</strong>。</p>
+<blockquote>
+<p><strong>eg</strong></p>
+<p><img alt="image-20240101173915746" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240101173915746.png" /></p>
+</blockquote>
+<h3 id="_13">替代法则</h3>
+<p><strong>替代法则(Substitution Rules)</strong>: 如果将一个等式中 <strong>所有的</strong> <strong>某个变量</strong> 都替换为同一个表达式，则等式依然成立。</p>
+<blockquote>
+<p><strong>eg</strong></p>
+<p><img alt="image-20240101174041455" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240101174041455.png" /></p>
+</blockquote>
+<h3 id="_14">一致性定理</h3>
+<div class="arithmatex">\[
+XY+\overline XZ+YZ=XY+\overline XZ
+\]</div>
+<p>证明：利用 <span class="arithmatex">\(YZ=(X+\overline X)YZ\)</span></p>
+<h2 id="_15">标准形式与规范形式</h2>
+<p>本质上相等的布尔表达式实际上有很多种写法。</p>
+<p>随着变量越来越复杂，他们之间的比较会很困难。</p>
+<p>所以我们需要定义一种形式，使得所有相同的表达式都能比较方便的“化简”为同一个形式，同时也能辨别出两个表达式是不同的。</p>
+<p>这就引入了 <strong>标准形式(Standard Forms)</strong>，包括 SOP 和 POS；以及 <strong>规范形式(Canonical Forms)</strong>，分别为 <strong>最小项之和(Sum of Minterms, SOM)</strong> 和 <strong>最大项之积(Product of Maxterms, POM)</strong>。</p>
+<h3 id="_16">表达规范</h3>
+<div class="arithmatex">\[
+SOM\\
+F(X,Y,Z)=\sum m(2,4,5,7)=m_2+m_4+m_5+m_7
+\]</div>
+<p><img alt="image-20240101182848462" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240101182848462.png" /></p>
+<ul>
+<li><span class="arithmatex">\(\sum m\)</span> and <span class="arithmatex">\(m\ subscript\)</span> 数字的二进制对应着最小项</li>
+</ul>
+<p>$$
+POM\
+F(X,Y,Z)=\prod M(0,1,3,6)=M_0+M_1+M_3+M_6
+$$
+<img alt="image-20240101183317556" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240101183317556.png" /></p>
+<ul>
+<li><span class="arithmatex">\(\prod M\)</span> and <span class="arithmatex">\(M\ subscript\)</span> 数字的二进制反码对应着最大项</li>
+</ul>
+<p>对于一个二值表达式来说，两种 <strong>表达</strong> 都是充要。</p>
+<ul>
+<li>最小项与最大项求反可得到同一下标的对方</li>
+<li>可知 <span class="arithmatex">\(F\)</span> 的 <span class="arithmatex">\(SOM\)</span> 下标与 其反函数 的 <span class="arithmatex">\(POM\)</span> 下标一样</li>
+</ul>
+<p><img alt="image-20240101183559175" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240101183559175.png" /></p>
+<h2 id="_17">电路实现与优化</h2>
+<blockquote>
+<p>直接通过标准形式来得到对应的电路会导致成本过高以及电路复杂</p>
+<p>通过 <strong>卡诺图(Karnaugh map)</strong> 来优化逻辑电路</p>
+<p>我们需要先定义什么是“优”，也就是给出一个电路成本的衡量依据，即 <strong>成本标准(cost criteria)</strong></p>
+</blockquote>
+<h3 id="_18">成本标准</h3>
+<p>在成本标准中，我们需要介绍的主要有三种标准，分别是：</p>
+<ul>
+<li>按照字面量字面量计(literal cost)：<span class="arithmatex">\(L\)</span></li>
+<li>按门输入计，不计非门(gate-input cost)：<span class="arithmatex">\(G\)</span></li>
+<li>按门输入计，计非门(gate-input cost with NOTs)：<span class="arithmatex">\(GN\)</span></li>
+</ul>
+<h4 id="_19">按照字面量字面量计</h4>
+<p>就是按照表达式中有多少字面量来计算，即有多少个字母</p>
+<blockquote>
+<p><strong>eg</strong></p>
+<p><img alt="image-20240101184020629" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240101184020629.png" /></p>
+</blockquote>
+<p>这种计算方法非常的简单，但是感觉不太靠谱</p>
+<h4 id="_20">按门输入计</h4>
+<p>按照逻辑门输入引脚的总个数来计算</p>
+<p>这里的输入并不仅仅是直接来自于字面量输入的那些引脚，也包括字面量做运算后得到的结果作为输入传入下一级逻辑门的引脚</p>
+<blockquote>
+<p><strong>⚠ 注意</strong></p>
+<p>虽然非门也是门，但是我们通常不把非门直接计入 gate-input cost，所以接下来提到的“输入引脚”默认是不包含非门的输入引脚的。</p>
+</blockquote>
+<p><strong>eg</strong></p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/14.png" /></p>
+<ul>
+<li>绿色原点表示一级输入引脚；</li>
+<li>蓝色方点表示二级输入引脚；</li>
+<li>黑色三角表示非门的输入引脚</li>
+</ul>
+<p>也就是说，这里一共有 5 + 2 = 7 个输入引脚，以及 2 个非门输入引脚。</p>
+<ul>
+<li>出现了重复的被非了的字面量，不要重复计算</li>
+</ul>
+<blockquote>
+<p>更多例题（考前做做练手）</p>
+<p><a href="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/Chap02/#按门输入计">Chap 2 Combinational Logic Circuits - Isshiki修's Notebook (isshikih.top)</a></p>
+</blockquote>
+<p>注意：分层计数。对于一项，分为输入与输出分别计数！！！！！！！！！</p>
+<p>​   顶层的输出不计</p>
+<ul>
+<li>这里还不熟练，可能会做错</li>
+</ul>
+<h3 id="_21">卡诺图</h3>
+<p>优化逻辑表达式最直白的思想就是减少门电路，也就是去减少 gate-input cost。</p>
+<p>如果两个最小项只差一个字面量的非，那么他们是可以合并的。这个结论对最大项也成立。
+$$
+XY+X\overline Y=X(Y+\overline Y)\
+(X+\overline Y)(X+Y)=X+Y\overline Y=X
+$$
+是不是觉得“只差一个”很耳熟？是的！我们想到了格雷码！</p>
+<p>假设我们将 n 个字面量排列成一个 n bits 的向量，那么只需要按照格雷码排序，一旦发现有相邻的最小项，我们就可以合并他们。</p>
+<p>但这还不够充分，例如在一个有三个字面量的逻辑表达式中，“与一个表达式相邻”的表达式其实有三个，但是用线性的表示方法又没法很好的表示这一点。</p>
+<p>所以我们想到将它写成一张二维的表，即将字面量拆成两组 bit 向量，各自按照格雷码排列，形成一张二维表，这就是 <strong>卡诺图(Karnaugh Map)</strong>，也叫 <strong>K-map</strong>。</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/15.png" /></p>
+<p>可以发现，任意两个相邻的格子都只差一个字面量的非，而且是充要的，即所有“相邻”都可以在这张图表现出来。</p>
+<blockquote>
+<p>由于格雷码的性质是一个在“满”状态下 <strong>环状成立</strong> 的性质，所以卡诺图也需要用“环状”的思路去看，这里可以联想一下行列式的形象化计算方法，将这张表当作一个无限扩展的表格。</p>
+</blockquote>
+<h4 id="_22">卡诺图的局限性</h4>
+<p>一张二维表中，能与一个元素相邻的元素最多只有四个，也就是说我们撑死也只能用卡诺图表示 4 个字面量的情况。</p>
+<p>实际上卡诺图只能用于化简非常简单的逻辑表达式。</p>
+<blockquote>
+<p>更多情况下，卡诺图实际上只适合我们做题。但是其思路是非常有意思的。</p>
+</blockquote>
+<h4 id="_23">卡诺图的结构</h4>
+<p><code>3 bit</code>    </p>
+<ul>
+<li><code>[x, y, z] --&gt; [x], [y, z]</code></li>
+</ul>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/16.png" /></p>
+<p><code>4 bit</code></p>
+<ul>
+<li><code>[w, x, y, z] --&gt; [w, x], [y, z]</code></li>
+</ul>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/17.png" /></p>
+<p>卡诺图里最小项标1，最大项标0</p>
+<h4 id="_24">不定项</h4>
+<p><strong>不定项(Don't Cares)</strong> 指的是需要化简的逻辑函数中，没有给出定义的几项，它们可能是：</p>
+<ul>
+<li>输入组合不会出现；</li>
+<li>输入组合的输出不被使用；</li>
+</ul>
+<p>对于这种项，在卡诺图中用 X 来表示，在最小项之和中用 <span class="arithmatex">\(\sum d(...)\)</span> 表示。</p>
+<p>我们可以随意定义它们的输出，此时就可以利用这些项来方便我们的优化——当我们画出来的极大矩阵越大，成本就越低。</p>
+<hr />
+<blockquote>
+<p><strong>由卡诺图得到乘积结果</strong></p>
+<p>尽管我们不停强调 与 和 或 是对称的，但是仍然有很多操作是鉴于我们对 <code>1</code> 的偏爱才会顺手的</p>
+<p>在卡诺图的问题中，如果要利用卡诺图得到 <span class="arithmatex">\(F\)</span> 优化后的乘积形式，也可以将问题转化为求 <span class="arithmatex">\(\overline F\)</span> 优化后的和形式，然后再对其<strong>取反</strong>，利用<strong>德·摩根定律</strong>来得到结果。</p>
+<p>具体来说就是反转 K-map 中所有的 <code>0</code> 和 <code>1</code>，然后着眼于 SOM 进行优化，最后再对结果取反，用德·摩根定律来得到结果。</p>
+<p><strong>eg</strong></p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/26.png" /></p>
+</blockquote>
+<hr />
+<h4 id="_25">蕴含项、主蕴含项与基本主蕴含项</h4>
+<p><strong>蕴含项(implicant)</strong> 分为 <strong>主蕴含项(prime implicant)</strong> 和 <strong>基本主蕴含项(essential prime implicant)</strong>。</p>
+<ul>
+<li>在卡诺图中，一个蕴含项就是任意一个包含 <span class="arithmatex">\(2^n\)</span> 个 <code>1</code> 的单元；</li>
+<li>主蕴含项则是在卡诺图中的 <strong>极大</strong> 蕴含项；</li>
+<li>对于存在 Dont'cares 的 K-map，如果我们关注的是 <code>1</code>，那我们积极地将他们当作 <code>1</code> 来处理，反之亦然；</li>
+<li>但是单独的 <code>X</code> 不会被认为是主蕴含项；</li>
+<li>基本主蕴含项是包含 只被它(基本主蕴含项)覆盖的 <code>1</code> 的主蕴含项；</li>
+</ul>
+<blockquote>
+<p>⚠ 对于任意函数，主蕴含项一定存在，但是基本主蕴含项不一定存在。</p>
+<h2 id="introduction">introduction</h2>
+<p>按照功能，逻辑电路分为两类：</p>
+<ul>
+<li>组合电路(Combinational Circuit)</li>
+<li>拥有 m 个输入和 n 个输出，其中包含了 <span class="arithmatex">\(2^{2m}\)</span> 种输入组合，以及对应的 n 个不同的函数；</li>
+<li>最关键的是，它的 <strong>输出只依赖于这 m 个输入的组合</strong>（不包含回路）；</li>
+<li>时序电路(Sequential Logic Cirtuit)</li>
+<li>与之对应的，时序电路具有记忆功能，即它的输出可能会依赖之前的结果；</li>
+</ul>
+</blockquote>
+<h1 id="chap3-combinational-logic-design">Chap3 Combinational Logic Design</h1>
+<div class="toc">
+<ul>
+<li><a href="#chap-1-digital-systems-and-information">Chap 1 Digital Systems and Information</a><ul>
+<li><a href="#information-representation">信息表达 | Information Representation</a></li>
+<li><a href="#abstraction-layers-in-computer-systems-design">计算机系统设计中的抽象层 | Abstraction Layers in Computer Systems Design</a></li>
+<li><a href="#number-systems">数字系统 | Number Systems</a><ul>
+<li><a href="#_1">进制转换</a></li>
+</ul>
+</li>
+<li><a href="#arithmetic-operations">算术运算 | Arithmetic Operations</a></li>
+<li><a href="#codes">编码 | Codes</a><ul>
+<li><a href="#_2">独热码 &amp; 独冷码</a></li>
+<li><a href="#bcd">BCD 码</a></li>
+<li><a href="#_3">余三码</a></li>
+<li><a href="#_4">格雷码</a></li>
+<li><a href="#ascii">ASCII 码</a></li>
+<li><a href="#_5">奇偶校验位</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chap-2-combinational-logic-circuits">Chap 2 Combinational Logic Circuits</a><ul>
+<li><a href="#_6">逻辑运算</a></li>
+<li><a href="#_7">逻辑门</a></li>
+<li><a href="#_8">布尔代数</a><ul>
+<li><a href="#_9">运算律</a></li>
+<li><a href="#_10">运算律推广</a></li>
+<li><a href="#_11">对偶法则</a></li>
+<li><a href="#_12">互补函数</a></li>
+<li><a href="#_13">替代法则</a></li>
+<li><a href="#_14">一致性定理</a></li>
+</ul>
+</li>
+<li><a href="#_15">标准形式与规范形式</a><ul>
+<li><a href="#_16">表达规范</a></li>
+</ul>
+</li>
+<li><a href="#_17">电路实现与优化</a><ul>
+<li><a href="#_18">成本标准</a><ul>
+<li><a href="#_19">按照字面量字面量计</a></li>
+<li><a href="#_20">按门输入计</a></li>
+</ul>
+</li>
+<li><a href="#_21">卡诺图</a><ul>
+<li><a href="#_22">卡诺图的局限性</a></li>
+<li><a href="#_23">卡诺图的结构</a></li>
+<li><a href="#_24">不定项</a></li>
+<li><a href="#_25">蕴含项、主蕴含项与基本主蕴含项</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#introduction">introduction</a></li>
+</ul>
+</li>
+<li><a href="#chap3-combinational-logic-design">Chap3 Combinational Logic Design</a><ul>
+<li><a href="#_26">表示逻辑的方法</a></li>
+<li><a href="#design-procedure">设计流程(Design Procedure)</a></li>
+<li><a href="#hierarchical-design">分层设计(Hierarchical Design)</a></li>
+<li><a href="#_27">技术参数</a><ul>
+<li><a href="#_28">扇入扇出</a></li>
+</ul>
+</li>
+<li><a href="#_29">延迟以及相关问题</a><ul>
+<li><a href="#transition-time">过渡时间(transition time)</a><ul>
+<li><a href="#_30">转换时间</a></li>
+<li><a href="#propagation-delay">传播延迟(propagation delay)</a></li>
+<li><a href="#transition-time-vs-propagation-delay">Transition Time vs. Propagation Delay</a></li>
+</ul>
+</li>
+<li><a href="#_31">延迟模型</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_32">！！延迟计算</a><ul>
+<li><a href="#_33">正逻辑和负逻辑</a></li>
+<li><a href="#_34">工艺映射</a></li>
+<li><a href="#_35">验证正确性</a></li>
+</ul>
+</li>
+<li><a href="#chap3-codermultiplexer">Chap3 组合逻辑 coder+multiplexer</a><ul>
+<li><a href="#_36">基本逻辑函数</a></li>
+<li><a href="#_37">基本功能块</a><ul>
+<li><a href="#_38">译码器</a></li>
+<li><a href="#_39">编码器</a></li>
+<li><a href="#_40">多路复用器</a></li>
+<li><a href="#_41">信号分配器</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chap3">Chap3 算术逻辑电路</a><ul>
+<li><a href="#_42">半加器 &amp; 全加器</a><ul>
+<li><a href="#_43">半加器</a></li>
+<li><a href="#_44">全加器</a></li>
+</ul>
+</li>
+<li><a href="#_45">行波加法器</a></li>
+</ul>
+</li>
+<li><a href="#_46">！！超前进位加法器</a><ul>
+<li><a href="#_47">二进制减法</a><ul>
+<li><a href="#_48">无符号减法</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_49">！！有符号数的表示与计算</a><ul>
+<li><a href="#_50">有符号减法</a></li>
+<li><a href="#overflow">Overflow(溢出)</a></li>
+<li><a href="#_51">加减法器</a></li>
+<li><a href="#design-by-contraction">Design by Contraction（压缩式设计）</a></li>
+<li><a href="#lncrementing-decrementing">lncrementing &amp; Decrementing</a></li>
+<li><a href="#2n">乘除法(\(2^n\))</a></li>
+<li><a href="#msblsb">MSB&amp;LSB</a></li>
+</ul>
+</li>
+<li><a href="#chap-4-sequential-circuits">Chap-4    Sequential Circuits</a><ul>
+<li><a href="#_52">缓冲</a></li>
+<li><a href="#_53">锁存器</a><ul>
+<li><a href="#sr-sr-latch">SR &amp; S'R' 锁存器(Latch)</a><ul>
+<li><a href="#sr">SR锁存器</a></li>
+<li><a href="#sr_1">S'R' 锁存器</a></li>
+</ul>
+</li>
+<li><a href="#d">D 锁存器</a></li>
+</ul>
+</li>
+<li><a href="#flip-flop">触发器(flip-flop)</a><ul>
+<li><a href="#sr_2">SR 主从触发器</a></li>
+<li><a href="#_54">边沿触发式触发器</a></li>
+<li><a href="#_55">标准图形符号</a></li>
+<li><a href="#_56">触发器的基本描述方法</a></li>
+</ul>
+</li>
+<li><a href="#_57">时序电路分析</a><ul>
+<li><a href="#_58">触发器的输入方程</a></li>
+<li><a href="#_59">状态表</a></li>
+<li><a href="#_60">状态图</a></li>
+<li><a href="#equivalent-state">等价状态(Equivalent State)</a></li>
+</ul>
+</li>
+<li><a href="#generic-state-diagram-template">状态机(Generic State Diagram Template)</a></li>
+<li><a href="#_61">时序电路的设计</a></li>
+<li><a href="#_62">延时分析</a><ul>
+<li><a href="#_63">触发器延时</a></li>
+<li><a href="#_64">松弛时间</a></li>
+<li><a href="#_65">时序电路延时</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chap5-digital-hardware-implementation">Chap5 Digital Hardware Implementation</a><ul>
+<li><a href="#_66">设计空间</a><ul>
+<li><a href="#_67">集成电路¶</a></li>
+<li><a href="#cmos">CMOS</a></li>
+</ul>
+</li>
+<li><a href="#_68">可编程技术</a><ul>
+<li><a href="#_69">常见的可编程技术</a><ul>
+<li><a href="#rom">ROM</a></li>
+<li><a href="#pal">PAL</a></li>
+<li><a href="#pla">PLA</a></li>
+</ul>
+</li>
+<li><a href="#lookup-tables-lut">Lookup Tables（查找表 LUT）</a><ul>
+<li><a href="#clb">CLB</a></li>
+<li><a href="#sm">SM</a></li>
+<li><a href="#iob">IOB</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chap-6-registers-register-transfers">Chap 6 Registers &amp; Register Transfers</a><ul>
+<li><a href="#_70">寄存器</a><ul>
+<li><a href="#_71">保持</a></li>
+</ul>
+</li>
+<li><a href="#_72">寄存器单元</a></li>
+<li><a href="#transfer">寄存器传输(transfer)</a><ul>
+<li><a href="#register-transfer-language-rtl">寄存器传输语言（Register Transfer Language, RTL）</a></li>
+</ul>
+</li>
+<li><a href="#_73">寄存器传输的实现</a><ul>
+<li><a href="#mux">基于 MUX 实现传输</a></li>
+<li><a href="#bus">基于总线(bus)实现传输</a><ul>
+<li><a href="#mux_1">共有 MUX 实现</a></li>
+<li><a href="#_74">三态门实现</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_75">微操作及其实现</a><ul>
+<li><a href="#_76">转移</a></li>
+<li><a href="#_77">算术</a></li>
+<li><a href="#_78">逻辑</a></li>
+<li><a href="#_79">移位</a><ul>
+<li><a href="#_80">串行实现</a></li>
+<li><a href="#_81">并行化</a></li>
+<li><a href="#_82">双向移位寄存器</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_83">计数器</a><ul>
+<li><a href="#_84">行波计数器</a></li>
+<li><a href="#_85">同步计数器</a><ul>
+<li><a href="#_86">同步载入</a></li>
+</ul>
+</li>
+<li><a href="#_87">任意计数序列</a><ul>
+<li><a href="#bcd_1">BCD 码循环计数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#_88">寄存器传输的控制</a></li>
+</ul>
+</li>
+<li><a href="#chap7">Chap7 存储器</a><ul>
+<li><a href="#memories">Memories</a><ul>
+<li><a href="#memory-organization">Memory Organization</a></li>
+</ul>
+</li>
+<li><a href="#ram">RAM</a><ul>
+<li><a href="#sram">SRAM</a></li>
+<li><a href="#operations">Operations</a><ul>
+<li><a href="#write">Write</a></li>
+<li><a href="#read">Read</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#word">Word</a></li>
+<li><a href="#communication">Communication</a></li>
+<li><a href="#size">Size</a></li>
+<li><a href="#eg">eg</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="_26">表示逻辑的方法</h3>
+<ol>
+<li><strong>真值表</strong>(Truth Table)；</li>
+<li>布尔函数(Boolean Function)；</li>
+<li><strong>卡诺图</strong>(Karnaugh Maps)；</li>
+<li><strong>时序图</strong>(Timing Diagram)；</li>
+<li>逻辑电路图(Logic Circuit)；</li>
+</ol>
+<p>其中，<strong>加粗</strong>的方法功能确定的情况下，其表示是唯一的。</p>
+<h3 id="design-procedure">设计流程(Design Procedure)</h3>
+<ol>
+<li>说明：确定系统的行为，用文本或HDL</li>
+<li>配置：述输入和输出之间的逻辑关系，并用真值表或逻辑表达式表达出来</li>
+<li>优化：优化逻辑表达以减少成本(比如使用卡诺图)</li>
+<li>映射(Technology Mapping)：将优化后的逻辑设计工艺映射到硬件实现上（如用logisim画图）</li>
+<li>验证：验证正确性（在仿真环境中）</li>
+</ol>
+<p><img alt="image-20231223183536997" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231223183536997.png" /></p>
+<h3 id="hierarchical-design">分层设计(Hierarchical Design)</h3>
+<ul>
+<li>内容：将复杂问题模块化分解为若干层次，然后逐个抽象解决</li>
+<li>方法</li>
+<li><strong>Top-down</strong>: 将电路拆分成小模块(block)，将小模块拆成更小的模块<ul>
+<li>What are we building?(从需求出发) + controls complexity</li>
+</ul>
+</li>
+<li><strong>Bottom-up</strong>: 将 primitive block 组装成需要的模块<ul>
+<li>How do we build it?(根据现有的元件去组合成目标功能) + focuses on the details</li>
+</ul>
+</li>
+<li>无法继续拆分的模块叫 primitive block</li>
+<li>所有的模块——包括未拆分的模块——的集合，称为 hierarchy</li>
+<li>设计时一般两头并进</li>
+</ul>
+<p><strong>EXP   </strong>9-input parity generator</p>
+<ul>
+<li>Top Level: 9 inputs, one output</li>
+<li>2nd Level: Four integrated 3-input odd function blocks</li>
+<li>3rd Level: 3-input odd function circuit as interconnected exclusive OR blocks</li>
+<li>Primitives: exclusive-OR block as 4 interconnected four NAND gates</li>
+<li>Design requires 4 X 2 X 4 = 32 2-input NAND gates</li>
+</ul>
+<p><img alt="image-20231223181810732" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231223181810732.png" /></p>
+<p><strong>集成电路(integrated circuits)</strong> 又叫 <strong>芯片(chip)</strong>，分为如下若干等级：</p>
+<ul>
+<li>SSI(small-scale integrated) 内含不到 10 个 gates；</li>
+<li>MSI(medium-scale integrated) 内含 10 ~ 100 个 gates；</li>
+<li>LSI(large-scale integrated) 内含 成百上千 个 gates；</li>
+<li>VLSI(very large-scale integrated) 内含 成千上亿 个 gates；</li>
+</ul>
+<h3 id="_27">技术参数</h3>
+<p>门的实现主要通过这些参数特性来描述：</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fan-in</strong></td>
+<td>一个门可用的输入</td>
+</tr>
+<tr>
+<td><strong>Fan-out</strong></td>
+<td>一个栅极输出驱动的标准负载数量</td>
+</tr>
+<tr>
+<td>Logic Levels</td>
+<td>被认为是高低电平的输入输出电压范围</td>
+</tr>
+<tr>
+<td>Noise Margin</td>
+<td>对外界噪声的容忍能力(具体来说是不会导致行为异变的最大噪声压值)</td>
+</tr>
+<tr>
+<td>Cost for a gate</td>
+<td>继承电路的门成本</td>
+</tr>
+<tr>
+<td><strong>Propagation Delay</strong></td>
+<td>信号改变后从输入到输出所需的变化时间</td>
+</tr>
+<tr>
+<td>Power Dissipation</td>
+<td>电源输出能耗和门的能耗</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_28">扇入扇出</h4>
+<ul>
+<li>扇入描述了一个门能够接受的最多输入量</li>
+<li>如一个四输入与非门的扇入就是 4</li>
+<li>扇出描述的则是一个门的输出(栅极输出)在不降低工作性能的情况下能够负载多少门</li>
+<li>例如一个非门的输出能够同时负载 4 个非门并且都能正常工作，则其扇出为 4</li>
+</ul>
+<p><strong>标准负载</strong>：所谓的标准负载，是衡量“负载”的一个“单位砝码”。其大小等于一个非门(逆变器)贡献的负载压力。</p>
+<blockquote>
+<p>为描述负载，引入过渡时间的概念</p>
+</blockquote>
+<h2 id="_29">延迟以及相关问题</h2>
+<h3 id="transition-time">过渡时间(transition time)</h3>
+<h4 id="_30">转换时间</h4>
+<p>转换时间分为$ t_{LH}(rise time) $和 <span class="arithmatex">\(t_{HL}(fall time)\)</span> 两个部分。</p>
+<ul>
+<li>rise time 等于栅极输出从 $V_{CC} $ 的 10% 升高到 90% 所需要的时间；</li>
+<li>fall time 等于栅极输出从 $V_{CC} $ 的 90% 降低到 10% 所需要的时间；</li>
+</ul>
+<p>通过时序图表示就是这样：</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/31.png" /></p>
+<h4 id="propagation-delay">传播延迟(propagation delay)</h4>
+<p><strong>传播延迟(propagation delay)</strong> 衡量了门的输入变化导致输出变化所需要的时间。</p>
+<p>由于从低电平转化到高电平和高电平转化到低电平所需要的时间不一样，所以传播延迟同样有两个部分，分别使用$ t_{PHL}$ 和 <span class="arithmatex">\(t_{PLH}\)</span> 来表示。</p>
+<p>更具体的来说，传播延迟的计算方法是输入和输出的变化中点的时间差，通过时序图表示就是这样：</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/33.png" /></p>
+<p>我们还可以引入 <span class="arithmatex">\(t_{pd}\)</span> 来统一表示 $ t_{PHL}$和 <span class="arithmatex">\(t_{PLH}\)</span> 。其有两者规则：</p>
+<p><span class="arithmatex">\(t_{pd}=average( t_{PHL}+t_{PLH})\)</span></p>
+<p><span class="arithmatex">\(t_{pd}=max( t_{PHL}+t_{PLH})\)</span></p>
+<blockquote>
+<h4 id="transition-time-vs-propagation-delay">Transition Time vs. Propagation Delay</h4>
+<p>转换时间专注于输出的变化，而传播延迟则包含了输入的变化和输出的变化整个过程。</p>
+<p>从时序图上的表示来看，转换时间只需要输出的时序图即可表示；但传播延迟则是通过比较输入和输出的偏差来表示的。</p>
+<p>符号H、L的顺序两者是反过来的</p>
+</blockquote>
+<h3 id="_31">延迟模型</h3>
+<p>由于存在延迟，许多在数学意义上没有问题的逻辑表达式在电路中就存在非常大的问题。</p>
+<p>为了研究为什么会存在门延迟，刻画门的 <strong>固有门延迟(inherent gate delay)</strong>，我们需要对其建模，常见的 <strong>延迟模型(delay model)</strong> 有以下两种：</p>
+<ul>
+<li>传输延迟(transport delay): 认为输入和输出之间的延迟是一个定值的</li>
+</ul>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/37.png" /></p>
+<ul>
+<li>惯性延迟(inertial delay): 引入了 <strong>拒绝时间(rejection time)</strong>，只有当输入达到一定能量后，才会触发栅极输出。小于临界值的变化都无法触发输出</li>
+<li>与传输延迟的显著区别在于，在这种模型下，噪音等会被过滤</li>
+</ul>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/38.png" /></p>
+<p>下图展示了无延迟、传输延迟、惯性延迟的时序图</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/39.png" /></p>
+<h1 id="_32">！！延迟计算</h1>
+<h2 id="_33">正逻辑和负逻辑</h2>
+<p><strong>正逻辑(positive logic)</strong> 就是 <code>1</code> 是有效信号，<strong>负逻辑(negative logic)</strong> 就是 <code>0</code> 是有效信号。</p>
+<p>正逻辑中 AND 门的作用就等效于负逻辑中 OR 门的作用，这也正体现了与和或的对称。</p>
+<p>而正逻辑的电路的符号一般就是正常的逻辑门符号，而负逻辑的逻辑门符号则可能有小三角标，即 <strong>极性指示器(polarity indicator)</strong>：</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/44.png" /></p>
+<h2 id="_34">工艺映射</h2>
+<p><strong>工艺映射(technology mapping)</strong> 是指将逻辑图或网表转化为可以用工艺实现的心的图或网表的过程。</p>
+<p>有时我们会使用<strong>与非门/或非门和非门</strong>替换与门和或门(因为电路层面，与门实际上就是通过与非门实现的)</p>
+<h2 id="_35">验证正确性</h2>
+<p>最基本的验证正确性方法有：</p>
+<ul>
+<li>人工逻辑分析(Manual Logic Analysis)：</li>
+<li>找到最终电路的真值表或布尔代数式，判断其是否和预期行为一致；</li>
+<li>仿真(Simulation)：</li>
+<li>在仿真环境中，使用合适的测试输入（激励信号）来测试最终电路（或其网表，可能编写为 HDL），通过观察其响应结果来判断是否实现预期行为；</li>
+</ul>
+<h1 id="chap3-codermultiplexer">Chap3 组合逻辑 coder+multiplexer</h1>
+<h3 id="_36">基本逻辑函数</h3>
+<ul>
+<li><strong>常量函数(Value-Fixing)</strong>：<span class="arithmatex">\(F=0\)</span> or $F=1  $ | 输出定值；</li>
+<li><strong>传输函数(Transferring)</strong>：<span class="arithmatex">\(F=X\)</span>  | 直接输出输入值；</li>
+<li><strong>逆变函数(Inverting)</strong>：<span class="arithmatex">\(F=\overline{X}\)</span> | 输出输入的相反；</li>
+<li><strong>使能函数(Enabling)</strong>：$F=X\cdot En $ or <span class="arithmatex">\(F=X+\overline{En}\)</span> | 通过使能控制输出是否可变</li>
+<li>分为两种，比如与的形式中，只有 <span class="arithmatex">\(En\)</span>为 <code>1</code> 时，<span class="arithmatex">\(F\)</span>表现为  <span class="arithmatex">\(X\)</span> 的值；反之输出必定为 <code>0</code>；</li>
+</ul>
+<h3 id="_37">基本功能块</h3>
+<ul>
+<li>译码器(Decoder)</li>
+<li>编码器(Encoder)</li>
+<li>（三端）多路复用器(Multiplexer) <code>MUX</code></li>
+<li>（三端）信号分配器(Demultiplexer) <code>DEMUX</code></li>
+</ul>
+<h4 id="_38">译码器</h4>
+<p>穷举可能性，稠密 -&gt; 稠密/稀疏</p>
+<p>为了节省门输入成本，我们常常使用 <strong>分级</strong> 的思想来构造多输入译码器</p>
+<p><strong>eg</strong></p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/70.png" /></p>
+<h4 id="_39">编码器</h4>
+<p>稠密/稀疏 -&gt; 稠密</p>
+<blockquote>
+<p>如上定义的编码器有一个限制，即任何时候输入只能有一个是活动的，即输入是 one-hot 的。即同一时刻的输入中只能有一个是1，其它都是0</p>
+</blockquote>
+<p><strong>优先编码器</strong></p>
+<p>优先编码器能够实现优先级函数，它不要求输入是 one-hot 的，而是总是关注有效输入中优先级最高的那一个。即比如当优先级最高的那一位是 <code>1</code> 时，其它所有优先级不如它的位置的值都是我们不关心的内容了。</p>
+<h4 id="_40">多路复用器</h4>
+<p>通过控制端选择输出的是若干输入中的哪一个</p>
+<ul>
+<li>三态门实现的MUX，门输入大大减少</li>
+</ul>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/49.png" /></p>
+<h4 id="_41">信号分配器</h4>
+<p>简写为 <code>DEMUX</code>，通过控制端选择输入给到若干输出中的哪一个。</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/45.png" /></p>
+<h1 id="chap3">Chap3 算术逻辑电路</h1>
+<p>我们讨论的计算主要包括逻辑运算和算术运算，前者由于可以直接通过基本门很方便实现</p>
+<p>在计算机硬件中，承担计算工作的主要部件为 <code>ALU</code>(Arithmetic Logical Unit)</p>
+<blockquote>
+<p>首先我们需要了解加法器最底层的单元，即实现 1 bit 运算的 <strong>半加器(half adder)</strong> 和 <strong>全加器(full adder)</strong>接下来需要将他们组合在一起，实现 n bits 的加法器，其中主要介绍 <strong>行波加法器(binary ripple carry adder)</strong>。此外，基于一些编码的知识，我们还可以将它改装成加减法器。</p>
+</blockquote>
+<h3 id="_42">半加器 &amp; 全加器</h3>
+<p>对于二进制加法，其输出有当前位的和 <code>S</code> 和进位 <code>C</code>，而输入除了两个操作数 <code>X</code> 和 <code>Y</code> 以外，还可能有上一位的进位 <code>Z</code>(或者<code>C{n-1}</code>)。</p>
+<ul>
+<li>对于一个二进制数的第一位，显然不会有进位，或者说 <code>Z=0</code>，所以我们可以将这个 <code>Z</code> 去掉，即输入只有 <code>X</code> 和 <code>Y</code>，这就是 <strong>半加器(half adder)</strong>；</li>
+<li>对应的，如果输入中有上一位的进位 <code>Z</code>，则称为 <strong>全加器(full adder)</strong>。</li>
+</ul>
+<h4 id="_43">半加器</h4>
+<p>逻辑表达式
+$$
+S=\overline{X}Y+X\overline{Y}=X⊕Y*C=XY
+$$
+真值表</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/72.png" /></p>
+<p>电路图</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/73.png" /></p>
+<h4 id="_44">全加器</h4>
+<p>逻辑表达式
+$$
+S= 
+\overline{X}</p>
+<p>\overline{Y}
+ Z+ 
+\overline{X}
+ Y 
+\overline{Z}
+ +X 
+\overline{Y}</p>
+<p>\overline{Z}
+ +XYZ
+\ C=XY+XZ+YZ
+$$
+逻辑表达式(with XOR)
+$$
+S=(X⊕Y)⊕Z
+\C=XY+Z(X⊕Y)
+$$</p>
+<p>真值表</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/74.png" /></p>
+<p>卡诺图</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/75.png" /></p>
+<h3 id="_45">行波加法器</h3>
+<p>行波加法器是朴素的 <code>n bits</code>加法器实现。使用行波加法器，随着位数增加效率会越来越慢</p>
+<p>核心思想：模拟“竖式”来计算加法，从低位开始逐位计算，并将进位给到下一位作为输入。</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/76.png" /></p>
+<p><span class="arithmatex">\(C_0\)</span>必然为<code>0</code></p>
+<h1 id="_46">！！超前进位加法器</h1>
+<h3 id="_47">二进制减法</h3>
+<p><strong>反码(1's complement)</strong></p>
+<p><em>计算：</em><em>负数</em>*除了符号位取反，N的反码为 <span class="arithmatex">\(2^n-1-N\)</span>, n为digit（位数）</p>
+<p><strong>补码(2's complement)</strong></p>
+<p>为了方便计算机内的运算，一般用<strong>补码</strong>表示数值 </p>
+<p>计算：<strong>负数</strong>除了符号位<strong>取反加一</strong>，即<span class="arithmatex">\(2^n-N\)</span></p>
+<p>技巧，从右到左第一个1以及其右边的0都不变，左边的全取反，即得补码</p>
+<h4 id="_48">无符号减法</h4>
+<p><img alt="image-20231224161613216" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231224161613216.png" /></p>
+<p><img alt="image-20231224161623591" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231224161623591.png" /></p>
+<h1 id="_49">！！有符号数的表示与计算</h1>
+<h4 id="_50">有符号减法</h4>
+<p><strong>有符号数</strong>：第大位为0时表示正数，为1时表示负数</p>
+<p>有符号数的反码、补码：符号位不能动，对剩下的位数操作</p>
+<p><img alt="image-20231224162935883" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231224162935883.png" /></p>
+<p>算法：</p>
+<p><img alt="image-20231224163039922" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231224163039922.png" /></p>
+<p><img alt="image-20231224163050981" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231224163050981.png" /></p>
+<p><img alt="image-20231224163059715" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231224163059715.png" /></p>
+<h3 id="overflow">Overflow(溢出)</h3>
+<p>即两个n位数算完结果成n+1位了</p>
+<p><img alt="image-20231224170011248" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231224170011248.png" /></p>
+<h3 id="_51">加减法器</h3>
+<p>结合补码，我们再来观察行波加法器，我们需要<strong>对减数的每一位取反</strong>，并对整个数加一，再直接将它们相加即可，即<strong>将减法转化为补码下的加法</strong>。</p>
+<p>其中加一这一步恰好可以通过在加法器中必定为 <code>0</code> 的 <span class="arithmatex">\(C_0\)</span>来实现。</p>
+<p>我们在输入中添加异或门来实现反码(1's complement)，再用 <span class="arithmatex">\(C_0\)</span> 实现加一，从而得到补码(2's complement)，就样就可以实现加减法器。</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/78.png" /></p>
+<h3 id="design-by-contraction">Design by Contraction（压缩式设计）</h3>
+<p>即对于某复杂电路，在输入固定不变的特殊情况下，可化简电路，保证输出相同即可</p>
+<h3 id="lncrementing-decrementing">lncrementing &amp; Decrementing</h3>
+<p>前者为将输入加上某固定数的操作，后者为减。相应的电路模块叫lncrementer &amp; Decrementer</p>
+<h3 id="2n">乘除法(<span class="arithmatex">\(2^n\)</span>)</h3>
+<p>当乘除2的倍数时，只需移位即可</p>
+<h3 id="msblsb">MSB&amp;LSB</h3>
+<p>即最高位和最低位</p>
+<p><img alt="image-20231224171748479" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231224171748479.png" /></p>
+<p><img alt="image-20231224171754420" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231224171754420.png" /></p>
+<h1 id="chap-4-sequential-circuits">Chap-4    Sequential Circuits</h1>
+<blockquote>
+<p>组合电路存在一些的问题：</p>
+<ol>
+<li>对于复杂的逻辑，抽象层级多，导致硬件层面开销大、耗时长，一方面提高成本，一方面降低效率；</li>
+<li>组合电路没法实现信息的存储，所有的功能模块对于特定的输入给出相同的输出；</li>
+</ol>
+</blockquote>
+<p>时序电路则拥有存储信息的能力，对于时序电路来说，输出除了与输入有关（甚至可以没有输入），也可以与自身 <strong>状态(state)</strong> 有关。</p>
+<p>时序电路主要分为两类：</p>
+<ul>
+<li><strong>同步时序电路(synchronous sequential circuit)</strong> </li>
+<li><strong>异步时序电路(asynchronous sequential circuit)</strong>。</li>
+</ul>
+<blockquote>
+<p>The behavior of a synchronous sequential circuit can be defined from the knowledge of its signals at discrete instants of time. </p>
+<p>The behavior of an asynchronous sequential circuit depends upon the inputs at any instant of time and the order in continuous time in which the inputs change.</p>
+</blockquote>
+<p>一般来说，异步电路的设计相对困难（行为与门的传播延迟和输入信号变化的时间序列密切相关），但仍然十分必要，比如触发器就是以异步锁存器为模块设计的。</p>
+<p>同步电路的使用更加广泛，通常这些“离散的时刻”都是由 <strong>时钟发生器(clock generator)</strong> 这种时序器件产生周期性的 <strong>时钟脉冲(clock pulse)</strong> 序列来实现的</p>
+<ul>
+<li>这种电路一般被称为 <strong>钟控时序电路(clocked sequential circuit)</strong>，由于设计相对容易，鲁棒性强，所以被广泛应用</li>
+</ul>
+<h2 id="_52">缓冲</h2>
+<p>缓冲器(buffer) 一般<strong>通过两个非门串联</strong>，并将输入连通输出实现，这样能够实现信息的存储，然而无法修改。</p>
+<blockquote>
+<p>其中，从给定输入到更新输出有一个 <span class="arithmatex">\(t_G\)</span> 的延时。</p>
+</blockquote>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/79.png" /></p>
+<p>而锁存器就是在缓冲器的基础上，将非门替换为或非门或与非门实现的。</p>
+<blockquote>
+<p>显然，时序电路中最重要的就是信息存储元件。</p>
+<p>当输入信号不发生变化时（重点是变化，即输入和存储信息未必存在对应关系）存储元件就能够保持其内部存储的二进制数据。</p>
+<p>存储元件主要由 <strong>锁存器(latch)</strong> 和 <strong>触发器(flip-flop)</strong> 两种，其中前者是后者的基础，或者说多数情况下我们使用后者，但后者由前者构成。</p>
+</blockquote>
+<h2 id="_53">锁存器</h2>
+<h3 id="sr-sr-latch">SR &amp; S'R' 锁存器(Latch)</h3>
+<p>SR 锁存器和 S'R' 锁存器的输入都是 S(Set) 和 R(Reset) 两个部分，输出都是 Q 和 Q' 两个部分。</p>
+<p>SR 锁存器和 S'R' 锁存器的基本原理是一致的，只不过前者用的是<strong>或非门</strong>，后者用的是<strong>与非门</strong>。</p>
+<h4 id="sr">SR锁存器</h4>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/80.png" /></p>
+<h4 id="sr_1">S'R' 锁存器</h4>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/81.png" /></p>
+<blockquote>
+<p>一个记忆方法是，SR 的门元件对 <code>1</code> 敏感，所以是 或非门 的实现；而 S'R' 的门元件对 <code>0</code> 敏感，所以是 与非门 的实现。而通过 「当 S 为 <code>1</code> 时，Q 都会是 <code>1</code>」可以得到 S、R 与 Q、Q' 的位置。</p>
+</blockquote>
+<p>由于电路存在延时，所以 S 和 R 的输入很难同时到达，所以我们可以在前面加一个控制端，当确保两个输入都到位的时候再使能。</p>
+<p><strong>带控制输入的 SR 锁存器(SR Latch with Control Input)</strong></p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/82.png" /></p>
+<h3 id="d">D 锁存器</h3>
+<p>D 锁存器实际上是带控制输入的 SR 锁存器的改进。</p>
+<p>即使是带控制输入的 SR 锁存器，也存在一个「undefined」状态，而这是我们不希望出现的。由于可以通过 C 来控制是否保持，所以可以直接强制要求  <span class="arithmatex">\(S=\overline R\)</span>，于是就避免了 undefined 情况的出现，这就是 D 锁存器(D Latch)。</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/83.png" /></p>
+<blockquote>
+<p>只有当 C 为 <code>1</code> 时，D 锁存器才能写入数据；而当 C 为 <code>0</code> 时，D 锁存器的数据就不会变化。</p>
+<p>☠ <strong>透明的危害：空翻</strong></p>
+<p>如果将 <span class="arithmatex">\(\overline Q\)</span> 接到 <span class="arithmatex">\(D\)</span> 上，就会发现 <span class="arithmatex">\(C\)</span> 置 <code>1</code> 时 D 锁存器将不停的变化其中的数据，出现 <strong>空翻</strong>，导致我们无法确定 C 置 <code>0</code> 时 Q 的输出究竟是什么，而这是非常危险的。</p>
+<p>这主要是因为 D 锁存器的输入和输出都是直接暴露出来的、同时允许变化的（不是同时变化，是指在 Input 可以变的时候 Output 也能变），即 <strong>透明(transparent)</strong> 的。这就导致了在一个时钟周期里，同时存在 <strong>可以互相影响</strong> 的两个东西。这也是触发器所解决的问题。</p>
+</blockquote>
+<h2 id="flip-flop">触发器(flip-flop)</h2>
+<p>为了解决上面提到的，由「透明」引发的问题，而采用触发器的设计。通过组合两个锁存器，主要有两种实现方法：</p>
+<ol>
+<li><strong>主从式(master-slave)触发器</strong>：在有脉冲（高电平）时，修改第一个锁存器的值，保持第二个锁存器的值；在没有脉冲（低电平）时候保持第一个锁存器的值，修改第二个锁存器的值，更新触发器的状态；</li>
+<li><strong>边沿触发式(edge-triggered)触发器</strong>：仅在时钟的边缘触发，即在特定时刻仅接受一个输入；</li>
+</ol>
+<blockquote>
+<p>边沿触发式 D 触发器是目前使用最广泛的触发器。</p>
+</blockquote>
+<h3 id="sr_2">SR 主从触发器</h3>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/84.png" /></p>
+<h3 id="_54">边沿触发式触发器</h3>
+<p>下图为<strong>上升沿触发(positive-edge-triggered)</strong>的 D 触发器的大致原理图（将 C 前的非门去掉则可得到下降沿触发(negative-edge-triggered)的 D 触发器）。</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/85.png" /></p>
+<p>作为主锁存器，右为锁存器</p>
+<h3 id="_55">标准图形符号</h3>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/86.png" /></p>
+<h3 id="_56">触发器的基本描述方法</h3>
+<ul>
+<li>理论分析中：</li>
+<li>状态表(Characteristic Table, or State Table)用输入和当前状态来描述下一状态；</li>
+<li>工程设计中：</li>
+<li>激励表(Excitation Table)用当前状态和下一状态来描述输入（展示从当前状态转移到下一状态所需要的输入）；</li>
+</ul>
+<h2 id="_57">时序电路分析</h2>
+<p>为了分析时序电路，我们需要一些工具来表示时序电路的一些特征与逻辑。观察时序电路和组合电路的区别，发现最核心的就是逻辑运算过程中出现了「状态」参与运算。因此，我们需要在各个组合电路分析中采用的表示方法中，添加表示「状态」的信息。</p>
+<h3 id="_58">触发器的输入方程</h3>
+<p><strong>触发器的输入方程(flip-flop input equation)</strong> 主要是为其提供一个代数表达方式。它的主要想法是：</p>
+<p>⓵表达每一个触发器的输入与输出之间的关系；</p>
+<p>⓶表达每一个直接输出的逻辑表达式。其中，触发器的输出符号表示了其类型（即符号）与输出（即下标）。</p>
+<p>具体来说，例如下面这个电路：</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/87.png" /></p>
+<p>可以发现，其中包含两个触发器 <span class="arithmatex">\(D_A\)</span> 和  <span class="arithmatex">\(D_B\)</span>，以及一个组合逻辑输出 <em>Y</em>，因而可以根据电路的特征，得到下面这几个式子：
+$$
+D_A=AX+BX\D_B=\overline AX\Y=(A+B)\overline X
+$$</p>
+<h3 id="_59">状态表</h3>
+<p>时序电路的逻辑有时候可以通过状态表来描述，只不过与组合电路的 真值表 不同，<strong>状态表(state table)</strong> 有四栏：</p>
+<ol>
+<li>当前状态(present state)</li>
+<li>输入(input)</li>
+<li>下一状态(next state)</li>
+<li>输出(output)</li>
+</ol>
+<p>其含义是比较显然的，只不过通过电路图得到状态表，需要首先得到「当前状态」向「下一状态」转移的方程，即对于某个时刻 <em>t</em>  的触发器 <em>A</em> 的输出 <em>A</em>(<em>t</em> ) ，需要得到它下一刻的状态 A(t+1)=f(A(t), …)。</p>
+<p><strong>eg</strong></p>
+<p>依旧用上面那个图</p>
+<p>首先我们对 <span class="arithmatex">\(D_A\)</span> 得到转移方程：<span class="arithmatex">\(A(t+1)=D_A=A(t)X+B(t)X\)</span>，可以简写为 <span class="arithmatex">\(A(t+1)=D_A=AX+BX\)</span>。类似地也能得到 <em>B</em> 的转移方程。</p>
+<p>于是，根据这些信息，我们可以写出它的状态表：</p>
+<table>
+<thead>
+<tr>
+<th>Present State <code>AB</code></th>
+<th>Input <code>X</code></th>
+<th>Next State <code>AB</code></th>
+<th>Output <code>Y</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>00</code></td>
+<td><code>0</code></td>
+<td><code>00</code></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>00</code></td>
+<td><code>1</code></td>
+<td><code>01</code></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>01</code></td>
+<td><code>0</code></td>
+<td><code>00</code></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>01</code></td>
+<td><code>1</code></td>
+<td><code>11</code></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>10</code></td>
+<td><code>0</code></td>
+<td><code>00</code></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>10</code></td>
+<td><code>1</code></td>
+<td><code>10</code></td>
+<td><code>0</code></td>
+</tr>
+<tr>
+<td><code>11</code></td>
+<td><code>0</code></td>
+<td><code>00</code></td>
+<td><code>1</code></td>
+</tr>
+<tr>
+<td><code>11</code></td>
+<td><code>1</code></td>
+<td><code>10</code></td>
+<td><code>0</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_60">状态图</h3>
+<p>状态表比较清晰的表达了不同的状态和输入得到的结果，但是对于「不同状态之间是如何转换的」这件事的描述并不清晰。而对于「联系」这件事，有向图是一个非常好的形式，所以我们将介绍 <strong>状态图(state diagram)</strong>。</p>
+<p>状态图承载的信息量和状态表是一样的，所以也是需要表达 当前状态(present state)、输入(input)、下一状态(next state)、输出(output) 这四个东西。只不过「下一状态」是通过有向边来表示的。</p>
+<p>当前状态作为一个 node 的属性；而输入作为 edge 的一个属性；至于输出，根据它是放在 edge 上还是 node 上，分为 <strong>米勒型(Mealy)</strong> 和 <strong>摩尔型(Moore)</strong> 两种。</p>
+<p><strong>Mealy</strong></p>
+<p>这是一个 米勒型 的状态图，以及对应的状态表。</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/89.png" /></p>
+<blockquote>
+<p>因为米勒型电路的 <strong>输出与当前状态和输入都有关</strong>，所以输出会和输入放在一起，即放在 edge 里。</p>
+<ul>
+<li>node 内的二进制为 present state 中的 <code>AB</code>；</li>
+<li>edge 上分别为 input 和 output：<code>X</code>/<code>Y</code>；</li>
+<li>有向边表达了每个状态在特定输入下的下一个状态。</li>
+</ul>
+<p>例如，关注 node <code>00</code>，它有一条自环 <code>0</code>/<code>0</code>，对应 状态表 的第一行；它有一条 edge <code>1</code>/<code>0</code> 指向 node <code>01</code>，对应 状态表的第二行。</p>
+</blockquote>
+<p>当然，米勒型是有 <strong>缺陷</strong> 的，在时序电路设计之后的步骤中，我们需要根据它来对每一个状态设计输出方程。此时由于两个输出共享同一个目标状态，所以我们需要将两个输出结合到同一个式子中，这将提高设计难度和组合电路成本。</p>
+<p><strong>Moore</strong></p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/88.png" /></p>
+<blockquote>
+<p>因为摩尔型电路的 <strong>输出只与当前状态有关</strong>，所以输出会和当前状态放在一起，即放在 node 里。</p>
+<ul>
+<li>node 内的二进制表示 present state 和 output：<code>A</code>/<code>Z</code>；</li>
+<li>edge 上列举了这种转移可能的 inputs：<code>XY</code>。</li>
+</ul>
+<p>例如，关注 node <code>0</code>/<code>0</code>，它有两条自环 <code>00</code> 和 <code>11</code>，分别对应 状态表 的第一行和第四行；它有两条 edge <code>01</code> 和 <code>10</code> 指向 node <code>1</code>/<code>1</code>，对应 状态表 的第二行和第三行。</p>
+</blockquote>
+<p>摩尔型也存在 <strong>缺陷</strong> 的，非常显然，相比于米勒型，摩尔型需要更多的状态。</p>
+<blockquote>
+<p>Mealy model circuit &amp; Moore model circuit</p>
+<p>如果输出既依赖于当前状态，也依赖于输入的时序电路，则称为 <strong>米勒型电路(Mealy model circuit)</strong>；而如果输出只依赖于当前状态，则称为 <strong>摩尔型电路(Moore model circuit)</strong>。</p>
+<p>米勒型倾向于表达「在特定状态下，特定输入将导致某种结果，以及状态转移」；而摩尔型倾向于表达「特定输入将导致某个状态向另外一个状态转移，而输出更像是一种状态的结果」。</p>
+<p>现实的工程设计中，有时会结合使用米勒型和摩尔型，即在同一状态图中可能混用两种类型。</p>
+</blockquote>
+<h3 id="equivalent-state">等价状态(Equivalent State)</h3>
+<p>对于两个状态，如果它们对于同一输入序列的响应是完全相同的（包括相同的输出和相同的状态转移），那么这两个状态是等价的。基于此我们可以对状态图进行简化</p>
+<p><strong>未简化的</strong></p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/120.png" /></p>
+<p>我们首先注意到，状态 S2 和 S3 对于输入 <code>0</code>，相应的输出都是 <code>1</code>，下一状态都是 S0；对于输入 <code>1</code>，相应的输出都是 <code>0</code>，下一状态都是 S2。所以 S2 和 S3 是等价状态。我们可以把这两个等价状态简化成同一个状态，记为 S2。</p>
+<p>更进一步地，我们注意到 S1 和新的 S2 也是等价状态，我们继续化简它们。</p>
+<p>寻找等价状态并合并它们，不断重复这个过程就可以实现状态图的简化。</p>
+<p><strong>简化后的</strong></p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/121.png" /></p>
+<h2 id="generic-state-diagram-template">状态机(Generic State Diagram Template)</h2>
+<p><a href="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/Chap04/#状态机">Chap 4 Sequential Circuits - Isshiki修's Notebook (isshikih.top)</a></p>
+<h2 id="_61">时序电路的设计</h2>
+<p>类比组合逻辑电路通过真值表设计电路，（同步）时序电路主要依据<strong>状态表</strong>（或等价表达，如<strong>状态图</strong>）来设计电路。</p>
+<p>实际设计中，我们需要考虑触发器以及其它组合电路的选择与设计：</p>
+<ul>
+<li>触发器的数量基本取决于整个需求中 状态 的数量，<em>n</em> 个触发器能够表达$ 2^{n}$ 个二进制状态；</li>
+<li>组合电路的主要设计围绕 触发器 的 输入 和 输出 展开；</li>
+</ul>
+<p>而主要的设计过程和组合逻辑电路的设计是类似的，如下：</p>
+<ol>
+<li>确定系统的行为；</li>
+<li>描述系统行为过程中，要注意状态的复用（不过并非状态越少成本就越小，这里有触发器数量和组合逻辑电路的 trade-off）；</li>
+<li>确定电路的初始状态（<strong>复位状态(reset state)</strong>，通过给定复位(reset)信号实现）；<ul>
+<li>复位一般可以是异步的；</li>
+</ul>
+</li>
+<li>阐述输入和输出之间的逻辑关系，并用真值表或逻辑表达式表达出来；</li>
+<li>给设计好的状态编码赋值，得到具体的状态表；</li>
+<li>我们可以使用 按计数顺序、 按格雷码、用独热码 来给状态赋值，更系统的方法比较复杂，不做讨论；</li>
+<li>其中还有一种情况是所需要的状态不能完整填充 <span class="arithmatex">\(2^n\)</span> 种情况，需要设计无效状态，这种时候可以不考虑它们；</li>
+<li>根据状态表确定使用的触发器及其输入方程；</li>
+<li>根据状态表确定输出方程；</li>
+<li>优化输入方程和输出方程；</li>
+<li>将优化后的逻辑设计工艺映射到硬件实现上；</li>
+<li>验证正确性（在仿真环境中）；</li>
+<li>主要就是看能不能复现状态图；</li>
+</ol>
+<h2 id="_62">延时分析</h2>
+<p>首先，自上而下的给出观念，时序电路的延时分析有两个主要部分和一个次要部分：</p>
+<ol>
+<li>组合电路导致的延时；</li>
+<li>触发器导致的延时；</li>
+<li>电路的松弛时间；</li>
+</ol>
+<p>并且往往是根据触发器的类型，计算一个时钟周期的时间。</p>
+<p>最核心的问题就是计算 电路能够正常工作的最短时钟周期 。接下来，自上而下地进行细节补充。</p>
+<h3 id="_63">触发器延时</h3>
+<p>触发器延时相比组合电路延时复杂很多，主要目的是为了保证采样。也就是说它的“延时”并不仅仅是因为电信号传播的延迟，还有为了保证信号稳定设计的一些内容。</p>
+<p>大致来说有三个部分：</p>
+<ul>
+<li>Setup Time：采样边缘前输入信号需要保持稳定的时间；</li>
+<li>Hold Time：采样边缘后输入信号需要保持稳定的时间；</li>
+<li>Propagation Time：触发器的采样边缘到输出稳定的时间（传播时间）；</li>
+</ul>
+<p>一篇介绍 Setup Time 和 Hold Time 的 <strong><a href="https://nandland.com/lesson-12-setup-and-hold-time/">文章</a></strong>。</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/93.png" /></p>
+<p>其中比较重要的一些点是：</p>
+<ol>
+<li>这几个时间点起点/终点都是触发边缘；</li>
+<li>Propagation Time 一定长于 Hold Time，因此在计算电路延迟时只考虑 Propagation Time；</li>
+<li>Pulse-trigger 和 Edge-trigger 在表现上的区别在于 Setup Time，前者需要覆盖整个 pulse(<code>pos</code> or <code>neg</code>)；</li>
+</ol>
+<h3 id="_64">松弛时间</h3>
+<p>实际上这就是给整个电路的一个“容差”时间，给定一个误差，但是由于通过前两者计算出来的是最短时间，所以松弛时间必定非负。（不能倒扣！）</p>
+<h3 id="_65">时序电路延时</h3>
+<p>时序电路的延时计算实际上是为了计算时序电路运作的最大频率以设计时钟频率。所以我们需要算出电路能够稳定工作的最小时钟期。</p>
+<p>其计算遵循一定方法：</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/94.png" /></p>
+<p><img alt="image-20231224192446445" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231224192446445.png" /></p>
+<p><strong>（假）经验之谈</strong></p>
+<p>一般从一个 FF 的输出出发到 FF 的输入结束。</p>
+<p><strong>eg</strong></p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/122.png" /></p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/123.png" /></p>
+<h1 id="chap5-digital-hardware-implementation">Chap5 Digital Hardware Implementation</h1>
+<blockquote>
+<p>⛵引入</p>
+<p>本章内容主要关于数字逻辑的硬件实现，分别介绍 <strong>设计空间(The Design Space)</strong> 和 <strong>可编程技术(Programmable Implementation Technologies)</strong>：</p>
+<ul>
+<li>在数字逻辑的设计空间中，COMS 凭借其较高的抗噪性能和较低的能耗，成为目前应用最广泛的硬件技术之一；</li>
+<li>可编程技术使得硬件在出厂后，能够根据用户的需求进一步编辑硬件，从而实现特定的逻辑功能；</li>
+<li>更进一步地，可编程技术又可以分为永久(permanent)编程技术和可重(reprogrammable)编程技术；</li>
+</ul>
+</blockquote>
+<h2 id="_66">设计空间</h2>
+<h3 id="_67">集成电路<a href="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/Chap05/#集成电路">¶</a></h3>
+<p>集成电路(IC)这部分内容在 <strong><a href="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/Chap03/#集成电路">第三章#集成电路</a></strong> 中已经介绍过了，此处不再赘述。</p>
+<h3 id="cmos">CMOS</h3>
+<blockquote>
+<p>✒前置知识</p>
+<p>金属氧化物半导体场效应管(Metal-Oxide-Semiconductor Field-Effect Transistor， or MOSFET)简称 <strong>MOS</strong>，是一种广泛应用于数字电路和模拟电路的硬件。MOS 的基本结构如下图所示，其具体工作原理此处不做展开，我们只需要知道，MOS 的作用相当于一个开关，通过控制门极(Gate)的电压，来控制 MOS 的开闭。</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/124.png" /></p>
+<hr />
+<p>互补式金属氧化物半导体(Complementary Metal–Oxide–Semiconductor)简称 <strong>CMOS</strong>，是集成电路中最重要的一种设计工艺。其主要有对称的两部分组成，这两部分分别使用了 n-channel MOS(<strong>NMOS</strong>)和 p-channel MOS(<strong>PMOS</strong>)。</p>
+<p>对于 NMOS，门极输入 X 为 <code>0</code> 时断开（称为“常开”），X 为 <code>1</code> 时导通；对于 PMOS，门极输入 X 为 <code>0</code> 时导通（称为“常闭”），X 为 <code>1</code> 时断开。</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/125.png" /></p>
+<hr />
+<p>更进一步地，我们可以利用 MOS 的开关特性，来实现一些简单的“与”和“或”的逻辑（注意这里的实现是有问题的，真正的实现应该用 CMOS）：</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/126.png" /></p>
+<p>左图实现了 <span class="arithmatex">\(\overline X \cdot \overline Y\)</span>，右图实现了 <em>X</em>+<em>Y</em>。</p>
+</blockquote>
+<p><a href="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/Chap05/#cmos">Chap 5 Digital Hardware Implementation - Isshiki修's Notebook (isshikih.top)</a></p>
+<h2 id="_68">可编程技术</h2>
+<p>直接更改硬件布线来修改电路功能被称为硬编程</p>
+<p>可编程技术让我们能够在不直接更改硬件布线的情况下，利用软件编程来间接更改硬件布线。</p>
+<p>硬编程的操作者是设计制造者(manufacturer)，而软编程的操作者是用户(user)。</p>
+<hr />
+<p>可编程技术在硬件层面主要有三种实现手段：</p>
+<ul>
+<li>控制连接(Control Connections)：</li>
+<li>Mask programing</li>
+<li>Fuse（类似于保险丝，通过高电压来切断部分电路来实现）</li>
+<li>Anti-fuse（Fuse 的反操作，通过高电压来联通部分电路来实现）</li>
+<li>Single-bit storage element</li>
+<li>查找表(Lookup Tables)：</li>
+<li>Storage elements for the function<ul>
+<li>比如使用一个 <code>MUX</code>，并将输入端接内存，通过修改内存的值来修改 <code>MUX</code> 的行为，进而实现函数重编程</li>
+</ul>
+</li>
+<li>控制晶体管开关(Control Transistor Switching)</li>
+</ul>
+<hr />
+<p>进一步地，可编程技术可以分为 <strong>永久编程技术</strong> 和 <strong>可重编程技术</strong> ：</p>
+<ul>
+<li>永久(permanent)编程技术：出厂后经过一次编程，便永久成型；</li>
+<li>Mask programming</li>
+<li>Fuse</li>
+<li>Anti-fuse</li>
+<li>可重(reprogrammable)编程技术：允许重复进行编程；</li>
+<li>Volatile：断电后编程信息会丢失；<ul>
+<li>Single-bit storage element</li>
+</ul>
+</li>
+<li>Non-Volatile：编程信息仅在擦除操作后才会消失，不受断电影响；<ul>
+<li>Flash (as in Flash Memory)</li>
+</ul>
+</li>
+</ul>
+<h3 id="_69">常见的可编程技术</h3>
+<p>课程中介绍的可编程技术主要有如下四种：</p>
+<ul>
+<li>只读内存 Read Only Memory (ROM)</li>
+<li>可编程阵列逻辑 Programmable Array Logic (PAL<span class="arithmatex">\(^Ⓡ\)</span>)</li>
+<li>可编程逻辑阵列 Programmable Logic Array (PLA)</li>
+<li>Complex Programmable Logic Device (CPLD) </li>
+<li>or Field-Programmable Gate Array(FPGA)</li>
+</ul>
+<p>前三者都只能编程一次（属于永久编程技术），如下是它们的可编程内容：</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/51.png" /></p>
+<blockquote>
+<p>⛵由于之后出现的电路图会非常庞大，所以需要引入一些逻辑符号。</p>
+<p><strong>Buffer</strong></p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/52.png" /></p>
+<p>简化表示一个变量的自身和其非；</p>
+<p><strong>Wire connecting</strong></p>
+<p>在可编程逻辑电路中，线的连接不再只有单纯的连通和不连通的关系：</p>
+<p>对于两条相交导线：</p>
+<ul>
+<li>如果没有特殊符号，则表示这个交叉点 is not connected ；</li>
+</ul>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/53.png" /></p>
+<ul>
+<li>如果有一个 ❌，则表示这个交叉点 is connected and <strong>programmable</strong>；</li>
+</ul>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/55.png" /></p>
+<ul>
+<li>如果只有一个加粗的点，则表示这个交叉点 is connected but <strong>not programmable</strong>；</li>
+</ul>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/54.png" /></p>
+<p>特别的，如果一个元器件的所有输入都是 programmable，我们也可以选择把这个 ❌ 画到逻辑门上（如下图 e 和 f）。</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/56.png" /></p>
+</blockquote>
+<h4 id="rom">ROM</h4>
+<p>ROM 由 <em>N</em> 个输入，M* 个输出，以及 <span class="arithmatex">\(2^{2N}\)</span> 个译码后的最小项组成。</p>
+<p>其中：</p>
+<ul>
+<li>固定的 AND 用于设计译码器，实现所有的 <span class="arithmatex">\(2^{2N}\)</span> 个最小项；】</li>
+<li>可编程的 OR 用于把这些最小项“或”起来并实现特定逻辑。】</li>
+</ul>
+<p>严格来说，ROM 是不可编程的，PROM 才是可编程的。<strong>PROM(Programmable ROM)</strong> 通过 fuse 或 anti-fuse 等手段实现可编程，所以在出厂后仅可进行一次编程修改，属于永久编程技术。</p>
+<p>ROM 可以被视作一个 memory，输入提供了一组地址(address)，而输出则是这组地址对应的 memory 中存储的信息。从这个角度来看，ROM 的确具有「只读」的特征。</p>
+<p><strong>eg</strong></p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/128.png" /></p>
+<blockquote>
+<p>理解方式：译码器列出了<span class="arithmatex">\(I_0-I_5\)</span>的所有最小项，然后每一个输出通过OR自主选择需要or一起的最小项</p>
+</blockquote>
+<h4 id="pal">PAL</h4>
+<p>PAL 与 ROM 恰恰相反，其具有固定的 OR 和一批可编程的 AND。</p>
+<ul>
+<li>PAL 不需要像 ROM 那样列出所有最小项，这就意味着 PAL 是可优化的，因此 PAL 在很多时候比 ROM 更高效更节约；</li>
+<li>但也正是因为它不像 ROM 那样能够枚举最小项来实现所有逻辑，PAL 不一定能表达所有逻辑；</li>
+<li>一种改进方法是，通过将一个既有的 PAL 输出当作输入，输入到另外一个函数中，来弥补项不足的问题，例如下图的<em>W</em>；</li>
+</ul>
+<p><strong>eg</strong></p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/129.png" /></p>
+<blockquote>
+<p>理解方式：列出每个输入的正负逻辑，通过AND自主选择这些来拼装成一个个最小项，再用OR将这些最小项or起来得到输出</p>
+</blockquote>
+<h4 id="pla">PLA</h4>
+<p>PLA 在设计上和 ROM 类似，区别在于 PLA 并不使用译码器获得所有最小项，而是用可编程的 AND 阵列来代替译码器。</p>
+<ul>
+<li>PLA 具有可编程的 AND 和 OR，因此比起 PAL 和 ROM 更具灵活性；</li>
+<li>但是灵活性带来的弊端是，PLA 的优化会变得更加复杂，这对于优化软件有着更高的要求；</li>
+<li>此外，PLA 和 PAL 具有一样的问题，就是无法表达所有逻辑函数；</li>
+<li>一种改进方法是，在输出的时候再做一次异或（不用非门体现了可编程的思想），以产生新的项，来弥补项不足的问题；</li>
+</ul>
+<p><strong>eg</strong></p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/130.png" /></p>
+<blockquote>
+<p>理解方式：左边部分借鉴PAL的方法通过AND组装成最小项，替换ROM中的译码器。右中部分即将最小项OR起来，同ROM的右半部分。</p>
+<p>右下的抑或用于通过最小项之和转化为最大项之积，因为组装的最小项有限，通过取取反来获得更多种组合</p>
+</blockquote>
+<h3 id="lookup-tables-lut">Lookup Tables（查找表 LUT）</h3>
+<blockquote>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/63.png" /></p>
+<p>通过让数据源接内存，并通过修改真值表内的值，即修改内存里的值，来实现数据源的变化，来改变 <code>MUX</code> 的行为。</p>
+<p>由于 <code>LUT</code> 存的本质上是真值表，所以它可以实现任意输入符合要求的逻辑函数。</p>
+<p>所以，问题就变化为如何用较小的 <code>LUT</code> 来组合实现复杂的逻辑函数。</p>
+</blockquote>
+<p><code>LUT</code> 的基本结构如下：</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/64.png" /></p>
+<p><code>FPGA</code> 的基本结构如下：</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/65.png" /></p>
+<p>其主要分为三个组成部分：</p>
+<ul>
+<li>CLB(Configurable Logic Block)</li>
+<li>大量存储 <code>LUT</code></li>
+<li>SM(Switch Matrix)</li>
+<li>可编程的交换矩阵</li>
+<li>IOB(Input &amp; Output Block)</li>
+<li>可编程的输入输出单元</li>
+</ul>
+<h4 id="clb">CLB</h4>
+<p>CLB 是 <code>FPGA</code> 中的基础逻辑单元。</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/66.png" /></p>
+<h4 id="sm">SM</h4>
+<p>通过相当复杂的算法， <code>SM</code> 会根据目标逻辑，选择链接不同的 <code>CLB</code> 以实现复杂逻辑。</p>
+<p>它具有这些基本属性：</p>
+<ol>
+<li>Flexibility: 评估一条线可以连接到多少线；</li>
+<li>Topology: 哪些线可以被连接到；</li>
+<li>Routability: 有多少回路可以被路由；</li>
+</ol>
+<h4 id="iob">IOB</h4>
+<p><code>IOB</code> 用来对外部设备进行连接，用来控制输入和输出。</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/67.png" /></p>
+<p><img alt="image-20231225151825723" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231225151825723.png" /></p>
+<p>在软件层面编程完后，会生成位流文件(<code>bitfile</code>)，下载到板时会更新 <code>FPGA</code> 中的内容。</p>
+<blockquote>
+<p>✒组合函数的实现方法</p>
+<p>到目前为止，不管是可编程还是不可编程，都已经介绍了很多方法，这里进行一次小结：</p>
+<ol>
+<li><code>Decoders &amp; OR gates</code>：将译码出来的需要的目标组合都 <code>OR</code> 在一起；</li>
+<li><code>MUXs</code>：通过多路选择器实现任意逻辑函数；</li>
+<li><code>ROM</code></li>
+<li><code>PAL</code></li>
+<li><code>PLA</code></li>
+<li><code>LUT</code></li>
+</ol>
+</blockquote>
+<h1 id="chap-6-registers-register-transfers">Chap 6 Registers &amp; Register Transfers</h1>
+<table>
+<thead>
+<tr>
+<th>⛵引入</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>这一章可以视为是第四章的一个延续，主要介绍（基于寄存器的同步）时序逻辑设计(Sequential Logic Design)。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_70">寄存器</h2>
+<p><strong>寄存器(registers)</strong>粗略的来说就是一堆触发器以及对应的状态控制电路，用来实现多位数据的存储等操作。</p>
+<p>其中有一种特殊的寄存器叫<strong>计数器(counter)</strong>，它的行为就是随着时钟周期不断在固定的状态序列中循环。更形象的，一般是实现自动的计数功能，像电子时钟那样。</p>
+<p>实现寄存器一个最直白的想法就是公用控制线路和分列数据线路来控制多个触发器，如下图是使用  <code>DFF</code> 实现的一个 <code>4-bit register</code>：</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/95.png" /></p>
+<p>我们称新数据被写入寄存器的操作为<strong>载入(load)</strong></p>
+<p>如果载入操作在同一个时钟脉冲中完成，我们称之是<strong>并行(parallel)</strong>的。</p>
+<h3 id="_71">保持</h3>
+<p>我们发现，如图的寄存器在每个时钟周期都允许载入。但是我们希望寄存器的载入能够被人为控制，也就是说当我们不希望载入数据的时候，寄存器能处于「保持」状态。主要有以下两种方案：</p>
+<p><strong>方案 A</strong></p>
+<p>其中一个做法是需要选择性的让它跟随时钟脉冲切换状态。做法就是将 Control 信号修改为<span class="arithmatex">\(C=\overline{Load}+Clock\)</span> ，如此而来，当<span class="arithmatex">\(Load=0\)</span>时，始终有 <span class="arithmatex">\(C=1\)</span>，脉冲消失，寄存器无法被载入。如下图，这种技术叫<strong>门控时钟(clock gating)</strong>。</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/96.png" /></p>
+<blockquote>
+<p>☠ clock skew</p>
+<p>在门控时钟技术中，由于添加了一个额外的逻辑门，时钟脉冲到达 Control 的时候会出现额外的传播延时，即<strong>时钟偏移(clock skew)</strong>。</p>
+<p>这微小的延时会导致在整个同步系统中，不同组件得到的时钟脉冲有偏差，而这是我们所不希望看到的。所以在实际设计中，我们应当避免或尽可能缩小时钟偏移。</p>
+</blockquote>
+<p><strong>方案 B</strong></p>
+<p>在不希望它修改的时候，不断将它的输入载入，也就是保持不变。</p>
+<p>我们可以通过一个 <code>MUX</code> 来实现这个功能，用 <code>EN</code> 使能端来选择是载入新值还是保持之前的值，如下图。</p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/97.png" /></p>
+<h2 id="_72">寄存器单元</h2>
+<blockquote>
+<p>⛵小节导读</p>
+<p>本小节在书本中的位置靠后，但是考虑到内容的连续性我决定提前，本节内容会涉及一些之后的内容，实际上的绝对性知识较少，可以粗看过留下印象即可，大部分知识需要通过案例分析和实践获得，是类似于设计指导思想的内容。</p>
+</blockquote>
+<p><strong>寄存器单元(Register Cell)</strong>是寄存器的个体单元，主要包括一个 <code>FF</code> 及实现其组合逻辑的组合电路。</p>
+<blockquote>
+<p><strong>Register Cell Design</strong></p>
+<p>设计寄存器（尤其是大规模的寄存器）的重要手段之一，就是<strong>寄存器单元设计(Register Cell Design)</strong>。通常遵循以下步骤：</p>
+<ol>
+<li>设计具有代表性的寄存器单元；</li>
+<li>复制并连接若干个这样的寄存器单元；</li>
+<li>修改某几个寄存器单元（通常可能是一串寄存器的首尾两个单元）以解决一些特殊情况或边界问题；</li>
+</ol>
+</blockquote>
+<p>设计寄存器单元时，我们需要对寄存器单元进行定义。而指定(Specify)一个寄存器单元的功能的主要有这些方面：</p>
+<ul>
+<li>寄存器的功能函数；</li>
+<li>一般指寄存器传输；</li>
+<li>控制信号构成；</li>
+<li>有哪些控制信号、是否编码、如何决定是否 Load 等；</li>
+<li>寄存器的输入数据；</li>
+<li>有哪些输入数据、是否需要预先处理等；</li>
+</ul>
+<p>在实际实现时，分为 <code>MUX</code> 实现 和 时序逻辑实现 两种方法。</p>
+<ul>
+<li>前者就是通过先分别实现逻辑，然后经由 <code>MUX</code> 选择相应的数据输入来实现。</li>
+</ul>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/118.png" /></p>
+<p>后者按照时序电路的设计方法，确定状态图后根据状态变化设计时序电路，设计优化决定状态转移方程实现，具体可以参考 第四章#时序电路设计。</p>
+<h2 id="transfer">寄存器传输(transfer)</h2>
+<blockquote>
+<p>把 transfer 翻译为“传输”是我脑瓜一拍的行为，我并不知道翻译成什么比较合适，如果读者有更好的翻译，请告诉我！</p>
+</blockquote>
+<p>一个复杂系统除了信息的存储还需要信息的传输和处理，换句话来说，为了实现灵活、复杂的计算，我们需要信息之间能够广泛地交互。</p>
+<p>大部分电子系统设计中，都会有一个<strong>控制单元(Control Unit)</strong>来负责指挥<strong>数据通路(Datapath)</strong>进行数据处理。</p>
+<p>对于寄存器自身而言，它可能实现 载入(load)、清空(clear)、移位(shift) 和 计数(count) 等。</p>
+<p>此外，对于那些寄存器中的数据进行<strong>移动</strong>了的加工，被称为<strong>寄存器传输操作(Register Transfer Operations)</strong>，它们主要包含这三个部分：</p>
+<ol>
+<li>系统中的寄存器集合；</li>
+<li>对于数据的操作；</li>
+<li>监督操作序列的控制；</li>
+</ol>
+<p>其中，最基础的那部分操作被称为<strong>微操作(microoperation)</strong>，它们是实现复杂操作的基础，例如将 R1 的数据载入 R2，将 R1 和 R2 相加，或是自增 R1 等。它们通常是以比特向量为载体并行实现的。</p>
+<h3 id="register-transfer-language-rtl">寄存器传输语言（Register Transfer Language, RTL）</h3>
+<p>一种专注于行为逻辑的语言，用来描述寄存器传输中的逻辑行为</p>
+<p>通常具有特殊功能的寄存器都会用其名称缩写大写表示，例如 AR(Address Register)，PC(Program Counter)，IR(Instruction Register) 或者更普通的 R2(Register 2)。</p>
+<h2 id="_73">寄存器传输的实现</h2>
+<blockquote>
+<p><strong>引入</strong></p>
+<p>如何实现寄存器所存储的数据之间的处理与交互是本章节的核心命题。</p>
+<p>如果说 微操作 关注的是数据的处理，那 寄存器传输 则着眼于数据之间的交互。</p>
+<p>换句话来说，如何把数据给到别的寄存器、如何获取别的寄存器给到的数据、如何传输和选择这些数据，就是本小节要解决的问题。</p>
+<p>特别的，寄存器传输的实现可以直接实现 转移 操作。</p>
+</blockquote>
+<h3 id="mux">基于 MUX 实现传输</h3>
+<p>对于一个单一寄存器，它的<strong>输入</strong>可能有多种来源，例如其它寄存器，又或者是其他操作的结果。</p>
+<p>总而言之，它的输入很可能是不唯一的，而同一时刻我们只能接受一个来源的输入。</p>
+<p>因此，我们需要使用 <code>MUX</code> 来对输入进行选择。</p>
+<p><strong>eg</strong></p>
+<p><img alt="img" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/106.png" /></p>
+<p><img alt="img" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/105.png" /></p>
+<p>即，我们通过一系列 one-hot 编码（或者是 one-cold）来表示选择哪个输入源，通过 <code>Encoder</code> 将它们编码作为 <code>MUX</code> 的输入选择信号，从多个输入源中选择对应的源，并输出给目标寄存器；此外，将选择信号都或起来，作为 目标寄存器的 <code>Load</code>信号</p>
+<blockquote>
+<p><code>MUX</code> 实现主要的实现了<strong>多对一</strong>的数据传输问题。如果我们单单使用 <code>MUX</code> 来完成寄存器之间的数据交互（假设所有寄存器都能相互传输数据），那将这个模型（图例在下一小节）抽象后，我们得到的将是一张“<strong>完全图</strong>”，然而它肉眼可见的开销大。</p>
+<p>而总线则非常巧妙地优化了这个问题（并不是上位替代关系）。</p>
+</blockquote>
+<h3 id="bus">基于总线(bus)实现传输</h3>
+<p>具体来说其实现方法有两种——通过共有 <code>MUX</code> 实现，或通过三态门实现。</p>
+<h4 id="mux_1">共有 MUX 实现</h4>
+<p><strong>eg</strong></p>
+<p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/107.png" /></p>
+<p>此时 <code>MUX</code> 不再是某个寄存器的<strong>专有逻辑(dedicated logic)</strong>，而是三个寄存器共同使用的<strong>共有逻辑(shared logic)</strong>。</p>
+<p>总线中的 <code>MUX</code> 在所有寄存器的输入中选择其中一个，并将它输出，给到所有寄存器；而总线通过控制 Load 信号来选择让哪个（或哪些）寄存器得到这个信号。</p>
+<blockquote>
+<p>与 <code>MUX</code> 实现对比</p>
+<ul>
+<li>优势：</li>
+<li>电路更精简，成本更低，随着寄存器增加这个特点更加明显；</li>
+<li>劣势：</li>
+<li>同一时刻内总线只能传输一个数据，即只有一个数据源(source)；<ul>
+<li>同一时钟周期内只有一个数据能传输到别的地方，例如交换操作就需要至少两个时钟才能实现；</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h4 id="_74">三态门实现</h4>
+<blockquote>
+<p>只要我们让导线的若干输入中只有一个三态门不在「高阻态」，就能够优雅地实现多路输出互联。</p>
+</blockquote>
+<p>实际上，所谓的三态门实现原理上和 <code>MUX</code> 实现无二，只不过我们是通过三态门来实现「路由」这个逻辑而已，也就是书上所说的：</p>
+<p><img alt="img" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/108.png" /></p>
+<p>(c) 中对三态门的表示进行了简化，含义参考 (a)。</p>
+<p>它想表达的主要含义是，当 <code>EN</code> 为 <code>1</code> 时，表示输出；反之表示输入（当然，真正决定是否读入寄存器的还是 <code>LD</code>）。</p>
+<blockquote>
+<p>虽然书中说三态门的接线比 <code>MUX</code> 的少了一半，但我觉得三态门只是把线分岔的地方移动到了寄存器附近，换句话来说不如说是节省了导线的长度。但是随着输入的增加，<code>MUX</code> 的结构会越来越复杂且需要重新设计，但三态门只需要量的增加就行了，所以确实是更加吸引人。（当然，虽然书中没说，但是我觉得 Enable 必须 at most one-hot，而这部分的逻辑对于两个实现方法来说是一样的）</p>
+</blockquote>
+<h2 id="_75">微操作及其实现</h2>
+<p>微操作一般分为这四种：</p>
+<ol>
+<li>转移，transfer microoperations，将数据从一个寄存器转移到另外一个寄存器；</li>
+<li>算术，arithmetic microoperations，对数据的算术运算操作；</li>
+<li>逻辑，logic microoperations，对数据的逻辑运算操作；</li>
+<li>移位，shift microoperations，对数据的移位操作；</li>
+</ol>
+<h3 id="_76">转移</h3>
+<p>不改变数据本身，只是从一个寄存器中把数据移动到另外一个寄存器。</p>
+<p>将 R0 中的数据转移到 R1 中，RTL表示为 <span class="arithmatex">\(R0\leftarrow R1\)</span></p>
+<p>实现方式即寄存器传输</p>
+<h3 id="_77">算术</h3>
+<p><img alt="img" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/101.png" /></p>
+<p><img alt="image-20240106160637611" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240106160637611.png" /></p>
+<blockquote>
+<p>注意</p>
+<p>对于如上出现的形式如：co<strong>n</strong>d<strong>i</strong>t<strong>i</strong>o<strong>n<em>:</em>re</strong>g<em>←</em>o<strong>pt</strong>i<strong>o</strong>n<strong>so</strong>n<strong>ere</strong>gs 的表达式，<code>:</code> 左侧出现的 <code>+</code> 表示或，右侧的则表示加（“乘”也是这样）！</p>
+</blockquote>
+<p>相对应的，加减法的实现可以通过加减法器实现，乘法可以用 移位 操作实现，而除法相对复杂。</p>
+<h3 id="_78">逻辑</h3>
+<p><img alt="img" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/103.png" /></p>
+<p>逻辑运算的实现相比算术更加直接，因为大部分逻辑都可以通过逻辑门来实现。</p>
+<h3 id="_79">移位</h3>
+<p>移位的实现通过<strong>移位寄存器(Shift Register, SHR)</strong>实现。</p>
+<blockquote>
+<p><strong>引入</strong></p>
+<p>移位操作从本质上来讲，是通过<strong>触发器随着时钟脉冲，将串行数据一位一位地移动</strong>实现的。</p>
+</blockquote>
+<h4 id="_80">串行实现</h4>
+<p>移位操作最简单的实现只需要与输入数相同位数的触发器实现。它的基本结构如下：</p>
+<p><img alt="img" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/109.png" /></p>
+<blockquote>
+<p>四个触发器首尾相连，最前面<strong>串行输入(Serial Input, SI)</strong>数据，末端得到<strong>串行输出(Serial Output, SO)</strong>，在不同时钟周期的偏差下，连续读入的 n bits 即为不同位数移位的结果。</p>
+</blockquote>
+<h4 id="_81">并行化</h4>
+<p>并行化主要有两个方面，即<strong>并行输出(parallel output)</strong>和<strong>并行载入(parallel load)</strong>，分别对应着在同一个时间周期内<strong>得到每一个 <code>FF</code> 的结果</strong>和<strong>对每一个 <code>FF</code> 载入数据</strong>。</p>
+<p>并行输出的实现非常简单，只需要给每一个 <code>FF</code> 的输出引出一条线就行了，它与串行输出可以直接同时存在；而并行输入则与串行输入冲突，一次只能实现其中一个，所以需要一些控制电路：</p>
+<p><img alt="img" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/110.png" /></p>
+<p>看起来有点复杂，但是实际上逻辑还是很清晰的。</p>
+<ul>
+<li>纵向观察右侧的四个 <code>FF</code>，可以发现基本上就是串行移位实现，只不过其输入不再是直接从上一个 <code>FF</code> 那边拿来的；</li>
+<li>四个 <code>FF</code> 的输入是类似的，所以我们仅关注最上面的那三个与门和一个或门，表示数据输入有三个可能的来源；</li>
+<li>第一个与门， <span class="arithmatex">\(F_i=Shift\cdot SI\)</span>（对于后面几个 <code>FF</code> ，则是<span class="arithmatex">\(F_i=Shift\cdot FF_{i-1}\)</span>），可以发现，此时电路的行为与<strong>串行移位</strong>实现一致；<ul>
+<li>即 <span class="arithmatex">\(Shift\)</span> 为 <code>1</code> 时，<code>SHR</code> 表现为「<strong>每个周期执行一次移位</strong>」；</li>
+</ul>
+</li>
+<li>第二个与门，<span class="arithmatex">\(F_i=\overline{Shift}\cdot Load\cdot D_i\)</span> ，此时电路的行为是使用比特向量对每一个 <code>FF</code> 赋值，即<strong>并行载入</strong>；<ul>
+<li>即 <span class="arithmatex">\(\overline{Shift}\cdot Load\)</span> 为 <code>1</code> 时，<code>SHR</code> 表现为「<strong>并行载入</strong>」；</li>
+</ul>
+</li>
+<li>第三个与门，<span class="arithmatex">\(F_i=\overline{Shift}\cdot \overline{Load}\cdot Q_i\)</span> ，此时电路的行为是保持上一周期的结果；<ul>
+<li>即 <span class="arithmatex">\(\overline{Shift}\cdot \overline{Load}\)</span> 为 <code>1</code> 时，<code>SHR</code> 表现为「<strong>保持</strong>」；</li>
+</ul>
+</li>
+</ul>
+<p>总和来说，就是：
+$$
+Shift:Q\leftarrow slQ\
+\overline{Shift}\cdot Load:Q\leftarrow D\
+\overline{Shift}\cdot \overline{Load}:Q\leftarrow Q 
+$$
+<a href="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/111.png"><img alt="img" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/111.png" /></a></p>
+<h4 id="_82">双向移位寄存器</h4>
+<p>上面介绍的移位寄存器随着时钟周期的供给，只能不可逆、单向地进行移位，这种移位寄存器称为<strong>无向移位寄存器(Unidirectional SHR)</strong>；</p>
+<p>对应的，如果能够支持可控制的左移右移，则被称为<strong>双向移位寄存器(Bidirectional SHR)</strong>。</p>
+<p>其行为如下：</p>
+<p><img alt="image-20240106162053137" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240106162053137.png" /></p>
+<p><img alt="img" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/112.png" /></p>
+<p>其本质上就是添加了一个 <code>MUX</code> 来选择下一个时钟是继承 <span class="arithmatex">\((i+1),(i-1),D_i\)</span> 还是 <span class="arithmatex">\(Q\)</span>。</p>
+<blockquote>
+<p>代码意义上的移位一般指的是一个双目操作，即可以指定移位多少位，这个参数被称为<strong>移位量(Shift Amount)</strong>。</p>
+</blockquote>
+<h2 id="_83">计数器</h2>
+<p>根据实现原理，主要分为 <strong>行波计数器(Ripple Counter)</strong> 和 <strong>同步计数器(Synchronous Counter)</strong> 两种。</p>
+<h3 id="_84">行波计数器</h3>
+<p>行波计数器的主要思想就是将一个不断自反的 <code>FF</code> 的输出直接或间接作为下一个 <code>FF</code> 的时钟脉冲。由于形成一次脉冲需要一对 <code>0</code>&amp;<code>1</code>，所以前一个 <code>FF</code> 取反两次才能引起下一个 <code>FF</code> 取反一次，</p>
+<p>如果下一个 <code>FF</code> 是在上一个 <code>FF</code> 的输出从 <code>1</code> 变 <code>0</code> 时触发，那两个 <code>FF</code> 的变化刚好对应于二进制自增的进位规律：<code>(0,0)</code>，<code>(0,1)</code>，<code>(1,0)</code>，<code>(1,1)</code>，<code>(0,0)</code>，...</p>
+<p>于是，一个 4-Bit 行波计数器的逻辑图就如下：</p>
+<p><img alt="img" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/113.png" /></p>
+<blockquote>
+<ul>
+<li>上图中，下一个 <code>FF</code> 的时钟来自于上一个 <code>FF</code> 的输出取反，也就是对于上升沿触发的 <code>FF</code> 来说，下一个 <code>FF</code> 会在上一个 <code>FF</code> 的输出从 <code>1</code> 到 <code>0</code> 时自反，所以是<strong>正向计时(Upward Counting)</strong>；</li>
+<li>反之，如果下一个 <code>FF</code> 的时钟来自于上一个 <code>FF</code> 的直接输出，也就是对于上升沿触发的 <code>FF</code> 来说，下一个 <code>FF</code> 会在上一个 <code>FF</code> 的输出从 <code>0</code> 到 <code>1</code> 时自反，所以是<strong>逆向输出(Downward Counting)</strong>；</li>
+</ul>
+</blockquote>
+<p><img alt="img" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/114.png" /></p>
+<p>行波计数器的优点是电路简单，成本低；</p>
+<p>但是缺点也很明显，既然它与同步计数器相区分，就说明它不是同步电路，每一个 <code>FF</code> 都会有传播延时，随着计数范围增大，总传播延时也会增加，而为了让电路正常工作，时钟频率也要因此下降。</p>
+<p>多数情况下行波加法器只会在低功耗电路中被采用。</p>
+<h3 id="_85">同步计数器</h3>
+<p>同步计数器从实现自增的原理上来说，和行波计数器也是类似的，同样是在上一个 <code>FF</code> 完成一次翻转的时候让下一个 <code>FF</code> 变化。</p>
+<p>只不过同步计数器不是控制时钟，而是控制「<code>FF</code> 内的值是否取反」来实现，而它是通过异或门来实现的。</p>
+<p>我们知道，<span class="arithmatex">\(0 xor X=X,1xorX=\overline X\)</span> 。因此，我们可以控制 <code>XOR</code> 的某个输入是 <code>0</code> 还是 <code>1</code> 来实现取反还是保持的切换。</p>
+<blockquote>
+<p>需要区分的是，行波计数器是在上一个 <code>FF</code> 变化完才影响下一个的，所以是 <code>1</code> 变 <code>0</code> 时需要进位；</p>
+<p>而同步计数器的所有 <code>FF</code> 是一起变化的，所以只有在前面都是 <code>1</code> 时候，表示下一刻它们都要进位了，当前 <code>FF</code> 才进位。</p>
+<p>也就是说，行波计数器是建立在前一个 <code>FF</code> 的结果进行变化；而并行加法器是建立在上一刻所有关联 <code>FF</code> 的状态，对下一状态的预判。</p>
+</blockquote>
+<p>在这基础上，同步计数器的<strong>自增器(incrementer)</strong>有两种不同的实现方法：</p>
+<p><img alt="img" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/115.png" /></p>
+<blockquote>
+<p>(b) 的蓝色部分替换 (a) 的蓝框部分为第二种。两种分别为 门串行实现 和 门并行实现。</p>
+<p>两种实现其实原理都是一样的，</p>
+<p>只不过门串行牺牲某些情况下的运行效率，节约了门成本；</p>
+<p>而门并行提高了门成本，减少了某些情况下的门延迟。</p>
+</blockquote>
+<p>当然，既然使用的是自增器，那么实现的自然就是正向计数器。为了实现逆向计数器，我们则需要将自增器换为自减器。做法只不过是将异或门的控制信号取反。</p>
+<p>具体来说，兼具自增自减功能的输入函数如下：</p>
+<p><img alt="image-20240106163203024" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240106163203024.png" /></p>
+<blockquote>
+<p>这个表达式也可以略微感受到门串行和门并行的区别究竟在哪里，它们使用同一个表达式，只不过用不同的方式来实现多位 <code>AND</code> 运算。</p>
+</blockquote>
+<h4 id="_86">同步载入</h4>
+<p>这里同步载入的含义可以同 移位寄存器的并行载入 类比，其主要目的是将计数器的当前值设为一个我们需要的数字。</p>
+<p>以门串行实现为例，添加功能控制逻辑后的设计如下：</p>
+<p><img alt="img" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/116.png" /></p>
+<h3 id="_87">任意计数序列</h3>
+<p>现在让我们回归计数器的行为：随着时钟周期不断在固定的状态序列中循环。也就是说，这个序列未必需要是整数自增自减序列。而实现某一序列的计数行为，实际上只要设计好有限状态和状态之间的转移即可。</p>
+<p>当然，这个话题太过宽泛，我们在这里具体讨论的还是整数自增序列，只不过限制了上下界。书上提供的案例是 BCD 码的循环计数，那我们也跟着这个案例来。</p>
+<h4 id="bcd_1">BCD 码循环计数</h4>
+<p>首先我们需要根据时序电路的设计规则，搞清楚状态序列，显然，根据 BCD 码的定义，我们可以毛毛地认为它是下确界为 <code>0</code>，上确界为 <code>9</code> 的 4 比特整数序列。换句话说，我们需要实现一个计数到 <code>9</code> 后下一个状态是 <code>0</code> 的 4 比特计数器。</p>
+<p>于是我们可以当计数器的输出为 <code>9</code> 时，下一周期让计数器载入 <code>0</code>：</p>
+<p><img alt="img" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/117.png" /></p>
+<p>按理来说这里应该是  <span class="arithmatex">\(Load=Q_0Q_1nQ_2nQ_3\)</span> ，以对应 <code>9D=1001B</code>，但是由于自增过程中，<code>1001</code> 是第一个满足 <code>1??1</code> 的组合，所以可以直接简化为 <span class="arithmatex">\(Load=Q_0Q_3\)</span></p>
+<blockquote>
+<p><strong>Mod N 计数器</strong></p>
+<p>实际上，我们可以把 BCD 码循环计数器看作是特殊的 Mod N 计数器，即 N = 10 的 Mod N 计数器。</p>
+<p>或许你会想，实现 Mod N 计数器能不能在满足输出条件后直接使用 <code>Clear</code> 输入。但是请不要忘记了，<code>Clear</code> 也好，<code>Set</code> 也罢，它们都是异步操作。我们没有必要也不应该使用异步操作，所以最好的做法还是使用 <code>Load</code>。</p>
+</blockquote>
+<h2 id="_88">寄存器传输的控制</h2>
+<p>寄存器传输系统(Register Transfer System)设计流程：</p>
+<ol>
+<li>确定系统的行为(specification)；</li>
+<li>定义外部的输入、输出，以及控制单元(control unit)和数据通路(datapath)需要的寄存器；</li>
+<li>设计状态机；</li>
+<li>定义内部的控制信号、状态信号；</li>
+<li>用这些信号来分配输出条件(output condition)、输出行为(output actions)等，包括寄存器传输(register transfer)（个人理解是设计内部信号来进一步设计状态机，包括设计 TC、OC、OA 等）；</li>
+<li>绘制框图(block diagram)；</li>
+<li>设计控制单元和数据通路的寄存器传输逻辑(register transfer logic)；</li>
+<li>设计控制单元逻辑(control unit logic)；</li>
+<li>验证正确性；</li>
+</ol>
+<p>我们在 <strong><a href="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/Chap03/#组合电路设计">第三章</a></strong> 介绍了组合逻辑设计的基本流程，而这里的寄存器传输系统，实际上是（基于寄存器的同步）时序逻辑设计的基本流程。这个流程看起来比较抽象，但总体思路和组合逻辑设计其实是一致的。重要的是结合具体例子去实践这个设计流程，建议阅读教材中相应位置的 <strong>DashWatch</strong> 和 <strong>Handheld Game: PIG</strong> 这两个例子。</p>
+<hr />
+<h1 id="chap7">Chap7 存储器</h1>
+<h2 id="memories">Memories</h2>
+<blockquote>
+<p>Memory is a collection of binary storage cells together with associated circuits needed to transfer information into and out of the cells.</p>
+</blockquote>
+<p>Two types of memories are used in various parts of a computer: <strong>random-access memory (RAM)</strong> and <strong>read-only memory (ROM)</strong>. </p>
+<blockquote>
+<p>ROM-只读存储器</p>
+</blockquote>
+<p>RAM can perform both the write and the read operations, whereas ROM performs only read operations. RAM sizes may range from hundreds to billions of bits.</p>
+<h3 id="memory-organization">Memory Organization</h3>
+<p>The memory is organized as <strong>an array of storage cells</strong>, each of which is capable of storing <strong>one bit</strong> of information. </p>
+<p>The cells are arranged <strong>in rows and columns</strong>. The intersection of a row and a column is called a <strong>memory address</strong>. The number of rows and columns determines the capacity of the memory.</p>
+<p><img alt="memory organization" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/memory_organization.png" /></p>
+<h2 id="ram">RAM</h2>
+<p>Memory cells can be accessed to transfer information to or from any desired location, with the access taking the same time regardless of the location, hence the name random-access memory.</p>
+<p>In contrast,serial memory, such as is exhibited by a hard drive, takes different lengths of time to access information, depending on where the desired location is relative to the current physical position of the disk.</p>
+<blockquote>
+<p>RAM-Random Access Memory (RAM)</p>
+<p>随机访问存储器</p>
+<p>访问时间与访问位置无关系。相对的有顺序存储器，如磁带</p>
+<p>RAM分为两种：static RAM (SRAM) and dynamic RAM (DRAM)。</p>
+<p>SRAM是静态的，DRAM是动态的。SRAM的速度比DRAM快，但是DRAM的容量比SRAM大。</p>
+<p>SRAM的单元是由flip-flop构成的，DRAM的单元是由capacitor和transistor构成的。（每隔一段时间需要refresh）</p>
+</blockquote>
+<h3 id="sram">SRAM</h3>
+<p><img alt="SRAM" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/SRAM.png" /></p>
+<blockquote>
+<p>- SRAM的单元是由flip-flop构成的，每个单元需要6个transistor。因此SRAM的面积比DRAM大，但是速度快，不需要refresh。 - Logic diagram如下：</p>
+</blockquote>
+<p><img alt="img" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/SRAM_diagram.png" /></p>
+<h3 id="operations">Operations</h3>
+<p>The two operations that a random-access memory can perform are <strong>write and read</strong>. </p>
+<ul>
+<li>The process of storing new information in memory is referred to as a <strong>memory write operation</strong>.</li>
+<li>The process of transferring the stored information out of memory is referred to as a <strong>memory read operation</strong>.</li>
+</ul>
+<p>Namely, A write is a transfer into memory of a new word to be stored. A read is a transfer of a copy of a stored word out of memory.</p>
+<h4 id="write">Write</h4>
+<p>The steps that must be taken for a <strong>write</strong> are as follows:</p>
+<ol>
+<li>Apply the <strong>binary address</strong> of the desired word to the address lines.</li>
+<li>Apply the <strong>data bits</strong> that must be stored in memory to the data input lines.</li>
+<li>Activate the <strong>Write input</strong>.</li>
+</ol>
+<p>The memory unit will then take the bits from the data input lines and store them in the word specified by the address lines.</p>
+<p><img alt="write" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/writeTiming.png" /></p>
+<blockquote>
+<p>白色有效，绿色无效。高电平读，低电平写。</p>
+<p>Write: - 将有效的地址放到address input lines上。将写入的数据放到data input lines上。 - 激活写入控制。</p>
+<p>Data⼀定要在0-1前保持⼀段时间来建⽴并且0-1后维持⼀段时间才能正确写⼊。</p>
+<p>最后提前变读，以防止错误写入</p>
+</blockquote>
+<h4 id="read">Read</h4>
+<p>The steps that must be taken for a <strong>read</strong> are as follows:</p>
+<ol>
+<li>Apply the <strong>binary address</strong> of the desired word to the address lines.</li>
+<li>Activate the <strong>Read input</strong>.</li>
+</ol>
+<p>The memory will then take the bits from the word that has been selected by the address and apply them to the data output lines. </p>
+<p>The contents of the selected word are <strong>not changed</strong> by reading them.</p>
+<p><img alt="read" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/readData.png" /></p>
+<blockquote>
+<p>白色有效，绿色无效。高电平读，低电平写。</p>
+<p>Read: - 将有效的地址放到address input lines上。 - 将read control line置为1。 - 等待读出的数据稳定，将数据从memory output lines读出。</p>
+<p>一般读比写快。</p>
+</blockquote>
+<h2 id="word">Word</h2>
+<p>A <strong>word</strong> is an entity of bits that moves in and out of memory as a unit—a group of 1s and 0s that represents a number, an instruction, one or more alphanumeric characters, or other binary-coded information.</p>
+<p>A group of eight bits is called a <strong>byte</strong>.</p>
+<p>Most computer memories use <strong>words that are multiples of eight bits in length</strong>. Thus, a 16-bit word contains two bytes, and a 32-bit word is made up of four bytes. </p>
+<p><strong>The capacity of a memory</strong> unit is usually stated as the total number of bytes that it can store.</p>
+<h2 id="communication">Communication</h2>
+<p>Communication between a memory and its environment is achieved through <strong>data input and output lines, address selection lines, and control lines</strong> that specify the direction of transfer of information.</p>
+<p>A word in memory is selected by its <strong>binary address</strong>. When a word is read or written, the memory operates on all 16 bits as a single unit.</p>
+<p>The 1K * 16 memory of the figure has 10 bits in the address and 16 bits in each word. The number of address bits needed in memory is <strong>dependent on the total number of words</strong> that can be stored and is <strong>independent of the number of bits in each word</strong>. </p>
+<p>The number of bits in the address for a word is determined from the relationship <strong><span class="arithmatex">\(2^k &gt;= m\)</span></strong>, where m is the total number of words and k is the minimum number of address bits satisfying the relationship.</p>
+<h2 id="size">Size</h2>
+<p>Computer memory varies greatly in size. It is customary to refer to the number of words (or bytes) in memory with one of the letters K (kilo), M (mega), or G (giga). K is equal to 2^10, M to 2^20, and G to 2^30.</p>
+<h2 id="eg">eg</h2>
+<p><img alt="image-20240107093142295" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240107093142295.png" /></p>
+<p><img alt="image-20240107093151903" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240107093151903.png" /></p>
+<p><img alt="image-20240107093224065" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240107093224065.png" /></p>
+<p><img alt="image-20240107093231558" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240107093231558.png" /></p>
+<blockquote>
+<p>横坐标和纵坐标分开译码</p>
+<p>译码器成本降低，速度更快</p>
+</blockquote>
+<p><img alt="image-20240107093251288" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240107093251288.png" /></p>
+<p><img alt="image-20240107093256939" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240107093256939.png" /></p>
+<p><img alt="image-20240107093305968" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240107093305968.png" /></p>
+<p><img alt="image-20240107093312976" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240107093312976.png" /></p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 28, 2024 08:21:45</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime">January 28, 2024 08:21:45</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.top"], "search": "../../../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,7249 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../%E9%A9%AC%E5%8E%9F/%E9%A9%AC%E5%8E%9F/">
+      
+      
+        <link rel="next" href="../../../../building/">
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.4">
+    
+    
+      
+        <title>无线网络应用 - Lutienpeist重开的计算机生活</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.50c56a3b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+  
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+  <style>:root{--md-admonition-icon--note:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 7.775V2.75C1 1.784 1.784 1 2.75 1h5.025c.464 0 .91.184 1.238.513l6.25 6.25a1.75 1.75 0 0 1 0 2.474l-5.026 5.026a1.75 1.75 0 0 1-2.474 0l-6.25-6.25A1.752 1.752 0 0 1 1 7.775Zm1.5 0c0 .066.026.13.073.177l6.25 6.25a.25.25 0 0 0 .354 0l5.025-5.025a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.177-.073H2.75a.25.25 0 0 0-.25.25ZM6 5a1 1 0 1 1 0 2 1 1 0 0 1 0-2Z"/></svg>');--md-admonition-icon--abstract:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.5 1.75v11.5c0 .138.112.25.25.25h3.17a.75.75 0 0 1 0 1.5H2.75A1.75 1.75 0 0 1 1 13.25V1.75C1 .784 1.784 0 2.75 0h8.5C12.216 0 13 .784 13 1.75v7.736a.75.75 0 0 1-1.5 0V1.75a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13.274 9.537v-.001l-4.557 4.45a.75.75 0 0 1-1.055-.008l-1.943-1.95a.75.75 0 0 1 1.062-1.058l1.419 1.425 4.026-3.932a.75.75 0 1 1 1.048 1.074ZM4.75 4h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM4 7.75A.75.75 0 0 1 4.75 7h2a.75.75 0 0 1 0 1.5h-2A.75.75 0 0 1 4 7.75Z"/></svg>');--md-admonition-icon--info:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>');--md-admonition-icon--tip:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M3.499.75a.75.75 0 0 1 1.5 0v.996C5.9 2.903 6.793 3.65 7.662 4.376l.24.202c-.036-.694.055-1.422.426-2.163C9.1.873 10.794-.045 12.622.26 14.408.558 16 1.94 16 4.25c0 1.278-.954 2.575-2.44 2.734l.146.508.065.22c.203.701.412 1.455.476 2.226.142 1.707-.4 3.03-1.487 3.898C11.714 14.671 10.27 15 8.75 15h-6a.75.75 0 0 1 0-1.5h1.376a4.484 4.484 0 0 1-.563-1.191 3.835 3.835 0 0 1-.05-2.063 4.647 4.647 0 0 1-2.025-.293.75.75 0 0 1 .525-1.406c1.357.507 2.376-.006 2.698-.318l.009-.01a.747.747 0 0 1 1.06 0 .748.748 0 0 1-.012 1.074c-.912.92-.992 1.835-.768 2.586.221.74.745 1.337 1.196 1.621H8.75c1.343 0 2.398-.296 3.074-.836.635-.507 1.036-1.31.928-2.602-.05-.603-.216-1.224-.422-1.93l-.064-.221c-.12-.407-.246-.84-.353-1.29a2.425 2.425 0 0 1-.507-.441 3.075 3.075 0 0 1-.633-1.248.75.75 0 0 1 1.455-.364c.046.185.144.436.31.627.146.168.353.305.712.305.738 0 1.25-.615 1.25-1.25 0-1.47-.95-2.315-2.123-2.51-1.172-.196-2.227.387-2.706 1.345-.46.92-.27 1.774.019 3.062l.042.19a.884.884 0 0 1 .01.05c.348.443.666.949.94 1.553a.75.75 0 1 1-1.365.62c-.553-1.217-1.32-1.94-2.3-2.768L6.7 5.527c-.814-.68-1.75-1.462-2.692-2.619a3.737 3.737 0 0 0-1.023.88c-.406.495-.663 1.036-.722 1.508.116.122.306.21.591.239.388.038.797-.06 1.032-.19a.75.75 0 0 1 .728 1.31c-.515.287-1.23.439-1.906.373-.682-.067-1.473-.38-1.879-1.193L.75 5.677V5.5c0-.984.48-1.94 1.077-2.664.46-.559 1.05-1.055 1.673-1.353V.75Z"/></svg>');--md-admonition-icon--success:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"/></svg>');--md-admonition-icon--question:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.92 6.085h.001a.749.749 0 1 1-1.342-.67c.169-.339.436-.701.849-.977C6.845 4.16 7.369 4 8 4a2.756 2.756 0 0 1 1.637.525c.503.377.863.965.863 1.725 0 .448-.115.83-.329 1.15-.205.307-.47.513-.692.662-.109.072-.22.138-.313.195l-.006.004a6.24 6.24 0 0 0-.26.16.952.952 0 0 0-.276.245.75.75 0 0 1-1.248-.832c.184-.264.42-.489.692-.661.103-.067.207-.132.313-.195l.007-.004c.1-.061.182-.11.258-.161a.969.969 0 0 0 .277-.245C8.96 6.514 9 6.427 9 6.25a.612.612 0 0 0-.262-.525A1.27 1.27 0 0 0 8 5.5c-.369 0-.595.09-.74.187a1.01 1.01 0 0 0-.34.398ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--warning:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>');--md-admonition-icon--failure:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2.344 2.343h-.001a8 8 0 0 1 11.314 11.314A8.002 8.002 0 0 1 .234 10.089a8 8 0 0 1 2.11-7.746Zm1.06 10.253a6.5 6.5 0 1 0 9.108-9.275 6.5 6.5 0 0 0-9.108 9.275ZM6.03 4.97 8 6.94l1.97-1.97a.749.749 0 0 1 1.275.326.749.749 0 0 1-.215.734L9.06 8l1.97 1.97a.749.749 0 0 1-.326 1.275.749.749 0 0 1-.734-.215L8 9.06l-1.97 1.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734L6.94 8 4.97 6.03a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018Z"/></svg>');--md-admonition-icon--danger:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M9.504.43a1.516 1.516 0 0 1 2.437 1.713L10.415 5.5h2.123c1.57 0 2.346 1.909 1.22 3.004l-7.34 7.142a1.249 1.249 0 0 1-.871.354h-.302a1.25 1.25 0 0 1-1.157-1.723L5.633 10.5H3.462c-1.57 0-2.346-1.909-1.22-3.004L9.503.429Zm1.047 1.074L3.286 8.571A.25.25 0 0 0 3.462 9H6.75a.75.75 0 0 1 .694 1.034l-1.713 4.188 6.982-6.793A.25.25 0 0 0 12.538 7H9.25a.75.75 0 0 1-.683-1.06l2.008-4.418.003-.006a.036.036 0 0 0-.004-.009l-.006-.006-.008-.001c-.003 0-.006.002-.009.004Z"/></svg>');--md-admonition-icon--bug:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M4.72.22a.75.75 0 0 1 1.06 0l1 .999a3.488 3.488 0 0 1 2.441 0l.999-1a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.775.776c.616.63.995 1.493.995 2.444v.327c0 .1-.009.197-.025.292.408.14.764.392 1.029.722l1.968-.787a.75.75 0 0 1 .556 1.392L13 7.258V9h2.25a.75.75 0 0 1 0 1.5H13v.5c0 .409-.049.806-.141 1.186l2.17.868a.75.75 0 0 1-.557 1.392l-2.184-.873A4.997 4.997 0 0 1 8 16a4.997 4.997 0 0 1-4.288-2.427l-2.183.873a.75.75 0 0 1-.558-1.392l2.17-.868A5.036 5.036 0 0 1 3 11v-.5H.75a.75.75 0 0 1 0-1.5H3V7.258L.971 6.446a.75.75 0 0 1 .558-1.392l1.967.787c.265-.33.62-.583 1.03-.722a1.677 1.677 0 0 1-.026-.292V4.5c0-.951.38-1.814.995-2.444L4.72 1.28a.75.75 0 0 1 0-1.06Zm.53 6.28a.75.75 0 0 0-.75.75V11a3.5 3.5 0 1 0 7 0V7.25a.75.75 0 0 0-.75-.75ZM6.173 5h3.654A.172.172 0 0 0 10 4.827V4.5a2 2 0 1 0-4 0v.327c0 .096.077.173.173.173Z"/></svg>');--md-admonition-icon--example:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M5 5.782V2.5h-.25a.75.75 0 0 1 0-1.5h6.5a.75.75 0 0 1 0 1.5H11v3.282l3.666 5.76C15.619 13.04 14.543 15 12.767 15H3.233c-1.776 0-2.852-1.96-1.899-3.458Zm-2.4 6.565a.75.75 0 0 0 .633 1.153h9.534a.75.75 0 0 0 .633-1.153L12.225 10.5h-8.45ZM9.5 2.5h-3V6c0 .143-.04.283-.117.403L4.73 9h6.54L9.617 6.403A.746.746 0 0 1 9.5 6Z"/></svg>');--md-admonition-icon--quote:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1.75 2.5h10.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Zm4 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2.5 7.75v6a.75.75 0 0 1-1.5 0v-6a.75.75 0 0 1 1.5 0Z"/></svg>');}</style>
+
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Lutienpeist重开的计算机生活" class="md-header__button md-logo" aria-label="Lutienpeist重开的计算机生活" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Lutienpeist重开的计算机生活
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              无线网络应用
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../.." class="md-tabs__link">
+        
+  
+    
+  
+  封面
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../CSself/first/" class="md-tabs__link">
+          
+  
+  CS自学指南
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../%E5%89%8D%E8%A8%80/" class="md-tabs__link">
+          
+  
+  ZJU_Courses
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Lutienpeist重开的计算机生活" class="md-nav__button md-logo" aria-label="Lutienpeist重开的计算机生活" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Lutienpeist重开的计算机生活
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    封面
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    CS自学指南
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            CS自学指南
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/first/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap1-Crash Course Computer Science
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Chap1-Crash Course Computer Science
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap1intro/intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    本章概述
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap1intro/05/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    历史&硬件发展：从算盘到电子计算机，从晶体管到CPU
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap1intro/510/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    早期的编程发展——从接线板到面向对象
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap1intro/600/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机的早期发展——从集成电路到操作系统，从文件系统到屏幕
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap1intro/710/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机图形学
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap1intro/790/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机网络学
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap1intro/880/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机安全学
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap1intro/996/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机科学其它分支
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Chap2-tools
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Chap2-tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap2tool/intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    本章概述
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap2tool/git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../CSself/Chap2tool/mine/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    个人强推的工具
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+      
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    ZJU_Courses
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            ZJU_Courses
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数学基础课程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            数学基础课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/shufen1/%E4%B8%8D%E8%A6%81%E5%BF%98%E8%AE%B0%E5%8F%8D%E8%AF%81%E6%B3%95/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学分析Ⅰ(H)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../building/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数学分析Ⅱ(H)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../building/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    线性代数Ⅱ(H)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../building/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概率论与数理统计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_5" id="__nav_3_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    离散数学(CKC)
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            离散数学(CKC)
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/DM/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    课堂规则
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../math/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/DM1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    第一课
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    CS基础课程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            CS基础课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CSbasic/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1/shuluo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数字逻辑设计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_2" id="__nav_3_3_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数据结构基础
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            数据结构基础
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CSbasic/FDS/qianyan/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CSbasic/FDS/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础知识
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CSbasic/FDS/%E7%BA%BF%E6%80%A7%E7%BB%93%E6%9E%84/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    线性结构
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CSbasic/FDS/%E6%A0%91/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    树
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CSbasic/FDS/%E5%9B%BE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    图
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CSbasic/FDS/%E6%8E%92%E5%BA%8F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    排序
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CSbasic/FDS/%E9%A2%98%E7%9B%AE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    错题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_3" id="__nav_3_3_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    高级数据结构与算法分析
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            高级数据结构与算法分析
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CSbasic/ABS/%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CSbasic/ABS/Chap1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chap1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_4" id="__nav_3_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    数据库系统
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            数据库系统
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CSbasic/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CSbasic/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/Chap1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1":" Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../building/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机组成
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_6" id="__nav_3_3_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    面向对象程序
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            面向对象程序
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CSbasic/OOP/%E5%89%8D%E8%A8%80/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    前言
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../CSbasic/OOP/Chap1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Chapter 1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    其它有意思的课程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            其它有意思的课程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../building/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    博弈论基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E9%A9%AC%E5%8E%9F/%E9%A9%AC%E5%8E%9F/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    马克思主义原理(H)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    无线网络应用
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    无线网络应用
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chap-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-1 当今网络
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-1 当今网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2   网络组件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 网络组件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.1   主机角色
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.2   点对点（对等网络）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.3   终端设备
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.4   中间设备（网络设备）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#125" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.5   网络介质
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3   网络表示方式和网络拓扑
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 网络表示方式和网络拓扑">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.1   网卡、端口与接口
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.2   拓扑图
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4   常见网络类型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 常见网络类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4.1   多种规模的网络
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142-lanwan" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4.2   LAN和WAN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4.3   互联网
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#144" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4.4   内部网和外联网
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6   可靠网络
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.6 可靠网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#161" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6.1   网络架构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#162" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6.2   容错能力
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#163" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6.3   可扩展性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#164-qos" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6.4   服务质量（QoS）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#165" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6.5   安全性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-2   网络协议和通信
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-2 网络协议和通信">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1   通信规则
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 通信规则">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#213-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.3   通信协议（Protocols）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#214" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.4   规则建立（人际沟通）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#215" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.5   网络协议要求
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#216" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.6   消息编码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#217" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.7   消息格式和封装
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#218" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.8   消息大小（长短）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#219" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.9   消息时序（时间顺序）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2110" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.10   消息传输方式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2   协议
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 协议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221" class="md-nav__link">
+    <span class="md-ellipsis">
+      *2.2.1  网络协议概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222" class="md-nav__link">
+    <span class="md-ellipsis">
+      *2.2.2   网络协议的功能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.3   协议交互
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3   协议簇
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 协议簇">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1   网络协议簇
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233-tcpip-334-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3   TCP/IP协议示例 &amp; 3.3.4   TCP/IP协议簇
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4   标准组织
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 标准组织">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241242" class="md-nav__link">
+    <span class="md-ellipsis">
+      *2.4.1/2.4.2   开放标准/互联网标准
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3   电子和通信标准组织
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5   参考模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 参考模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.1   使用分层模型的优点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252-osi" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.2   OSI参考模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.3   TCP/IP 协议模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6   数据封装
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 数据封装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#261" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.1   消息分段
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#262" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.2   排序
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#263" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.3   协议数据单元
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#264-365" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.4   封装示例 &amp; 3.6.5   解封示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7   数据访问
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.7 数据访问">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#272-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7.2  第3层逻辑地址
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#278" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7.8   数据链路层地址
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-3-ethernet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-3   以太网（Ethernet）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-3 以太网（Ethernet）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3   本地有线网络中的通信
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 本地有线网络中的通信">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1  本地有线网络中的协议
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333" class="md-nav__link">
+    <span class="md-ellipsis">
+      ! 3.3.3   物理寻址（重要概念！）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#335" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.5  以太网络的层次设计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#336" class="md-nav__link">
+    <span class="md-ellipsis">
+      ! 3.3.6  逻辑寻址（重要概念！）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#337" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.7   接入层、分布层和设备
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4   创建以太网络的接入层
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 创建以太网络的接入层">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1  接入层
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343" class="md-nav__link">
+    <span class="md-ellipsis">
+      ! 3.4.3   交换机的功能（重要概念！）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#344" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.4   广播消息
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#346-arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.6   地址解析协议（ARP）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5   创建网络的分布层
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 创建网络的分布层">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#351" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.1   分布层 &amp; 路由器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#352" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.2  路由器的功能（重要概念！）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#353-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.3   默认网关（网关 Gateway =出口）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      简单总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-4-ispinternet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-4   通过ISP连接到Internet
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-4 通过ISP连接到Internet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2   连通性测试命令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 连通性测试命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#423-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      ! 4.2.3  在Internet中转发数据包（重要）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4  线缆和连接器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4 线缆和连接器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#441" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4.1   常见的网络线缆
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#442" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4.2   双绞线电缆
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5  使用双绞线布线
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 使用双绞线布线">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#451" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5.1   布线标准
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#452-utp" class="md-nav__link">
+    <span class="md-ellipsis">
+      ! 4.5.2   UTP电缆（重要概念！）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-5   网络寻址
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-5 网络寻址">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1   IP地址和子网掩码
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 IP地址和子网掩码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.1   IP地址的用途
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.2   IP地址的结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#513-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.3   IP地址的组成部分
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#514-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.4   IP地址和子网掩码的交互方式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2   IP地址的类型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 IP地址的类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.1   IP地址类和默认子网掩码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.2   公有和私有地址
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#523" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.3   单播、广播和组播地址
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-6 网络服务
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-6 网络服务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1  客户端/服务器及其交互
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 客户端/服务器及其交互">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.1   客户端和服务器的关系
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.2   协议在客户端服务器通信中的作用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#613-tcpudp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.3   TCP和UDP传输协议
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#614627-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      ! 6.1.4/6.2.7   TCP/IP端口号（重要概念）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2   应用程序协议和服务
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 应用程序协议和服务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.1   域名服务（DNS）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#622-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.2   Web客户端和服务器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#623-ftp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.3   FTP客户端和服务器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#624" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.4   电子邮件客户端和服务器
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-7   无线技术
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-7 无线技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1   无线技术
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.1 无线技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#711" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1.1   无线技术和设备
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#713" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1.3   无线网络的类型及其界限
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-lan" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2   无线 LAN
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2 无线 LAN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#721-lan" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2.1  无线LAN标准
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#722-lan" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2.2   无线LAN组件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#723-wlanssid" class="md-nav__link">
+    <span class="md-ellipsis">
+      ! 7.2.3   WLAN和SSID
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#724-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2.4   无线通道（Channel）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#725" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2.5   配置接入点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#726" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2.6   配置无线客户端
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-lan" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3   无线LAN的安全考虑
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.3 无线LAN的安全考虑">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#731-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3.1   为什么WLAN会受到攻击
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#733-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3.3   WLAN上的身份验证
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#734-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3.4   WLAN上的加密
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#735-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3.5   WLAN上的通信过滤
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-8   交换机和终端设备的配置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-8 交换机和终端设备的配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1   IOS访问
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 IOS访问">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.1   操作系统
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.2   GUI（图形用户界面）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.3   CLI（命令行界面）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#214_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.4   访问方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#215_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.5   终端仿真程序
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2   IOS导航
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 IOS导航">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1   主要命令模式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2   配置模式和子配置模式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.4   在IOS模式之间导航
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3   命令结构
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 命令结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1   基本IOS命令结构
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4   设备基本配置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 设备基本配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.1   设备名称
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3   配置密码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.4   加密密码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#245" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.5   横幅消息
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5   保存配置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 保存配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.1   配置文件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.2   修改运行配置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7   配置IP地址
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.7 配置IP地址">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#274-svi" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7.4   交换机虚拟接口（SVI）配置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8   验证连接
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.8 验证连接">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#281" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8.1   接口编址验证
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#282" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8.2   端到端连接测试
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exp-dnsiisdns" class="md-nav__link">
+    <span class="md-ellipsis">
+      EXP 无线网络中DNS和IIS服务器的配置应用实验DNS服务器的安装和配置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EXP 无线网络中DNS和IIS服务器的配置应用实验DNS服务器的安装和配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、关于主和辅域名服务器的概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、DNS服务器的配置过程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、检验DNS服务配置效果
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iis" class="md-nav__link">
+    <span class="md-ellipsis">
+      IIS服务器的安装和配置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-9   基本安全性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-9 基本安全性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1   网络威胁
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1 网络威胁">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#813" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1.3   社会工程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2   攻击方式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2 攻击方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#821" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.1   病毒、蠕虫和特洛伊木马
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#822" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.2   拒绝服务和暴力攻击
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#823-cookie" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.3   间谍软件、跟踪Cookie、广告软件和弹出广告
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#824" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.4   垃圾邮件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3   安全策略
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3 安全策略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#831" class="md-nav__link">
+    <span class="md-ellipsis">
+      *8.3.1   常用安全措施
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#832" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.2   更新和补丁
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#833" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.3   防病毒软件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#834" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.4   反垃圾邮件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#835" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.5   反间谍软件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4   使用防火墙
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 使用防火墙">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#841" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4.1   什么是防火墙
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#842" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4.2   使用防火墙
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exp" class="md-nav__link">
+    <span class="md-ellipsis">
+      EXP 虚拟服务器、防火墙等
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-10-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-10  IPv4 编址
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-10 IPv4 编址">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#114" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4   网络分段
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.4 网络分段">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1141" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4.1   广播域和分段
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1142" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4.2   大型广播域存在的问题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1143" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4.3   划分子网的原因及依据
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#115-ipv4116-168117" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.5   IPv4网络的子网&amp;11.6   使用/16和/8前缀划分子网&amp;11.7   按照要求划分子网
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.5 IPv4网络的子网&11.6 使用/16和/8前缀划分子网&11.7 按照要求划分子网">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      有类子网划分
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      无类子网划分
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#118-vlsm" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.8   VLSM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.8 VLSM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      传统子网划分浪费地址
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      可变长子网掩码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlsm" class="md-nav__link">
+    <span class="md-ellipsis">
+      VLSM图表
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#magic-number-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      ！！“Magic Number” Method
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-11  网络寻址
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-11 网络寻址">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#53-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3   获取IP地址的方式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 获取IP地址的方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.1   静态和动态地址分配
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#532-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.2   DHCP服务器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#533-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.3   配置DHCP
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../building/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    微信小程序综合实践
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../building/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    生命科学导论(H)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chap-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-1 当今网络
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-1 当今网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2   网络组件
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.2 网络组件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#121" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.1   主机角色
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#122" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.2   点对点（对等网络）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.3   终端设备
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#124" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.4   中间设备（网络设备）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#125" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.5   网络介质
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3   网络表示方式和网络拓扑
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.3 网络表示方式和网络拓扑">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#131" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.1   网卡、端口与接口
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#132" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.3.2   拓扑图
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4   常见网络类型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4 常见网络类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4.1   多种规模的网络
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142-lanwan" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4.2   LAN和WAN
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#143" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4.3   互联网
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#144" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.4.4   内部网和外联网
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6   可靠网络
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.6 可靠网络">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#161" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6.1   网络架构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#162" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6.2   容错能力
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#163" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6.3   可扩展性
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#164-qos" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6.4   服务质量（QoS）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#165" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.6.5   安全性
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-2   网络协议和通信
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-2 网络协议和通信">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1   通信规则
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 通信规则">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#213-protocols" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.3   通信协议（Protocols）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#214" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.4   规则建立（人际沟通）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#215" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.5   网络协议要求
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#216" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.6   消息编码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#217" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.7   消息格式和封装
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#218" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.8   消息大小（长短）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#219" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.9   消息时序（时间顺序）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2110" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.10   消息传输方式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2   协议
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 协议">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221" class="md-nav__link">
+    <span class="md-ellipsis">
+      *2.2.1  网络协议概述
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222" class="md-nav__link">
+    <span class="md-ellipsis">
+      *2.2.2   网络协议的功能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#223" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.3   协议交互
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3   协议簇
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 协议簇">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1   网络协议簇
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#233-tcpip-334-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.3   TCP/IP协议示例 &amp; 3.3.4   TCP/IP协议簇
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4   标准组织
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 标准组织">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241242" class="md-nav__link">
+    <span class="md-ellipsis">
+      *2.4.1/2.4.2   开放标准/互联网标准
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3   电子和通信标准组织
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5   参考模型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 参考模型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.1   使用分层模型的优点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252-osi" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.2   OSI参考模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#253-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.3   TCP/IP 协议模型
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6   数据封装
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.6 数据封装">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#261" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.1   消息分段
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#262" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.2   排序
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#263" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.3   协议数据单元
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#264-365" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.6.4   封装示例 &amp; 3.6.5   解封示例
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7   数据访问
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.7 数据访问">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#272-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7.2  第3层逻辑地址
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#278" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7.8   数据链路层地址
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-3-ethernet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-3   以太网（Ethernet）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-3 以太网（Ethernet）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3   本地有线网络中的通信
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.3 本地有线网络中的通信">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#331" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.1  本地有线网络中的协议
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#333" class="md-nav__link">
+    <span class="md-ellipsis">
+      ! 3.3.3   物理寻址（重要概念！）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#335" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.5  以太网络的层次设计
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#336" class="md-nav__link">
+    <span class="md-ellipsis">
+      ! 3.3.6  逻辑寻址（重要概念！）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#337" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3.7   接入层、分布层和设备
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4   创建以太网络的接入层
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.4 创建以太网络的接入层">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#341" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.1  接入层
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#343" class="md-nav__link">
+    <span class="md-ellipsis">
+      ! 3.4.3   交换机的功能（重要概念！）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#344" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.4   广播消息
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#346-arp" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4.6   地址解析协议（ARP）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5   创建网络的分布层
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3.5 创建网络的分布层">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#351" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.1   分布层 &amp; 路由器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#352" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.2  路由器的功能（重要概念！）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#353-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5.3   默认网关（网关 Gateway =出口）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      简单总结
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-4-ispinternet" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-4   通过ISP连接到Internet
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-4 通过ISP连接到Internet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2   连通性测试命令
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.2 连通性测试命令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#423-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      ! 4.2.3  在Internet中转发数据包（重要）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4  线缆和连接器
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.4 线缆和连接器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#441" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4.1   常见的网络线缆
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#442" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.4.2   双绞线电缆
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5  使用双绞线布线
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.5 使用双绞线布线">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#451" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.5.1   布线标准
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#452-utp" class="md-nav__link">
+    <span class="md-ellipsis">
+      ! 4.5.2   UTP电缆（重要概念！）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-5   网络寻址
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-5 网络寻址">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1   IP地址和子网掩码
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.1 IP地址和子网掩码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#511-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.1   IP地址的用途
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#512-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.2   IP地址的结构
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#513-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.3   IP地址的组成部分
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#514-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1.4   IP地址和子网掩码的交互方式
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2   IP地址的类型
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.2 IP地址的类型">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#521-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.1   IP地址类和默认子网掩码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#522" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.2   公有和私有地址
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#523" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2.3   单播、广播和组播地址
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-6 网络服务
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-6 网络服务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1  客户端/服务器及其交互
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1 客户端/服务器及其交互">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.1   客户端和服务器的关系
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#612" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.2   协议在客户端服务器通信中的作用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#613-tcpudp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1.3   TCP和UDP传输协议
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#614627-tcpip" class="md-nav__link">
+    <span class="md-ellipsis">
+      ! 6.1.4/6.2.7   TCP/IP端口号（重要概念）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2   应用程序协议和服务
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2 应用程序协议和服务">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621-dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.1   域名服务（DNS）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#622-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.2   Web客户端和服务器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#623-ftp" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.3   FTP客户端和服务器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#624" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2.4   电子邮件客户端和服务器
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-7   无线技术
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-7 无线技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1   无线技术
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.1 无线技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#711" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1.1   无线技术和设备
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#713" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1.3   无线网络的类型及其界限
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72-lan" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2   无线 LAN
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.2 无线 LAN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#721-lan" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2.1  无线LAN标准
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#722-lan" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2.2   无线LAN组件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#723-wlanssid" class="md-nav__link">
+    <span class="md-ellipsis">
+      ! 7.2.3   WLAN和SSID
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#724-channel" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2.4   无线通道（Channel）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#725" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2.5   配置接入点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#726" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2.6   配置无线客户端
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73-lan" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3   无线LAN的安全考虑
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7.3 无线LAN的安全考虑">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#731-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3.1   为什么WLAN会受到攻击
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#733-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3.3   WLAN上的身份验证
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#734-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3.4   WLAN上的加密
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#735-wlan" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.3.5   WLAN上的通信过滤
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-8   交换机和终端设备的配置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-8 交换机和终端设备的配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1   IOS访问
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.1 IOS访问">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#211" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.1   操作系统
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#212-gui" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.2   GUI（图形用户界面）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#213-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.3   CLI（命令行界面）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#214_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.4   访问方法
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#215_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1.5   终端仿真程序
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2   IOS导航
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.2 IOS导航">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#221_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.1   主要命令模式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#222_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.2   配置模式和子配置模式
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#224-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2.4   在IOS模式之间导航
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3   命令结构
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.3 命令结构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#231-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3.1   基本IOS命令结构
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4   设备基本配置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.4 设备基本配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#241" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.1   设备名称
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#243_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.3   配置密码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#244" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.4   加密密码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#245" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.4.5   横幅消息
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5   保存配置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.5 保存配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#251_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.1   配置文件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#252" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.5.2   修改运行配置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7   配置IP地址
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.7 配置IP地址">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#274-svi" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.7.4   交换机虚拟接口（SVI）配置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8   验证连接
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2.8 验证连接">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#281" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8.1   接口编址验证
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#282" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.8.2   端到端连接测试
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exp-dnsiisdns" class="md-nav__link">
+    <span class="md-ellipsis">
+      EXP 无线网络中DNS和IIS服务器的配置应用实验DNS服务器的安装和配置
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EXP 无线网络中DNS和IIS服务器的配置应用实验DNS服务器的安装和配置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      一、关于主和辅域名服务器的概念
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns" class="md-nav__link">
+    <span class="md-ellipsis">
+      二、DNS服务器的配置过程
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dns_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      三、检验DNS服务配置效果
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iis" class="md-nav__link">
+    <span class="md-ellipsis">
+      IIS服务器的安装和配置
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-9   基本安全性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-9 基本安全性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1   网络威胁
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.1 网络威胁">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#813" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1.3   社会工程
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2   攻击方式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.2 攻击方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#821" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.1   病毒、蠕虫和特洛伊木马
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#822" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.2   拒绝服务和暴力攻击
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#823-cookie" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.3   间谍软件、跟踪Cookie、广告软件和弹出广告
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#824" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2.4   垃圾邮件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3   安全策略
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.3 安全策略">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#831" class="md-nav__link">
+    <span class="md-ellipsis">
+      *8.3.1   常用安全措施
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#832" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.2   更新和补丁
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#833" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.3   防病毒软件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#834" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.4   反垃圾邮件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#835" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3.5   反间谍软件
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4   使用防火墙
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8.4 使用防火墙">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#841" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4.1   什么是防火墙
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#842" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4.2   使用防火墙
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exp" class="md-nav__link">
+    <span class="md-ellipsis">
+      EXP 虚拟服务器、防火墙等
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-10-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-10  IPv4 编址
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-10 IPv4 编址">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#114" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4   网络分段
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.4 网络分段">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1141" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4.1   广播域和分段
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1142" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4.2   大型广播域存在的问题
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1143" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.4.3   划分子网的原因及依据
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#115-ipv4116-168117" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.5   IPv4网络的子网&amp;11.6   使用/16和/8前缀划分子网&amp;11.7   按照要求划分子网
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.5 IPv4网络的子网&11.6 使用/16和/8前缀划分子网&11.7 按照要求划分子网">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      有类子网划分
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      无类子网划分
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#118-vlsm" class="md-nav__link">
+    <span class="md-ellipsis">
+      11.8   VLSM
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11.8 VLSM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      传统子网划分浪费地址
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      可变长子网掩码
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vlsm" class="md-nav__link">
+    <span class="md-ellipsis">
+      VLSM图表
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#magic-number-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      ！！“Magic Number” Method
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chap-11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chap-11  网络寻址
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chap-11 网络寻址">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#53-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3   获取IP地址的方式
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5.3 获取IP地址的方式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#531" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.1   静态和动态地址分配
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#532-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.2   DHCP服务器
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#533-dhcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3.3   配置DHCP
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="_1">无线网络应用</h1>
+<div markdown="1" style="margin-top: -30px; font-size: 0.75em; opacity: 0.7;">
+:material-circle-edit-outline: 约 22153 个字 :material-clock-time-two-outline: 预计阅读时间 74 分钟
+</div>
+
+<div class="toc">
+<ul>
+<li><a href="#_1">无线网络应用</a><ul>
+<li><a href="#chap-1">Chap-1 当今网络</a><ul>
+<li><a href="#12">1.2   网络组件</a><ul>
+<li><a href="#121">1.2.1   主机角色</a></li>
+<li><a href="#122">1.2.2   点对点（对等网络）</a></li>
+<li><a href="#123">1.2.3   终端设备</a></li>
+<li><a href="#124">1.2.4   中间设备（网络设备）</a></li>
+<li><a href="#125">1.2.5   网络介质</a></li>
+</ul>
+</li>
+<li><a href="#13">1.3   网络表示方式和网络拓扑</a><ul>
+<li><a href="#131">1.3.1   网卡、端口与接口</a></li>
+<li><a href="#132">1.3.2   拓扑图</a></li>
+</ul>
+</li>
+<li><a href="#14">1.4   常见网络类型</a><ul>
+<li><a href="#141">1.4.1   多种规模的网络</a></li>
+<li><a href="#142-lanwan">1.4.2   LAN和WAN</a></li>
+<li><a href="#143">1.4.3   互联网</a></li>
+<li><a href="#144">1.4.4   内部网和外联网</a></li>
+</ul>
+</li>
+<li><a href="#16">1.6   可靠网络</a><ul>
+<li><a href="#161">1.6.1   网络架构</a></li>
+<li><a href="#162">1.6.2   容错能力</a></li>
+<li><a href="#163">1.6.3   可扩展性</a></li>
+<li><a href="#164-qos">1.6.4   服务质量（QoS）</a></li>
+<li><a href="#165">1.6.5   安全性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chap-2">Chap-2   网络协议和通信</a><ul>
+<li><a href="#21">2.1   通信规则</a><ul>
+<li><a href="#213-protocols">2.1.3   通信协议（Protocols）</a></li>
+<li><a href="#214">2.1.4   规则建立（人际沟通）</a></li>
+<li><a href="#215">2.1.5   网络协议要求</a></li>
+<li><a href="#216">2.1.6   消息编码</a></li>
+<li><a href="#217">2.1.7   消息格式和封装</a></li>
+<li><a href="#218">2.1.8   消息大小（长短）</a></li>
+<li><a href="#219">2.1.9   消息时序（时间顺序）</a></li>
+<li><a href="#2110">2.1.10   消息传输方式</a></li>
+</ul>
+</li>
+<li><a href="#22">2.2   协议</a><ul>
+<li><a href="#221">*2.2.1  网络协议概述</a></li>
+<li><a href="#222">*2.2.2   网络协议的功能</a></li>
+<li><a href="#223">2.2.3   协议交互</a></li>
+</ul>
+</li>
+<li><a href="#23">2.3   协议簇</a><ul>
+<li><a href="#231">2.3.1   网络协议簇</a></li>
+<li><a href="#233-tcpip-334-tcpip">2.3.3   TCP/IP协议示例 &amp; 3.3.4   TCP/IP协议簇</a></li>
+</ul>
+</li>
+<li><a href="#24">2.4   标准组织</a><ul>
+<li><a href="#241242">*2.4.1/2.4.2   开放标准/互联网标准</a></li>
+<li><a href="#243">2.4.3   电子和通信标准组织</a></li>
+</ul>
+</li>
+<li><a href="#25">2.5   参考模型</a><ul>
+<li><a href="#251">2.5.1   使用分层模型的优点</a></li>
+<li><a href="#252-osi">2.5.2   OSI参考模型</a></li>
+<li><a href="#253-tcpip">2.5.3   TCP/IP 协议模型</a></li>
+<li><a href="#_2"></a></li>
+</ul>
+</li>
+<li><a href="#26">2.6   数据封装</a><ul>
+<li><a href="#261">2.6.1   消息分段</a></li>
+<li><a href="#262">2.6.2   排序</a></li>
+<li><a href="#263">2.6.3   协议数据单元</a></li>
+<li><a href="#264-365">2.6.4   封装示例 &amp; 3.6.5   解封示例</a></li>
+</ul>
+</li>
+<li><a href="#27">2.7   数据访问</a><ul>
+<li><a href="#272-3">2.7.2  第3层逻辑地址</a></li>
+<li><a href="#278">2.7.8   数据链路层地址</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chap-3-ethernet">Chap-3   以太网（Ethernet）</a><ul>
+<li><a href="#33">3.3   本地有线网络中的通信</a><ul>
+<li><a href="#331">3.3.1  本地有线网络中的协议</a></li>
+<li><a href="#333">! 3.3.3   物理寻址（重要概念！）</a></li>
+<li><a href="#335">3.3.5  以太网络的层次设计</a></li>
+<li><a href="#336">! 3.3.6  逻辑寻址（重要概念！）</a></li>
+<li><a href="#337">3.3.7   接入层、分布层和设备</a></li>
+</ul>
+</li>
+<li><a href="#34">3.4   创建以太网络的接入层</a><ul>
+<li><a href="#341">3.4.1  接入层</a></li>
+<li><a href="#343">! 3.4.3   交换机的功能（重要概念！）</a></li>
+<li><a href="#344">3.4.4   广播消息</a></li>
+<li><a href="#346-arp">3.4.6   地址解析协议（ARP）</a></li>
+</ul>
+</li>
+<li><a href="#35">3.5   创建网络的分布层</a><ul>
+<li><a href="#351">3.5.1   分布层 &amp; 路由器</a></li>
+<li><a href="#352">3.5.2  路由器的功能（重要概念！）</a></li>
+<li><a href="#353-gateway">3.5.3   默认网关（网关 Gateway =出口）</a></li>
+</ul>
+</li>
+<li><a href="#_3">简单总结</a></li>
+</ul>
+</li>
+<li><a href="#chap-4-ispinternet">Chap-4   通过ISP连接到Internet</a><ul>
+<li><a href="#42">4.2   连通性测试命令</a><ul>
+<li><a href="#423-internet">! 4.2.3  在Internet中转发数据包（重要）</a></li>
+</ul>
+</li>
+<li><a href="#44">4.4  线缆和连接器</a><ul>
+<li><a href="#441">4.4.1   常见的网络线缆</a></li>
+<li><a href="#442">4.4.2   双绞线电缆</a></li>
+</ul>
+</li>
+<li><a href="#45">4.5  使用双绞线布线</a><ul>
+<li><a href="#451">4.5.1   布线标准</a></li>
+<li><a href="#452-utp">! 4.5.2   UTP电缆（重要概念！）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chap-5">Chap-5   网络寻址</a><ul>
+<li><a href="#51-ip">5.1   IP地址和子网掩码</a><ul>
+<li><a href="#511-ip">5.1.1   IP地址的用途</a></li>
+<li><a href="#512-ip">5.1.2   IP地址的结构</a></li>
+<li><a href="#513-ip">5.1.3   IP地址的组成部分</a></li>
+<li><a href="#514-ip">5.1.4   IP地址和子网掩码的交互方式</a></li>
+</ul>
+</li>
+<li><a href="#52-ip">5.2   IP地址的类型</a><ul>
+<li><a href="#521-ip">5.2.1   IP地址类和默认子网掩码</a></li>
+<li><a href="#522">5.2.2   公有和私有地址</a></li>
+<li><a href="#523">5.2.3   单播、广播和组播地址</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chap-6">Chap-6 网络服务</a><ul>
+<li><a href="#61">6.1  客户端/服务器及其交互</a><ul>
+<li><a href="#611">6.1.1   客户端和服务器的关系</a></li>
+<li><a href="#612">6.1.2   协议在客户端服务器通信中的作用</a></li>
+<li><a href="#613-tcpudp">6.1.3   TCP和UDP传输协议</a></li>
+<li><a href="#614627-tcpip">! 6.1.4/6.2.7   TCP/IP端口号（重要概念）</a></li>
+</ul>
+</li>
+<li><a href="#62">6.2   应用程序协议和服务</a><ul>
+<li><a href="#621-dns">6.2.1   域名服务（DNS）</a></li>
+<li><a href="#622-web">6.2.2   Web客户端和服务器</a></li>
+<li><a href="#623-ftp">6.2.3   FTP客户端和服务器</a></li>
+<li><a href="#624">6.2.4   电子邮件客户端和服务器</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chap-7">Chap-7   无线技术</a><ul>
+<li><a href="#71">7.1   无线技术</a><ul>
+<li><a href="#711">7.1.1   无线技术和设备</a></li>
+<li><a href="#713">7.1.3   无线网络的类型及其界限</a></li>
+</ul>
+</li>
+<li><a href="#72-lan">7.2   无线 LAN</a><ul>
+<li><a href="#721-lan">7.2.1  无线LAN标准</a></li>
+<li><a href="#722-lan">7.2.2   无线LAN组件</a></li>
+<li><a href="#723-wlanssid">! 7.2.3   WLAN和SSID</a></li>
+<li><a href="#724-channel">7.2.4   无线通道（Channel）</a></li>
+<li><a href="#725">7.2.5   配置接入点</a></li>
+<li><a href="#726">7.2.6   配置无线客户端</a></li>
+</ul>
+</li>
+<li><a href="#73-lan">7.3   无线LAN的安全考虑</a><ul>
+<li><a href="#731-wlan">7.3.1   为什么WLAN会受到攻击</a></li>
+<li><a href="#733-wlan">7.3.3   WLAN上的身份验证</a></li>
+<li><a href="#734-wlan">7.3.4   WLAN上的加密</a></li>
+<li><a href="#735-wlan">7.3.5   WLAN上的通信过滤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chap-8">Chap-8   交换机和终端设备的配置</a><ul>
+<li><a href="#21-ios">2.1   IOS访问</a><ul>
+<li><a href="#211">2.1.1   操作系统</a></li>
+<li><a href="#212-gui">2.1.2   GUI（图形用户界面）</a></li>
+<li><a href="#213-cli">2.1.3   CLI（命令行界面）</a></li>
+<li><a href="#214_1">2.1.4   访问方法</a></li>
+<li><a href="#215_1">2.1.5   终端仿真程序</a></li>
+</ul>
+</li>
+<li><a href="#22-ios">2.2   IOS导航</a><ul>
+<li><a href="#221_1">2.2.1   主要命令模式</a></li>
+<li><a href="#222_1">2.2.2   配置模式和子配置模式</a></li>
+<li><a href="#224-ios">2.2.4   在IOS模式之间导航</a></li>
+</ul>
+</li>
+<li><a href="#23_1">2.3   命令结构</a><ul>
+<li><a href="#231-ios">2.3.1   基本IOS命令结构</a></li>
+</ul>
+</li>
+<li><a href="#24_1">2.4   设备基本配置</a><ul>
+<li><a href="#241">2.4.1   设备名称</a></li>
+<li><a href="#243_1">2.4.3   配置密码</a></li>
+<li><a href="#244">2.4.4   加密密码</a></li>
+<li><a href="#245">2.4.5   横幅消息</a></li>
+</ul>
+</li>
+<li><a href="#25_1">2.5   保存配置</a><ul>
+<li><a href="#251_1">2.5.1   配置文件</a></li>
+<li><a href="#252">2.5.2   修改运行配置</a></li>
+</ul>
+</li>
+<li><a href="#27-ip">2.7   配置IP地址</a><ul>
+<li><a href="#274-svi">2.7.4   交换机虚拟接口（SVI）配置</a></li>
+</ul>
+</li>
+<li><a href="#28">2.8   验证连接</a><ul>
+<li><a href="#281">2.8.1   接口编址验证</a></li>
+<li><a href="#282">2.8.2   端到端连接测试</a></li>
+</ul>
+</li>
+<li><a href="#exp-dnsiisdns">EXP 无线网络中DNS和IIS服务器的配置应用实验DNS服务器的安装和配置</a><ul>
+<li><a href="#_4">一、关于主和辅域名服务器的概念</a></li>
+<li><a href="#dns">二、DNS服务器的配置过程</a></li>
+<li><a href="#dns_1">三、检验DNS服务配置效果</a></li>
+</ul>
+</li>
+<li><a href="#iis">IIS服务器的安装和配置</a></li>
+</ul>
+</li>
+<li><a href="#chap-9">Chap-9   基本安全性</a><ul>
+<li><a href="#81">8.1   网络威胁</a><ul>
+<li><a href="#813">8.1.3   社会工程</a></li>
+</ul>
+</li>
+<li><a href="#82">8.2   攻击方式</a><ul>
+<li><a href="#821">8.2.1   病毒、蠕虫和特洛伊木马</a></li>
+<li><a href="#822">8.2.2   拒绝服务和暴力攻击</a></li>
+<li><a href="#823-cookie">8.2.3   间谍软件、跟踪Cookie、广告软件和弹出广告</a></li>
+<li><a href="#824">8.2.4   垃圾邮件</a></li>
+</ul>
+</li>
+<li><a href="#83">8.3   安全策略</a><ul>
+<li><a href="#831">*8.3.1   常用安全措施</a></li>
+<li><a href="#832">8.3.2   更新和补丁</a></li>
+<li><a href="#833">8.3.3   防病毒软件</a></li>
+<li><a href="#834">8.3.4   反垃圾邮件</a></li>
+<li><a href="#835">8.3.5   反间谍软件</a></li>
+</ul>
+</li>
+<li><a href="#84">8.4   使用防火墙</a><ul>
+<li><a href="#841">8.4.1   什么是防火墙</a></li>
+<li><a href="#842">8.4.2   使用防火墙</a></li>
+</ul>
+</li>
+<li><a href="#exp">EXP 虚拟服务器、防火墙等</a></li>
+</ul>
+</li>
+<li><a href="#chap-10-ipv4">Chap-10  IPv4 编址</a><ul>
+<li><a href="#114">11.4   网络分段</a><ul>
+<li><a href="#1141">11.4.1   广播域和分段</a></li>
+<li><a href="#1142">11.4.2   大型广播域存在的问题</a></li>
+<li><a href="#1143">11.4.3   划分子网的原因及依据</a></li>
+</ul>
+</li>
+<li><a href="#115-ipv4116-168117">11.5   IPv4网络的子网&amp;11.6   使用/16和/8前缀划分子网&amp;11.7   按照要求划分子网</a><ul>
+<li><a href="#_5">有类子网划分</a></li>
+<li><a href="#_6">无类子网划分</a></li>
+</ul>
+</li>
+<li><a href="#118-vlsm">11.8   VLSM</a><ul>
+<li><a href="#_7">传统子网划分浪费地址</a></li>
+<li><a href="#_8">可变长子网掩码</a></li>
+<li><a href="#vlsm">VLSM图表</a></li>
+<li><a href="#magic-number-method">！！“Magic Number” Method</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#chap-11">Chap-11  网络寻址</a><ul>
+<li><a href="#53-ip">5.3   获取IP地址的方式</a><ul>
+<li><a href="#531">5.3.1   静态和动态地址分配</a></li>
+<li><a href="#532-dhcp">5.3.2   DHCP服务器</a></li>
+<li><a href="#533-dhcp">5.3.3   配置DHCP</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="chap-1">Chap-1 当今网络</h2>
+<h3 id="12">1.2   网络组件</h3>
+<h4 id="121">1.2.1   主机角色</h4>
+<ul>
+<li>
+<p>所有<strong>连接到网络并参与网络通信的设备都</strong>称为主机，主机也称为<strong>终端设备</strong>。</p>
+</li>
+<li>
+<p>根据主机在网络中所扮演的角色不同，可分为：<strong>服务器与客户端</strong>。</p>
+</li>
+</ul>
+<p>主机为了能够相互通信，都设置有一个<strong>数字标识</strong>，称为<strong>互联网协议（IP）地址</strong>。IP地址用于标识主机和主机所连接的网络。</p>
+<p><img alt="image-20231210182056094" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231210182056094.png" /></p>
+<p><strong>基础架构网络</strong>：由中间设备（交换机、路由器、接入点）将终端设备（服务器、客户端）互连而成的网络。</p>
+<h4 id="122">1.2.2   点对点（对等网络）</h4>
+<p>多台PC直接互连，没有中间设备。</p>
+<p>对等网络中的许多计算机既是服务器又是客户端。</p>
+<p><img alt="image-20231210182248675" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231210182248675.png" /></p>
+<h4 id="123">1.2.3   终端设备</h4>
+<p>终端设备是通过网络传输消息的<strong>源或目的地</strong>。为了区分不同的终端设备，网络中的每台终端设备都用地址加以标识。当一台终端设备发起通信时，<strong>会使用目的终端设备的地址来指定</strong>应该将消息发送到哪里。</p>
+<p><img alt="image-20231210182505867" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231210182505867.png" /></p>
+<h4 id="124">1.2.4   中间设备（网络设备）</h4>
+<p>中间设备将每台终端设备连接到网络，并且可以将多个独立的网络连接成网际网络。</p>
+<p><img alt="image-20231210182457082" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231210182457082.png" /></p>
+<h4 id="125">1.2.5   网络介质</h4>
+<p>网络介质为数据传输提供物理通道。常用的介质有三种：</p>
+<ul>
+<li><strong>电缆</strong>：使用金属质材，数据将编码为电脉冲。</li>
+<li><strong>光纤</strong>：使用玻璃或塑料质材，数据将编码为光脉冲。</li>
+<li><strong>无线</strong>：使用电磁波传输数据。</li>
+</ul>
+<p><img alt="image-20231210182827580" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231210182827580.png" /></p>
+<h3 id="13">1.3   网络表示方式和网络拓扑</h3>
+<h4 id="131">1.3.1   网卡、端口与接口</h4>
+<ul>
+<li><strong>网络接口卡NIC</strong>：终端设备上的网卡，用于提供设备与网络之间的连接。</li>
+<li><strong>端口</strong>：网络设备上的插口，网络介质通过它连接到终端设备或其它网络设备。</li>
+<li><strong>接口</strong>：网络设备上连接到独立网络的专用端口。路由器用于互连不同的网络，路由器上的端口称为网络接口。</li>
+</ul>
+<h4 id="132">1.3.2   拓扑图</h4>
+<p>网络拓扑图是提供直观网络连接的结构图。</p>
+<ul>
+<li>
+<p>物理拓扑图： 标识<strong>设备</strong>和<strong>电缆</strong>安装的物理位置。</p>
+</li>
+<li>
+<p>物理拓扑图记录各台<strong>主机的位置</strong>及其与<strong>网络连接的方式</strong>。</p>
+</li>
+<li>
+<p>物理拓扑图还会显示<strong>电缆的安装位置</strong>、<strong>网络设备位置</strong>等。</p>
+<p><img alt="image-20231211095212555" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211095212555.png" /></p>
+</li>
+<li>
+<p>逻辑拓扑图： 标识设备、端口和编址方案。</p>
+</li>
+<li>逻辑拓扑图<strong>对主机进行分组的依据是它们使用网络的方式</strong>，而<strong>不考虑它们的物理位置</strong>。主机名称、IP地址、组信息和应用程序都可以记录在逻辑拓扑图中。</li>
+</ul>
+<p><img alt="image-20231211095302226" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211095302226.png" /></p>
+<h3 id="14">1.4   常见网络类型</h3>
+<h4 id="141">1.4.1   多种规模的网络</h4>
+<ol>
+<li><strong>小型家庭网络</strong>：连接少量的几台计算机（个位数），可以实现共享文件、共享打印机等基本网络功能，并将它们连接到互联网。</li>
+<li><strong>小型办公室/家庭办公室网络（SOHO）</strong>：可以让一个小型/家庭办公室内的计算机连接到企业网络或公共网络。</li>
+<li><strong>大中型网络</strong>（大型企业和学校使用的网络）：可能有许多站点，包含成百上千台相互连接的计算机。</li>
+<li><strong>Internet</strong>：全球所有网络组成的全体集合，连接全球亿万台计算机。Internet是现存最大的网络。术语“Internet”是指“众多网络所组成的网络”。</li>
+</ol>
+<h4 id="142-lanwan">1.4.2   LAN和WAN</h4>
+<ul>
+<li>局域网（LAN）：网络覆盖区域较小，通常是由个人或单个部门拥有并管理的家庭或小型网络。</li>
+<li>广域网（WAN）：网络覆盖范围广阔，通常由通信服务提供商（ISP）拥有并管理。</li>
+</ul>
+<p><img alt="image-20231211095500589" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211095500589.png" /></p>
+<h4 id="143">1.4.3   互联网</h4>
+<p>​    Internet是互连网络的全球集合。多个LAN通过WAN互连，然后WAN再彼此互连下去……
+​   Internet不属于任何个人或团体。为了确保Internet有效可靠地通信，需要采用统一的技术和标准，也需要众多的网络管理机构相互协作。为了维护互联网协议的标准化，人们建立了许多组织，其中包括： ICANN、 IETF、IEEE等。</p>
+<h4 id="144">1.4.4   内部网和外联网</h4>
+<ul>
+<li><strong>内部网</strong>（Intranet）– 通常用于表示一个组织的私有局域网和广域网连接，只有该组织的成员、员工或其他获得授权的人员可以访问。</li>
+<li><strong>外联网</strong>（Extranet）– 组织可以使用外联网为需要本组织数据的外部用户提供安全访问。例如公司为外部供应商和承包商提供访问。</li>
+</ul>
+<p><img alt="image-20231211100042113" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211100042113.png" /></p>
+<h3 id="16">1.6   可靠网络</h3>
+<h4 id="161">1.6.1   网络架构</h4>
+<p>网络的底层架构必须具备以下四个基本特性才能满足用户的期望：</p>
+<p><img alt="image-20231211102914864" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211102914864.png" /></p>
+<h4 id="162">1.6.2   容错能力</h4>
+<p>人们期望Internet能始终为用户提供服务。容错网络应能够降低故障影响，使受故障影响的设备数量降至最低，并在发生故障时能够快速恢复。</p>
+<p>有多条路径可以到达目的地被称为冗余。如果一条路径失败，消息可以通过其它备份路径发送。</p>
+<h4 id="163">1.6.3   可扩展性</h4>
+<p>可扩展的网络能迅速扩张以支持新增用户和应用程序，同时还应该保证不会影响到为现有用户。</p>
+<p>网络软硬件的设计开发人员遵循统一的技术标准，使得网络易于扩展。</p>
+<h4 id="164-qos">1.6.4   服务质量（QoS）</h4>
+<p>QoS是用于管理拥塞和确保可靠传输数据的一种机制。</p>
+<p>QoS策略会对不同类型的数据<strong>配置不同级别的传输优先级。</strong></p>
+<p>例如，一位用户正在请求网页，另一位用户在拨打IP电话。部署了QoS策略的路由器将会优先处理语音通信。</p>
+<h4 id="165">1.6.5   安全性</h4>
+<p><strong>网络基础设施</strong>以及联网设备上的<strong>数据</strong>是极为重要的资产。</p>
+<p>两种网络安全问题：<strong>网络基础设施安全性</strong>和<strong>信息安全性</strong>。一方面要<strong>保护网络设备的安全</strong>，另一方面要防止有人<strong>未经授权地</strong>访问网络设备上的管理软件。</p>
+<p>信息安全是指保护网络中<strong>传输的信息</strong>和网络设备中<strong>存储的信息</strong>。</p>
+<ul>
+<li>机密性 - 数据机密性或保密性意味着<strong>只有预定和授权收件人</strong>可访问并读取数据。</li>
+<li>完整性 - 数据完整性表示保证信息在从源地址到目的地址的<strong>传输过程中，不会被更改</strong>（篡改）。</li>
+<li>可用性 - 数据可用性表示授权用户能<strong>及时可靠地访问数据</strong>。</li>
+</ul>
+<p><img alt="image-20231211103400122" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211103400122.png" /></p>
+<h2 id="chap-2">Chap-2   网络协议和通信</h2>
+<h3 id="21">2.1   通信规则</h3>
+<p>通信的三个基本要素</p>
+<ul>
+<li>消息来源：发送方，向其他人或设备发送消息。</li>
+<li>消息目的：接收方，接收并解释消息。</li>
+<li>通道：消息从源地址传送到目的地址的路径，由介质构成。</li>
+</ul>
+<h4 id="213-protocols">2.1.3   通信协议（Protocols）</h4>
+<p>消息的发送和接收都需要按照一定的规则（协议）来进行。</p>
+<p>不同类型的通信方式，会有不同的协议。例如电话通信和信件通信有各自不同的通信规则。</p>
+<h4 id="214">2.1.4   规则建立（人际沟通）</h4>
+<p>成功的人际沟通所应遵守的规则包括：</p>
+<ol>
+<li>发送方和接收方的名字或标识（ID）</li>
+<li>通用的语言和语法</li>
+<li>传递消息的速度和时间</li>
+<li>证实或确认要求</li>
+</ol>
+<h4 id="215">2.1.5   网络协议要求</h4>
+<p>计算机网络通信需遵守一定的规则或协议。这些通信协议由消息的源、目的和通道的特性决定。例如：不同的传输介质会采用不同的协议。</p>
+<p>通信协议定义了传输消息的详细方式，包括五个方面：</p>
+<ol>
+<li>消息编码</li>
+<li>消息格式及封装</li>
+<li>消息大小（长短）</li>
+<li>消息时序</li>
+<li>消息模式（传输选项）</li>
+</ol>
+<p><img alt="image-20231211104341795" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211104341795.png" /></p>
+<h4 id="216">2.1.6   消息编码</h4>
+<p>消息先转换成<strong>比特位</strong>，然后根据传输介质，将每一位编码成电子脉冲、光信号或电磁波。目的主机接收并解码信号，解释收到的消息。</p>
+<h4 id="217">2.1.7   消息格式和封装</h4>
+<ul>
+<li>将一种<strong>消息格式（信件）</strong>放入另一种<strong>消息格式（信封）</strong>的过程称为<strong>封装</strong>。</li>
+<li>
+<p>收信人从信封中取出信件的过程称为<strong>解封装</strong>。</p>
+</li>
+<li>
+<p>就像信件封装在信封中进行投递一样，计算机消息也要进行封装以便于传输和处理。</p>
+</li>
+<li>每一条计算机消息，先形成<strong>数据包（Packet）</strong>，然后再封装在<strong>数据帧（Frame）</strong>中，并通过网络发送。</li>
+<li><strong>帧</strong>就像信封一样，它提供<strong>“目的和源”的地址</strong>等信息。</li>
+<li><strong>数据帧</strong>中的地址称为<strong>物理地址（MAC地址）</strong>；<strong>数据包</strong>中也含有<strong>“目的和源”的地址</strong>，称为<strong>逻辑地址（IP地址）</strong>。</li>
+</ul>
+<p><img alt="image-20231211105157375" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211105157375.png" /></p>
+<p><img alt="image-20231211105147475" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211105147475.png" /></p>
+<h4 id="218">2.1.8   消息大小（长短）</h4>
+<ul>
+<li>发送主机<strong>将长消息分割为多个片段或帧</strong>。<strong>帧太长或太短都无法传送</strong>。以太网中，帧的长度需满足：64~1518字节。</li>
+<li>每个帧都有自己的<strong>编址信息（片段序号）</strong>。</li>
+<li>在接收主机上，消息的各个片段会<strong>依据其编址信息重新组合拼装</strong>为原始消息。</li>
+</ul>
+<h4 id="219">2.1.9   消息时序（时间顺序）</h4>
+<ul>
+<li>访问方法 - 决定了<strong>可以发送消息的时间</strong>。如果两个人同时讲话，就会发生冲突，必须重新开始。在计算机通信中，也必须定义访问方法。</li>
+<li>流量控制 - 决定了发送信息的速度。如果一个人讲话太快，对方就难以听清和理解。在计算机通信中，源主机需使用流量控制来确定<strong>发送消息的量和速度</strong>。</li>
+<li>响应超时 – 如果一个人提问之后，在合理的时间内未得到应答，此人可能会重复这个问题，也可能忽略此问题并继续交谈。计算机通信中的源主机也会使用规则来指定等待响应的时长，以及在响应超时的情况下执行何种操作。</li>
+</ul>
+<h4 id="2110">2.1.10   消息传输方式</h4>
+<ul>
+<li>单播（一对一），消息只有一个目的地址。</li>
+<li>组播（一对多），将同一条消息同时发送到一组目的主机。</li>
+<li>广播（一对全体），本地网络上的所有主机都需要同时接收该消息。</li>
+</ul>
+<h3 id="22">2.2   协议</h3>
+<h4 id="221">*2.2.1  网络协议概述</h4>
+<p>Internet能够正常运作，它要求：所有设备都必须<strong>遵循一套相同的规则</strong>。<strong>这些规则被称为协议</strong>，每一种协议有各自特定的功能。</p>
+<p><img alt="image-20231211105729228" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211105729228.png" /></p>
+<h4 id="222">*2.2.2   网络协议的功能</h4>
+<p>网络通信协议<strong>定义了</strong>在终端设备之间进行通信时<strong>所需的各种功能</strong>。这些功能包括：</p>
+<p><img alt="image-20231211105743742" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211105743742.png" /></p>
+<h4 id="223">2.2.3   协议交互</h4>
+<p>计算机通过网络发送消息时，需要<strong>使用多种协议</strong>，每种协议都有各自特定的功能和格式。</p>
+<h3 id="23">2.3   协议簇</h3>
+<h4 id="231">2.3.1   网络协议簇</h4>
+<p>实现某种通信功能所需的<strong>一组相关协议</strong>称为<strong>协议簇/族/栈</strong>。</p>
+<p><strong>协议簇为分层结构</strong>，<strong>每一个上层协议都依赖于其下层协议所提供的功能</strong>。下层协议负责<strong>传输数据</strong>，而上层协议则负责<strong>处理消息</strong>。</p>
+<p>以两个人的交互为例：</p>
+<ul>
+<li>底层是<strong>物理层</strong>，两个人约定通过电话交流。</li>
+<li>中间层是<strong>规则层</strong>，两个人约定使用通用的语言交谈。</li>
+<li>顶层是<strong>内容层</strong>，处理交流内容。</li>
+</ul>
+<p><img alt="image-20231211110036870" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211110036870.png" /></p>
+<h4 id="233-tcpip-334-tcpip">2.3.3   TCP/IP协议示例 &amp; 3.3.4   TCP/IP协议簇</h4>
+<p>TCP/IP协议位于应用层、传输层和互联网层。</p>
+<p>网络接入层中没有TCP/IP协议，最常见的是以太网协议和WLAN协议。网络接入层协议负责通过物理介质传输 IP 数据包。</p>
+<p><img alt="image-20231211110146133" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211110146133.png" /><img alt="image-20231211110244473" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211110244473.png" /></p>
+<h3 id="24">2.4   标准组织</h3>
+<h4 id="241242">*2.4.1/2.4.2   开放标准/互联网标准</h4>
+<p>标准组织是中立于厂商的非营利性组织。这些组织对管理互联网的资源分配、推动互联网的技术升级起着重要作用。</p>
+<h4 id="243">2.4.3   电子和通信标准组织</h4>
+<ul>
+<li>电气电子工程师协会（IEEE）：一个工程师组织，致力于推动诸多行业领域的技术创新和标准创建，涉及的领域非常广泛，包括：电力能源、医疗保健、电信和网络等。
+  （IEEE 802.3 以太网，IEEE 802.11  WLAN）</li>
+<li>美国电子工业协会（EIA）：设计制定用于安装网络设备的线缆、连接器等方面的标准。网线制作实验！</li>
+<li>电信工业协会（TIA）：负责开发各种领域的通信标准，包括无线电设备、手机信号塔、IP语音（VoIP）设备和卫星通信等。</li>
+</ul>
+<h3 id="25">2.5   参考模型</h3>
+<h4 id="251">2.5.1   使用分层模型的优点</h4>
+<p>使用分层模型来描述网络协议及其工作方式，有以下优点：</p>
+<ul>
+<li>方便了协议设计，因为对特定层级的协议而言，它们的功能以及与上、下层级之间的接口都已确定。
+  促进竞争，可以使用不同厂商的产品。</li>
+<li>避免一个协议层级的技术升级或功能变化影响其它层级。</li>
+<li>提供了一种描述网络功能的通用语言。</li>
+</ul>
+<p>目前使用的两种网络分层模型：TCP/IP模型和OSI模型（开放式系统互联模型）。</p>
+<p>OSI模型是网络工作原理的表示方式（理论模型），并非网络的实际构架。</p>
+<p><img alt="image-20231211110923626" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211110923626.png" /></p>
+<h4 id="252-osi">2.5.2   OSI参考模型</h4>
+<p>提及OSI模型时，则通常使用其编号。例如，第1层指OSI模型的物理层。</p>
+<ul>
+<li>应用层：与<strong>应用程序</strong>相关联的各种通信协议。</li>
+<li>表示层：将需要传输的信息<strong>表示成规范的格式</strong>。</li>
+<li>会话层：<strong>建立和维持会话</strong>。</li>
+<li>传输层：<strong>添加端口号，封装数据段；规定数据的传输、重组方式、是否需要确认机制等</strong>。</li>
+<li>网络层：<strong>添加IP地址，封装数据包；选择发送数据包的路径</strong>。</li>
+<li>数据链路层：<strong>添加MAC地址，封装数据帧</strong>。</li>
+<li>物理层：与<strong>传输介质</strong>相关，将数据转换成可以在各种介质上传输的<strong>物理信号</strong>。</li>
+</ul>
+<p><img alt="image-20231211111349974" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211111349974.png" /></p>
+<h4 id="253-tcpip">2.5.3   TCP/IP 协议模型</h4>
+<p>因为Internet的构建遵循此模型的结构，又称为<strong>Internet模型</strong>。它定义了成功通信所需要的四个层级的功能。</p>
+<p>当我们提及TCP/IP模型的各层时，通常使用其名称；而提及OSI模型时，则通常使用其编号。例如，第1层指OSI模型的物理层。</p>
+<p><img alt="image-20231211111505330" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211111505330.png" /></p>
+<h4 id="_2"></h4>
+<h3 id="26">2.6   数据封装</h3>
+<h4 id="261">2.6.1   消息分段</h4>
+<p>将数据流划分为较小的片段称为分段。消息分段的两个优点：</p>
+<ul>
+<li>可以在网络上交替发送多个不同会话，称为<strong>多路复用</strong>。</li>
+<li>可以增强网络的<strong>通信效率</strong>。如果由于网络故障或网络拥塞，<strong>有部分消息未能传送到目的地</strong>，则<strong>只需重新传输丢失的部分</strong>。</li>
+</ul>
+<h4 id="262">2.6.2   排序</h4>
+<p>TCP协议负责对数据段进行排序，即对每个数据段进行编号。</p>
+<h4 id="263">2.6.3   协议数据单元</h4>
+<p>在传输数据的过程中，随着数据沿协议栈向下传递，<strong>每一层都要添加各种协议信息</strong>。此过程称为封装。</p>
+<p><strong>数据在任一协议层的表示形式</strong>称为协议数据单元（PDU）。在封装过程中，每一层都从上一层接收PDU，并根据当前层协议添加新的封装。</p>
+<p>在封装过程的每个阶段，PDU都有各自不同的名称。</p>
+<p><img alt="image-20231211111802410" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211111802410.png" /></p>
+<h4 id="264-365">2.6.4   封装示例 &amp; 3.6.5   解封示例</h4>
+<p><img alt="image-20231211111818799" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211111818799.png" /></p>
+<p>封装过程越加越大，越加越长。添加的目的：为便于准确传输。</p>
+<p>在解封过程中，接收设备删除一个又一个的协议报头。越减越小，越减越短。删减的目的：为提取真正有用的数据。</p>
+<h3 id="27">2.7   数据访问</h3>
+<h4 id="272-3">2.7.2  第3层逻辑地址</h4>
+<p>IP地址用于将数据包从源设备传输到目的设备。<strong>数据包含有两个IP地址：源IP地址和目的IP地址</strong>。</p>
+<p>数据在跨网络传输时，数据包的内容不变，即<strong>源主机和目的主机的IP地址不变</strong>。但是数据帧在<strong>经过路由器</strong>时，会<strong>被拆封装和重新封装</strong>，<strong>源和目的的MAC地址会不断变化</strong>。</p>
+<p><img alt="image-20231211113219989" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211113219989.png" /></p>
+<h4 id="278">2.7.8   数据链路层地址</h4>
+<p>数据链路层的MAC地址仅用于在本地网络中传输数据。</p>
+<p>当数据包从发送主机到接收主机进行传输时，沿途中的每个路由器都会将数据包重新封装到新的数据帧中，每一个新的数据帧都包含新的源MAC地址和新的目的MAC地址。</p>
+<p><img alt="image-20231211113424128" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211113424128.png" /></p>
+<p><img alt="image-20231211113527480" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211113527480.png" /></p>
+<p><img alt="image-20231211113531771" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211113531771.png" /></p>
+<h2 id="chap-3-ethernet">Chap-3   以太网（Ethernet）</h2>
+<h3 id="33">3.3   本地有线网络中的通信</h3>
+<h4 id="331">3.3.1  本地有线网络中的协议</h4>
+<p>本地有线网络中最常用的协议是<strong>以太网（Ethernet）</strong>。</p>
+<p>以太网协议定义了本地网络通信的许多方面，包括：消息格式、消息大小、时序、编码和消息模式。</p>
+<h4 id="333">! 3.3.3   物理寻址（重要概念！）</h4>
+<p>以太网中的主机都会有一个自己的物理地址，用于在网络中标识自己，相当于它的名字。</p>
+<p>每个以太网络接口（如PC机的网卡接口）<strong>在制造时，都分配有一个物理地址</strong>。此地址称为<strong>介质访问控制（MAC）地址</strong>。该地址为48位2进制数，6个字节（8位），12个Hex数字。</p>
+<h4 id="335">3.3.5  以太网络的层次设计</h4>
+<p>MAC地址表示某一主机的<strong>独特身份</strong>，而<strong>不指明主机在网络中的位置</strong>。</p>
+<ul>
+<li>如果Internet中所有主机（超过4亿台）都只用其唯一的MAC地址来标识，那么要查找一台确定的主机无异于大海捞针！</li>
+<li>为帮助主机通信，以太网技术还会生成大量的广播流量。广播将发送到一个网络中所有主机，它非常消耗带宽，会减慢网络速度。试想如果连接Internet的所有主机都在一个以太网络中，且都使用广播，结果将会怎样？</li>
+</ul>
+<p>由于上述两个原因，由大量主机组成的大型以太网络通常效率极低。所以最好将大型网络分割成便于管理的多个小型网段，这时可使用<strong>层次设计模型</strong>。</p>
+<p>在网络中，所谓“层次设计”是指：<strong>将各台设备分组到多个“以分层方式构建”的较小的网络中。</strong></p>
+<p>层次式设计有三个<strong>基本层</strong>：</p>
+<ul>
+<li>接入层 - 连接本地以太网络中的主机</li>
+<li>分布层 - 将较小的本地网络相互连接起来</li>
+<li>核心层 – 在分布层设备之间高速转发大量数据</li>
+</ul>
+<p>在这种层次式设计中，需要使用逻辑寻址（IP地址）来标识主机位置。</p>
+<p><img alt="image-20231211115042665" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211115042665.png" /></p>
+<h4 id="336">! 3.3.6  逻辑寻址（重要概念！）</h4>
+<p>IP地址（v4）包含两部分：32位，4个十进制数字</p>
+<ul>
+<li>前面的第一部分标识<strong>本地网络</strong>：所有连接到同一本地网络的主机，其IP地址的网络部分都是一样的；</li>
+<li>后面的第二部分标识<strong>特定主机</strong>：在同一个本地网络中，IP地址的主机部分是每台主机所独有的。</li>
+</ul>
+<p><img alt="image-20231211115302616" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211115302616.png" /></p>
+<p>IP地址可以用于确定：网络通信流量<strong>应保留在本地，还是上移到网络的更高层去进行中转</strong>。</p>
+<ul>
+<li>若目的IP和源IP的网络部分相同，即二者属于同一网络，则保留在本地不出去。这时，源主机将消息通过交换机直接发送到目的主机。（发送任务由交换机独立完成）</li>
+<li>若目的IP和源IP的网络部分不同，即二者属于不同网络，则需要上移到更高的层级去中转。这时，源主机将消息通过交换机发送到路由器端口（默认网关），由路由器寻找路径，将消息发送到目的主机。（发送任务由交换机转交给路由器完成）</li>
+</ul>
+<p><strong>MAX &amp; IP</strong></p>
+<ul>
+<li>主机的MAC地址一般不会改变，它是制造厂商固化在网卡内的地址，称为物理地址。无论主机在网络中哪个位置，其物理地址都保持不变，类似于人的名字。</li>
+<li>
+<p>IP地址类似于人的住址或通信地址，称为逻辑地址。IP地址由网络管理员根据本地网络情况手工或自动分配给每台主机，通常并非固定不变的。</p>
+</li>
+<li>
+<p>层次网络中的主机，同时需要MAC地址和IP地址；就如同在寄信时，同时需要收信人的名字和通信地址一样。</p>
+</li>
+<li>IP地址在数据包的包头中</li>
+<li>MAC地址在数据帧的帧头中</li>
+</ul>
+<h4 id="337">3.3.7   接入层、分布层和设备</h4>
+<p><strong>接入层</strong>为<strong>终端用户设备连接到网络提供连接点</strong>，允许多台主机通过网络设备（通常是<strong>交换机</strong>）相互连接。</p>
+<p><strong>分布层</strong>为<strong>各本地网络提供连接点</strong>，并且控制信息在网络之间的流动。它使用的设备通常为<strong>路由器</strong>。路由器具有路由功能，负责查找从源主机发送消息到目的主机的最佳路径。</p>
+<p><strong>核心层</strong>是包含冗余连接的<strong>高速中枢层</strong>。它负责在<strong>多个终端网络之间传输大量的数据</strong>。它包含<strong>非常强大的高速交换机和路由器</strong>。其主要功能是：快速传输大量数据。</p>
+<h3 id="34">3.4   创建以太网络的接入层</h3>
+<h4 id="341">3.4.1  接入层</h4>
+<p><strong>接入层是网络的最基本层级</strong>，它为用户提供连接点，用于：访问其它主机、共享文件或打印机。接入层包含主机设备与其它相关的网络设备。</p>
+<p>接入层中的每台主机使用线缆连接到网络设备，如交换机。</p>
+<p><img alt="image-20231211115845623" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211115845623.png" /></p>
+<h4 id="343">! 3.4.3   交换机的功能（重要概念！）</h4>
+<p>交换机Switch是接入层的一种多端口设备。</p>
+<p>交换机可<strong>将多台主机连接到网络</strong>。交换机<strong>可转发消息到特定主机</strong>。</p>
+<p>交换机上的<strong>MAC地址表</strong>列出了所有活动端口以及所有与这些活动端口相连主机的MAC地址。</p>
+<p>当一台主机发送消息到另一台主机时，交换机将<strong>接受并解码消息帧</strong>，以<strong>读取目的主机的MAC地址</strong>，然后<strong>在MAC地址表中找到相应端口并作出转发</strong>。</p>
+<p><img alt="image-20231211120149640" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211120149640.png" /></p>
+<p>当主机之间发送消息时，交换机将<strong>检查目的主机的MAC地址是否在MAC地址表</strong>中。</p>
+<ul>
+<li>如果在，交换机就会在源端口与目的端口之间<strong>创建一个临时的专用通道</strong>，其它主机不会使用此通道。主机间的<strong>每次通信都会创建一条新的独立通道</strong>，这些专用通道使交换机上可同时进行多个通信，而<strong>不会发生冲突使数据损坏</strong>。</li>
+<li>如果不在，交换机会采用“泛洪”处理方式，查询目的主机的MAC地址，并<strong>更新自己的MAC地址表</strong>。</li>
+</ul>
+<h4 id="344">3.4.4   广播消息</h4>
+<p>在本地网络中，某台主机需要<strong>将消息同时发送到所有其它主机</strong>可以通过“广播”消息来实现。</p>
+<p>当某台主机需要查找信息，但又不确定“哪台主机”可以提供信息时，可使用广播消息。</p>
+<p>发送广播消息时需要使用一个特殊的MAC地址——<strong>广播MAC地址</strong>，它是一个<strong>全部由1组成的48位地址</strong>。鉴于其长度，MAC地址通常用十六进制表示。十六进制的广播MAC地址为<strong>FFFF.FFFF.FFFF</strong>，其中每个F代表二进制中的四个1（即十进制中的15）。</p>
+<p>当某台主机发出一条广播消息时，交换机会将该消息转发到<strong>同一本地网络</strong>连接的每台主机。故本地网络也称为广播域。<strong>广播域</strong>：当任一主机发送广播消息时，所有能够接受该广播消息的主机的集合（或者网络区域）。</p>
+<p><img alt="image-20231211120700511" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211120700511.png" /></p>
+<h4 id="346-arp">3.4.6   地址解析协议（ARP）</h4>
+<p>在本地网络通信中，需要两种地址：MAC地址和IP地址。但很多场合下，<strong>源主机只知道目的主机的IP地址</strong>，故需要一种机制用于：<strong>根据IP地址查询MAC地址</strong>，这种机制称为地址解析协议（ARP）。ARP：IP-&gt;MAC</p>
+<p>关于网络主机中的ARP表：（arp -a）</p>
+<ul>
+<li>ARP表保存了本地网络中所有主机的IP地址与MAC地址（还包括广播地址、默认网关地址等）</li>
+<li>ARP表的作用：帮助发送主机形成数据帧</li>
+<li>ARP表是动态更新的（通过ARP广播）</li>
+</ul>
+<h3 id="35">3.5   创建网络的分布层</h3>
+<h4 id="351">3.5.1   分布层 &amp; 路由器</h4>
+<p>随着网络的扩大，应将一个本地网络分成多个接入层网络，然后用分布层设备（如路由器）进行互联。</p>
+<p><img alt="image-20231211120938731" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211120938731.png" /></p>
+<p><strong>路由器的特点</strong></p>
+<p>路由器在本质上是一台计算机。和计算机、平板电脑或其它智能设备一样，路由器由以下部分组成：</p>
+<ul>
+<li>中央处理器（CPU）</li>
+<li>操作系统（OS）：Cisco Internetwork Operating System（IOS）用于各种思科设备的系统软件。</li>
+<li>内存：
+  随机访问存储器（RAM）
+  只读存储器（ROM）
+  非易失性随机访问存储器（NVRAM）</li>
+</ul>
+<p><strong>路由器的外观</strong></p>
+<p>思科设备使用LED指示灯来提供状态信息。如果接口为活动状态而且连接正确，但LED不亮，则表示该接口可能存在故障。如果接口极其繁忙，则其LED 会一直亮起或持续快速闪烁。</p>
+<p><img alt="image-20231211121051769" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211121051769.png" /></p>
+<p><strong>LAN和WAN接口</strong></p>
+<p>路由器接口可分为两类：</p>
+<ul>
+<li>以太网LAN接口 - 用于连接LAN设备（如计算机或交换机）。此接口也可用于路由器之间的相互连接。</li>
+<li>串行WAN接口 - 将路由器连接到远程网络（地理位置较远）。</li>
+</ul>
+<p><img alt="image-20231211121533805" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211121533805.png" /></p>
+<h4 id="352">3.5.2  路由器的功能（重要概念！）</h4>
+<p>路由器Router是一种用于<strong>连接不同本地网络的分布层设备</strong>。路由器每个端口都连接到一个本地网络。</p>
+<p>路由器与交换机一样，都可以读取收到的消息。交换机读取的是数据帧帧头中的MAC地址，路由器读取的是<strong>数据帧中封装的数据包包头中的IP地址</strong>。</p>
+<p>数据包包头中包含目的主机和源主机的IP地址以及消息数据。路由器读取<strong>目的主机IP地址的网络部分，查找转发到目的主机的最佳路径/最佳路由</strong>。</p>
+<p>路由器利用<strong>路由表</strong>确定发送消息到目的网络时采用的路径。每个路由器都包含一个<strong>路由表</strong>，里面有多条<strong>路由信息</strong>，每条<strong>路由</strong>列出了：</p>
+<ol>
+<li>接口</li>
+<li>通过该接口能到达的目的网络</li>
+<li>这条路由的优劣信息（路由权值/度量指标/Metric）。</li>
+</ol>
+<p>路由器使用这些信息来指导数据到达目的网络。</p>
+<h4 id="353-gateway">3.5.3   默认网关（网关 Gateway =出口）</h4>
+<p>必须<strong>在本地网络的每台主机上</strong>配置正确的默认网关。如果没有在主机TCP/IP设置中配置默认网关，或者指定了错误的默认网关，便<strong>无法将消息发送到远程网络上的主机</strong>。</p>
+<p>默认网关<strong>是本地网络的出口</strong>，要到其它外界网络去，必须先到默认网关然后再转出去。</p>
+<p>默认网关地址就是主机所在的本地网络所连接的<strong>路由器接口的IP地址</strong>。</p>
+<p><img alt="image-20231211122106649" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211122106649.png" /></p>
+<h3 id="_3"><strong>简单总结</strong></h3>
+<ol>
+<li>交换机：连接终端设备构成本地网络，负责本地网络通信，读取数据帧的MAC地址。</li>
+<li>路由器：连接本地网络，负责跨网络通信，读取数据包的IP地址。</li>
+<li>终端设备网卡：形成数据帧。</li>
+<li>ARP表中包含有本地网络中其它主机的“IP地址与MAC地址对”信息。其内容可通过 arp –a 命令查看。</li>
+<li>ARP表是实时更新的，如果某台主机的信息不在其中，则会发起ARP地址解析协议进行查询。</li>
+<li>本地网络通信：发送主机根据ARP表中的信息，直接形成数据帧。</li>
+<li>远程网络通信：发送主机将默认网关的MAC地址封装于数据帧的帧头，将目的主机的IP地址封装于数据包的报头。</li>
+</ol>
+<p><a href="https://zhuanlan.zhihu.com/p/515239767">数据帧转发过程中IP地址及MAC地址的变化 - 知乎 (zhihu.com)</a></p>
+<h2 id="chap-4-ispinternet">Chap-4   通过ISP连接到Internet</h2>
+<h3 id="42">4.2   连通性测试命令</h3>
+<h4 id="423-internet">! 4.2.3  在Internet中转发数据包（重要）</h4>
+<ul>
+<li>ping命令可用于测试源设备与目的设备之间的连通性。（Ctrl+C中止）</li>
+<li>traceroute实用程序可追踪源设备与目的设备之间的路由。</li>
+<li>tracert命令…（Ctrl+C中止）</li>
+<li>数据包在传输过程中<strong>每经过一个路由器称为一跳</strong>（跃点，Hop）。traceroute显示沿途的每一跳，以及到每一跳所花费的时间。</li>
+<li>如果发生问题，便可利用所显示的时间以及数据包经过的路由来判断数据包是在何处丢失或延迟的。</li>
+</ul>
+<h3 id="44">4.4  线缆和连接器</h3>
+<h4 id="441">4.4.1   常见的网络线缆</h4>
+<ul>
+<li>要进行通信，必须存在源、目的以及某种类型的通道（或介质）。</li>
+<li>介质通常是某种<strong>物理线缆</strong>，也可以是<strong>电磁波</strong>。</li>
+<li>
+<p>源与目的之间的连接可以是直接的，也可以是间接的，甚至可能跨越多种介质类型。</p>
+</li>
+<li>
+<p>物理线缆分为两类：</p>
+</li>
+<li><strong>金属电缆</strong>一般为铜或铝，
+使用电子脉冲传输信息。</li>
+<li>
+<p><strong>光纤</strong>由玻璃或塑料制成，
+使用光脉冲来传输信息。</p>
+</li>
+<li>
+<p>双绞线（Twisted Pair，TP）：以太网通常使用双绞线（一种铜质电缆）来连接设备。由于以太网是大多数局域网的基础，因此双绞线是最常见的网络布线类型。</p>
+</li>
+<li>同轴电缆：同轴电缆由铜或铝制成，有线电视使用这种电缆，也可用于卫星通讯系统。</li>
+<li>光纤：由玻璃或塑料制成。其带宽很高，可承载大量的数据。光纤用于主干网络、大型企业环境以及大型数据中心。</li>
+</ul>
+<p><img alt="image-20231211130225224" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211130225224.png" /></p>
+<h4 id="442">4.4.2   双绞线电缆</h4>
+<p>双绞线电缆由一对或多对绝缘铜线构成，其中每一对以塑料材质绝缘的铜线相互扭（绞绕）在一起，这即是双绞线名称的由来，最外面包裹着一层橡胶的防护套（总外皮）。与所有铜质电缆类似，双绞线使用电子脉冲来传输数据。</p>
+<p><img alt="image-20231211130935781" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211130935781.png" /></p>
+<p>数据传输对干扰噪声很敏感，干扰或噪声会导致线缆的数据速率下降。</p>
+<p>双绞线电缆容易受到电磁干扰的影响（电磁干扰简称EMI，属于一种噪声）。若多根电缆在很长一段距离中被捆扎在一起，还会发生另一种干扰——<strong>串扰</strong>。串扰是指信号从一根电缆泄漏出去，串入附近的其它根电缆中对其造成干扰。若数据传输受到串扰之类干扰的破坏，则必须重新传输数据，这会降低介质的数据传送能力/效率。</p>
+<p>在双绞线布线中，电缆单位长度的绞合次数决定了其抗干扰能力。</p>
+<p>针对干扰情况不同的场合，可采用三种类型的双绞线电缆：<strong>非屏蔽双绞线UTP、屏蔽双绞线STP和外屏蔽双绞线ScTP</strong>。</p>
+<ul>
+<li>屏蔽：外层包裹有<strong>金属编织物箔层</strong>，可以更好抵抗外界电磁干扰EMI和无线电射频干扰RFI.</li>
+<li>非屏蔽双绞线（UTP）是北美和其它许多地区（包括中国）最常用的网络电缆类型.</li>
+<li>
+<p>屏蔽双绞线STP及外屏蔽双绞线ScTP（和F-UTP）在欧洲国家应用最为广泛。</p>
+</li>
+<li>
+<p><strong>UTP电缆</strong>：成本低、带宽较高、安装容易。此类电缆用于连接工作站、主机和网络设备。此类电缆的表皮内包含的线对数量通常为4对。每一线对都由特定的颜色代码标识。</p>
+</li>
+</ul>
+<p><img alt="image-20231211131305182" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211131305182.png" /></p>
+<ul>
+<li>STP及ScTP电缆：在某些EMI和RFI非常强的电子环境中，或在某些要求极高的场合（如核电、军事部门），需要使用具有屏蔽功能的电缆如STP或ScTP电缆，这两种电缆都非常昂贵，灵活度不高，并具有一些由屏蔽而带来的额外要求，使用起来相当不便。</li>
+</ul>
+<p><img alt="image-20231211131329196" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211131329196.png" /></p>
+<p>所有种类的数据级UTP电缆一般都用<strong>RJ-45水晶头</strong>作为端头。其材质为聚氯乙烯PVC透明塑料。RJ45型网络插头俗称水晶头，有8槽8金属簧片。屏蔽水晶头外包有金属屏蔽层。</p>
+<p><img alt="image-20231211131607239" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211131607239.png" /></p>
+<h3 id="45">4.5  使用双绞线布线</h3>
+<h4 id="451">4.5.1   布线标准</h4>
+<p>进行布线时，必须遵循<strong>布线标准</strong>。</p>
+<p>布线标准是用于安装和测试电缆的一组规范。布线标准规定了在特定环境中使用的电缆类型、材料、引线、电线尺寸、屏蔽方式、电缆长度、连接器类型以及性能限制。</p>
+<p>许多组织都参与了布线标准的制定。其中一些组织仅具有本地管辖权，另外还有一些组织（EIA/TIA）提供的标准在全世界范围内被广泛采用。</p>
+<h4 id="452-utp">! 4.5.2   UTP电缆（重要概念！）</h4>
+<p>TIA/EIA组织定义了两种不同模式的<strong>末端线序（布线方式）</strong>，分别称为<strong>T568A和T568B。</strong></p>
+<p>制作网线时，必须在两种模式（T568A或T568B）中选择一种。在电缆内部X白跟X成对绞合在一起！X=绿/橙/蓝/棕</p>
+<p><img alt="image-20231211131905038" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211131905038.png" /></p>
+<p>使用T568A和T568B布线标准可创建两种类型的电缆：<strong>直通电缆</strong>和<strong>交叉电缆</strong>。这两种电缆都可用于数据布线。</p>
+<ul>
+<li>直通电缆是最常见的电缆类型：电缆两端的末端线序相同。</li>
+<li>交叉电缆会同时使用两种布线模式：电缆两端的末端线序不同。</li>
+</ul>
+<p>连接两个设备所需的电缆类型取决于：<strong>设备用于发送和接收数据的线对。</strong></p>
+<ul>
+<li>两个直接连接、并且使用<strong>不同的引脚</strong>来进行发送和接收数据的设备称为<strong>不相似设备</strong>。不相似设备需要使用<strong>直通电缆</strong>来交换数据。</li>
+<li>例如发送设备使用1、2引脚发送，接收设备使用1、2引脚接受，这两者为不相似设备，显然用直通电缆。发送引脚对接接受引脚。</li>
+<li>两个直接连接、并且使用<strong>相同引脚</strong>来进行发送和接收数据的设备称为<strong>相似设备</strong>。相似设备需要使用<strong>交叉电缆</strong>来交换数据。</li>
+</ul>
+<h2 id="chap-5">Chap-5   网络寻址</h2>
+<h3 id="51-ip">5.1   IP地址和子网掩码</h3>
+<h4 id="511-ip">5.1.1   IP地址的用途</h4>
+<ul>
+<li>IP地址是用于<strong>标识特定主机的逻辑地址</strong>。为了与其它设备进行通信，它必须唯一、不能冲突。</li>
+<li>IP地址将分配给主机上的<strong>网络接口卡（网卡）</strong>。具有网络接口卡的设备包括工作站、服务器、网络打印机和IP电话等。某些服务器可拥有多块网卡，每块网卡都有各自的IP地址。<strong>网络设备（如路由器）的接口也需要IP地址</strong>。</li>
+<li>通过Internet发送的每个数据包都有源IP地址和目的IP地址。</li>
+</ul>
+<h4 id="512-ip">5.1.2   IP地址的结构</h4>
+<ul>
+<li>IP地址是32位二进制的数字串。通常以8位为1组<strong>，将32位划分为4组八位字节</strong>，并将每组八位字节用十进制表示。这种记法称为<strong>点分十进制记法</strong>。例如192.168.1.5、10.10.10.34等。</li>
+</ul>
+<h4 id="513-ip">5.1.3   IP地址的组成部分</h4>
+<ul>
+<li>32位的IP地址具有层次性，它由两部分组成。<strong>第一部分用于标识网络</strong>，<strong>第二部分用于标识特定主机</strong>。这两部分在IP地址中都缺一不可。</li>
+<li>以IP地址192.168.18.7为例，前三个字节192.168.18为IP地址的网络部分，最后一个字节7为IP地址的主机部分。</li>
+<li>这种格式称为<strong>分层寻址</strong>：网络部分表明了主机位于哪个本地网络中。</li>
+</ul>
+<p>注意：MAC地址是无层次寻址系统（如人名），IP地址是分层寻址系统（如通信地址）。</p>
+<h4 id="514-ip">5.1.4   IP地址和子网掩码的交互方式</h4>
+<p>在配置主机地址时，要随IP地址设置子网掩码。子网掩码的长度也是32位，也采用点分十进制记法。</p>
+<ul>
+<li>子网掩码用于表明：IP地址中的<strong>哪些部分代表网络，哪些部分代表主机</strong>。</li>
+<li>子网掩码中<strong>“1”</strong>的部分对应于IP地址中的<strong>网络部分</strong>（有时还包括所谓的“子网”部分）</li>
+<li>子网掩码中<strong>“0”</strong>的部分对应于IP地址中的<strong>主机部分</strong></li>
+</ul>
+<p>子网掩码是IP地址的重要组成部分，一个不带子网掩码的IP地址没有意义。</p>
+<p>最常见的子网掩码是（N=Network，H=Host）：</p>
+<ul>
+<li>255.0.0.0（N.H.H.H）</li>
+<li>255.255.0.0（1N.N.H.H）</li>
+<li>255.255.255.0（N.N.N.H）</li>
+</ul>
+<p><strong>前缀长度</strong></p>
+<ul>
+<li>前缀长度是一种识别子网掩码的速记方法。</li>
+<li>前缀长度 = 子网掩码中设置为 1 的位数。</li>
+<li>使用“斜线记法”表示，即“/”紧跟为 1 的位数。
+      例如：192.168.1.5 / 24</li>
+</ul>
+<p><img alt="image-20231211145022071" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211145022071.png" /></p>
+<ul>
+<li>
+<p>计算某一子网掩码对应的网络中<strong>可容纳的主机数量</strong></p>
+</li>
+<li>
+<p>以2为底、以<strong>主机部分</strong>的位数为指数求幂（如<span class="arithmatex">\(2^8\)</span>=256）。</p>
+</li>
+<li>
+<p>必须再从结果数字中减2（如256-2），原因在于：</p>
+<ul>
+<li>主机部分为全1的IP地址是<strong>广播地址</strong>，不能分配给主机；</li>
+<li>主机部分为全0的IP地址是<strong>网络地址</strong>，也不能分配给主机。</li>
+</ul>
+</li>
+<li>
+<p>EXP// 192.168.1.100（子网掩码255.255.255.0）所属网络的</p>
+<ul>
+<li>
+<p>广播地址是192.168.1.255（主机部分全1），</p>
+</li>
+<li>
+<p>网络地址是192.168.1.0（主机部分全0）。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>计算网络地址：将主机的IP地址与子网掩码表示成二进制数再逐位进行<strong>逻辑与运算</strong>，可得该主机所属的网络地址</p>
+</li>
+<li>
+<p>当主机发送数据包时，<strong>源主机</strong>会用<strong>子网掩码</strong>与自身IP地址以及目的IP地址作比较。</p>
+</li>
+<li>如果两个IP地址的网络部分相同，则表示源主机和目的主机位于同一个本地网络中，只需在本地传送。</li>
+<li>如果不同，，则发送主机会将数据包转发到路由器接口（即默认网关），再由路由器转发到目的主机所在的远程网络。</li>
+</ul>
+<p><img alt="image-20231211145936095" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211145936095.png" /></p>
+<p><strong>物理网络与逻辑网络（本地网络）：</strong></p>
+<p>物理网络是指各主机相互之间有物理连接；各主机通过各种网络设备、介质互连。</p>
+<p>在下图所示的物理网络中，有三台主机的IP地址的网络部分同为192.168.18，而另外三台主机的IP地址的网络部分则同为192.168.5，于是<strong>在该物理网络中就存在两个逻辑网络</strong>。<strong>网络部分相同的主机属于同一个逻辑网络</strong>，可直接相互通信；而<strong>网络部分不同的主机则属于不同的逻辑网络</strong>、必须通过“路由器”才能相互通信！</p>
+<p><img alt="image-20231211150057805" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211150057805.png" /></p>
+<h3 id="52-ip">5.2   IP地址的类型</h3>
+<h4 id="521-ip">5.2.1   IP地址类和默认子网掩码</h4>
+<ul>
+<li>IP地址分为五类。A类、B类和C类是商业类地址，可分配给主机。D类保留供组播使用，而E类则保留用于实验用途。</li>
+<li>C类地址默认子网掩码为24位（255.255.255.0），通常分配给小型网络（<span class="arithmatex">\(2^8-2\)</span>）。</li>
+<li>B类地址默认子网掩码为16位（255.255.0.0），一般用于中型网络（<span class="arithmatex">\(2^{16}-2\)</span>）。</li>
+<li>A类地址默认子网掩码为8位（255.0.0.0），一般分配给大型组织（<span class="arithmatex">\(2^{24}-2\)</span>）。</li>
+<li>EXP//    B类的全0网络是128.0.*.*，全1网络是191.255.*.*。C类的全0网络是192.0.0.*，全1网络是223.255.255.*，所以192.168.<em>.</em>既不是全0、也不是全1网络。<strong>通过首个八位字节的值，就可以确定地址的类别。</strong></li>
+</ul>
+<p><img alt="image-20231211151233851" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211151233851.png" /></p>
+<h4 id="522">5.2.2   公有和私有地址</h4>
+<h4 id="523">5.2.3   单播、广播和组播地址</h4>
+<h2 id="chap-6">Chap-6 网络服务</h2>
+<h3 id="61">6.1  客户端/服务器及其交互</h3>
+<h4 id="611">6.1.1   客户端和服务器的关系</h4>
+<p>大多数常用的Internet应用程序都依赖于服务器和客户端之间的交互。服务器和客户端的种类繁多，其交互方式也复杂多样。</p>
+<p>服务器安装了特殊的软件程序，它可以为网络上的其它主机提供信息或服务。例如Web服务器就是典型的服务器。</p>
+<p>确保Internet上各种服务能够正常进行的关键是：服务器和客户端必须都遵循统一的标准和协议。</p>
+<p><strong>常用网络服务简介</strong></p>
+<p><img alt="image-20231211155939516" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211155939516.png" /></p>
+<p><img alt="image-20231211155945722" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211155945722.png" /></p>
+<p><img alt="image-20231211155958259" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211155958259.png" /></p>
+<p><img alt="image-20231211160036033" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211160036033.png" /></p>
+<p><img alt="image-20231211160041844" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211160041844.png" /></p>
+<p><img alt="image-20231211160046981" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211160046981.png" /></p>
+<p><img alt="image-20231211160051053" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211160051053.png" /></p>
+<h4 id="612">6.1.2   协议在客户端服务器通信中的作用</h4>
+<p>服务器和客户端在交换信息的过程中，使用特定的协议和标准以确保：正确接收和理解交换的报文（消息message）。</p>
+<p>这些协议自上而下分别为：应用层协议、传输层协议、网络层协议和网络接入层协议。</p>
+<ul>
+<li>上：与用户近（处理内容）</li>
+<li>下：与介质近（传输数据）</li>
+</ul>
+<p>四层TCP/IP协议栈模型</p>
+<p><img alt="image-20231211160116782" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211160116782.png" /></p>
+<h4 id="613-tcpudp">6.1.3   TCP和UDP传输协议</h4>
+<ul>
+<li>TCP传输协议（传输控制协议）：先建立连接，再通过确认来可靠地通信。</li>
+<li>当应用程序<strong>需要确认报文是否已送达</strong>时，会使用TCP协议。</li>
+<li>在发送方主机上，TCP将报文划分为较小片段，称为数据段（Segment），数据段按顺序进行编号并传出。</li>
+<li>在接收主机上，TCP协议按顺序号重组报文各个的数据段，然后<strong>发回一个确认</strong>。</li>
+<li>如果发送主机在规定时间内未收到接收方的确认，则会认为数据段已丢失，于是将重新传输。<strong>只重传丢失的部分</strong>！</li>
+<li>FTP和HTTP是使用TCP确保数据传送无误的典型应用实例</li>
+<li>UDP传输协议（用户数据报协议）：没有确认机制，不可靠（高效）通信机制。</li>
+<li>UDP没有确认和重传机制，是一种<strong>高效率</strong>的传送机制。</li>
+<li>与TCP不同，UDP不跟踪数据段的顺序号，仅仅是将接收到的数据段按<strong>先来后到</strong>的顺序传送到其上层的应用程序。</li>
+<li>UDP是音频流、视频流和IP语音（VoIP）之类应用程序的首选，UDP的典型应用场合是Internet广播。</li>
+<li>使用确认机制会降低传送速度。例如传声时，丢失少量数据包时，会有轻微的声音中断。但如果使用TCP，就会重新发送丢失的数据包，这需要暂停传输来接收这些数据包，那么中断反而会更加明显。</li>
+</ul>
+<p><strong>小结：IP与TCP/UDP的关系</strong></p>
+<ul>
+<li>IP协议负责添加数据包的网络层报头，封装源与目的IP地址，确定路由，根据源与目的IP地址确定传送路径。而TCP和UDP传输协议则负责数据段的传输层报头，指定传输消息的机制与方式。</li>
+<li>
+<p>TCP是可靠且功能齐全的传输协议，用于确保所有数据到达目的设备。相反，UDP是不提供任何可靠性的一个非常简单、同时也是高效的传输协议。</p>
+</li>
+<li>
+<p>IP协议是属于OSI模型第3层网络层的协议</p>
+</li>
+<li>TCP/UDP协议是属于OSI模型第4层传输层的协议</li>
+</ul>
+<h4 id="614627-tcpip">! 6.1.4/6.2.7   TCP/IP端口号（重要概念）</h4>
+<p>使用TCP或UDP传送报文时，在数据段内封装了<strong>端口号</strong>。端口号包括：源端口与目的端口，分别用于跟踪特定会话和表明所需服务类型。</p>
+<ul>
+<li>目的端口：客户端将目的端口号封装在数据段内，以此通知服务器，客户端请求的是何种服务。端口号与服务相对应，两个不同的服务不能用同一端口号，那样会发生端口冲突。
+  Web和FTP实验中应特别注意！</li>
+<li>源端口：源端口号由发送方设备随机生成，用于标识和跟踪两台设备之间的会话。</li>
+</ul>
+<p>源端口和目的端口号都被置入<strong>数据段</strong>内，然后数据段封装于数据包内（加上源和目的IP地址），最后数据包又被封装于数据帧内（加上源和目的MAC地址）。</p>
+<p><strong>源IP地址和目的IP地址</strong>以及<strong>源端口号和目的端口号</strong>的组合称为<strong>套接字（socket）</strong>。套接字用于标识客户端及其请求的服务器和服务。</p>
+<p><img alt="image-20231211204726488" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211204726488.png" /></p>
+<p>Internet中的每一项服务都有一个特定的端口号（如Web服务的默认端口为80）。用户主机根据自己所需的服务，将请求发送到相应的端口。</p>
+<p>端口号分为三种类别，其范围介于1到65,535之间（数据段中端口号字段为16位，最大为216-1）。</p>
+<ul>
+<li>公认端口：与通用网络应用程序相关联的目的端口，范围为1到1023。如：HTTP 80、FTP 21等</li>
+<li>注册端口：1024~49151可作为源端口或目的端口使用。厂商可使用这些端口注册各自的应用程序。  </li>
+<li>私有端口：49152~65535通常作为源端口使用。任何应用程序均可使用这些端口。</li>
+</ul>
+<h3 id="62">6.2   应用程序协议和服务</h3>
+<h4 id="621-dns">6.2.1   域名服务（DNS）</h4>
+<ul>
+<li>DNS：将域名与IP地址相关联</li>
+<li><strong>将域名解析为IP地址</strong>，以便客户端与服务器建立连接。域名本身无法被访问，只有IP地址才能被访问，域名只是便于记忆而已。</li>
+<li>DNS服务器中包含一张表，通过该表来确立域内的主机名（即域名）与相应的IP地址的关联关系。</li>
+<li>DNS服务使用53端口。</li>
+<li>客户端软件以透明的方式从DNS服务器获取IP地址。透明：用域名访问网站时自动完成解析，用户毫无察觉。</li>
+</ul>
+<h4 id="622-web">6.2.2   Web客户端和服务器</h4>
+<ul>
+<li>Web服务：在Web客户端和服务器之间传输信息的服务。</li>
+<li>客户端向服务器发送Web服务请求时，使用的是超文本传输协议（HTTP）。</li>
+<li>服务器收到客户端对其端口80（默认值，端口号可修改）的请求后做出响应，向客户端发送网页。</li>
+<li>http://xxx(默认端口号80可不写)</li>
+<li>http://xxx:nnn(非80端口号要写)</li>
+<li>HTTP并非是一种安全的协议。对安全HTTP服务的请求将发送到端口443，此类请求需使用https://开头的网址，多用于网上银行、加密用户服务等场合。</li>
+<li>HTTPS 协议的安全基础是 SSL（Secure  Socket  Layer，安全套接层）。</li>
+</ul>
+<h4 id="623-ftp">6.2.3   FTP客户端和服务器</h4>
+<ul>
+<li>FTP服务</li>
+<li>用于客户端和服务器之间的<strong>文件上传、下载及远程管理</strong>。</li>
+<li>客户端和服务器之间使用两个不同的端口进行通信： <ul>
+<li>建立连接及发送控制命令时默认使用21端口。</li>
+<li>传输数据时默认使用20端口。</li>
+</ul>
+</li>
+<li>端口号可修改。例如：本课程FTP的端口号为111，这是建立连接以及发送控制命令时的端口号，而传输数据的端口号则可由FTP软件来设置。</li>
+<li>计算机操作系统和Web浏览器都内置了FTP客户端软件。</li>
+</ul>
+<h4 id="624">6.2.4   电子邮件客户端和服务器</h4>
+<ul>
+<li>Email服务</li>
+<li>为用户提供发送、接收和存储邮件的服务。Email服务器上运行的服务器软件可以让Email服务器与客户端、或与其它Email服务器进行交互。</li>
+<li>使用“<strong>用户@公司.域</strong>”的格式设定信箱地址。</li>
+<li>使用简单邮件传输协议（SMTP）发送邮件，使用邮局协议（POP3）或Internet邮件访问协议（IMAP4）收取邮件。</li>
+<li><strong>简单邮件传输协议（SMTP）</strong>：Email客户端使用SMTP向其Email服务器发送邮件；在Email服务器之间传送邮件时，也使用SMTP。SMTP请求将发送到端口25。</li>
+<li><strong>邮局协议（POP3）</strong>：使用POP协议的Email服务器负责接收和存储其用户的邮件。当用户连接到Email服务器时，邮件将下载到客户端中。在默认情况下，客户端访问邮件后，服务器将不再保留该邮件。POP3使用端口110。</li>
+<li><strong>Internet邮件访问协议（IMAP4）</strong>：使用IMAP协议的Email服务器会接收和存储其用户的邮件。它会将邮件一直保存在信箱中，直至用户主动删除这些邮件。IMAP的最新版本是IMAP4，IMAP4使用端口143。</li>
+</ul>
+<h2 id="chap-7">Chap-7   无线技术</h2>
+<h3 id="71">7.1   无线技术</h3>
+<h4 id="711">7.1.1   无线技术和设备</h4>
+<p>公共无线通信波段主要包括：红外（IR）和无线电射频（RF）波段部分。</p>
+<ul>
+<li><strong>红外线（IR）</strong>的特点：</li>
+<li>能量非常低，无法穿透墙壁或其它障碍物。</li>
+<li>只支持一对一类型的连接。</li>
+<li>常用于连接个人数字助理（PDA）和PC机，并传送数据。</li>
+<li>使用专用的通信端口~红外访问端口（IrDA端口）在各种设备之间交换信息。</li>
+<li>还常用于遥控设备，如电视等的遥控器、</li>
+<li>无线鼠标和无线键盘，但通常只适合视线</li>
+<li>范围内的近距离通信。</li>
+<li>通过反射IR信号，可以扩大通信距离。</li>
+<li><strong>无线电射频（RF）</strong>可穿透墙壁及其它障碍物，适用范围比红外线（IR）大得多。</li>
+<li>RF的某些频段预留给无需许可证的设备使用，如：无线局域网、无绳电话、计算机外围设备等。这些频段包括900MHz、2.4GHz和5GHz频率范围，称为工业科学和医疗波段（ISM）。</li>
+<li>蓝牙（Bluetooth）是一种使用2.4GHz频段的RF技术，它仅限于低速、近距离通信，但可以同时与多种设备通信。
+在连接计算机外围设备（鼠标、键盘和打印机）时，这种一对多的通信能力和IR相比，具有较大优势。</li>
+<li>使用2.4GHz和5GHz频段的无线局域网（WLAN）技术，它们符合IEEE 802.11的系列标准。这些技术与蓝牙技术的区别在于：其发射功率更高，故传输距离也更大。我们实验中的重点！</li>
+</ul>
+<h4 id="713">7.1.3   无线网络的类型及其界限</h4>
+<ul>
+<li>无线网络分为三个类别：WPAN、WLAN、WWAN。</li>
+<li>虽然存在这些不同类别，但却很难清楚地划分无线网络的界限。因为无线网络与有线网络不同，它没有精确的范围界限。无线网络的覆盖范围取决于多种因素。</li>
+<li>无线网络容易受到外部环境的干扰。温度和湿度的变化会极大地改变无线网络的覆盖范围。无线环境中的障碍物也会影响覆盖范围。</li>
+</ul>
+<p><img alt="image-20231211152419096" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211152419096.png" /></p>
+<ul>
+<li>WPAN的特点</li>
+<li>最小类型的无线网络</li>
+<li>常用于将各种外围设备连接到计算机，如：无线鼠标、无线键盘或PDA。使用 IR技术或蓝牙技术传输数据。</li>
+<li>WLAN的特点：</li>
+<li>用于延伸有线网络（LAN）的覆盖范围。</li>
+<li>它使用RF技术。</li>
+<li>可以让无线用户通过<strong>接入点设备（AP）</strong>连接到有线网络。AP是一种专用于<strong>将无线主机连接到有线网络</strong>中的设备。</li>
+<li>WWAN的特点：</li>
+<li>网络覆盖非常广大的区域。移动电话网络就是一种典型的WWAN。</li>
+<li>WWAN网络使用：码分多址（CDMA）或者全球移动通信系统（GSM）以及3G、4G、5G、LTE等技术，通常受政府机构的管制。</li>
+</ul>
+<p><img alt="image-20231211152636111" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211152636111.png" /></p>
+<h3 id="72-lan">7.2   无线 LAN</h3>
+<h4 id="721-lan">7.2.1  无线LAN标准</h4>
+<p>IEEE 802.11标准用于管理 WLAN环境。目前可用的各种协议有：802.11a、802.11b、802.11g和802.11n。这些技术标准统称为无线保真（Wireless Fidelity，Wi-Fi）。</p>
+<h4 id="722-lan">7.2.2   无线LAN组件</h4>
+<p><img alt="image-20231211152802025" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211152802025.png" /></p>
+<ul>
+<li>天线</li>
+<li>定向天线：将信号强度集中到一个方向发射。常用于需要远距离无线传输的无线网桥上。</li>
+<li>全向天线：朝所有方向均匀发射信号。集成无线路由器、无线AP以及无线网卡上一般都用全向天线。</li>
+</ul>
+<h4 id="723-wlanssid">! 7.2.3   WLAN和SSID</h4>
+<ul>
+<li>
+<p>服务集标识符 SSID（重要概念！）</p>
+</li>
+<li>
+<p>SSID是一个区分大小写的数字字母字符串，最多可以包含32个字符。它包含在<strong>所有无线帧的报头</strong>中，并通过WLAN以明文方式传输。</p>
+</li>
+<li>SSID相当于WLAN的名字（无线网络名称），用于<strong>标识无线设备所属的 WLAN 以及能与其通信的其它设备</strong>。</li>
+<li>
+<p>同一个WLAN中的所有设备，必须使用相同的SSID，相互之间才能成功通信。</p>
+</li>
+<li>
+<p>WLAN有两种基本形式：基础架构模式和对等模式。</p>
+</li>
+<li>
+<p><strong>! 基础架构模式</strong>（Infrastructure）</p>
+<ul>
+<li>
+<p>由<strong>单元中心的AP设备</strong>控制所有通信，确保所有STA（无线客户端）都能平等访问介质。</p>
+</li>
+<li>
+<p>不同STA之间无法直接通信。</p>
+</li>
+<li>
+<p>家庭和企业环境中最常用的无线通信模式。</p>
+</li>
+<li>
+<p>单个AP的覆盖区域称为<strong>基本服务集（BSS）或单元</strong>。</p>
+</li>
+</ul>
+<p><img alt="image-20231211153112735" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211153112735.png" /></p>
+</li>
+<li>
+<p>对等模式（Ad Hoc）</p>
+<ul>
+<li>在点对点网络中，将两台或以上的终端主机连接到一起，即可创建最简单的网络——对等网络，其中<strong>不含AP</strong>。</li>
+<li>所有的终端主机是平等的。</li>
+<li>对等模式适用于小型网络。可以在设备之间交换文件和信息。</li>
+<li>此网络覆盖的区域称为独立的基本服务集（IBSS）。</li>
+</ul>
+</li>
+</ul>
+<p><img alt="image-20231211153426577" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211153426577.png" /></p>
+<p>*<strong>扩展服务集（ESS）（简单了解）</strong></p>
+<ul>
+<li>基本服务集（BSS）是WLAN最小的构成单位。单个AP的覆盖区域有限。要扩大覆盖区域，可通过分布系统<strong>将多个BSS连接成为ESS</strong>。ESS使用多个AP。每个AP都位于一个独立的BSS中。</li>
+<li>BSS必须具有大约10%的重叠量，允许客户端在与前一个AP断开之前，先连接到后一个AP，以实现无缝漫游。</li>
+</ul>
+<p><img alt="image-20231211153635201" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211153635201.png" /></p>
+<h4 id="724-channel">7.2.4   无线通道（Channel）</h4>
+<p>对RF频谱作进一步划分可形成通道。每个通道都可以传送不同的信号，类似于多个不同的电视频道信号可通过同一个介质传输。</p>
+<p>不同的WLAN（BSS）必须使用不同的通道，以避免互相之间干扰。</p>
+<h4 id="725">7.2.5   配置接入点</h4>
+<p>无线参数：无线模式、SSID、频段（Channel）以及是否允许SSID广播等。</p>
+<h4 id="726">7.2.6   配置无线客户端</h4>
+<p><strong>无线客户端（STA）定义</strong>：安装<strong>有无线网卡和无线客户端软件</strong>的任何设备。如PDA、笔记本电脑、台式PC、打印机、投影仪和Wi-Fi电话。</p>
+<p>客户端的配置必须与AP或无线路由器的配置匹配，包括：SSID、通道和安全设置等。这些配置可以在无线客户端管理软件上设定。</p>
+<h3 id="73-lan">7.3   无线LAN的安全考虑</h3>
+<h4 id="731-wlan">7.3.1   为什么WLAN会受到攻击</h4>
+<p>可以采用的安全防范措施包括： </p>
+<ul>
+<li>禁用SSID广播功能</li>
+<li>改变默认设置，例如SSID、密码和IP地址</li>
+<li>注意：某些更改无法绝对保护无线网络。例如SSID用明文传输，有些设备可以拦截无线信号，读取明文消息。即使关闭了SSID广播功能，攻击者也可以拦截到无线信号，并得知无线网络的SSID名称，然后用此信息连接到无线网络。</li>
+<li>配置MAC地址过滤</li>
+<li>精确控制哪些设备可以访问无线网络。</li>
+<li>这种安全保护方法也存在一些问题：<ul>
+<li>所有设备在尝试连接到网络之前，必须先将其MAC地址加入过滤列表数据库中，否则将无法连接。</li>
+<li>MAC地址可以修改（克隆）：例如：网卡属性“网络”选项卡配置“高级”选项卡属性网络地址（或Network  Address） 可修改为其它设备的MAC地址（哄骗spoofing）修改后可用ipconfig/all命令看到效果。</li>
+</ul>
+</li>
+</ul>
+<h4 id="733-wlan">7.3.3   WLAN上的身份验证</h4>
+<p>控制用户能否连接的另一种方法是实施身份验证。身份验证是根据一组证书（规则），来验证尝试连接网络的设备是否可信。</p>
+<ul>
+<li>使用用户名和密码是最常见的身份验证形式。</li>
+</ul>
+<p>无线身份验证方法有三种：</p>
+<ul>
+<li>Open Authentication（开放式身份验证）</li>
+<li>无线设备不要求身份验证，任何客户端只要知道设备的SSID，均可关联，称为开放式身份验证。</li>
+</ul>
+<p><img alt="image-20231214173231687" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231214173231687.png" /></p>
+<ul>
+<li>PSK（预共享密钥）</li>
+<li>使用PSK时，AP和客户端需配置相同的密钥或加密密码。</li>
+<li>PSK执行单向身份验证，即只向AP验证主机身份。</li>
+</ul>
+<p><img alt="image-20231214173238189" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231214173238189.png" /></p>
+<ul>
+<li>EAP（可扩展身份验证协议）</li>
+<li>EAP提供双向的身份验证以及用户身份验证。身份验证转交给后端身份验证服务器（如RADIUS服务器）来进行。</li>
+</ul>
+<p><img alt="image-20231214173315457" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231214173315457.png" /></p>
+<p>如果同时启用了身份验证和MAC地址过滤，则会先进行身份验证，然后再检查MAC地址。</p>
+<p><img alt="image-20231214173429302" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231214173429302.png" /></p>
+<h4 id="734-wlan">7.3.4   WLAN上的加密</h4>
+<p>经过加密后，攻击者即使拦截了传输的数据，也无法理解和使用它们。</p>
+<ul>
+<li><strong>WEP（有线等效协议）</strong>是一种防范攻击者拦截数据的高级安全功能，使用预配置的密钥加密和解密通信数据。</li>
+<li>WEP密钥是一个由数字和英文字母组成的字符串，长度为64或128或256位。</li>
+<li>为使WEP生效，必须为AP或无线路由器以及每台无线终端设备都设置输入相同的WEP密钥。若没有此密钥，设备将无法理解无线传输的内容。</li>
+<li>WEP的缺陷：WEP使用<strong>静态密钥</strong>（密钥固定不变），攻击者可以使用一些应用程序来破解WEP。</li>
+<li><strong>Wi-Fi保护访问（Wi-Fi Protected Access， WPA）</strong></li>
+<li>WPA也使用加密密钥，其长度为64位~256位，每当客户端与AP或无线路由器建立连接时，WPA都会<strong>生成新的动态密钥仅供本次连接使用</strong>。</li>
+<li>WPA的加密算法本身更强，WPA比WEP更安全，破解难度也更大。</li>
+</ul>
+<h4 id="735-wlan">7.3.5   WLAN上的通信过滤</h4>
+<p>进行通信过滤可以阻止不适当的通信流量传入或传出无线局域网。</p>
+<ul>
+<li>可删除“来自或发往”某些特定IP地址（或MAC地址）的通信数据。</li>
+<li>可通过端口号拦截特定应用程序或服务。例如，可阻止发往身份验证服务器的所有Telnet（端口号23）的通信流量，任何想Telnet到身份验证服务器的尝试都被视为可疑通信数据而被拦截。</li>
+</ul>
+<h2 id="chap-8">Chap-8   交换机和终端设备的配置</h2>
+<p>计算机需要有操作系统才能工作，这也包括交换机、路由器、接入点和防火墙等网络设备。这些网络设备使用的操作系统称为网络操作系统。</p>
+<p>网络操作系统管理网络设备的硬件，使之能正常工作，同时为用户提供交互界面。</p>
+<h3 id="21-ios">2.1   IOS访问</h3>
+<h4 id="211">2.1.1   操作系统</h4>
+<ul>
+<li>所有终端和网络设备都需要有操作系统（OS）。</li>
+<li>操作系统中与设备硬件交互的部分称为内核，与用户交互的部分称为外壳。</li>
+<li>用户可使用命令行界面（CLI）或者图形用户界面（GUI）与外壳交互。</li>
+</ul>
+<h4 id="212-gui">2.1.2   GUI（图形用户界面）</h4>
+<p>GUI界面，如Windows、Apple IOS或Android，允许用户利用图形图标、菜单和窗口与系统交互。GUI的用户友好性更高，而且用户只需相对较少的相关专业知识即可控制系统。出于这个原因，许多个人用户都依赖于GUI 环境。</p>
+<h4 id="213-cli">2.1.3   CLI（命令行界面）</h4>
+<p>在CLI中，用户使用键盘输入命令，以文本方式与系统交互。系统执行命令，提供文本输出。    </p>
+<p>CLI要求用户具备较高的专业知识水平，但是CLI可用的功能更多，消耗资源更少，而且更稳定。因此，通常通过CLI来访问专业网络设备。Cisco IOS使用CLI。</p>
+<h4 id="214_1">2.1.4   访问方法</h4>
+<p>访问 Cisco IOS 最常见的方法有：</p>
+<ul>
+<li>控制台（Console）：一种专用的管理端口，通过该端口可以对设备进行带外访问（out-of-band，无需IP地址）。使用 RJ45反转线 或 USB电缆。</li>
+<li>安全外壳（SSH）：一种通过虚拟接口建立远程安全会话的方法。SSH连接需要使用网络，对虚拟接口配置IP地址。SSH不属于带外访问，需要IP地址。</li>
+<li>Telnet：一种通过虚拟接口建立远程不安全会话的方法，也需要IP地址。Telnet不能提供安全的加密连接，用户身份验证、密码和命令通过网络以明文发送。</li>
+</ul>
+<h4 id="215_1">2.1.5   终端仿真程序</h4>
+<p>当PC机与网络设备以某种方式建立连接之后（控制台/SSH/Telnet），需要运行某种终端仿真程序以打开CLI，供用户以文本方式对设备进行配置或交互。</p>
+<p>PuTTY（支持带外及非带外访问）就是其中之一。</p>
+<h3 id="22-ios">2.2   IOS导航</h3>
+<ol>
+<li>对网络设备进行配置时，首先要在PC机和设备之间建立连接。</li>
+<li>在PC机上运行终端仿真程序（如Putty等），打开CLI。</li>
+<li>连接登录到设备后，需要在IOS的各种命令模式之间切换。</li>
+<li>Cisco IOS的命令模式为分层结构，交换机和路由器类似。</li>
+</ol>
+<p><img alt="image-20231211210333215" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211210333215.png" /></p>
+<h4 id="221_1">2.2.1   主要命令模式</h4>
+<p>Cisco IOS 管理系统的两种模式：</p>
+<ul>
+<li>用户EXEC模式：该模式功能有限，仅可执行某些基本操作。它只允许执行数量有限的监控命令，不允许执行任何改变设备配置的命令。用户 EXEC模式采用 &gt; 提示符。</li>
+<li>特权EXEC模式：要执行配置命令，必须使用特权模式。某些权限较高的配置模式（全局配置模式），只能通过特权EXEC模式访问。特权EXEC模式采用 # 提示符。</li>
+</ul>
+<h4 id="222_1">2.2.2   配置模式和子配置模式</h4>
+<ul>
+<li>全局配置模式（需先进入特权模式，才能进入全局配置模式！）</li>
+<li>配置设备时，需使用configure terminal命令进入全局配置模式  </li>
+<li>标识符：设备名后加（config）#，如 Switch（config）#</li>
+<li>在此模式下进行CLI配置，将改变设备的运行状态</li>
+<li>在此模式下，还可以进入不同的配置子模式</li>
+<li>全局配置模式下，包括两个常见的配置子模式：</li>
+<li>线路配置模式：用于配置控制台、SSH、Telnet访问。示例：
+Switch（config-line）# </li>
+<li>接口配置模式：用于配置交换机端口或路由器接口。示例：
+Switch（config-if）#</li>
+</ul>
+<h4 id="224-ios">2.2.4   在IOS模式之间导航</h4>
+<p><img alt="image-20231211210528220" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211210528220.png" /></p>
+<h3 id="23_1">2.3   命令结构</h3>
+<h4 id="231-ios">2.3.1   基本IOS命令结构</h4>
+<p>IOS命令有特定的格式或语法，且只能在相应的模式下执行。</p>
+<p>常规命令的语法为：命令字后接相应的关键字和参数</p>
+<ul>
+<li>关键字：操作系统中有定义的（如图中的 ip  protocols）</li>
+<li>参数：没有预定义的值或变量（如图中的 192.168.10.5 ）</li>
+</ul>
+<p>输入包括关键字和参数在内的完整命令后，按Enter键提交。</p>
+<p><img alt="image-20231211210610756" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231211210610756.png" /></p>
+<h3 id="24_1">2.4   设备基本配置</h3>
+<h4 id="241">2.4.1   设备名称</h4>
+<h4 id="243_1">2.4.3   配置密码</h4>
+<h4 id="244">2.4.4   加密密码</h4>
+<h4 id="245">2.4.5   横幅消息</h4>
+<h3 id="25_1">2.5   保存配置</h3>
+<h4 id="251_1">2.5.1   配置文件</h4>
+<h4 id="252">2.5.2   修改运行配置</h4>
+<h3 id="27-ip">2.7   配置IP地址</h3>
+<h4 id="274-svi">2.7.4   交换机虚拟接口（SVI）配置</h4>
+<h3 id="28">2.8   验证连接</h3>
+<h4 id="281">2.8.1   接口编址验证</h4>
+<h4 id="282">2.8.2   端到端连接测试</h4>
+<h3 id="exp-dnsiisdns">EXP 无线网络中DNS和IIS服务器的配置应用实验DNS服务器的安装和配置</h3>
+<h4 id="_4">一、关于主和辅域名服务器的概念</h4>
+<p>如果网络中只有一台域名服务器，则当它停机时，用户就无法用它来解析域名了。</p>
+<p>为了提高系统的鲁棒性（robustness），可以建立至少两台域名服务器。第二台域名服务器与第一台域名服务器分担负载，或者在第一台服务器停机时处理所有的负载。</p>
+<ul>
+<li>第一台服务器：主域名服务器</li>
+<li>第二台服务器等：辅域名服务器</li>
+</ul>
+<p>主域名服务器和辅域名服务器最关键的区别是它们<strong>从哪里获得数据。</strong></p>
+<ul>
+<li>主域名服务器从<strong>本地数据库文件</strong>中读取数据，而辅域名服务器是<strong>通过网络从其它的域名服务器</strong>获取数据（这个过程称为区域传送）。</li>
+<li>辅域名服务器并不一定要从主域名服务器获取数据，它还可以从别的域名服务器处获取数据。</li>
+</ul>
+<h4 id="dns">二、DNS服务器的配置过程</h4>
+<p>Windows Server 2019（Win10系统的服务器版本）的DNS服务器有“正向查找区域”和“反向查找区域”。</p>
+<ul>
+<li>正向查找区域：由域名查询IP地址。</li>
+<li>反向查找区域：由IP地址查询域名。</li>
+<li>Windows中DNS服务器域名不区分大小写！</li>
+</ul>
+<h4 id="dns_1">三、检验DNS服务配置效果</h4>
+<ul>
+<li>在cmd窗口中，输入“ping www.xxxxxx.com”</li>
+<li>nslookup命令：nslookup   域名
+                         nslookup   域名   DNS服务器的IP地址</li>
+</ul>
+<h3 id="iis">IIS服务器的安装和配置</h3>
+<p>building</p>
+<h2 id="chap-9">Chap-9   基本安全性</h2>
+<h3 id="81">8.1   网络威胁</h3>
+<h4 id="813">8.1.3   社会工程</h4>
+<p>对于内部和外部入侵者而言，要想获得内部网络的访问权，最简单的一种方法就是：利用人类的弱点，容易轻信别人。</p>
+<p>常见方法之一：社会工程（Social Engineering）</p>
+<p>社会工程最常用的三种技术分别为：假托、网络钓鱼、语音网络钓鱼。</p>
+<ul>
+<li>假托（Pretexting）：攻击者对受害人编造虚假情景，以使受害人泄漏信息或执行某种操作，从而使攻击者获得不当利益。</li>
+<li>要使假托起作用，攻击者必须能够与攻击目标人员或受害人建立合理联系。攻击者需要预先进行一些了解或研究。</li>
+<li>
+<p>例如，如果攻击者知道攻击目标的社会保险号（美国）或身份证号码（中国），他们就会利用该信息来获取信任，使得攻击目标有可能进一步泄漏信息。</p>
+</li>
+<li>
+<p>网络钓鱼（Phishing）：网络钓鱼者将自己伪装成外部机构的合法人员。他们通常通过电子邮件联系攻击目标。</p>
+</li>
+<li>网络钓鱼者可能会声称，为避免某些糟糕的后果，要求攻击目标提供确认信息（例如密码或用户名）。</li>
+<li>语音网络钓鱼（Vishing）/电话网络钓鱼（Phone Phishing）是一种使用IP语音（VoIP）的新式社会工程。</li>
+<li>用户会收到一封语音邮件，邮件中指示他们拨打一个看上去像是正规电话银行的服务电话号码。随后，不设防的用户拨打该号码时，通话会被窃贼截听。为了进行确认而通过电话输入的银行帐户或密码便被攻击者窃取。</li>
+</ul>
+<h3 id="82">8.2   攻击方式</h3>
+<h4 id="821">8.2.1   病毒、蠕虫和特洛伊木马</h4>
+<p>借助于计算机<strong>软件的漏洞</strong>来执行的攻击技术：病毒、蠕虫和特洛伊木马。</p>
+<p>所有这些都属于恶意软件。它们会损坏系统、破坏数据以及阻止合法用户对网络、系统或服务进行正常的访问。</p>
+<p>它们还可能将数据和个人详细信息从不设防的用户转发到黑客手中。</p>
+<p>一般情况下，它们会自身复制，然后传播并感染连接到网络的其它主机。</p>
+<ul>
+<li><strong>病毒</strong>是通过修改并附加到其它程序或文件上来运行和传播的一种程序。</li>
+<li>病毒无法自行启动，需受到激活（人为启动其所附着的程序）。</li>
+<li>有的病毒一旦激活，便会迅速自我复制并四处传播，但不会执行其它操作。这类病毒虽然很简单，但仍然非常危险，它们会迅速占用内存和CPU，导致系统崩溃。</li>
+<li>一些更为恶毒的病毒可能会删除或破坏特定类型的文件。</li>
+<li>
+<p>病毒可通过电子邮件附件、下载的文件、即时消息或磁盘、光盘或USB设备（如U盘）传播。</p>
+</li>
+<li>
+<p>蠕虫类似于病毒，与病毒不同的是它<strong>无需将自身附加到其它程序或文件中</strong>。蠕虫使用<strong>网络</strong>将自己的副本发送到任何连接的主机中。如冲击波、震荡波、熊猫烧香。</p>
+</li>
+<li>
+<p>蠕虫可独立运行并迅速传播，它并不需要激活或人类干预即可发作。自我传播的网络蠕虫所造成的影响可能比单个病毒更为严重，而且可迅速造成Internet大面积感染。</p>
+</li>
+<li>
+<p>特洛伊木马<strong>无自我复制能力</strong>，常以合法程序的面貌出现，实质上却是一种攻击工具。</p>
+</li>
+<li>特洛伊木马依赖于其“合法无害”的外表（一个实用工具或一个可爱的游戏）来诱使受害人启动该程序。它的破坏性可能相对较低，但也可能包含可损坏硬盘数据的代码。</li>
+<li>特洛伊木马可以对系统创建后门从而使黑客获得访问权。它一般由两部分组成：服务器程序和控制器程序。“中了木马”是指被安装了服务器程序。如果你的电脑被安装了服务器程序，那么拥有控制器程序的黑客就可以通过网络远程控制你的电脑了。</li>
+</ul>
+<h4 id="822">8.2.2   拒绝服务和暴力攻击</h4>
+<ul>
+<li><strong>拒绝服务（DoS）攻击</strong></li>
+<li>针对单个或一组计算机执行的一种侵略性攻击，目的是<strong>使服务器无法为合法用户提供服务</strong>。</li>
+<li>DoS=Denial of Service</li>
+<li>两种常见的DoS攻击为：<ul>
+<li><strong>SYN（并发）泛洪攻击</strong>：<strong>向服务器发送大量请求数据包</strong>，其中包含<strong>无效的源IP地址</strong>。服务器会因为<strong>试图响应这些虚假请求</strong>而变得极为忙碌，导致无法响应合法请求。</li>
+<li><strong>死亡之Ping</strong>：向设备发送超<strong>过IP协议所允许的最大容量（65,535字节）的数据包</strong>。这可导致接收设备<strong>系统崩溃</strong>。</li>
+</ul>
+</li>
+<li>一般DoS攻击的<strong>意图</strong>是：<ul>
+<li>使用通信量淹没系统或网络，阻止正常网络通信量通行。</li>
+<li>中断客户端与服务器之间的连接，以阻止对服务的访问。</li>
+</ul>
+</li>
+<li><strong>分布式拒绝服务（DDoS）攻击</strong></li>
+<li>DDoS是更为狡猾、更具破坏性、运行<strong>规模更大的DoS攻击</strong>，通常会有成百上千个攻击点同时淹没攻击目标。</li>
+<li><strong>攻击点可能是感染了DDoS代码的计算机</strong>（僵尸计算机），它们被“远程控制”并被激活DDoS代码，然后对某个目标站点“群起而攻之”，最终导致其陷入瘫痪。</li>
+<li><strong>暴力攻击</strong></li>
+<li>攻击者使用运行速度很快的计算机来尝试<strong>猜测密码或破解加密密钥</strong>。攻击者会在短时间内尝试大量可能的密码来试图获取访问权限或破译密钥。</li>
+<li>暴力攻击可引起因重试出错次数太多而导致<strong>用户帐户锁定</strong>，使得合法用户被拒绝服务。</li>
+</ul>
+<h4 id="823-cookie">8.2.3   间谍软件、跟踪Cookie、广告软件和弹出广告</h4>
+<p>有些网络威胁的目的是<strong>收集用户信息</strong>以用于广告。尽管它们可能不会损坏计算机，但仍会侵犯隐私，而且其广告内容通常招人反感。</p>
+<ul>
+<li><strong>间谍软件</strong>是一种程序，用于在<strong>未得到用户认可或用户不知情</strong>的情况下从计算机中<strong>收集个人信息</strong>。然后，这些个人信息会发送至Internet 上的广告商或第三方，其中可能包含密码和帐号等隐私信息。             </li>
+<li>间谍软件通常是在下载文件、安装其它程序或点击网页弹出广告时暗中安装的。它会降低计算机速度，更改计算机内部设置，导致暴露更多的系统漏洞。此外，间谍软件通常也是难以删除的（流氓软件）。</li>
+</ul>
+<p>以下均为间谍软件类型</p>
+<ul>
+<li><strong>跟踪Cookie</strong>是间谍软件的一种。</li>
+<li>Cookie在用户访问网络时会起到一些积极的作用。例如：Cookie可以记录用户的访问信息，允许作个性化定制，为用户登录网站提供便利，所以相当有用并受人欢迎。现在许多网站都要求用户启用浏览器的Cookie功能后才能正常访问。</li>
+<li><strong>广告软件</strong>是另一种形式的间谍软件，它通过<strong>用户访问的网站</strong>来收集用户信息，这些信息会被利用来作针对性的广告宣传。广告软件一般是作为用户<strong>使用“免费”软件的交换条件</strong>而安装的，会影响网上冲浪的速度，一般也难以卸载。</li>
+<li><strong>弹出广告</strong>和<strong>背投广告</strong>是用户在浏览网站时显示的附加广告宣传窗口。与广告软件不同，弹出广告和背投广告并不收集关于用户的信息，而且通常只与所访问的网站关联。</li>
+<li>弹出广告在当前浏览器窗口前端打开（有焦点）。</li>
+<li>背投广告在当前浏览器窗口后端打开（无焦点）。</li>
+</ul>
+<h4 id="824">8.2.4   垃圾邮件</h4>
+<p>通过Internet大量散发邮件进行营销或其它非法宣传的方法称为垃圾邮件（Spam）。</p>
+<p>垃圾邮件是非常严重的网络威胁，可导致ISP、电子邮件服务器和终端用户系统不堪重负。</p>
+<h3 id="83">8.3   安全策略</h3>
+<h4 id="831">*8.3.1   常用安全措施</h4>
+<p>用户在使用组织内部的网络和访问信息资源时，必须遵守相关的规则，而安全策略则是对这些规则的正式声明。</p>
+<p>安全策略应包含以下内容：（简单了解）</p>
+<ul>
+<li>标识和身份验证策略</li>
+<li>密码策略</li>
+<li>合理使用规定</li>
+<li>远程访问策略</li>
+<li>网络维护程序</li>
+<li>事件处理步骤</li>
+</ul>
+<h4 id="832">8.3.2   更新和补丁</h4>
+<p>黑客获取主机和网络访问权的最常见方法之一便是利用系统软件的漏洞。</p>
+<p>补丁是修复特定问题的一小段代码。</p>
+<p>更新则可能包含新的附加功能以及针对特定问题的补丁。</p>
+<p>此外，厂商通常还会发布补丁和更新的集合，称为服务包（Service Pack，SP）。</p>
+<h4 id="833">8.3.3   防病毒软件</h4>
+<h4 id="834">8.3.4   反垃圾邮件</h4>
+<h4 id="835">8.3.5   反间谍软件</h4>
+<h3 id="84">8.4   使用防火墙</h3>
+<h4 id="841">8.4.1   什么是防火墙</h4>
+<ul>
+<li>防火墙是保护<strong>内部网络用户</strong>远离<strong>外部威胁</strong>的安全工具。</li>
+<li>防火墙驻留在两个或多个网络之间，<strong>控制其间的通信流量</strong>并<strong>帮助阻止未经授权的访问</strong>。</li>
+<li>防火墙使用多种技术来区分应禁止和应允许的网络访问，包括：<ul>
+<li><strong>数据包过滤</strong>：根据IP地址或MAC地址来阻止或允许访问。</li>
+<li><strong>应用程序/网站过滤</strong>：根据应用程序（即对应不同端口号的不同服务）来阻止或允许访问；网站过滤则通过指定要过滤的网站URL地址或关键字来实现。</li>
+<li><strong>状态包侦测</strong>（SPI，也叫状态防火墙）：传入数据包必须是对内部主机所发出请求的合法响应才会被允许传入，未经请求的传入数据包会被阻隔。状态包侦测还可识别和过滤特定类型的攻击（如DoS攻击）。</li>
+<li>防火墙通常会执行<strong>网络地址转换（NAT）</strong>。NAT<strong>将一个或一组内部私有地址转换为一个公开的外部公有地址</strong>，该地址可通过因特网传送，从而实现<strong>对外部用户隐藏内部IP地址</strong>的目的。</li>
+</ul>
+</li>
+</ul>
+<h4 id="842">8.4.2   使用防火墙</h4>
+<p><strong>非军事区（DMZ）</strong></p>
+<p>在内部网络和Internet之间设置防火墙作为边界设备。通常，外部是看不到内部的。</p>
+<p>有外部用户需要访问内部资源，即需要允许外访问内。为此可配置一个<strong>非军事区（DMZ）</strong>。</p>
+<p>在计算机网络中，非军事区代表内部和外部用户都可访问的网络区域。其安全性高于外部网络，低于内部网络。</p>
+<p>它由一个或多个防火墙创建，这些防火墙起到分隔内部网络、非军事区和外部网络的作用。如用于公开访问的Web服务器通常就位于非军事区中。</p>
+<p><strong>双防火墙配置</strong></p>
+<p>防火墙分为内部防火墙和外部防火墙，其间是非军事区。</p>
+<p>外部防火墙限制较少，允许外部用户访问非军事区中的服务，而且允许任何内部用户请求的通信量通过。</p>
+<p>内部防火墙则限制较多，用于保护内部网络免遭未经授权的访问。</p>
+<p><img alt="image-20231214172242863" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231214172242863.png" /></p>
+<p><strong>单防火墙配置</strong></p>
+<p>单个防火墙包含3个区域：外部网络、内部网络和非军事区。</p>
+<p>来自外部网络的所有通信流量都被发送到防火墙，防火墙会监控通信流量，并<strong>决定哪些流量应传送到非军事区，哪些应传送到内部网络，哪些应予以拒绝</strong>。</p>
+<p>单防火墙配置适用于规模较小、通信量较少的网络。</p>
+<p><img alt="image-20231214172334201" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231214172334201.png" /></p>
+<h3 id="exp">EXP 虚拟服务器、防火墙等</h3>
+<p>无线网络安全性配置应用实验</p>
+<h2 id="chap-10-ipv4">Chap-10  IPv4 编址</h2>
+<h3 id="114">11.4   网络分段</h3>
+<h4 id="1141">11.4.1   广播域和分段</h4>
+<p>路由器的每个接口都连接一个广播域，广播消息只在特定的广播域内传播。广播域等价于LAN。</p>
+<p>路由器不转发广播消息。当路由器收到广播消息时，不会将其转发到其他接口。</p>
+<p>交换机会将广播消息转发到所有接口，发送广播消息的接口除外。</p>
+<h4 id="1142">11.4.2   大型广播域存在的问题</h4>
+<p>大型广播域的一个问题是：这些主机会生成太多广播，这会对网络造成不良影响。</p>
+<ul>
+<li>大量广播流量会减缓网络运行速度。</li>
+<li>主机设备必须接受和处理广播消息，因此也会减缓设备运行速度。</li>
+</ul>
+<p>解决方案：通过<strong>子网划分</strong>降低网络规模，使得广播域变得更小。</p>
+<h4 id="1143">11.4.3   划分子网的原因及依据</h4>
+<p>子网划分可以降低整体网络流量并改善网络性能。能让网络管理员实施安全策略，例如：哪些子网允许或不允许进行通信。</p>
+<p>网络管理员可以按下列依据进行子网划分：</p>
+<ul>
+<li>物理位置，如每层楼为一个子网</li>
+<li>组织部门，如人力资源部为一个子网</li>
+<li>设备类型，如所有服务器为一个子网</li>
+</ul>
+<h3 id="115-ipv4116-168117">11.5   IPv4网络的子网&amp;11.6   使用/16和/8前缀划分子网&amp;11.7   按照要求划分子网</h3>
+<h4 id="_5">有类子网划分</h4>
+<p>创建IPv4子网的具体做法：<strong>延长子网掩码</strong>，即从地址的主机部分借用若干位来<strong>增加网络位</strong>（网络部分）。借用的主机位越多，可以定义的子网也就越多。</p>
+<p>使用有类地址的前缀/8、/16和/24最容易进行子网划分。下图列出了/8、/16、/24前缀长度相应的子网掩码、网络位和主机位、每个子网可以连接的主机数量。</p>
+<p><img alt="image-20231221164348365" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231221164348365.png" /></p>
+<p><strong>EXP</strong></p>
+<p>假设某企业选择了私有地址10.0.0.0/8作为其内部网络地址。该网络可以在一个广播域（网段）中连接16,777,214台主机。</p>
+<p>但是这并不理想！因为IP地址用不完，严重浪费IP地址资源！</p>
+<p>以A类地址为例，在一个A类地址的网络中可以有16,777,214台主机。这些主机属于同一个网络，属于同一个广播域。</p>
+<p>但是考虑到实际网络传输介质的性能，一个本地网络/网段的物理范围是有限的，比如一般以太网的范围为100m。</p>
+<p>虽然在逻辑上允许这么多主机在同一网络中存在，但物理上该网络范围又容纳不下这么多主机，必然造成有大量的IP地址被浪费。</p>
+<p>所谓子网划分，就是使得每个较小的子网内，所有的IP地址都能得到充分的利用！</p>
+<p>此企业可以使用前缀/16对10.0.0.0/8的地址进行子网划分，具体做法是借用8位主机位来增加网络位到16位。这能定义多达256个子网（10.0.0.0/16~10.255.0.0/16），每个子网可连接65,534个主机，其实仍多，可继续划分子网。</p>
+<p><img alt="image-20231221164821045" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231221164821045.png" /></p>
+<h4 id="_6">无类子网划分</h4>
+<p>子网划分可以从任何主机位借位来创建其它结果的子网掩码。</p>
+<p>/24网络地址可以从第四个数借位来产生更长前缀的子网掩码。</p>
+<ul>
+<li>/25：借 1 位可创建 2 个子网，每个子网支持 126 台主机。</li>
+<li>/26：借 2 位可创建 4 个子网，每个子网支持 62 台主机。</li>
+<li>/27：借 3 位可创建 8 个子网，每个子网支持 30 台主机。</li>
+</ul>
+<p><img alt="image-20231221165028069" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231221165028069.png" /></p>
+<p><strong>EXP</strong></p>
+<p>示例：对 192.168.1.0/24 划分子网</p>
+<p><img alt="image-20231221165103757" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231221165103757.png" /></p>
+<ul>
+<li>Net0网络地址：192.168.1.0</li>
+<li>Net0广播地址：192.168.1.127</li>
+<li>Net1网络地址：192.168.1.128</li>
+<li>Net0广播地址：192.168.1.255</li>
+</ul>
+<p>注意不能借7位或8位，否则没有可用的主机地址。有两个地址无法分配给主机，分别是网络地址和广播地址。</p>
+<p>子网划分后的网络地址，通常也称为子网地址。</p>
+<p><strong>常见换算</strong></p>
+<ul>
+<li>00 000000 = 0</li>
+<li>01 000000 = 64</li>
+<li>10 000000 = 128</li>
+<li>11 000000 = 192</li>
+</ul>
+<h3 id="118-vlsm">11.8   VLSM</h3>
+<h4 id="_7">传统子网划分浪费地址</h4>
+<p>传统子网划分可以创建大小相等的子网，每个子网都使用相同的子网掩码。</p>
+<p>如果所有子网的主机数量大致相同，这些固定大小的地址块效率就会很高。但大多数情况并非如此，产生了大量未使用的地址，造成地址浪费。</p>
+<h4 id="_8">可变长子网掩码</h4>
+<p>使用可变长子网掩码（VLSM）可细分子网，避免地址浪费，子网掩码<strong>将根据所需借用的位数而变化</strong>。</p>
+<p>VLSM子网划分与传统子网划分类似，通过借用位来创建子网。用于计算每个子网主机数量和所创建子网数量的公式仍然适用。</p>
+<p>区别在于：VLSM不是一次完成。</p>
+<p>使用VLSM时，首先对网络划分子网，然后对子网进行再划分。该过程可以多次重复，以创建不同大小的子网。</p>
+<p>注意：当使用VLSM时，需从最大的子网开始，一直划分至最小的子网。</p>
+<p><img alt="image-20231221170716046" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231221170716046.png" /></p>
+<p>VLSM方案将某些子网的地址数目减少到适合WAN连接的大小。在满足目前主机的需求下产生出冗余的子网，可用于未来的网络拓展。</p>
+<p><img alt="image-20231221173322445" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231221173322445.png" /></p>
+<h4 id="vlsm">VLSM图表</h4>
+<p>注意：Bldg A = Building A（建筑A）</p>
+<p><img alt="image-20231221170951270" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231221170951270.png" /></p>
+<p>编址图用于记录可用的地址块和已分配的地址块，有助于防止重复分配地址。</p>
+<h4 id="magic-number-method">！！“Magic Number” Method</h4>
+<p>魔数是一种解决子网划分相关计算的实用高效方法</p>
+<p><strong>EXP</strong></p>
+<p>IP地址：192.168.50.0/27</p>
+<ul>
+<li>27是子网掩码中为“1”的位数。192开头说明此为C类地址，故在子网划分时从主机位借了3位，主机位还剩5位。</li>
+<li>其相应的子网掩码即为：255.255.255.224</li>
+<li>Magic Number（魔数）就是：256 - 224 = 32 = 2^5</li>
+</ul>
+<p>根据魔数，就能快速计算由192.168.50.0/24借3位可划分得到的第二个子网地址是：192.168.50.32/27</p>
+<p>依此类推，接下来的各个子网地址均为魔数32的倍数，即：192.168.50.64/27、192.168.50.96/27、192.168.50.128/27等</p>
+<p><strong>EXP</strong></p>
+<p><img alt="image-20231221173353099" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231221173353099.png" /></p>
+<h2 id="chap-11">Chap-11  网络寻址</h2>
+<h3 id="53-ip">5.3   获取IP地址的方式</h3>
+<h4 id="531">5.3.1   静态和动态地址分配</h4>
+<p>采用静态方式分配时，网络管理员必须手工配置主机的网络信息。这些信息至少包括主机IP地址、子网掩码和默认网关。</p>
+<p>静态地址具有一些优点。例如对于用户要经常访问的网络打印机和服务器等，静态IP地址就很实用，因为这些地址不宜变更。</p>
+<p>静态分配地址信息可以提高对网络资源的控制能力，但是在每台主机上输入信息却非常耗时。静态输入IP地址时，系统只对IP地址执行基本错误检查（是否0~255）。发生冲突或不能使用的可能性较大。</p>
+<p>使用静态IP寻址时，必须维护一份准确的地址清单，列出设备及为其分配的IP地址。另外，这些地址是固定地址，不能重复使用，要防止发生IP地址冲突影响正常通信。</p>
+<p><img alt="image-20231221172605147" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231221172605147.png" /></p>
+<p>在本地网络中，用户数量通常会频繁变化。例如：新来的笔记本用户也需要连接，需要IP地址。</p>
+<p>自动（动态）分配IP地址在方便性方面，优于分配静态IP地址的做法。</p>
+<p>要完成自动分配，需使用<strong>动态主机配置协议（DHCP）</strong>。</p>
+<ul>
+<li>DHCP是一种提供自动分配IP地址、子网掩码、默认网关等地址信息和其它配置信息的机制。</li>
+</ul>
+<p>在大型网络中，DHCP是分配IP地址的首选方法，因为它可降低网络维护人员的工作负担，而且几乎可以杜绝任何输入错误。</p>
+<p>DHCP的另一优点是，地址并非固定分配给某台主机而只是租用一段时间。若主机关闭或离开网络，该地址就会返回地址池（可分配的地址范围），供其他新来的用户再次使用。此特点特别有助于在网络中进进出出的移动用户。</p>
+<p><img alt="image-20231221172753347" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231221172753347.png" /></p>
+<h4 id="532-dhcp">5.3.2   DHCP服务器</h4>
+<p>许多小型网络使用集成路由器通过ISP连接到Internet。这时，集成路由器既是DHCP客户端又是DHCP服务器。</p>
+<ul>
+<li>集成路由器扮演<strong>客户端</strong>的角色，从ISP处获取公有IP地址配置给其WAN口；</li>
+<li>集成路由器在本地网络中又作为<strong>内部主机的DHCP服务器</strong>，为它们提供私有IP地址（其LAN口也是私有IP地址）。</li>
+</ul>
+<h4 id="533-dhcp">5.3.3   配置DHCP</h4>
+<p>当主机被配置为DHCP客户端时，需要从位于本地网络中或者ISP处的DHCP服务器获取IP地址、子网掩码及默认网关等信息。</p>
+<p>DHCP服务器配置有一个IP地址范围（或称为<strong>IP地址池</strong>），这些地址可用来分配给DHCP客户端。</p>
+<ol>
+<li>需要IP地址的用户发送DHCP发现报文（message），这是一种广播报文。网络中的所有主机都会收到，但只有DHCP服务器才会作出应答。</li>
+<li>服务器使用DHCP提供报文作为响应，为该客户端提供IP地址建议。</li>
+<li>然后用户主机向该服务器发送DHCP请求报文，要求使用建议的IP地址。</li>
+<li>服务器用DHCP确认报文响应。</li>
+</ol>
+<p><img alt="image-20231221173540398" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20231221173540398.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs"], "search": "../../../../assets/javascripts/workers/search.c011b7c0.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.7389ff0e.min.js"></script>
+      
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+      
+    
+  </body>
+</html>

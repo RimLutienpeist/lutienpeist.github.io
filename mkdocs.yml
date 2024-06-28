@@ -1,7 +1,7 @@
 site_name: Lutienpeist重开的计算机生活
 
-nav: 
-  - 封面: index.md
+nav:
+  - 封面: index.md 
   - CS自学指南: 
     - 前言: CSself/first.md
     - Chap1-Crash Course Computer Science: 
@@ -13,10 +13,18 @@ nav:
       - 计算机网络学: CSself/Chap1intro/790.md
       - 计算机安全学: CSself/Chap1intro/880.md
       - 计算机科学其它分支: CSself/Chap1intro/996.md
-    - Chap2-tools:
-      - 本章概述: CSself/Chap2tool/intro.md
-      - git: CSself/Chap2tool/git.md
-      - 个人强推的工具: CSself/Chap2tool/mine.md
+    - Chap2-The Missing Semester of Your CS Education:
+      - 本章概述: CSself/Chap2lost/intro.md
+      - Lecture1 shell: CSself/Chap2lost/1.md
+      - Lecture2 Shell 工具和脚本: CSself/Chap2lost/2.md
+      - Lecture3 Vim: CSself/Chap2lost/3.md
+      - Lecture4 Data Wrangling: CSself/Chap2lost/4.md
+      - Lecture5 命令行环境: CSself/Chap2lost/5.md
+      - Lecture6 版本控制: CSself/Chap2lost/6.md
+      - Lecture7 调试及性能分析: CSself/Chap2lost/7.md
+      - Lecture8 元编程: CSself/Chap2lost/8.md
+      - Lecture9 安全与密码学: CSself/Chap2lost/9.md
+      - Lecture10 大杂烩: CSself/Chap2lost/10.md
   - ZJU_Courses:
     - 前言: ZJU_Courses/前言.md
     - 数学基础课程: 
@@ -38,12 +46,17 @@ nav:
         - 排序: ZJU_Courses/CSbasic/FDS/排序.md
         - 错题: ZJU_Courses/CSbasic/FDS/题目.md
       - 高级数据结构与算法分析:
-        - 前言: ZJU_Courses/CSbasic/ABS/前言.md
-        - Chap1: ZJU_Courses/CSbasic/ABS/Chap1.md
+        - 前言: ZJU_Courses/CSbasic/ADS/前言.md
+        - Lecture 1: ZJU_Courses/CSbasic/ADS/1.md
+        - Lecture 2: ZJU_Courses/CSbasic/ADS/2.md
       - 数据库系统:
-        - 前言: ZJU_Courses/CSbasic/数据库系统/前言.md
-        - Chapter 1":" Introduction: ZJU_Courses/CSbasic/数据库系统/Chap1.md
-      - 计算机组成: building.md
+        - 前言: ZJU_Courses/CSbasic/DBS/前言.md
+        - Lecture 1: ZJU_Courses/CSbasic/DBS/Chap1.md
+        - Lecture 2: ZJU_Courses/CSbasic/DBS/Chap2.md
+      - 计算机组成: 
+        - 前言: ZJU_Courses/CSbasic/CO/前言.md
+        - Lecture 1+2.2: ZJU_Courses/CSbasic/CO/1+2.1.md
+        - Lecture 2.2: ZJU_Courses/CSbasic/CO/2.2.md
       - 面向对象程序:
         - 前言: ZJU_Courses/CSbasic/OOP/前言.md
         - Chapter 1: ZJU_Courses/CSbasic/OOP/Chap1.md
@@ -53,6 +66,12 @@ nav:
       - 无线网络应用: ZJU_Courses/其它有意思的课程/无线网络应用/无线网络应用.md
       - 微信小程序综合实践: building.md
       - 生命科学导论(H): building.md
+  - Programming Language:
+    - C++ Programming Tutorial:
+      - Introduction: Programming Language/C++ Programming Tutorial/0.md
+      - Basics: Programming Language/C++ Programming Tutorial/1.md
+      - More Basics: Programming Language/C++ Programming Tutorial/2.md
+      - Object-Oriented Programming (OOP) in C++: Programming Language/C++ Programming Tutorial/3.md
 
 theme:
   name: material

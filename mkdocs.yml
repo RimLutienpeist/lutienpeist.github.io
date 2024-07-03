@@ -4,8 +4,7 @@ nav:
 - 封面: index.md
 - CS自学指南: 
   - 前言: CSself/first.md
-  - Chap1-Crash Course Computer Science: 
-    - 本章概述: CSself/Chap1intro/intro.md
+  - Chap1-Crash Course Computer Science: CSself/Chap1intro/intro.md
     - 历史&硬件发展：从算盘到电子计算机，从晶体管到CPU: CSself/Chap1intro/05.md
     - 早期的编程发展——从接线板到面向对象: CSself/Chap1intro/510.md
     - 计算机的早期发展——从集成电路到操作系统，从文件系统到屏幕: CSself/Chap1intro/600.md
@@ -13,8 +12,7 @@ nav:
     - 计算机网络学: CSself/Chap1intro/790.md
     - 计算机安全学: CSself/Chap1intro/880.md
     - 计算机科学其它分支: CSself/Chap1intro/996.md
-  - Chap2-The Missing Semester of Your CS Education:
-    - 本章概述: CSself/Chap2lost/intro.md
+  - Chap2-The Missing Semester of Your CS Education: CSself/Chap2lost/intro.md
     - Lecture1 shell: CSself/Chap2lost/1.md
     - Lecture2 Shell 工具和脚本: CSself/Chap2lost/2.md
     - Lecture3 Vim: CSself/Chap2lost/3.md
@@ -26,145 +24,204 @@ nav:
     - Lecture9 安全与密码学: CSself/Chap2lost/9.md
     - Lecture10 大杂烩: CSself/Chap2lost/10.md
   - Chap3CS70:
-    - '0': .\CSself\Chap3CS70\0.md
-  - tool: 
+    - '0': .\CSself\Chap3CS70\0.md  
+  - tool:.\CSself\tool\intro.md
     - git: .\CSself\tool\git.md
     - mine: .\CSself\tool\mine.md
-- ZJU_Courses: ZJU_Courses\前言.md
+- ZJU_Courses:.\ZJU_Courses\前言.md
   - CSbasic:
     - FDS:
-      - 前言: .\ZJU_Courses\CSbasic\FDS\qianyan.md
-      - 基础知识: .\ZJU_Courses\CSbasic\FDS\基础知识.md
-      - 线性结构: .\ZJU_Courses\CSbasic\FDS\线性结构.md
-      - 树: .\ZJU_Courses\CSbasic\FDS\树.md
+      - qianyan: .\ZJU_Courses\CSbasic\FDS\qianyan.md
       - 图: .\ZJU_Courses\CSbasic\FDS\图.md
+      - 基础知识: .\ZJU_Courses\CSbasic\FDS\基础知识.md
       - 排序: .\ZJU_Courses\CSbasic\FDS\排序.md
-      - 错题: .\ZJU_Courses\CSbasic\FDS\题目.md
+      - 树: .\ZJU_Courses\CSbasic\FDS\树.md
+      - 线性结构: .\ZJU_Courses\CSbasic\FDS\线性结构.md
+      - 题目: .\ZJU_Courses\CSbasic\FDS\题目.md
+    - DD:
+      - Note: .\ZJU_Courses\CSbasic\数字逻辑设计\shuluo.md
     - ADS:
       - 前言: .\ZJU_Courses\CSbasic\ADS\前言.md
-      - spring:
+      - 春学期笔记:
         - Lecture:
-          - Lecture 1: .\ZJU_Courses\CSbasic\ADS\spring\Lecture\1.md
-          - Lecture 2: .\ZJU_Courses\CSbasic\ADS\spring\Lecture\2.md
-          - Lecture 3: .\ZJU_Courses\CSbasic\ADS\spring\Lecture\3.md
-          - Lecture 4: .\ZJU_Courses\CSbasic\ADS\spring\Lecture\4.md
-          - Lecture 5: .\ZJU_Courses\CSbasic\ADS\spring\Lecture\5.md
-          - Lecture 6: .\ZJU_Courses\CSbasic\ADS\spring\Lecture\6.md
-          - Lecture 7: .\ZJU_Courses\CSbasic\ADS\spring\Lecture\7.md
-          - Lecture 8: .\ZJU_Courses\CSbasic\ADS\spring\Lecture\8.md
-        - review:
-          - AMOZIZE: .\ZJU_Courses\CSbasic\ADS\spring\review\0_AMOZIZE.md
-          - AVL&SPLAY: .\ZJU_Courses\CSbasic\ADS\spring\review\1_AVL&SPLAY.md
-          - RBT&B+: .\ZJU_Courses\CSbasic\ADS\spring\review\2_RBT&B+.md
-          - FIle: .\ZJU_Courses\CSbasic\ADS\spring\review\3_FIle.md
-          - HEAP: .\ZJU_Courses\CSbasic\ADS\spring\review\4_HEAP.md
-          - QUEUE: .\ZJU_Courses\CSbasic\ADS\spring\review\5_QUEUE.md
-          - 期中: .\ZJU_Courses\CSbasic\ADS\spring\review\midTerm.md
-          - 期中知识点: .\ZJU_Courses\CSbasic\ADS\spring\review\期中知识点.md
-          - 作业错题回顾: .\ZJU_Courses\CSbasic\ADS\spring\review\pta.md
-          - 数据结构待实现清单: .\ZJU_Courses\CSbasic\ADS\spring\review\数据结构待实现清单.md
-      - summer:
-        - Lecture 9: .\ZJU_Courses\CSbasic\ADS\summer\9.md
-        - Lecture 10: .\ZJU_Courses\CSbasic\ADS\summer\10.md
-        - Lecture 11: .\ZJU_Courses\CSbasic\ADS\summer\11.md
+          - '1': .\ZJU_Courses\CSbasic\ADS\spring\Lecture\1.md
+          - '2': .\ZJU_Courses\CSbasic\ADS\spring\Lecture\2.md
+          - '3': .\ZJU_Courses\CSbasic\ADS\spring\Lecture\3.md
+          - '4': .\ZJU_Courses\CSbasic\ADS\spring\Lecture\4.md
+          - '5': .\ZJU_Courses\CSbasic\ADS\spring\Lecture\5.md
+          - '6': .\ZJU_Courses\CSbasic\ADS\spring\Lecture\6.md
+          - '7': .\ZJU_Courses\CSbasic\ADS\spring\Lecture\7.md
+          - '8': .\ZJU_Courses\CSbasic\ADS\spring\Lecture\8.md
+      - 夏学期笔记:
+        - '9': .\ZJU_Courses\CSbasic\ADS\summer\9.md
+        - '10': .\ZJU_Courses\CSbasic\ADS\summer\10.md
+        - '11': .\ZJU_Courses\CSbasic\ADS\summer\11.md
+        - '12': .\ZJU_Courses\CSbasic\ADS\summer\12.md
+        - '13': .\ZJU_Courses\CSbasic\ADS\summer\13.md
+        - '14': .\ZJU_Courses\CSbasic\ADS\summer\14.md
+        - '15': .\ZJU_Courses\CSbasic\ADS\summer\15.md
+      - 数据结构复习:
+        - 0_AMOZIZE: .\ZJU_Courses\CSbasic\ADS\DS\0_AMOZIZE.md
+        - 1_AVL&SPLAY: .\ZJU_Courses\CSbasic\ADS\DS\1_AVL&SPLAY.md
+        - 2_RBT&B+: .\ZJU_Courses\CSbasic\ADS\DS\2_RBT&B+.md
+        - 3_FIle: .\ZJU_Courses\CSbasic\ADS\DS\3_FIle.md
+        - 4_HEAP: .\ZJU_Courses\CSbasic\ADS\DS\4_HEAP.md
+        - 5_QUEUE: .\ZJU_Courses\CSbasic\ADS\DS\5_QUEUE.md
+        - midTerm: .\ZJU_Courses\CSbasic\ADS\DS\midTerm.md
+        - pta: .\ZJU_Courses\CSbasic\ADS\DS\pta.md
+        - 数据结构待实现清单: .\ZJU_Courses\CSbasic\ADS\DS\数据结构待实现清单.md
+        - 期中知识点: .\ZJU_Courses\CSbasic\ADS\DS\期中知识点.md
+      - 算法分析复习:
+        - 6-AA: .\ZJU_Courses\CSbasic\ADS\AA\6-AA.md
+        - 7-AA2: .\ZJU_Courses\CSbasic\ADS\AA\7-AA2.md
+      - 作业复习: .\ZJU_Courses\CSbasic\ADS\final-trem_pta.md
     - CO:
       - 前言: .\ZJU_Courses\CSbasic\CO\前言.md
-      - spring:
+      - 春学期笔记:
         - lecture:
-          - Lecture 1+2.1: .\ZJU_Courses\CSbasic\CO\spring\lecture\1+2.1.md
-          - Lecture 2.2: .\ZJU_Courses\CSbasic\CO\spring\lecture\2.2.md
-          - Lecture 3: .\ZJU_Courses\CSbasic\CO\spring\lecture\3.md
-          - Lecture 4.1: .\ZJU_Courses\CSbasic\CO\spring\lecture\4.1.md
-          - Lecture 4.2: .\ZJU_Courses\CSbasic\CO\spring\lecture\4.2.md
-          - Lecture 5: .\ZJU_Courses\CSbasic\CO\spring\lecture\5.md
-          - Lecture 6: .\ZJU_Courses\CSbasic\CO\spring\lecture\6.md
-          - Lecture 7: .\ZJU_Courses\CSbasic\CO\spring\lecture\7.md
-          - Lecture 8.2: .\ZJU_Courses\CSbasic\CO\spring\lecture\8.2.md
-          - Lecture 8: .\ZJU_Courses\CSbasic\CO\spring\lecture\8.md
+          - 1+2.1: .\ZJU_Courses\CSbasic\CO\spring\lecture\1+2.1.md
+          - '2.2': .\ZJU_Courses\CSbasic\CO\spring\lecture\2.2.md
+          - '3': .\ZJU_Courses\CSbasic\CO\spring\lecture\3.md
+          - '4.1': .\ZJU_Courses\CSbasic\CO\spring\lecture\4.1.md
+          - '4.2': .\ZJU_Courses\CSbasic\CO\spring\lecture\4.2.md
+          - '5': .\ZJU_Courses\CSbasic\CO\spring\lecture\5.md
+          - '6': .\ZJU_Courses\CSbasic\CO\spring\lecture\6.md
+          - '7': .\ZJU_Courses\CSbasic\CO\spring\lecture\7.md
+          - '8.2': .\ZJU_Courses\CSbasic\CO\spring\lecture\8.2.md
+          - '8': .\ZJU_Courses\CSbasic\CO\spring\lecture\8.md
         - review:
-          - Review 1: .\ZJU_Courses\CSbasic\CO\spring\review\1.md
-          - Review 2.1: .\ZJU_Courses\CSbasic\CO\spring\review\2.1.md
-          - Review 2.2: .\ZJU_Courses\CSbasic\CO\spring\review\2.2.md
-          - Review 2.3: .\ZJU_Courses\CSbasic\CO\spring\review\2.3.md
-          - Review 2.4: .\ZJU_Courses\CSbasic\CO\spring\review\2.4.md
-          - Review 2.5: .\ZJU_Courses\CSbasic\CO\spring\review\2.5.md
-          - Review 3: .\ZJU_Courses\CSbasic\CO\spring\review\3.md
-          - graphic': .\ZJU_Courses\CSbasic\CO\spring\review\graphic.md
+          - '1': .\ZJU_Courses\CSbasic\CO\spring\review\1.md
+          - '2.1': .\ZJU_Courses\CSbasic\CO\spring\review\2.1.md
+          - '2.2': .\ZJU_Courses\CSbasic\CO\spring\review\2.2.md
+          - '2.3': .\ZJU_Courses\CSbasic\CO\spring\review\2.3.md
+          - '2.4': .\ZJU_Courses\CSbasic\CO\spring\review\2.4.md
+          - '2.5': .\ZJU_Courses\CSbasic\CO\spring\review\2.5.md
+          - '2.6': .\ZJU_Courses\CSbasic\CO\spring\review\2.6.md
+          - '3': .\ZJU_Courses\CSbasic\CO\spring\review\3.md
+          - '4.1': .\ZJU_Courses\CSbasic\CO\spring\review\4.1.md
+          - '4.2': .\ZJU_Courses\CSbasic\CO\spring\review\4.2.md
+          - '4.3': .\ZJU_Courses\CSbasic\CO\spring\review\4.3.md
+          - '4.4': .\ZJU_Courses\CSbasic\CO\spring\review\4.4.md
+          - '4.5': .\ZJU_Courses\CSbasic\CO\spring\review\4.5.md
+          - graphic: .\ZJU_Courses\CSbasic\CO\spring\review\graphic.md
           - hw: .\ZJU_Courses\CSbasic\CO\spring\review\hw.md
-      - summer:
-        - 9.md: .\ZJU_Courses\CSbasic\CO\summer\9.md.md
-      - EXP:
-        - '0': .\ZJU_Courses\CSbasic\CO\EXP\0.md
-        - '1': .\ZJU_Courses\CSbasic\CO\EXP\1.md
+          - mid: .\ZJU_Courses\CSbasic\CO\spring\review\mid.md
+      - 夏学期笔记:
+        - Lecture:
+          - '9': .\ZJU_Courses\CSbasic\CO\summer\Lecture\9.md
+          - '10': .\ZJU_Courses\CSbasic\CO\summer\Lecture\10.md
+          - '11': .\ZJU_Courses\CSbasic\CO\summer\Lecture\11.md
+          - '12.1': .\ZJU_Courses\CSbasic\CO\summer\Lecture\12.1.md
+          - '12.2': .\ZJU_Courses\CSbasic\CO\summer\Lecture\12.2.md
+          - '13': .\ZJU_Courses\CSbasic\CO\summer\Lecture\13.md
+          - '14.1': .\ZJU_Courses\CSbasic\CO\summer\Lecture\14.1.md
+        - Review:
+          - '5.1': .\ZJU_Courses\CSbasic\CO\summer\Review\5.1.md
+          - '5.2': .\ZJU_Courses\CSbasic\CO\summer\Review\5.2.md
+          - '5.3': .\ZJU_Courses\CSbasic\CO\summer\Review\5.3.md
     - DBS:
       - 前言: .\ZJU_Courses\CSbasic\DBS\前言.md
-      - spring:
-        - lecture:
-          - Lecture 1: .\ZJU_Courses\CSbasic\DBS\spring\lecture\Chap1.md
-          - Lecture 2: .\ZJU_Courses\CSbasic\DBS\spring\lecture\2.md
-          - Lecture 3: .\ZJU_Courses\CSbasic\DBS\spring\lecture\3.md
-          - Lecture 4: .\ZJU_Courses\CSbasic\DBS\spring\lecture\4.md
-          - Lecture 5: .\ZJU_Courses\CSbasic\DBS\spring\lecture\5.md
-          - Lecture 6: .\ZJU_Courses\CSbasic\DBS\spring\lecture\6.md
-          - Lecture 7: .\ZJU_Courses\CSbasic\DBS\spring\lecture\7.md
-          - Lecture 8: .\ZJU_Courses\CSbasic\DBS\spring\lecture\8.md
-        - review:
-          - Review 1: .\ZJU_Courses\CSbasic\DBS\spring\review\1.md
-          - Review 2: .\ZJU_Courses\CSbasic\DBS\spring\review\2.md
-          - Review 3: .\ZJU_Courses\CSbasic\DBS\spring\review\3.md
-          - Review 3.5: .\ZJU_Courses\CSbasic\DBS\spring\review\3.5.md
-          - Review 4: .\ZJU_Courses\CSbasic\DBS\spring\review\4.md
-          - Review 6: .\ZJU_Courses\CSbasic\DBS\spring\review\6.md
-      - summer:
-        - Lecture 9: .\ZJU_Courses\CSbasic\DBS\summer\9.md
-        - Lecture 10: .\ZJU_Courses\CSbasic\DBS\summer\10.md
-        - Lecture 11: .\ZJU_Courses\CSbasic\DBS\summer\11.md
+      - 春学期课堂笔记:
+        - '1': .\ZJU_Courses\CSbasic\DBS\spring\Chap1.md
+        - '2': .\ZJU_Courses\CSbasic\DBS\spring\2.md
+        - '3': .\ZJU_Courses\CSbasic\DBS\spring\3.md
+        - '4': .\ZJU_Courses\CSbasic\DBS\spring\4.md
+        - '5': .\ZJU_Courses\CSbasic\DBS\spring\5.md
+        - '6': .\ZJU_Courses\CSbasic\DBS\spring\6.md
+        - '7': .\ZJU_Courses\CSbasic\DBS\spring\7.md
+        - '8': .\ZJU_Courses\CSbasic\DBS\spring\8.md
+      - 夏学期课堂笔记:
+        - '9': .\ZJU_Courses\CSbasic\DBS\summer\9.md
+        - '10': .\ZJU_Courses\CSbasic\DBS\summer\10.md
+        - '11': .\ZJU_Courses\CSbasic\DBS\summer\11.md
+        - '12': .\ZJU_Courses\CSbasic\DBS\summer\12.md
+        - '13': .\ZJU_Courses\CSbasic\DBS\summer\13.md
+        - '14': .\ZJU_Courses\CSbasic\DBS\summer\14.md
+        - '15': .\ZJU_Courses\CSbasic\DBS\summer\15.md
+      - 复习笔记:
+        - '1': .\ZJU_Courses\CSbasic\DBS\review\1.md
+        - '2': .\ZJU_Courses\CSbasic\DBS\review\2.md
+        - '3.5': .\ZJU_Courses\CSbasic\DBS\review\3.5.md
+        - '3.75': .\ZJU_Courses\CSbasic\DBS\review\3.75.md
+        - '3': .\ZJU_Courses\CSbasic\DBS\review\3.md
+        - '4': .\ZJU_Courses\CSbasic\DBS\review\4.md
+        - '5': .\ZJU_Courses\CSbasic\DBS\review\5.md
+        - '6': .\ZJU_Courses\CSbasic\DBS\review\6.md
+        - '7': .\ZJU_Courses\CSbasic\DBS\review\7.md
+        - '8': .\ZJU_Courses\CSbasic\DBS\review\8.md
+        - '9': .\ZJU_Courses\CSbasic\DBS\review\9.md
+        - '10': .\ZJU_Courses\CSbasic\DBS\review\10.md
+        - '11': .\ZJU_Courses\CSbasic\DBS\review\11.md
+        - 题目: .\ZJU_Courses\CSbasic\DBS\review\题目.md
       - JDBC:
         - '1': .\ZJU_Courses\CSbasic\DBS\JDBC\1.md
         - lab5: .\ZJU_Courses\CSbasic\DBS\JDBC\lab5.md
-    - DM:
-      - DM: .\ZJU_Courses\CSbasic\DM\DM.md
-      - hw1: .\ZJU_Courses\CSbasic\DM\hw1.md
-      - note0: .\ZJU_Courses\CSbasic\DM\note0.md
     - OOP:
       - 前言: .\ZJU_Courses\CSbasic\OOP\前言.md
-      - Chap1: .\ZJU_Courses\CSbasic\OOP\2- Using Objects\Chap1.md
-      - 2- Using Objects:
-        - Const: .\ZJU_Courses\CSbasic\OOP\2- Using Objects\Const.md
-        - DMA: .\ZJU_Courses\CSbasic\OOP\2- Using Objects\DMA.md
-        - File: .\ZJU_Courses\CSbasic\OOP\2- Using Objects\File.md
-        - Reference: .\ZJU_Courses\CSbasic\OOP\2- Using Objects\Reference.md
-        - String: .\ZJU_Courses\CSbasic\OOP\2- Using Objects\String.md
-      - 3-Class:
-        - Makefile: .\ZJU_Courses\CSbasic\OOP\3-Class\Makefile.md
-        - Object: .\ZJU_Courses\CSbasic\OOP\3-Class\Object.md
-      - 4-Object Interactive:
-        - C'tor and D'tor: .\ZJU_Courses\CSbasic\OOP\4-Object Interactive\C'tor and
-            D'tor.md
-      - 6-Copy Ctor:
-        - Copy Ctor: .\ZJU_Courses\CSbasic\OOP\6-Copy Ctor\1.md
-      - Const: .\ZJU_Courses\CSbasic\OOP\Const.md
-    - 数字逻辑设计:
-      - shuluo: .\ZJU_Courses\CSbasic\数字逻辑设计\shuluo.md
-  - 数学基础课程: 
-    - 数学分析Ⅰ(H): ZJU_Courses/math/shufen1/不要忘记反证法.md
+      - Note:
+        - 2- Using Objects:
+          - Chap1: .\ZJU_Courses\CSbasic\OOP\Note\2- Using Objects\Chap1.md
+          - Const: .\ZJU_Courses\CSbasic\OOP\Note\2- Using Objects\Const.md
+          - DMA: .\ZJU_Courses\CSbasic\OOP\Note\2- Using Objects\DMA.md
+          - File: .\ZJU_Courses\CSbasic\OOP\Note\2- Using Objects\File.md
+          - Reference: .\ZJU_Courses\CSbasic\OOP\Note\2- Using Objects\Reference.md
+          - String: .\ZJU_Courses\CSbasic\OOP\Note\2- Using Objects\String.md
+        - 3-Class:
+          - Makefile: .\ZJU_Courses\CSbasic\OOP\Note\3-Class\Makefile.md
+          - Object: .\ZJU_Courses\CSbasic\OOP\Note\3-Class\Object.md
+        - 4-Object Interactive:
+          - C'tor and D'tor: .\ZJU_Courses\CSbasic\OOP\Note\4-Object Interactive\C'tor
+              and D'tor.md
+        - 6-Copy Ctor:
+          - '1': .\ZJU_Courses\CSbasic\OOP\Note\6-Copy Ctor\1.md
+        - Const: .\ZJU_Courses\CSbasic\OOP\Note\Const.md
+        - hobbitQia:
+          - 1-string&DM: .\ZJU_Courses\CSbasic\OOP\Note\hobbitQia\1-string&DM.md
+          - 2-Class: .\ZJU_Courses\CSbasic\OOP\Note\hobbitQia\2-Class.md
+          - 3-container: .\ZJU_Courses\CSbasic\OOP\Note\hobbitQia\3-container.md
+          - 4-Functions: .\ZJU_Courses\CSbasic\OOP\Note\hobbitQia\4-Functions.md
+      - pta题目记录: .\ZJU_Courses\CSbasic\OOP\pta.md
+      - 翁恺班作业记录: .\ZJU_Courses\CSbasic\OOP\HW_WK\doing.md
+  - math:
+    - shufen1:
+      - 不要忘记反证法: .\ZJU_Courses\math\shufen1\不要忘记反证法.md
     - 数学分析Ⅱ(H): building.md
     - 线性代数Ⅱ(H): building.md
     - 概率论与数理统计: building.md
     - 离散数学(CKC):
-      - 课堂规则: ZJU_Courses/math/离散数学/DM.md
-      - 第一课: ZJU_Courses/math/离散数学/DM1.md
+      - 课堂规则: ZJU_Courses/math/DM/DM.md
+      - Lecture:
+        - '1': .\ZJU_Courses\math\DM\Lecture\1.md
+        - '2': .\ZJU_Courses\math\DM\Lecture\2.md
+        - '3': .\ZJU_Courses\math\DM\Lecture\3.md
+        - '4': .\ZJU_Courses\math\DM\Lecture\4.md
+        - '5': .\ZJU_Courses\math\DM\Lecture\5.md
+        - '6': .\ZJU_Courses\math\DM\Lecture\6.md
+        - '7': .\ZJU_Courses\math\DM\Lecture\7.md
+        - '8': .\ZJU_Courses\math\DM\Lecture\8.md
+        - '9': .\ZJU_Courses\math\DM\Lecture\9.md
+        - '10': .\ZJU_Courses\math\DM\Lecture\10.md
+      - Review:
+        - '1': .\ZJU_Courses\math\DM\Review\1.md
+        - '2': .\ZJU_Courses\math\DM\Review\2.md
+        - '3': .\ZJU_Courses\math\DM\Review\3.md
+        - '4': .\ZJU_Courses\math\DM\Review\4.md
+        - '5': .\ZJU_Courses\math\DM\Review\5.md
+        - '6': .\ZJU_Courses\math\DM\Review\6.md
+        - '7': .\ZJU_Courses\math\DM\Review\7.md
+        - 题目: .\ZJU_Courses\math\DM\Review\题目.md
+        - 题目2: .\ZJU_Courses\math\DM\Review\题目2.md
+        - 题目3: .\ZJU_Courses\math\DM\Review\题目3.md
+        - 题目4: .\ZJU_Courses\math\DM\Review\题目4.md
+      - 各种运算律: .\ZJU_Courses\math\DM\各种运算律.md
+      - 小测1: .\ZJU_Courses\math\DM\小测1.md
+      - 小测2: .\ZJU_Courses\math\DM\小测2.md
+      - 题目: .\ZJU_Courses\math\DM\题目.md
   - 其它有意思的课程:
-    - 习概:
-      - '0': .\ZJU_Courses\其它有意思的课程\习概\0.md
     - 无线网络应用:
       - 无线网络应用: .\ZJU_Courses\其它有意思的课程\无线网络应用\无线网络应用.md
-    - 生命科学导论(H):
-      - 前言: .\ZJU_Courses\其它有意思的课程\生命科学导论(H)\前言.md
-      - '1': .\ZJU_Courses\其它有意思的课程\生命科学导论(H)\1.md
     - 马原:
       - 马原: .\ZJU_Courses\其它有意思的课程\马原\马原.md
-  - 前言: .\ZJU_Courses\前言.md
 - Programming Language:
   - C++ Programming Tutorial:
     - Introduction: .\ZJU_Courses\CSbasic\Programming Language\C++ Programming Tutorial\0.md
@@ -192,11 +249,11 @@ nav:
     - 2302.12173v2: .\SRTP\文献阅读\2302.12173v2.md
 - English:
   - Vocabulary:
-    - sentence: .\ZJU_Courses\CSbasic\English\Vocabulary\sentence.md
-    - word: .\ZJU_Courses\CSbasic\English\Vocabulary\word.md
+    - sentence: .\ZJU_Courses\English\Vocabulary\sentence.md
+    - word: .\ZJU_Courses\English\Vocabulary\word.md
   - Writing:
-    - sentence: .\ZJU_Courses\CSbasic\English\Writing\sentence.md
-    - word: .\ZJU_Courses\CSbasic\English\Writing\word.md
+    - sentence: .\ZJU_Courses\English\Writing\sentence.md
+    - word: .\ZJU_Courses\English\Writing\word.md
 
 theme:
   name: material
@@ -256,7 +313,3 @@ markdown_extensions:
 extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
-
-
-
-

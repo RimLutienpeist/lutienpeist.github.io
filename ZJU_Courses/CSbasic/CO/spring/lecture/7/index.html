@@ -3707,7 +3707,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9505,13 +9505,17 @@
 <p>三种指令类型</p>
 </blockquote>
 <ol>
-<li>For every instruction, the first two step are identical</li>
+<li>For every instruction, the first two step are identical<ol>
 <li>Fetch the instruction from the memory</li>
 <li>Decode and read the registers</li>
-<li>Next steps depend on the instruction <strong>class</strong></li>
+</ol>
+</li>
+<li>Next steps depend on the instruction <strong>class</strong><ol>
 <li>Memory-reference</li>
 <li>Arithmetic-logical </li>
 <li>branches</li>
+</ol>
+</li>
 </ol>
 <p><img alt="image-20240404165003332" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240404165003332.png" /></p>
 <h3 id="an-overview-of-implementation">An overview of Implementation</h3>
@@ -9545,21 +9549,31 @@
 <h3 id="43-building-a-datapath">4.3 Building a Datapath</h3>
 <h4 id="execution-in-risc-v">Execution in RISC-V</h4>
 <ol>
-<li>Fetch</li>
+<li>Fetch<ul>
 <li>Take instructions from the instruction memory  </li>
 <li>Modify PC to point the next instruction</li>
-<li>Instruction decoding &amp; Read Operand:</li>
+</ul>
+</li>
+<li>Instruction decoding &amp; Read Operand:<ul>
 <li>Will be translated into machine control command  </li>
 <li>Reading Register Operands, whether or not to use  </li>
 <li>Reading Register Operands, whether or not to use</li>
-<li>Executive Control</li>
+</ul>
+</li>
+<li>Executive Control<ul>
 <li>Control the implementation of the corresponding ALU operation </li>
-<li>Memory access</li>
+</ul>
+</li>
+<li>Memory access<ul>
 <li>Write or Read data from memory  </li>
 <li>Only ld/sd</li>
-<li>Write results to register</li>
+</ul>
+</li>
+<li>Write results to register<ul>
 <li>If it is R-type instructions, ALU results are written to rd </li>
 <li>If it is I-type instructions, memory data are written to rd</li>
+</ul>
+</li>
 </ol>
 <h4 id="fetching">Fetching</h4>
 <blockquote>
@@ -9582,8 +9596,10 @@
 <h4 id="loadstore">Load/Store</h4>
 <ol>
 <li>Read register operands</li>
-<li>Calculate address using 12-bit offset</li>
+<li>Calculate address using 12-bit offset<ol>
 <li>Use ALU, but sign-extend offset</li>
+</ol>
+</li>
 <li>Load: Read memory and update register</li>
 <li>Store: Write register value to memory</li>
 </ol>
@@ -9591,12 +9607,16 @@
 <h4 id="branch">Branch</h4>
 <ol>
 <li>Read register operands</li>
-<li>Compare operands</li>
+<li>Compare operands<ul>
 <li>Use ALU, subtract and check Zero output</li>
-<li>Calculate target address</li>
+</ul>
+</li>
+<li>Calculate target address<ul>
 <li>Sign-extend displacement </li>
 <li>Shift left 1 place (halfword displacement) </li>
 <li>Add to PC value</li>
+</ul>
+</li>
 </ol>
 <p><img alt="image-20240409204509381" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240409204509381.png" /></p>
 <blockquote>
@@ -9609,9 +9629,11 @@
 </blockquote>
 <h4 id="_1">注意</h4>
 <ol>
-<li>First-cut data path does an instruction in  one clock cycle</li>
+<li>First-cut data path does an instruction in  one clock cycle<ul>
 <li>Each datapath element can only do one function at  a time</li>
 <li>we need separate instruction and data  memories</li>
+</ul>
+</li>
 <li>Use multiplexers where alternate data  sources are used for different instructions</li>
 </ol>
 <h4 id="path-built-using-multiplexer">Path Built using Multiplexer</h4>

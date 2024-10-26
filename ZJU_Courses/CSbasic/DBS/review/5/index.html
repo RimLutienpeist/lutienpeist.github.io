@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9625,9 +9625,9 @@
 <p>做题就从选项最小的开始检查</p>
 </blockquote>
 <h3 id="dependency-preservation">Dependency Preservation</h3>
-<p>~~原来每一条函数依赖都能在被分解后的任意一个表上得到验证，那么就称这个分解是满足 <strong>依赖保持 </strong>的~~</p>
+<p><del>原来每一条函数依赖都能在被分解后的任意一个表上得到验证，那么就称这个分解是满足 <strong>依赖保持 </strong>的</del></p>
 <blockquote>
-<p>~~注意是在每一个表里面能够独立地检验所有的依赖保持，或者说每个表都保留了原表的正则覆盖~~</p>
+<p><del>注意是在每一个表里面能够独立地检验所有的依赖保持，或者说每个表都保留了原表的正则覆盖</del></p>
 </blockquote>
 <p>分解后的每一张表剩下的函数依赖的并，正好是原表有的函数依赖，那么就称这个分解是满足 <strong>依赖保持 </strong>的</p>
 <blockquote>
@@ -9640,8 +9640,10 @@
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/v2-4c8b706ab67b1475a249d14cac8281db_720w.webp" alt="img" style="zoom:67%;" /></p>
 <h3 id="1nf">1NF</h3>
 <ol>
-<li>表中无表，即每个属性都是不可分割的。   </li>
+<li>表中无表，即每个属性都是不可分割的。   <ul>
 <li><strong>Identification numbers</strong> like CS101 that can <strong>be broken up into parts</strong></li>
+</ul>
+</li>
 <li>不满足第一范式的数据库就不是关系型数据库，所以说能在 MySQL 建立的表肯定满足第一范式。</li>
 </ol>
 <h3 id="2nf">2NF</h3>
@@ -9660,7 +9662,7 @@
 <p>用函数依赖来定义就是，这个关系模式所有的函数依赖，要么左边是超键，要么就是trivial</p>
 <h4 id="decomposing-a-schema-into-bcnf">Decomposing a Schema into BCNF</h4>
 <blockquote>
-<p>~~始终保持一个原则：无损分解~~</p>
+<p><del>始终保持一个原则：无损分解</del></p>
 <p>3NF及之后才能保证无损分解</p>
 </blockquote>
 <p>算法</p>

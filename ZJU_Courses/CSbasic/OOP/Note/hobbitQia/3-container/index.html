@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9305,14 +9305,18 @@
 <a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1">//51 52</span>
 </code></pre></div>
 <ul>
-<li>References</li>
+<li>References<ul>
 <li>can't be null</li>
 <li>are dependent on an existing variable, they are an alias for an variable</li>
 <li>can't change to a new "address" location</li>
-<li>Pointers</li>
+</ul>
+</li>
+<li>Pointers<ul>
 <li>can be set to null</li>
 <li>pointer is independent of existing objects</li>
 <li>can change to point to a different address</li>
+</ul>
+</li>
 </ul>
 <h2 id="container">Container</h2>
 <p>Collection objects are objects that can store other objects.</p>
@@ -9320,13 +9324,17 @@
 <p><strong>Library</strong> includes</p>
 <ul>
 <li>A <code>pair</code> class (pairs of anything, int/int, int/char, etc)</li>
-<li>containers</li>
+<li>containers<ul>
 <li><code>vector</code> (expandable array)</li>
 <li><code>deque</code> (expandable array, expands at both ends)</li>
 <li><code>list</code> (double-linked)</li>
 <li><code>sets</code> and <code>maps</code></li>
-<li>Basic Algorithms (<code>sort</code>, <code>search</code>, etc)</li>
+</ul>
+</li>
+<li>Basic Algorithms (<code>sort</code>, <code>search</code>, etc)<ul>
 <li>All identifiers in library are in std namespace</li>
+</ul>
+</li>
 </ul>
 <h3 id="vector">Vector</h3>
 <p>每个容器对应一个头文件，需要 include. 如 <code>#include&lt;vector&gt;</code>.</p>
@@ -9431,11 +9439,13 @@
 <a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="k">else</span><span class="w"> </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="err">“</span><span class="n">Not</span><span class="w"> </span><span class="n">perfect</span><span class="w"> </span><span class="n">square</span><span class="err">”</span><span class="p">;</span>
 </code></pre></div>
 <ul>
-<li>Use <code>empty()</code> on <code>list&lt;&gt;</code></li>
-</ul>
+<li>
+<p>Use <code>empty()</code> on <code>list&lt;&gt;</code></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">my_list</span><span class="p">.</span><span class="n">count</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="c1">// Slow</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">my_list</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{...}</span><span class="w"> </span><span class="c1">// Fast</span>
 </code></pre></div>
+</li>
+</ul>
 <h2 id="iterators">Iterators</h2>
 <p>迭代子，专门用于遍历容器的一种变量类型，以 list 为例：</p>
 <p><div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="w"> </span><span class="n">li</span><span class="p">;</span><span class="w"> </span><span class="c1">//Declaring</span>
@@ -9463,8 +9473,8 @@
 <p>for-each loop 不需要预先初始化迭代器，缺点是不能获得下标，不能逆序遍历，不能跳过某个单元，不能修改容器的值</p>
 <h2 id="pitfalls">Pitfalls</h2>
 <ul>
-<li>Accessing an invalid</li>
-</ul>
+<li>
+<p>Accessing an invalid</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v</span><span class="p">;</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">v</span><span class="p">[</span><span class="mi">100</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Whoops!</span>
 </code></pre></div>
@@ -9473,23 +9483,25 @@
 <li>use <code>push_back()</code></li>
 <li>Preallocate with constructor.</li>
 <li>Reallocate with <code>reserve()</code></li>
-<li>
-<p>Check <code>capacity()</code></p>
-</li>
-<li>
-<p>Inadvertently inserting into <code>map&lt;&gt;</code></p>
+<li>Check <code>capacity()</code></li>
+</ul>
 </li>
 </ul>
+<ul>
+<li>
+<p>Inadvertently inserting into <code>map&lt;&gt;</code></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">foo</span><span class="p">[</span><span class="s">&quot;bob&quot;</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="c1">//silently created entry “bob”</span>
 </code></pre></div>
 <p>Solutions: Use <code>count()</code> to check for a key without creating a new entry：<code>if ( foo.count("bob") )</code></p>
+</li>
+</ul>
 <blockquote>
 <p>count()方法返回值是一个整数，1表示有这个元素，0表示没有这个元素</p>
 </blockquote>
 <ul>
-<li>Use invalid iterator</li>
-</ul>
+<li>
+<p>Use invalid iterator</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">L</span><span class="p">;</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="w"> </span><span class="n">li</span><span class="p">;</span>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">li</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
@@ -9498,6 +9510,8 @@
 <a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="c1">// Use return value of erase to advance</span>
 <a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="n">li</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">L</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">li</span><span class="p">);</span><span class="w"> </span><span class="c1">// RIGHT</span>
 </code></pre></div>
+</li>
+</ul>
 
 
 

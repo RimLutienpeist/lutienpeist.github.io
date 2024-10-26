@@ -3563,7 +3563,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9230,18 +9230,22 @@
 </ul>
 <p>If accessed data is present in upper level</p>
 <ul>
-<li><strong>Hit</strong>: CPU access satisfied by upper level</li>
+<li><strong>Hit</strong>: CPU access satisfied by upper level<ul>
 <li>Hit ratio: hits/accesses</li>
 <li><strong>Hit time</strong>:  The time to access the upper level of the memory  hierarchy, which includes <strong>the time needed to determine whether the access is a hit or a miss.</strong></li>
 </ul>
+</li>
+</ul>
 <p>If accessed data is absent</p>
 <ul>
-<li><strong>Miss</strong>: CPU accesses the upper level and fails. Block copied from lower level</li>
+<li><strong>Miss</strong>: CPU accesses the upper level and fails. Block copied from lower level<ul>
 <li>Time taken: miss penalty<ul>
 <li><strong>miss penalty</strong>: The time to <strong>replace a block in the upper level with the  corresponding block from the lower level</strong>, plus <strong>the time to deliver this block to the processor.</strong></li>
 </ul>
 </li>
 <li>Miss ratio: misses/accesses = 1 – hit ratio</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>hit定义是，CPU读取层级最近的mem是否能直接读取到</p>

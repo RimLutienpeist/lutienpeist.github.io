@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9389,20 +9389,28 @@
 </blockquote>
 <h3 id="domain-type">Domain Type</h3>
 <ul>
-<li><code>char(n)</code></li>
+<li><code>char(n)</code><ul>
 <li>fixed length n, invariable</li>
 <li>无论输入的字符串长度是多少，它都会占用 n 个字节的存储空间</li>
 <li>用空格填充</li>
-<li><code>varchar(n)</code></li>
+</ul>
+</li>
+<li><code>varchar(n)</code><ul>
 <li>variable length, n is the maximun length</li>
 <li>占的空间会变化</li>
-<li><code>int</code></li>
+</ul>
+</li>
+<li><code>int</code><ul>
 <li><code>smallint</code></li>
 <li>这两个的范围不同，与机器有关</li>
-<li><code>numeric(p,d)</code> </li>
+</ul>
+</li>
+<li><code>numeric(p,d)</code> <ul>
 <li>p is the total digits</li>
 <li>d is the digits to the right of decimal point</li>
-<li><code>real, double precision</code></li>
+</ul>
+</li>
+<li><code>real, double precision</code><ul>
 <li>都是用来表示实数的数据类型</li>
 <li>real 是一个通用的术语，指的是任何可以表示实数的数据类型。在不同的编程语言和数据库中，real 的具体含义可能有所不同。<ul>
 <li>例如，在 C 语言中，real 是一个浮点数类型。在 SQL 中，real 是一种<strong>浮点数</strong>类型。</li>
@@ -9413,8 +9421,12 @@
 <li>在大多数情况下，double precision 是表示实数的最佳选择。</li>
 </ul>
 </li>
-<li><code>float(n)</code></li>
+</ul>
+</li>
+<li><code>float(n)</code><ul>
 <li>浮点数，最少有 n digits</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p><strong>Built-in Data Tupes</strong></p>

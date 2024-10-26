@@ -3482,7 +3482,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9723,9 +9723,11 @@
 </blockquote>
 <p>首先需要一个引理：</p>
 <ul>
-<li>集合 <span class="arithmatex">\(A\)</span> 有 <span class="arithmatex">\(n\)</span> 个元素，关系 <span class="arithmatex">\(R\)</span> 基于 <span class="arithmatex">\(A\)</span></li>
+<li>集合 <span class="arithmatex">\(A\)</span> 有 <span class="arithmatex">\(n\)</span> 个元素，关系 <span class="arithmatex">\(R\)</span> 基于 <span class="arithmatex">\(A\)</span><ul>
 <li>如果 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span> 之间存在道路，那么一定有长度不超过 <span class="arithmatex">\(n\)</span> 的道路</li>
 <li>进一步，如果 <span class="arithmatex">\(a \ne b\)</span>，那么一定有长度不超过 <span class="arithmatex">\(n-1\)</span> 的道路</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>也是很显然的了，特别长的肯定有重复的元素，我们就去掉所有重复的，保留一个在道路里</p>
@@ -9756,9 +9758,11 @@
 <p>思路就是，先找出所有道路的内部节点只有 <span class="arithmatex">\(v_1\)</span> 的序偶，然后允许加入 <span class="arithmatex">\(v_2\)</span>，以此类推，一步步放宽</p>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240606092839350.png" alt="image-20240606092839350" style="zoom:67%;" /></p>
 <ul>
-<li>对于一对序偶，如果其存在只包含前 <span class="arithmatex">\(k\)</span> 个结点作为内部节点的道路，那么只可能属于两种情况</li>
+<li>对于一对序偶，如果其存在只包含前 <span class="arithmatex">\(k\)</span> 个结点作为内部节点的道路，那么只可能属于两种情况<ul>
 <li>要么其存在只包含前 <span class="arithmatex">\(k-1\)</span> 个结点作为内部节点的道路</li>
 <li>要么 <span class="arithmatex">\(v_k\)</span> 正好能连通两者</li>
+</ul>
+</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240606141851202.png" alt="image-20240606141851202" style="zoom:67%;" /></p>
 <p>由此我们可以确定矩阵每一项该怎么算出来</p>

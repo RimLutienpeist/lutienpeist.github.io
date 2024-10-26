@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9295,24 +9295,30 @@
 <p>Two basic kinds of indices</p>
 <ol>
 <li>Ordered indices: index entries 按 search keys 顺序排序</li>
-<li>Hash indices:  根据search key计算出存储地址</li>
+<li>Hash indices:  根据search key计算出存储地址<ul>
 <li>但是很难找到均匀的哈希函数，所以还是用Ordered indices更多</li>
+</ul>
+</li>
 </ol>
 <h2 id="ordered-indices">Ordered Indices</h2>
 <h3 id="basic">Basic</h3>
 <p>顺序索引基于建立索引的属性情况，又分两种类型：</p>
 <ul>
-<li>Primary index（主索引）</li>
+<li>Primary index（主索引）<ul>
 <li>也叫 clustering index（聚集索引）</li>
 <li>源文件中的record已经按照某attribute的顺序排下来，建立在这个attribute上的index就是primary index</li>
 <li>不一定是主键哈</li>
 <li>主索引的 search key 次序与物理文件排放次序一样，所以是最高效的索引</li>
 <li>一个物理文件一般最多一个主索引</li>
 </ul>
+</li>
+</ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240430092137123.png" alt="image-20240430092137123" style="zoom: 80%;" /></p>
 <ul>
-<li>Secondary index（辅助索引）：search key次序与物理文件排放次序不一样</li>
+<li>Secondary index（辅助索引）：search key次序与物理文件排放次序不一样<ul>
 <li>显然辅助索引很难更新</li>
+</ul>
+</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240430092209214.png" alt="image-20240430092209214" style="zoom:80%;" /></p>
 <blockquote>
@@ -9327,8 +9333,10 @@
 </ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240430092848810.png" alt="image-20240430092848810" style="zoom: 67%;" /></p>
 <ul>
-<li>Sparse Index（稀疏索引）：用类似二分法的思想，结合顺序查找</li>
+<li>Sparse Index（稀疏索引）：用类似二分法的思想，结合顺序查找<ul>
 <li>稀疏索引只能建立在主索引上，不然无法顺序查找</li>
+</ul>
+</li>
 </ul>
 <p><img src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240430093026505.png" alt="image-20240430093026505" style="zoom:80%;" /></p>
 <h3 id="b-tree-index-files">B+-Tree Index Files</h3>

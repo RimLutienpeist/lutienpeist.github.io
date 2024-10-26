@@ -3667,7 +3667,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9430,12 +9430,16 @@
 <p>不管左移右移都是用<code>0</code>填充</p>
 <p>用来进行乘法与除法</p>
 <ul>
-<li><code>slli</code></li>
+<li><code>slli</code><ul>
 <li>shift left</li>
 <li>multiplies by <span class="arithmatex">\(2^i\)</span></li>
-<li><code>srli</code></li>
+</ul>
+</li>
+<li><code>srli</code><ul>
 <li>shift right</li>
 <li>devides by  <span class="arithmatex">\(2^i\)</span></li>
+</ul>
+</li>
 </ul>
 <h4 id="and">AND</h4>
 <p><code>and</code> 可以用于 提取/选取 数据</p>
@@ -9458,23 +9462,29 @@
 <p><img alt="image-20240506161923537" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240506161923537.png" /></p>
 <h2 id="instructions-for-making-decisions">Instructions for making decisions</h2>
 <ul>
-<li><strong>Branch</strong> instructions</li>
+<li><strong>Branch</strong> instructions<ul>
 <li>Branch to a labeled instruction if a condition is true </li>
 <li>Otherwise, continue sequentially</li>
-<li>Example</li>
+</ul>
+</li>
+<li>Example<ul>
 <li><code>beq rs1, rs2, L1</code> if (rs1 == rs2) branch to instruction labeled L1</li>
-<li>
-<p><code>bne rs1, rs2, L1</code> if (rs1 != rs2) branch to instruction labeled L1</p>
+<li><code>bne rs1, rs2, L1</code> if (rs1 != rs2) branch to instruction labeled L1</li>
+</ul>
 </li>
-<li>
-<p><code>blt rs1, rs2, L1</code> if(rs1&lt;rs2) L1</p>
-</li>
+</ul>
+<ul>
+<li><code>blt rs1, rs2, L1</code> if(rs1&lt;rs2) L1<ul>
 <li>大于需要用EXIT实现</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240406131136504" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240406131136504.png" /></p>
 <ul>
-<li><code>bge rs1, rs2, L1</code> if(rs1<span class="arithmatex">\(\ge\)</span> rs2) L1</li>
+<li><code>bge rs1, rs2, L1</code> if(rs1<span class="arithmatex">\(\ge\)</span> rs2) L1<ul>
 <li>同上</li>
+</ul>
+</li>
 </ul>
 <p><code>beq</code>, <code>bnq</code>可以实现以下逻辑</p>
 <h3 id="_1">各类逻辑的实现</h3>
@@ -9510,9 +9520,11 @@
 <p>为了方便预测并优化，将指令集合分为多个basic block</p>
 <ul>
 <li>每个block包含一序列指令</li>
-<li>每个block内部不会进行jump</li>
+<li>每个block内部不会进行jump<ul>
 <li>即jump发生在block之间</li>
 <li>而且，跳转一定发生在block结尾，并指向其它block的开头</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240406131710071" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240406131710071.png" /></p>
 

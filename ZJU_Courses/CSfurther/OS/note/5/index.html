@@ -3482,7 +3482,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9607,25 +9607,35 @@
 <h3 id="three-level-scheduling">Three-level Scheduling</h3>
 <p><img alt="image-20241015152447068" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20241015152447068.png" /></p>
 <ul>
-<li>Long-term scheduler 长程调度（或作业调度 or job scheduler)</li>
+<li>Long-term scheduler 长程调度（或作业调度 or job scheduler)<ul>
 <li>筛选出能推入就绪队列的<strong>作业</strong>，同时控制并发程度</li>
 <li>这种调度每时每分都在执行，会很慢，现代 OS 基本没有这种调度了</li>
 <li>从外存选进程进入内存</li>
-<li>Short-term scheduler 短程调度（或CPU调度 or CPU scheduler)</li>
+</ul>
+</li>
+<li>Short-term scheduler 短程调度（或CPU调度 or CPU scheduler)<ul>
 <li>筛选出下一个被执行的进程，给其分配 CPU</li>
 <li>每时每分都在执行，一定很快</li>
-<li>Medium-Term Scheduler 中程调度</li>
+</ul>
+</li>
+<li>Medium-Term Scheduler 中程调度<ul>
 <li>确定队列中哪个<strong>进程</strong>可以被分配处理器</li>
 <li>缓解内存紧张，临时取消CPU分配，见下图</li>
+</ul>
+</li>
 </ul>
 <h3 id="cpu-scheduler">CPU Scheduler</h3>
 <p>根据调度时机，分为两种调度方式</p>
 <ul>
-<li>非抢占式（Nonpreemptive）调度</li>
+<li>非抢占式（Nonpreemptive）调度<ul>
 <li>调度程序一旦把处理机分配给某进程后便让它一直运行下去，直到进程完成或发生某事件而阻塞时，才把处理机分配给另一个进程</li>
-<li>抢占式（Preemptive）调度</li>
+</ul>
+</li>
+<li>抢占式（Preemptive）调度<ul>
 <li>当一个进程正在运行时，系统可以剥夺已分配给它的处理机，将之分配给其它进程</li>
 <li>剥夺原则有：优先权原则、短进程优先原则 、时间片原则。</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>Dispatch latency（调度延迟） – time it takes for the dispatcher to stop one  process and start another running调度程序停止一个进程到启动一个进程所需要 的时间</p>
@@ -9635,23 +9645,35 @@
 <h4 id="user-oriented">面向用户(User-oriented)</h4>
 <p>有以下几个标准</p>
 <ul>
-<li>周转时间 Turnaround time </li>
+<li>周转时间 Turnaround time <ul>
 <li>进程从提交到完成所经历的时间。包括：在CPU上执行，就绪队列和阻塞队列中等待。</li>
 <li>一个进程的周转时间 T= 完成时间 - 提交时间</li>
-<li>响应时间 Response time</li>
+</ul>
+</li>
+<li>响应时间 Response time<ul>
 <li>从进程提出请求到首次被响应（而不是输出结果）的时间段（在分时系统环境下）</li>
-<li>等待时间 Waiting time – 进程在就绪队列中等待的时间总和</li>
+</ul>
+</li>
+<li>等待时间 Waiting time – 进程在就绪队列中等待的时间总和<ul>
 <li>调度算法影响的只有等待时间，不影响进程真正的运行时间</li>
+</ul>
+</li>
 </ul>
 <h4 id="_2">面向系统的调度性能准则</h4>
 <ul>
-<li>吞吐量Throughput</li>
+<li>吞吐量Throughput<ul>
 <li>单位时间内所完成的进程数，跟进程本身特性和调度算法都有关系</li>
 <li>平均周转时间不是吞吐量的倒数，因为并发执行的进程在时间上可以重叠</li>
-<li>处理机利用率CPU utilization</li>
+</ul>
+</li>
+<li>处理机利用率CPU utilization<ul>
 <li>使CPU尽可能的忙碌</li>
-<li>各种设备的均衡利用</li>
+</ul>
+</li>
+<li>各种设备的均衡利用<ul>
 <li>如CPU繁忙的进程和I/O繁忙的进程搭配</li>
+</ul>
+</li>
 </ul>
 <h4 id="_3">调度算法本身的调度性能准则</h4>
 <p>易于实现，执行开销比较小</p>
@@ -9685,8 +9707,10 @@
 <h4 id="sjf">SJF的变型</h4>
 <ul>
 <li>最短剩余时间优先SRT(Shortest Remaining Time)-基于抢占的SJF算法</li>
-<li>最高响应比优先HRRN(Highest Response Ratio Next) </li>
+<li>最高响应比优先HRRN(Highest Response Ratio Next) <ul>
 <li>响应比R = (等待时间 + 要求执行时间) / 要求执行时间</li>
+</ul>
+</li>
 </ul>
 <h4 id="example-of-non-preemptive-sjf">Example of Non-Preemptive SJF</h4>
 <p><img alt="image-20241019115619299" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20241019115619299.png" /></p>
@@ -9696,18 +9720,26 @@
 <p>Associate a priority number with each process，通常是整数，数字越小代表优先级越高</p>
 <p>优先权有以下两种</p>
 <ul>
-<li>静态优先权</li>
+<li>静态优先权<ul>
 <li>静态优先权是在创建进程时确定的，在整个运行期间不再改变</li>
-<li>动态优先权</li>
+</ul>
+</li>
+<li>动态优先权<ul>
 <li>动态优先权是基于某种原则，使进程的优先权随时间改变而改变</li>
 <li>SJF是以下一次CPU脉冲长度作为优先数的优先级调度</li>
 </ul>
+</li>
+</ul>
 <p>Priority Scheduling 也分抢占式和非抢占式</p>
 <ul>
-<li>Non-preemptive priority scheduling </li>
+<li>Non-preemptive priority scheduling <ul>
 <li>优先级高的要等目前在运行的跑完先</li>
-<li>Preemptive priority scheduling </li>
+</ul>
+</li>
+<li>Preemptive priority scheduling <ul>
 <li>优先级高的可以马上抢</li>
+</ul>
+</li>
 </ul>
 <p>这个调度有个问题叫 Starvation(饥饿)，即低优先级进程可能永远不会执行，可以设置 Aging(老化) 随时间提升优先级</p>
 <h4 id="example-of-priority-scheduling">Example of Priority Scheduling</h4>
@@ -9736,10 +9768,14 @@
 <h3 id="_4">多级队列调度</h3>
 <p>将就绪队列分为若干个子队列，各子队列内部的处理不同</p>
 <ul>
-<li>foreground (interactive) 前台（交互式）</li>
+<li>foreground (interactive) 前台（交互式）<ul>
 <li>RR</li>
-<li>background (batch) 后台 （批处理）</li>
+</ul>
+</li>
+<li>background (batch) 后台 （批处理）<ul>
 <li>FCFS</li>
+</ul>
+</li>
 </ul>
 <p>算法还需以各子队列为基本单位进行调度</p>
 <p><img alt="image-20241019160440707" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20241019160440707.png" /></p>
@@ -9781,7 +9817,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-21T13:16:45+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-21</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-26T03:51:51+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-26</span>
   </span>
 
     
@@ -9791,7 +9827,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-21T13:16:45+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-21</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-26T03:51:51+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-26</span>
   </span>
 
     

@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9292,15 +9292,13 @@
 <h2 id="basic-structure">Basic Structure</h2>
 <h3 id="relation-schema-and-instance">Relation Schema and Instance</h3>
 <ul>
-<li>
-<p>Relation Schema R 是class，由attributes组成</p>
-</li>
-<li>
-<p>Relation Instance r(R) 是object，用 table 表示</p>
-</li>
-<li>
-<p>Element t 即 r 的一个 tuple，table 中占一行</p>
-</li>
+<li>Relation Schema R 是class，由attributes组成</li>
+</ul>
+<ul>
+<li>Relation Instance r(R) 是object，用 table 表示</li>
+</ul>
+<ul>
+<li>Element t 即 r 的一个 tuple，table 中占一行</li>
 </ul>
 <h3 id="attributes">Attributes</h3>
 <p>attribute 在一个 r 中的定义域即 domain，必含 NULL</p>
@@ -9316,11 +9314,15 @@
 <p>主键是能确定一条记录的唯一标识</p>
 </blockquote>
 <ul>
-<li><strong>候选键（candidate key）</strong>：所有能胜任主键的attribute都是候选键</li>
+<li><strong>候选键（candidate key）</strong>：所有能胜任主键的attribute都是候选键<ul>
 <li>不一定是单个attribute，可能是属性集（复合主键）</li>
 <li>是超键的minimal</li>
-<li><strong>超键（super key）</strong>：一个attribute的集合，且其value能唯一锁定每一个tuple</li>
+</ul>
+</li>
+<li><strong>超键（super key）</strong>：一个attribute的集合，且其value能唯一锁定每一个tuple<ul>
 <li>说白了就是包含候选键的属性集合</li>
+</ul>
+</li>
 </ul>
 <h4 id="foreign-key">Foreign Key</h4>
 <p>主键确定一个tuple，但是一个tuple的value可能在多个表里。</p>
@@ -9380,10 +9382,12 @@
 <h4 id="outer-join">Outer Join</h4>
 <p>自然连接会扔掉两个表的相同属性不同value的tuple，被扔掉的都成为outer</p>
 <ul>
-<li>Outer Join分为三种</li>
+<li>Outer Join分为三种<ul>
 <li>左外：保留左边表的outer</li>
 <li>右外：同上</li>
 <li>全外：都保留</li>
+</ul>
+</li>
 </ul>
 <p>outer 属性的value显然有缺失，用<code>NULL</code>填补</p>
 <p>外部连接可通过自然连接实现：</p>

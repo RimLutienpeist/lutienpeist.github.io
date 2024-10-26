@@ -3689,7 +3689,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9536,72 +9536,68 @@
 <p>为了避免重复信息，我们将不会详细解释以下命令行。强烈推荐您阅读 <a href="https://git-scm.com/book/zh/v2">Pro Git 中文版</a>或可以观看本讲座的视频来学习。</p>
 <h3 id="_8">基础</h3>
 <ul>
-<li>
-<p><code>git help &lt;command&gt;</code>: 获取 git 命令的帮助信息</p>
-</li>
-<li>
-<p><code>git init</code>: 创建一个新的 git 仓库，其数据会存放在一个名为 <code>.git</code> 的目录下</p>
-</li>
-<li>
-<p><code>git status</code>: 显示当前的仓库状态</p>
-</li>
-<li>
-<p><code>git add &lt;filename&gt;</code>: 添加文件到暂存区</p>
-</li>
+<li><code>git help &lt;command&gt;</code>: 获取 git 命令的帮助信息</li>
+</ul>
+<ul>
+<li><code>git init</code>: 创建一个新的 git 仓库，其数据会存放在一个名为 <code>.git</code> 的目录下</li>
+</ul>
+<ul>
+<li><code>git status</code>: 显示当前的仓库状态</li>
+</ul>
+<ul>
+<li><code>git add &lt;filename&gt;</code>: 添加文件到暂存区</li>
+</ul>
+<ul>
 <li>
 <p><code>plaintext
   git commit</code></p>
-</li>
-</ul>
 <p>: 创建一个新的提交</p>
 <ul>
 <li>如何编写 <a href="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">良好的提交信息</a>!</li>
-<li>
-<p>为何要 <a href="https://chris.beams.io/posts/git-commit/">编写良好的提交信息</a></p>
+<li>为何要 <a href="https://chris.beams.io/posts/git-commit/">编写良好的提交信息</a></li>
+</ul>
 </li>
-<li>
-<p><code>git log</code>: 显示历史日志</p>
-</li>
-<li>
-<p><code>git log --all --graph --decorate</code>: 可视化历史记录（有向无环图）</p>
-</li>
-<li>
-<p><code>git diff &lt;filename&gt;</code>: 显示与暂存区文件的差异</p>
-</li>
-<li>
-<p><code>git diff &lt;revision&gt; &lt;filename&gt;</code>: 显示某个文件两个版本之间的差异</p>
-</li>
-<li>
-<p><code>git checkout &lt;revision&gt;</code>: 更新 HEAD 和目前的分支</p>
-</li>
+</ul>
+<ul>
+<li><code>git log</code>: 显示历史日志</li>
+</ul>
+<ul>
+<li><code>git log --all --graph --decorate</code>: 可视化历史记录（有向无环图）</li>
+</ul>
+<ul>
+<li><code>git diff &lt;filename&gt;</code>: 显示与暂存区文件的差异</li>
+</ul>
+<ul>
+<li><code>git diff &lt;revision&gt; &lt;filename&gt;</code>: 显示某个文件两个版本之间的差异</li>
+</ul>
+<ul>
+<li><code>git checkout &lt;revision&gt;</code>: 更新 HEAD 和目前的分支</li>
 </ul>
 <h3 id="_9">分支和合并</h3>
 <ul>
-<li>
-<p><code>git branch</code>: 显示分支</p>
-</li>
-<li>
-<p><code>git branch &lt;name&gt;</code>: 创建分支</p>
-</li>
+<li><code>git branch</code>: 显示分支</li>
+</ul>
+<ul>
+<li><code>git branch &lt;name&gt;</code>: 创建分支</li>
+</ul>
+<ul>
 <li>
 <p><code>plaintext
   git checkout -b &lt;name&gt;</code></p>
-</li>
-</ul>
 <p>: 创建分支并切换到该分支</p>
 <ul>
-<li>
-<p>相当于 <code>git branch &lt;name&gt;; git checkout &lt;name&gt;</code></p>
+<li>相当于 <code>git branch &lt;name&gt;; git checkout &lt;name&gt;</code></li>
+</ul>
 </li>
-<li>
-<p><code>git merge &lt;revision&gt;</code>: 合并到当前分支</p>
-</li>
-<li>
-<p><code>git mergetool</code>: 使用工具来处理合并冲突</p>
-</li>
-<li>
-<p><code>git rebase</code>: 将一系列补丁变基（rebase）为新的基线</p>
-</li>
+</ul>
+<ul>
+<li><code>git merge &lt;revision&gt;</code>: 合并到当前分支</li>
+</ul>
+<ul>
+<li><code>git mergetool</code>: 使用工具来处理合并冲突</li>
+</ul>
+<ul>
+<li><code>git rebase</code>: 将一系列补丁变基（rebase）为新的基线</li>
 </ul>
 <h3 id="_10">远端操作</h3>
 <ul>
@@ -9653,10 +9649,12 @@
 <p><a href="https://missing-semester-cn.github.io/missing-notes-and-solutions/2020/solutions//version-control-solution">习题解答</a></p>
 <ol>
 <li>如果您之前从来没有用过 Git，推荐您阅读 <a href="https://git-scm.com/book/en/v2">Pro Git</a> 的前几章，或者完成像 <a href="https://learngitbranching.js.org/">Learn Git Branching</a>这样的教程。重点关注 Git 命令和数据模型相关内容；</li>
-<li>Fork <a href="https://github.com/missing-semester-cn/missing-semester-cn.github.io.git">本课程网站的仓库</a></li>
+<li>Fork <a href="https://github.com/missing-semester-cn/missing-semester-cn.github.io.git">本课程网站的仓库</a><ol>
 <li>将版本历史可视化并进行探索</li>
 <li>是谁最后修改了 <code>README.md</code>文件？（提示：使用 <code>git log</code> 命令并添加合适的参数）</li>
 <li>最后一次修改<code>_config.yml</code> 文件中 <code>collections:</code> 行时的提交信息是什么？（提示：使用 <code>git blame</code> 和 <code>git show</code>）</li>
+</ol>
+</li>
 <li>使用 Git 时的一个常见错误是提交本不应该由 Git 管理的大文件，或是将含有敏感信息的文件提交给 Git 。尝试向仓库中添加一个文件并添加提交信息，然后将其从历史中删除 ( <a href="https://help.github.com/articles/removing-sensitive-data-from-a-repository/">这篇文章也许会有帮助</a>)；</li>
 <li>从 GitHub 上克隆某个仓库，修改一些文件。当您使用 <code>git stash</code> 会发生什么？当您执行 <code>git log --all --oneline</code> 时会显示什么？通过 <code>git stash pop</code> 命令来撤销 <code>git stash</code> 操作，什么时候会用到这一技巧？</li>
 <li>与其他的命令行工具一样，Git 也提供了一个名为 <code>~/.gitconfig</code> 配置文件 (或 dotfile)。请在 <code>~/.gitconfig</code> 中创建一个别名，使您在运行 <code>git graph</code> 时，您可以得到 <code>git log --all --graph --decorate --oneline</code> 的输出结果；</li>

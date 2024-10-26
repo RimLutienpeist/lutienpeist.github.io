@@ -3482,7 +3482,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9560,26 +9560,30 @@
 <p>一个具有一定独立功能的程序在一个数据集合上的一次动态执行过程，是可并行执行的计算部分</p>
 <p>是一个抽象实体，是一个独立的可以调度的活动，需要分配和释放各种资源</p>
 <ul>
-<li>A process is a program in execution</li>
+<li>A process is a program in execution<ul>
 <li>Basic unit of work on a computer, a job, a task</li>
-<li>
-<p>A container of instructions with some resources</p>
+<li>A container of instructions with some resources</li>
+</ul>
 </li>
-<li>
-<p>jobs 作业=user programs 用户程序= tasks 任务= process 进程</p>
-</li>
+</ul>
+<ul>
+<li>jobs 作业=user programs 用户程序= tasks 任务= process 进程</li>
 </ul>
 <p>Processes can be described as either:</p>
 <ul>
-<li>I/O-bound process （I/O型进程）</li>
+<li>I/O-bound process （I/O型进程）<ul>
 <li>spends more time doing I/O than computations, many short CPU  bursts</li>
-<li>CPU-bound process （CPU 型进程）</li>
+</ul>
+</li>
+<li>CPU-bound process （CPU 型进程）<ul>
 <li>spends more time doing computations; few very long CPU bursts.</li>
+</ul>
+</li>
 </ul>
 <h3 id="process-in-memory">Process in Memory</h3>
 <p>进程不仅仅是一串代码，还包括各种被分配的资源</p>
 <ul>
-<li>A process includes:</li>
+<li>A process includes:<ul>
 <li>The program code, also called text section（代码段）</li>
 <li>Program counter (PC)</li>
 <li>Registers</li>
@@ -9587,21 +9591,33 @@
 <li>Stack (temporary data)</li>
 <li>Heap (dynamically allocated memory)</li>
 </ul>
+</li>
+</ul>
 <p><img alt="image-20241009115000846" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20241009115000846.png" /></p>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20241009115127936.png" alt="image-20241009115127936" style="zoom:67%;" /></p>
 <h3 id="process-state">Process State 进程状态</h3>
 <p>As a process executes, it changes state </p>
 <ul>
-<li><strong>New（新）</strong></li>
+<li><strong>New（新）</strong><ul>
 <li>The process is being created. </li>
-<li><strong>Running（运行、执行）</strong></li>
+</ul>
+</li>
+<li><strong>Running（运行、执行）</strong><ul>
 <li>Instructions are being executed. </li>
-<li><strong>Ready（就绪）</strong></li>
+</ul>
+</li>
+<li><strong>Ready（就绪）</strong><ul>
 <li>The process is waiting to be assigned to a processor (CPU). </li>
-<li><strong>Waiting（等待、blocked阻塞）</strong></li>
+</ul>
+</li>
+<li><strong>Waiting（等待、blocked阻塞）</strong><ul>
 <li>The process is waiting for some event to occur. </li>
-<li><strong>Terminated（终止）</strong></li>
+</ul>
+</li>
+<li><strong>Terminated（终止）</strong><ul>
 <li>The process has finished execution</li>
+</ul>
+</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20241009115434531.png" alt="image-20241009115434531" style="zoom:80%;" /></p>
 <blockquote>
@@ -9631,15 +9647,21 @@
 <p><img alt="image-20241009121916817" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20241009121916817.png" /></p>
 <h4 id="schedulers">Schedulers</h4>
 <ul>
-<li>Long-term scheduler <strong>长程调度</strong>（或作业调度 or job scheduler)</li>
+<li>Long-term scheduler <strong>长程调度</strong>（或作业调度 or job scheduler)<ul>
 <li>筛选出能推入就绪队列的进程，同时控制并发程度</li>
 <li>这种调度每时每分都在执行，会很慢，现代 OS 基本没有这种调度了</li>
 <li>从外存选进程进入内存</li>
-<li>Short-term scheduler <strong>短程调度</strong>（或CPU调度 or CPU scheduler)</li>
+</ul>
+</li>
+<li>Short-term scheduler <strong>短程调度</strong>（或CPU调度 or CPU scheduler)<ul>
 <li>筛选出下一个被执行的进程，给其分配 CPU</li>
 <li>每时每分都在执行，一定很快</li>
-<li>Medium-Term Scheduler 中程调度</li>
+</ul>
+</li>
+<li>Medium-Term Scheduler 中程调度<ul>
 <li>缓解内存紧张，临时取消CPU分配，见下图</li>
+</ul>
+</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20241009122653097.png" alt="image-20241009122653097" style="zoom: 80%;" /></p>
 <h3 id="context-switch">Context Switch（上下文切换）</h3>
@@ -9655,16 +9677,22 @@
 <blockquote>
 <p>下面是各种操作的选项</p>
 <ul>
-<li>Resource sharing</li>
+<li>Resource sharing<ul>
 <li>Parent and children share all resources.</li>
 <li>Children share subset of parent’s resources.</li>
 <li>Parent and child share no resources</li>
-<li>Execution</li>
+</ul>
+</li>
+<li>Execution<ul>
 <li>Parent and children execute concurrently</li>
 <li>Parent waits until children terminate.</li>
-<li>Address space 地址空间</li>
+</ul>
+</li>
+<li>Address space 地址空间<ul>
 <li>Child duplicate of parent.</li>
 <li>Child has a program loaded into it.</li>
+</ul>
+</li>
 </ul>
 </blockquote>
 <p>The parent process may wait for termination of a child process by using the <code>wait()</code> system call</p>
@@ -9692,29 +9720,31 @@
 </blockquote>
 <p>IPC provides a Mechanism for processes to communicate and to synchronize their actions <strong>without sharing the same address space</strong> </p>
 <ul>
-<li>通信类型</li>
+<li>通信类型<ul>
 <li>直接通信</li>
-<li>
-<p>间接通信</p>
+<li>间接通信</li>
+</ul>
 </li>
-<li>
-<p>常用通信机制</p>
-</li>
+</ul>
+<ul>
+<li>常用通信机制<ul>
 <li>信号(signal) </li>
 <li>共享存储区(shared memory) </li>
 <li>管道(pipe) </li>
 <li>消息(message) </li>
-<li>
-<p>套接字(socket</p>
+<li>套接字(socket</li>
+</ul>
 </li>
+</ul>
+<ul>
 <li>
 <p>Two models of IPC</p>
-</li>
-<li>
-<p>Shared memory（共享内存）</p>
-</li>
-<li>
-<p>Message passing（消息传递）</p>
+<ul>
+<li>Shared memory（共享内存）</li>
+</ul>
+<ul>
+<li>Message passing（消息传递）</li>
+</ul>
 </li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20241010143956057.png" alt="image-20241010143956057" style="zoom: 80%;" /></p>
@@ -9726,9 +9756,11 @@
 <p>要通信时建立一条链路，发送 msg</p>
 </blockquote>
 <ul>
-<li>If processes P and Q wish to communicate, they need to: </li>
+<li>If processes P and Q wish to communicate, they need to: <ul>
 <li>Establish a communication <strong>link</strong> between them </li>
 <li>Exchange messages via send/receive</li>
+</ul>
+</li>
 </ul>
 <h4 id="direct-communication">Direct Communication（直接通信）</h4>
 <p><code>send (P, message)</code> – send a message to process P</p>
@@ -9736,15 +9768,15 @@
 <ul>
 <li>
 <p>Properties</p>
-</li>
-<li>
-<p>Links are established automatically. </p>
-</li>
-<li>
-<p>Between each pair there exists exactly one link. </p>
-</li>
-<li>
-<p>The link may be unidirectional, but is usually bi-directional</p>
+<ul>
+<li>Links are established automatically. </li>
+</ul>
+<ul>
+<li>Between each pair there exists exactly one link. </li>
+</ul>
+<ul>
+<li>The link may be unidirectional, but is usually bi-directional</li>
+</ul>
 </li>
 </ul>
 <h4 id="indirect-communication">Indirect Communication（间接通信）</h4>
@@ -9753,22 +9785,24 @@
 <ul>
 <li>
 <p>Properties</p>
+<ul>
+<li>Processes can communicate only if they share a mailbox</li>
+</ul>
+<ul>
+<li>A link may be associated with many processes</li>
+</ul>
+<ul>
+<li>Each pair of processes may share several communication links</li>
+</ul>
 </li>
-<li>
-<p>Processes can communicate only if they share a mailbox</p>
-</li>
-<li>
-<p>A link may be associated with many processes</p>
-</li>
-<li>
-<p>Each pair of processes may share several communication links</p>
-</li>
-<li>
-<p>Operations</p>
-</li>
+</ul>
+<ul>
+<li>Operations<ol>
 <li>create a new mailbox (port)</li>
 <li>send and receive messages through mailbox</li>
 <li>destroy a mailbox</li>
+</ol>
+</li>
 </ul>
 <p><code>send(A, message)</code> – send a message to mailbox A </p>
 <p><code>receive(A, message)</code> – receive a message from mailbox A</p>
@@ -9778,7 +9812,7 @@
 <p>通信连接的对象实际是这些缓存队列</p>
 </blockquote>
 <ul>
-<li>Implemented in one of three ways</li>
+<li>Implemented in one of three ways<ul>
 <li>Zero capacity – no messages are queued on a link.<ul>
 <li>Sender must wait for receiver (rendezvous)</li>
 </ul>
@@ -9789,6 +9823,8 @@
 </li>
 <li>Unbounded capacity – infinite length  <ul>
 <li>Sender never waits</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -9814,7 +9850,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-21T13:16:45+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-21</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-26T03:51:51+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-26</span>
   </span>
 
     
@@ -9824,7 +9860,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-21T13:16:45+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-21</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-26T03:51:51+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-26</span>
   </span>
 
     

@@ -3980,7 +3980,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -10048,13 +10048,17 @@
 <h2 id="basic-concept">Basic Concept</h2>
 <h3 id="words">words</h3>
 <ul>
-<li>one word is a vector of binary numbers</li>
+<li>one word is a vector of binary numbers<ul>
 <li>there are 32bit/word or 64bits/word in RISC-V</li>
+</ul>
+</li>
 </ul>
 <h3 id="bytes">bytes</h3>
 <ul>
-<li>1 byte contains 8 bits</li>
+<li>1 byte contains 8 bits<ul>
 <li>32 bits, as a word, contains four bytes</li>
+</ul>
+</li>
 </ul>
 <h3 id="generic-implementation-of-arithmetic">Generic Implementation of Arithmetic</h3>
 <ul>
@@ -10128,18 +10132,18 @@ $$</p>
 <ul>
 <li>
 <p>溢出的概念</p>
-</li>
-<li>
-<p>溢出：overflow，运算结果超出了正常的表示范围</p>
-</li>
+<ul>
+<li>溢出：overflow，运算结果超出了正常的表示范围</li>
+</ul>
+<ul>
 <li>
 <p><strong>溢出仅针对有符号数的运算</strong></p>
 <ul>
-<li>
-<p>两个正数相加，结果为负数</p>
-</li>
-<li>
-<p>两个负数相加，结果为正数</p>
+<li>两个正数相加，结果为负数</li>
+</ul>
+<ul>
+<li>两个负数相加，结果为正数</li>
+</ul>
 </li>
 </ul>
 </li>
@@ -10153,15 +10157,17 @@ $$</p>
 <p><strong>两负数相加的进位与溢出</strong></p>
 <p>负数是有符号数，最高位为1</p>
 <ul>
-<li>溢出情况（实质上下面两种是一种情况，见最后的真值表）</li>
+<li>溢出情况（实质上下面两种是一种情况，见最后的真值表）<ul>
 <li>1000 + 1000 = 1 0000 （ -8 + -8 = 0）</li>
-<li>
-<p>1100 + 1000 = 1 0100 （-4 + -8 = 4）</p>
+<li>1100 + 1000 = 1 0100 （-4 + -8 = 4）</li>
+</ul>
 </li>
-<li>
-<p>进位情况</p>
-</li>
+</ul>
+<ul>
+<li>进位情况<ul>
 <li>1100 + 1100 = 1 1000（-4 + -4 = -8）</li>
+</ul>
+</li>
 </ul>
 <p>标注出的两种情况会发生溢出，相应已经在上面的3个问题中举出了例子</p>
 <p>得出结论<strong>使用一个异或器就可以完成对于加法器中的溢出判断</strong>？？？</p>
@@ -10191,17 +10197,21 @@ $$</p>
 <p>下面提到的multiplier、product和multiplicand都是指相应的寄存器</p>
 </blockquote>
 <ul>
-<li>每一轮迭代先检测multiplier的LSB</li>
+<li>每一轮迭代先检测multiplier的LSB<ul>
 <li>如果是0就直接进入下一轮循环</li>
 <li>如果是1就让product加上当前的multiplicand</li>
 <li>由此可得到，结束运算的标志是迭代了64次</li>
-<li>执行完后，准备进入下一轮迭代</li>
+</ul>
+</li>
+<li>执行完后，准备进入下一轮迭代<ul>
 <li>先右移multiplier<ul>
 <li>模拟手算中选择前一位乘数</li>
 </ul>
 </li>
 <li>以及左移multiplicand<ul>
 <li>因为是将multiplicand直接加进product，所以通过左移来模拟手算的偏移</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>迭代64次后输出product作为结果</li>
@@ -10233,8 +10243,10 @@ $$</p>
 <h3 id="_10">有符号数乘法</h3>
 <p>储存符号位，剩余部分当作无符号数计算，另外比较符号位得到新符号位</p>
 <ul>
-<li>两符号位相等，结果取0</li>
+<li>两符号位相等，结果取0<ul>
 <li>否则取1</li>
+</ul>
+</li>
 </ul>
 <h3 id="booths-algorithm">Booth‘s Algorithm</h3>
 <p>乘数和被乘数<code>1</code>很多的话算的很复杂，因为<code>0</code>只需要移位，而<code>1</code>不仅要移位还要进行ALU加法</p>
@@ -10259,11 +10271,15 @@ $$</p>
 <p>最基础的算法就是将除法看成多次减法，大就减，小就补</p>
 <ul>
 <li>先检查divisor是否是0，再开始迭代</li>
-<li>第一轮先看divisor位数，取出位数相同的高位部分dividend，</li>
+<li>第一轮先看divisor位数，取出位数相同的高位部分dividend，<ul>
 <li>不是第一轮dividend就直接用上一轮留下的bit</li>
-<li>比大小</li>
+</ul>
+</li>
+<li>比大小<ul>
 <li>后者大则quotient插入1</li>
 <li>否则插入0，并让dividend向后借位</li>
+</ul>
+</li>
 </ul>
 <p>上面是手算的算法，具体的V1版本看<strong>流程图</strong></p>
 <p><img alt="image-20240402110449265" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240402110449265.png" /></p>
@@ -10285,12 +10301,16 @@ $$</p>
 <p>余数的符号跟着被除数</p>
 <p><img alt="image-20240314193322111" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240314193322111.png" /></p>
 <ul>
-<li>除法不能并行处理，因为 “除尽” 这件事不确定，下一位的运算依赖上一位的余数</li>
+<li>除法不能并行处理，因为 “除尽” 这件事不确定，下一位的运算依赖上一位的余数<ul>
 <li>可以predict一下，比如查表</li>
+</ul>
+</li>
 <li>至于除数是0的情况，可以通过软件避免，所以硬件没有涉及</li>
-<li>溢出也没涉及</li>
+<li>溢出也没涉及<ul>
 <li>common fast，没必要为了除法增加硬件</li>
 <li>根据阿姆达尔定理，主要加快加法即可</li>
+</ul>
+</li>
 </ul>
 <p>上面的算法都是针对int，实际上用的更多的是浮点数</p>
 <blockquote>
@@ -10304,14 +10324,16 @@ $$</p>
 <h2 id="_13">浮点数</h2>
 <h3 id="_14">概念</h3>
 <ul>
-<li>Form</li>
+<li>Form<ul>
 <li>Arbitrary：<span class="arithmatex">\(363.4\cdot 10^{34}\)</span>，<span class="arithmatex">\(10.1011\cdot 2^{-5}\)</span></li>
 <li><strong>Normalised</strong>：<span class="arithmatex">\(3.634\cdot 10^{34}\)</span>，<span class="arithmatex">\(1.01011\cdot 2^{-4}\)</span><ul>
 <li>Normalised 后的 有效数字（如3.634） 叫做<strong>尾数（Significand）</strong></li>
 <li><span class="arithmatex">\(2\)</span> 和 <span class="arithmatex">\(10\)</span> 是 基数（Radix）</li>
 </ul>
 </li>
-<li>精度</li>
+</ul>
+</li>
+<li>精度<ul>
 <li>float 是 32bit</li>
 <li>double 就是 <span class="arithmatex">\(32bit \times 2\)</span><ul>
 <li><span class="arithmatex">\(exp\)</span> 多 3bit</li>
@@ -10319,79 +10341,97 @@ $$</p>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <p><img alt="image-20240501161750825" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240501161750825.png" /></p>
 <ul>
 <li>
 <p>Infinities and NaNs</p>
-</li>
-<li>
-<p><span class="arithmatex">\(exp\)</span> 全为<code>1</code>，<span class="arithmatex">\(frac\)</span> 全为<code>1</code>  $\rightarrow $  <code>±Infinities</code>，可用于检查overflow</p>
-</li>
-<li>
-<p><span class="arithmatex">\(exp\)</span> 全为<code>1</code>，<span class="arithmatex">\(frac\)</span> 不为 0   $\rightarrow $  <code>Not-a-Number (NaN)</code> ，用于表示非法/未定义数值</p>
 <ul>
+<li><span class="arithmatex">\(exp\)</span> 全为<code>1</code>，<span class="arithmatex">\(frac\)</span> 全为<code>1</code>  $\rightarrow $  <code>±Infinities</code>，可用于检查overflow</li>
+</ul>
+<ul>
+<li><span class="arithmatex">\(exp\)</span> 全为<code>1</code>，<span class="arithmatex">\(frac\)</span> 不为 0   $\rightarrow $  <code>Not-a-Number (NaN)</code> ，用于表示非法/未定义数值<ul>
 <li>如0/0的结果就是NaN</li>
 </ul>
 </li>
-<li>
-<p>Overflow &amp; Underflow</p>
+</ul>
 </li>
+</ul>
+<ul>
+<li>Overflow &amp; Underflow<ul>
 <li>Overflow: The number is too big to be represented</li>
 <li>Underflow: The number is too small to be represented</li>
 </ul>
+</li>
+</ul>
 <h3 id="ieee-754-standard">IEEE 754 standard</h3>
 <ul>
-<li>IEEE 754 standard</li>
+<li>IEEE 754 standard<ul>
 <li><span class="arithmatex">\((-1)^{sign}\cdot (1+fraction)\cdot 2^{exp-bias}\)</span></li>
 <li>表示的是 Normalised form</li>
 <li><span class="arithmatex">\(fraction\)</span> 只有小数部分，反正Normalised form整数一定是一个<code>1</code></li>
-<li>
-<p>实际储存的 <span class="arithmatex">\(exponent\)</span>  数值需要减去 <span class="arithmatex">\(bias\)</span> 才是实际的</p>
-<ul>
+<li>实际储存的 <span class="arithmatex">\(exponent\)</span>  数值需要减去 <span class="arithmatex">\(bias\)</span> 才是实际的<ul>
 <li>储存的是实际值加上 <span class="arithmatex">\(bias\)</span> ，这是为了让储存的数值一定 <span class="arithmatex">\(\geq 0\)</span></li>
 <li>对于 <span class="arithmatex">\(float\)</span> ，<span class="arithmatex">\(bias = 127\)</span>，即 <span class="arithmatex">\(2^{exp位数-1}-1\)</span></li>
 <li>对于 <span class="arithmatex">\(double\)</span>，<span class="arithmatex">\(bias = 1023\)</span>，即 <span class="arithmatex">\(2^{exp位数-1}-1\)</span></li>
 <li><span class="arithmatex">\(bias\)</span> 就是让最小的负数变0，分别就是-127和-1023</li>
 </ul>
 </li>
-<li>
-<p>十进制转 IEEE 754 standard 浮点数</p>
+</ul>
 </li>
+</ul>
+<ul>
+<li>十进制转 IEEE 754 standard 浮点数<ol>
 <li>先转化为二进制</li>
 <li>再转化为二进制的 Normalised form</li>
 <li>再按IEEE 754 standard 分配位值，主要注意 <span class="arithmatex">\(fraction\)</span> 只有小数，<span class="arithmatex">\(exp\)</span> 要加 <span class="arithmatex">\(bias\)</span></li>
+</ol>
+</li>
 </ul>
 <h3 id="range">Range</h3>
 <ul>
-<li>Range</li>
+<li>Range<ul>
 <li>Single-Precision Range<ul>
-<li><strong>Exponents 00000000 and 11111111 reserved</strong>，即这两个 <span class="arithmatex">\(exp\)</span> 不能用（见上文）</li>
+<li><strong>Exponents 00000000 and 11111111 reserved</strong>，即这两个 <span class="arithmatex">\(exp\)</span> 不能用（见上文）<ul>
 <li>Accessible Exponent：00000001 ~ 11111110</li>
 <li>-126 ~ 127</li>
-<li>Fraction：000…00 ~ 111…11</li>
+</ul>
+</li>
+<li>Fraction：000…00 ~ 111…11<ul>
 <li>1.0 ~≈2.0</li>
-<li>Values: <span class="arithmatex">\(±1.0 × 2^{–126}\)</span> ~ <span class="arithmatex">\(±2.0 × 2^{+127}\)</span>  </li>
+</ul>
+</li>
+<li>Values: <span class="arithmatex">\(±1.0 × 2^{–126}\)</span> ~ <span class="arithmatex">\(±2.0 × 2^{+127}\)</span>  <ul>
 <li>≈<span class="arithmatex">\(±1.2 × 10^{–38}\)</span> ~ ≈<span class="arithmatex">\(±3.4 × 10^{+38}\)</span></li>
 </ul>
 </li>
-<li>
-<p>Double-Precision Range</p>
-<ul>
-<li><strong>Exponents 0000…00and 1111…11 reserved</strong></li>
+</ul>
+</li>
+<li>Double-Precision Range<ul>
+<li><strong>Exponents 0000…00and 1111…11 reserved</strong><ul>
 <li>Accessible Exponent：-1022 ~ 1023<ul>
 <li><span class="arithmatex">\(1-1023=-1022\)</span></li>
 <li><span class="arithmatex">\(2046-1023=1023\)</span></li>
 </ul>
 </li>
-<li>Fraction：000…00 ~ 111…11</li>
+</ul>
+</li>
+<li>Fraction：000…00 ~ 111…11<ul>
 <li>1.0 ~≈2.0</li>
-<li>Values: <span class="arithmatex">\(±1.0 × 2^{–1022}\)</span> ~ <span class="arithmatex">\(±2.0 × 2^{+1023}\)</span>  </li>
+</ul>
+</li>
+<li>Values: <span class="arithmatex">\(±1.0 × 2^{–1022}\)</span> ~ <span class="arithmatex">\(±2.0 × 2^{+1023}\)</span>  <ul>
 <li>≈<span class="arithmatex">\(±2.2 × 10^{–308}\)</span> ~ ≈<span class="arithmatex">\(±1.8 × 10^{+308}\)</span></li>
 </ul>
 </li>
-<li>
-<p>Precision</p>
+</ul>
 </li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Precision<ul>
 <li>Single: <span class="arithmatex">\(\approx 2^{–23}\)</span><ul>
 <li>十进制小数点后6位</li>
 </ul>
@@ -10401,22 +10441,28 @@ $$</p>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <h3 id="_15">浮点数加法</h3>
 <ul>
-<li>步骤</li>
+<li>步骤<ol>
 <li>Alignment</li>
 <li>Add Significands</li>
 <li>Normalize the sum</li>
 <li>Over/underflow</li>
 <li>Rounding</li>
 <li>Normalization</li>
+</ol>
+</li>
 </ul>
 <h4 id="example-for-decimal">Example for Decimal</h4>
 <p><img alt="image-20240501170943283" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240501170943283.png" /></p>
 <h4 id="_16">算法</h4>
 <ol>
-<li>比较exp，将小的右移，直到exp相等，完成对齐</li>
+<li>比较exp，将小的右移，直到exp相等，完成对齐<ul>
 <li>移小的是为了减少数值损失</li>
+</ul>
+</li>
 <li>尾数相加</li>
 <li>规范结果格式</li>
 <li>检查有无溢出，有就异常退出</li>

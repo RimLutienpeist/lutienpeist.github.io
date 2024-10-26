@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9671,39 +9671,55 @@
 <p>数据库系统可能出现的故障</p>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240603191711558.png" alt="image-20240603191711558" style="zoom:80%;" /></p>
 <ul>
-<li>发生在数据库应用里的是<strong>事务故障</strong>出现在单个事务里，比较局部，一般直接rollback</li>
+<li>发生在数据库应用里的是<strong>事务故障</strong>出现在单个事务里，比较局部，一般直接rollback<ul>
 <li>具体的实现会准备一个日志，记录所有会影响数据库的操作，比如 <code>uodate</code> 等，rollback 时就根据这个日志去恢复</li>
-<li>DBMS和OS的故障就是<strong>系统崩溃</strong>，是全局性的，一堆事务都会受影响，也需要日志去恢复</li>
+</ul>
+</li>
+<li>DBMS和OS的故障就是<strong>系统崩溃</strong>，是全局性的，一堆事务都会受影响，也需要日志去恢复<ul>
 <li>比如死锁需要牺牲一个事务，我们称这个被牺牲的事务发生了系统故障，这不是他自己的问题；还有突然断电也是系统故障</li>
+</ul>
+</li>
 <li>Database的故障就是<strong>磁盘故障</strong>，解决思路就是多备份，还是得借用日记去恢复</li>
 </ul>
 <blockquote>
 <ul>
-<li><strong>Transaction failure</strong></li>
+<li><strong>Transaction failure</strong><ul>
 <li><strong>Logical errors</strong>: due to some internal error condition</li>
 <li><strong>System errors</strong>: the database system must terminate an active transaction due to an error condition (e.g., <strong>deadlock</strong>)</li>
-<li><strong>System crash</strong></li>
+</ul>
+</li>
+<li><strong>System crash</strong><ul>
 <li>a power failure or other hardware or software failure causes the  system to crash.</li>
+</ul>
+</li>
 <li>Disk failure</li>
 </ul>
 </blockquote>
 <h3 id="storage-structure">Storage Structure</h3>
 <ul>
-<li>Volatile storage</li>
+<li>Volatile storage<ul>
 <li>not survive system crashes, like main memory, cache memory</li>
-<li>Nonvolatile storage</li>
+</ul>
+</li>
+<li>Nonvolatile storage<ul>
 <li>survives system crashes, like disk, tape, flash memory</li>
-<li>Stable storage</li>
+</ul>
+</li>
+<li>Stable storage<ul>
 <li>理想化的存储结构，100%不会出问题，只存在于理论中</li>
+</ul>
+</li>
 </ul>
 <h4 id="stable-storage-implementation">Stable-Storage Implementation</h4>
 <p>尽可能接近的实现思路是一份数据copy多份，分别存放在多个disk，分别维护</p>
 <h3 id="database-recovery">Database Recovery</h3>
 <p>恢复算法要保证数据库的一致性，以及事务在发生错误时的原子性和持久性</p>
 <ul>
-<li>Recovery algorithms 有两个部分</li>
+<li>Recovery algorithms 有两个部分<ul>
 <li>normal transaction processing 期间收集用于恢复的信息</li>
 <li>recover</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>我们这节课举的例子都是 strict two-phase locking,  ensures no dirty read</p>
@@ -9713,10 +9729,14 @@
 <h3 id="log">log</h3>
 <p>log 存储在 stable storage(稳定存储器)，是一个序列/线性文件，包含的元素是 log records，记录各种会影响数据库的操作信息，特别是 <code>update</code> </p>
 <ol>
-<li>一个事务 <span class="arithmatex">\(T_i\)</span> 开始时，log会记录 <code>&lt;Ti start&gt;</code></li>
+<li>一个事务 <span class="arithmatex">\(T_i\)</span> 开始时，log会记录 <code>&lt;Ti start&gt;</code><ul>
 <li><code>Ti</code> 是这个事务的 id，每个事务的标识符</li>
-<li>执行 <code>write(X)</code> 操作前，日志会先记录 <code>&lt;Ti, X, V1, V2&gt;</code></li>
+</ul>
+</li>
+<li>执行 <code>write(X)</code> 操作前，日志会先记录 <code>&lt;Ti, X, V1, V2&gt;</code><ul>
 <li><code>V1</code> 是旧数据（old value），<code>V2</code> 是新数据（new value）</li>
+</ul>
+</li>
 <li>事务完成最后一个statement后，记录 <code>&lt;Ti commit&gt;</code></li>
 <li>事务要 rollback ，记录 <code>&lt;Ti abort&gt;</code></li>
 </ol>
@@ -9781,48 +9801,54 @@
 <h3 id="_1">数据结构</h3>
 <p>ARIES 使用到的数据结构包括：</p>
 <ol>
-<li>每个日志record都有一个严格单增的 <strong>Log sequence number (LSN)</strong> ，类似id</li>
+<li>每个日志record都有一个严格单增的 <strong>Log sequence number (LSN)</strong> ，类似id<ul>
 <li>每个数据页（等同于 block）都有 Page LSN，记录该 page 相关的最新日志 record</li>
 <li>可以避免恢复时重复redo，提高 idempotence</li>
-<li><strong>DirtyPageTable</strong></li>
+</ul>
+</li>
+<li><strong>DirtyPageTable</strong><ul>
 <li>一张表，记录当前 buffer 里有哪些 block 是脏的</li>
 <li>会和 <strong>当前事务表（Active TXN Table）</strong>一起写进检查点</li>
+</ul>
+</li>
 </ol>
 <p><img alt="image-20240603230117407" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240603230117407.png" /></p>
 <p>分别解读上面这张图：</p>
 <ul>
-<li>左下角就是数据库，里面我们假设有四个 page</li>
-<li>
-<p><code>P1 17</code> 表示 <span class="arithmatex">\(P1\)</span> 这个 page <strong>已经</strong>被写入 <span class="arithmatex">\(LSN=17\)</span> 对应的操作需要写的数据</p>
+<li>左下角就是数据库，里面我们假设有四个 page<ul>
+<li><code>P1 17</code> 表示 <span class="arithmatex">\(P1\)</span> 这个 page <strong>已经</strong>被写入 <span class="arithmatex">\(LSN=17\)</span> 对应的操作需要写的数据</li>
+</ul>
 </li>
-<li>
-<p>右边的大表就是 <span class="arithmatex">\(log\; file\)</span>，同一个颜色对应同一个事务</p>
-</li>
+</ul>
+<ul>
+<li>右边的大表就是 <span class="arithmatex">\(log\; file\)</span>，同一个颜色对应同一个事务<ul>
 <li><span class="arithmatex">\(PrevLSN\)</span> 指向同一事务上一个record</li>
 <li><span class="arithmatex">\(TNO\)</span> 就是事务的 id</li>
 <li><span class="arithmatex">\(TYPE\)</span> 指示该record 对应的操作类型，<code>u</code> 就是 <code>update</code></li>
 <li><span class="arithmatex">\(PID\)</span> 指示操作的页，<span class="arithmatex">\(len\)</span> 和 <span class="arithmatex">\(offset\)</span> 共同指示要修改的数据段在 page 什么地方</li>
 <li><span class="arithmatex">\(before\)</span> 和 <span class="arithmatex">\(after\)</span> 意义显然</li>
-<li>
-<p>23~24行是 checkpoint 记录</p>
+<li>23~24行是 checkpoint 记录</li>
+</ul>
 </li>
-<li>
-<p>左边的 <span class="arithmatex">\(Active\; TXN\; Table\)</span> 即当前事务表</p>
+</ul>
+<ul>
+<li>左边的 <span class="arithmatex">\(Active\; TXN\; Table\)</span> 即当前事务表<ul>
+<li>记录目前的活跃的事务中最新的已执行的操作</li>
+</ul>
 </li>
-<li>
-<p>记录目前的活跃的事务中最新的已执行的操作</p>
+</ul>
+<ul>
+<li>上面的 <span class="arithmatex">\(Buffer \;Pool\)</span> 即缓冲，存放还没被写入数据库的脏数据<ul>
+<li>对应的数字就是已经执行好的操作</li>
+</ul>
 </li>
-<li>
-<p>上面的 <span class="arithmatex">\(Buffer \;Pool\)</span> 即缓冲，存放还没被写入数据库的脏数据</p>
-</li>
-<li>
-<p>对应的数字就是已经执行好的操作</p>
-</li>
-<li>
-<p>左上角的 <span class="arithmatex">\(Dirty\; Page\; Table\)</span> 记录脏数据，已经这个脏数据哪些操作造成的修改还没被写入数据库</p>
-</li>
+</ul>
+<ul>
+<li>左上角的 <span class="arithmatex">\(Dirty\; Page\; Table\)</span> 记录脏数据，已经这个脏数据哪些操作造成的修改还没被写入数据库<ul>
 <li><span class="arithmatex">\(PageLSN\)</span> 记录最新的已执行操作，<span class="arithmatex">\(RecLSN\)</span> 记录最远的还没写入数据库的操作</li>
 <li>比如，我们只关注page <span class="arithmatex">\(P1\)</span>，其相关的操作共有 <span class="arithmatex">\(LSN=15，17，20，22\)</span> 四个，15和17已经写入数据库了，20和22还没写入，还滞留在缓冲里，可能会丢失</li>
+</ul>
+</li>
 </ul>
 <p>下面是增加3条指令各表的变化，如果突然断电了，三个爆炸表示这些数据没了</p>
 <p><img alt="image-20240603230655428" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240603230655428.png" /></p>

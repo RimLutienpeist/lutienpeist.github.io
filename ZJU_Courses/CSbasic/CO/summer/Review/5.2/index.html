@@ -22,7 +22,7 @@
     
     
       
-        <title>5.2 - Lutienpeist重开的计算机生活</title>
+        <title>5.2 cahce - Lutienpeist重开的计算机生活</title>
       
     
     
@@ -155,7 +155,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              5.2
+              5.2 cahce
             
           </span>
         </div>
@@ -3499,7 +3499,7 @@
           
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -3510,7 +3510,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9495,15 +9495,21 @@
 </ol>
 <h3 id="q1-block-placement">Q1: Block Placement</h3>
 <ul>
-<li><strong>Direct mapped Cache</strong></li>
+<li><strong>Direct mapped Cache</strong><ul>
 <li>Block can only go in one place in the cache</li>
-<li><strong>Fully associative Cache</strong></li>
+</ul>
+</li>
+<li><strong>Fully associative Cache</strong><ul>
 <li>Block can go anywhere in cache. </li>
-<li><strong>Set associative Cache</strong></li>
+</ul>
+</li>
+<li><strong>Set associative Cache</strong><ul>
 <li>cache的blocks分为多个set</li>
 <li>mem的block固定配对一个set，可以到这个set里面的任意cache block<ul>
 <li>fully associative is m-way set-associative (for a cache with m blocks)</li>
 <li>direct mapped is 1-way set associative</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -9519,10 +9525,14 @@
 </blockquote>
 <ul>
 <li>Random replacement</li>
-<li><strong>Least-recently used (LRU)</strong> </li>
+<li><strong>Least-recently used (LRU)</strong> <ul>
 <li>就是将最久没用的换出去，刚进来的不换</li>
-<li><strong>MRU</strong></li>
+</ul>
+</li>
+<li><strong>MRU</strong><ul>
 <li>LRU反过来的策略，刚进来的先换出去</li>
+</ul>
+</li>
 <li>First in,first out(FIFO)</li>
 </ul>
 <blockquote>
@@ -9532,7 +9542,7 @@
 <h3 id="q4-write-strategy">Q4: Write Strategy</h3>
 <p>write有两种策略</p>
 <ul>
-<li><strong>write-back cache</strong></li>
+<li><strong>write-back cache</strong><ul>
 <li>先只更新cache，累计一定更新后一起写到mem，减少mem操作，很快，但会导致不一致</li>
 <li>有个问题是cache里数据写了却还没放回mem，需要进行保护<ul>
 <li>我们加一个 <strong>dirty bit</strong> 来标记这种entity</li>
@@ -9540,13 +9550,17 @@
 </li>
 <li><strong>即，write-back cache 比 write-through cache 多一bit</strong></li>
 <li>由此导致效率更高，但是设计更复杂</li>
-<li><strong>write-through cache</strong></li>
+</ul>
+</li>
+<li><strong>write-through cache</strong><ul>
 <li>同时写入cache和mem，每次都要操作mem，所以比较慢</li>
+</ul>
+</li>
 </ul>
 <h4 id="write-stall">Write Stall</h4>
 <p>内存写操作很耗时，像 write-through cache 这样每次都往内存写，会造成大量的 Write stall</p>
 <ul>
-<li><strong>Write stall</strong> --When the CPU must wait for writes to complete during write through</li>
+<li><strong>Write stall</strong> --When the CPU must wait for writes to complete during write through<ul>
 <li>可以加一个 <strong>write buffer</strong> 减小stall造成的损失<ul>
 <li>Write buffer 是位于 CPU和mem之间的一个 small cache</li>
 </ul>
@@ -9554,13 +9568,19 @@
 <li>CPU写出会往 cache 和 Write buffers 一起写，然后让这个buffer来消化写出操作</li>
 <li>经常用于 write-through cache </li>
 </ul>
+</li>
+</ul>
 <h4 id="write-misses">Write Misses</h4>
 <p>发现cache里面没有要进行修改的block</p>
 <ul>
-<li><strong>Write allocate</strong></li>
+<li><strong>Write allocate</strong><ul>
 <li>先从mem读入cache，再写</li>
-<li><strong>Write around / No write allocate</strong></li>
+</ul>
+</li>
+<li><strong>Write around / No write allocate</strong><ul>
 <li>不写cache，用 Write buffers 直接写入mem</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>In general, write-back caches use write-allocate , </p>
@@ -9569,10 +9589,14 @@
 <h4 id="read-misses">Read misses</h4>
 <p>read 有两类miss</p>
 <ul>
-<li>instruction cache miss</li>
+<li>instruction cache miss<ul>
 <li>遇到时processor会将PC-4这个地址交给mem，将相应的inst重新读入inst cache，再重新执行这指令</li>
-<li>data cache miss</li>
+</ul>
+</li>
+<li>data cache miss<ul>
 <li>就从下层取上来</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240520110611239" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240520110611239.png" /></p>
 <h2 id="the-format-of-the-physical-address">The Format of the Physical Address</h2>
@@ -9621,21 +9645,21 @@
 <h2 id="measuring-and-improving-cache-performance">Measuring and improving cache performance</h2>
 <h3 id="concept">Concept</h3>
 <ul>
-<li>
-<p>Average Memory Assess Time (<strong>AMAT</strong>) 
+<li>Average Memory Assess Time (<strong>AMAT</strong>) 
   = avg hit time + avg miss time 
-  = avg hit time + miss rate × miss penalty</p>
+  = avg hit time + miss rate × miss penalty</li>
+</ul>
+<ul>
+<li><strong>Hit time</strong><ul>
+<li>check hit/miss + cache to CPU</li>
+</ul>
 </li>
-<li>
-<p><strong>Hit time</strong></p>
-</li>
-<li>
-<p>check hit/miss + cache to CPU</p>
-</li>
-<li>
-<p><strong>miss penalty</strong></p>
-</li>
+</ul>
+<ul>
+<li><strong>miss penalty</strong><ul>
 <li>mem to cache + cache to CPU</li>
+</ul>
+</li>
 </ul>
 <h3 id="measuring-cache-performance">Measuring cache performance</h3>
 <blockquote>
@@ -9643,18 +9667,16 @@
 <p>但是考虑内存后，因为 mem-stall 会让CPU等待，增加了总的CPU耗时，我们要加上mem的cycle</p>
 </blockquote>
 <ul>
-<li>
-<p><strong>CPU time</strong> = CPU execution clock cycles + Memory-stall clock cycles</p>
+<li><strong>CPU time</strong> = CPU execution clock cycles + Memory-stall clock cycles</li>
+</ul>
+<ul>
+<li><strong>Memory-stall clock cycles</strong> = # of (mem) insts × miss ratio × miss penalty<ul>
+<li>=  Read-stall cycles + Write-stall cycles</li>
+</ul>
 </li>
-<li>
-<p><strong>Memory-stall clock cycles</strong> = # of (mem) insts × miss ratio × miss penalty</p>
-</li>
-<li>
-<p>=  Read-stall cycles + Write-stall cycles</p>
-</li>
-<li>
-<p>Read-stall cycles = read指令占总指令的比例 <span class="arithmatex">\(*\)</span> read miss rate <span class="arithmatex">\(*\)</span> read miss penalty</p>
-</li>
+</ul>
+<ul>
+<li>Read-stall cycles = read指令占总指令的比例 <span class="arithmatex">\(*\)</span> read miss rate <span class="arithmatex">\(*\)</span> read miss penalty</li>
 <li>Write-stall cycles = write指令比例 <span class="arithmatex">\(*\)</span> write miss rate <span class="arithmatex">\(*\)</span> write miss penalty + write buffer stall</li>
 </ul>
 <blockquote>

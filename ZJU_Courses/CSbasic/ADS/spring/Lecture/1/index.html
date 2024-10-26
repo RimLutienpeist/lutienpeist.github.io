@@ -3746,7 +3746,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9643,12 +9643,18 @@
 <p>M是调用次数</p>
 <p>以前都是分析worst bound，现在要考试分析均摊的bond了。</p>
 <ul>
-<li><strong>worst-case bound</strong>  </li>
+<li><strong>worst-case bound</strong>  <ul>
 <li>最紧的界，不仅仅是总的，还要保证每一次的，都找不到一个case超过bound</li>
-<li><strong>amortized bound</strong>   </li>
+</ul>
+</li>
+<li><strong>amortized bound</strong>   <ul>
 <li>保证不管怎么样，M次操作后，总的不超过bound，但可能设计出超过的数据</li>
-<li><strong>average-case bound</strong>    </li>
+</ul>
+</li>
+<li><strong>average-case bound</strong>    <ul>
 <li>如果给的数据是均匀分布的，但可以构造最坏数据，让每一次都是最坏的，超过这个bound</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>前两个与数据分布无关，最后一个与数据分布有关</p>
@@ -9656,24 +9662,30 @@
 <h3 id="_4">三种分析方法</h3>
 <p>下面是<strong>amortized bound</strong>的三种方法：</p>
 <ul>
-<li><strong>aggregate analysis</strong></li>
+<li><strong>aggregate analysis</strong><ul>
 <li>聚合法</li>
 <li>保证总时间开销一定，分析总开销是多少。直接</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>Show that for all n, a sequence of n operations takes <strong>worst-case</strong> time T(n) <strong>in total</strong>.  In the worst case, the average cost, or <strong>amortized cost</strong>, per operation is therefore <strong>T(n)/n.</strong></p>
 <p>还不太懂聚合法</p>
 </blockquote>
 <ul>
-<li><strong>accounting method</strong></li>
+<li><strong>accounting method</strong><ul>
 <li>核算方法</li>
 <li>保证任意时刻的 <strong>均摊代价(amortized cost)</strong> 都要大于等于 实际代价(actual cost) ，即保证不赊账。大于的时候多的部分就是 积分(credit)，积分可以在少的时候 支付(pay) 少的部分。</li>
 <li>由此均摊代价就是实际代价的均摊界。</li>
 </ul>
+</li>
+</ul>
 <p><img alt="image-20240228193808225" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240228193808225.png" /></p>
 <ul>
-<li><strong>potential method</strong></li>
+<li><strong>potential method</strong><ul>
 <li>势能法</li>
+</ul>
+</li>
 </ul>
 <h3 id="an-introduction-to-amortized-analysis">An Introduction to Amortized Analysis</h3>
 <blockquote>

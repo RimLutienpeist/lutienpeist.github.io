@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9591,34 +9591,32 @@
 <li>Read-write head （读写头）</li>
 <li>tracks（磁道）</li>
 <li>sectors（扇区）</li>
-<li>
-<p>Disk controller(磁盘控制器)</p>
-</li>
-<li>
-<p>读写头靠近 platter surface ，通过磁性质读写数据</p>
-</li>
+<li>Disk controller(磁盘控制器)</li>
+</ol>
+<ul>
+<li>读写头靠近 platter surface ，通过磁性质读写数据</li>
 <li>一个磁盘有多个磁片</li>
 <li>磁片表面分为多个磁道</li>
 <li>一个磁道分为多个扇区，即磁盘的最小读写单位</li>
-</ol>
+</ul>
 <h3 id="performance-measures-of-disks">Performance Measures of Disks</h3>
 <p>有以下几个概念</p>
 <ol>
-<li>Access time(访问时间)</li>
+<li>Access time(访问时间)<ol>
 <li>Seek time（寻道时间）</li>
 <li>Rotational latency （旋转延迟）</li>
+</ol>
+</li>
 <li>Data-transfer rate（数据传输速率）</li>
 </ol>
 <p>访问时间即磁盘读数据消耗的总时间，包含寻道时间和旋转延迟</p>
 <p>寻道时间即读写头找到磁道的时间</p>
 <p>旋转延迟即找到磁道后，磁片旋转到对应扇区的时间</p>
 <ul>
-<li>
-<p>Average seek time is 1/2 the worst case seek time</p>
-</li>
-<li>
-<p>Average latency is 1/2 of the worst case latency</p>
-</li>
+<li>Average seek time is 1/2 the worst case seek time</li>
+</ul>
+<ul>
+<li>Average latency is 1/2 of the worst case latency</li>
 </ul>
 <p>还有几个关于磁盘的概念：</p>
 <ol>
@@ -9635,41 +9633,47 @@
 <ol>
 <li><strong>Buffering</strong>: in-memory buffer to cache disk blocks </li>
 <li><strong>Read-ahead(Prefetch)</strong>: Read extra blocks from a track in anticipation  that they will be requested soon </li>
-<li><strong>Disk-arm-scheduling algorithms</strong> re-order block requests so that disk  arm movement is minimized</li>
+<li><strong>Disk-arm-scheduling algorithms</strong> re-order block requests so that disk  arm movement is minimized<ul>
 <li>与controller相关</li>
+</ul>
+</li>
 <li><strong>elevator algorithm</strong></li>
 </ol>
 <p><img alt="image-20240422203758785" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240422203758785.png" /></p>
 <ol>
-<li><strong>File organization</strong> </li>
+<li>
+<p><strong>File organization</strong> </p>
+<ul>
 <li>Allocate blocks of a file in as contiguous a manner as possible </li>
 <li>Allocation in units of extents(盘区） </li>
-<li>
-<p>Files may get fragmented </p>
-<ul>
+<li>Files may get fragmented <ul>
 <li>E.g., if free blocks on disk are scattered, and newly created file  has its blocks scattered over the disk </li>
 <li>Sequential access to a fragmented file results in increased disk  arm movement </li>
 <li>Some systems have utilities to defragment the file system, in order to speed up file access</li>
 </ul>
 </li>
+</ul>
+</li>
 <li>
 <p><strong>Nonvolatile write buffers （非易失性写缓存）</strong> – speed up disk writes by writing  blocks to a non-volatile RAM buffer immediately </p>
-</li>
+<ul>
 <li>Non-volatile RAM: battery backed up RAM or flash memory  <ul>
 <li>Even if power fails, the data is safe and will be written to disk when power  returns </li>
 </ul>
 </li>
 <li>Controller then writes to disk whenever the disk has no other requests or request  has been pending for some time </li>
 <li>Database operations that require data to be safely stored before continuing can  continue without waiting for data to be written to disk </li>
-<li>
-<p>Writes can be reordered to minimize disk arm movement </p>
+<li>Writes can be reordered to minimize disk arm movement </li>
+</ul>
 </li>
 <li>
 <p><strong>Log disk（日志磁盘）</strong> – a disk devoted to writing a sequential log of block updates </p>
-</li>
+<ul>
 <li>Used exactly like nonvolatile RAM<ul>
 <li>Write to log disk is very fast since no seeks are required </li>
 <li>No need for special hardware (NV-RAM)</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
@@ -9708,16 +9712,26 @@
 <h3 id="organization-of-records-in-files">Organization of Records in Files</h3>
 <p>我们有以下几种 record 在一个文件里的组织方式</p>
 <ol>
-<li>Heap</li>
+<li>Heap<ul>
 <li>record 随便放，只要这里还有空间，放了就不要动他了，能跑就行</li>
-<li>Sequential</li>
+</ul>
+</li>
+<li>Sequential<ul>
 <li>根据record 的 search key 值进行排序存储</li>
-<li>multitable clustering file organization</li>
+</ul>
+</li>
+<li>multitable clustering file organization<ul>
 <li>不同关系的 record 可以放同一个文件里</li>
-<li>B+-tree file organization</li>
+</ul>
+</li>
+<li>B+-tree file organization<ul>
 <li>B+树yyds</li>
-<li>Hashing</li>
+</ul>
+</li>
+<li>Hashing<ul>
 <li>根据 search key 的哈希值决定 record 放file里的哪个block</li>
+</ul>
+</li>
 </ol>
 <h4 id="heap-file-organization">Heap File Organization</h4>
 <p>最关键的地方就是快速寻找空的位置，我们使用 Free-space map</p>

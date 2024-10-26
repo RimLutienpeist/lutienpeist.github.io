@@ -3490,7 +3490,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9300,10 +9300,12 @@
 <h2 id="page-tables">Page Tables</h2>
 <p>fully associate 要求并行检查，但是虚拟内存太大了，不可能全部数据都并行检查，所以我们引入一个叫 <strong>页表</strong> 的东西帮忙</p>
 <ul>
-<li><strong>Page Table</strong> 会保存虚拟内存到物理内存的映射关系，这个“映射关系”比较抽象，先往下看</li>
+<li><strong>Page Table</strong> 会保存虚拟内存到物理内存的映射关系，这个“映射关系”比较抽象，先往下看<ul>
 <li>page在虚拟内存里用 <strong>virtual page number</strong> 进行 index</li>
 <li>page table 包含目前虚拟内存里存在的page的 <strong>physical page number</strong></li>
 <li>当然虚拟内存也会有 <strong>physical page number</strong></li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>每个进程有单独的页表，所以会同时存在多个页表，我们用 page table register 储存所有页表的基地址用以寻找页表</p>

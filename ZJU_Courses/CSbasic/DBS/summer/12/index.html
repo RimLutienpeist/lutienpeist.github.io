@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9448,17 +9448,21 @@
 <p><img alt="image-20240514181706218" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240514181706218.png" /></p>
 <p>我们的优化基于经验规则与代价估算，生成最合适的执行计划</p>
 <ul>
-<li>Steps in <strong>cost-based</strong> query optimization</li>
+<li>Steps in <strong>cost-based</strong> query optimization<ol>
 <li>Generate logically equivalent expressions using equivalence rules</li>
 <li>Annotate resultant expressions in alternative ways to get alternative query plans</li>
 <li>Choose the cheapest plan based on estimated cost</li>
-<li>Estimation of plan cost based on:</li>
+</ol>
+</li>
+<li>Estimation of plan cost based on:<ol>
 <li>Statistical information about relations<ul>
 <li>number of tuples, number of distinct values for an attribute</li>
 </ul>
 </li>
 <li>Statistics estimation for intermediate results</li>
 <li>Cost formulae for algorithms, computed using statistics</li>
+</ol>
+</li>
 </ul>
 <blockquote>
 <p>可以用<code>explain</code>查询某条语句的执行计划</p>
@@ -9480,8 +9484,10 @@
 </ol>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240514182842338.png" alt="image-20240514182842338" style="zoom:50%;" /></p>
 <ol>
-<li>Selections can be combined with Cartesian products and theta joins</li>
+<li>Selections can be combined with Cartesian products and theta joins<ul>
 <li>因为我们希望尽量将选择转换为链接操作</li>
+</ul>
+</li>
 </ol>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240514182908325.png" alt="image-20240514182908325" style="zoom:50%;" /></p>
 <ol>
@@ -9489,28 +9495,30 @@
 </ol>
 <p><img alt="image-20240514183018878" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240514183018878.png" /></p>
 <ol>
-<li><strong>associative</strong></li>
-<li>Natural join operations are associative（可结合的）<ol>
-<li><img alt="image-20240514183103652" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240514183103652.png" /></li>
-</ol>
-</li>
 <li>
-<p>Theta joins are associative in the following manner:</p>
+<p><strong>associative</strong></p>
 <ol>
-<li><img alt="image-20240514183115866" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240514183115866.png" /></li>
+<li>Natural join operations are associative（可结合的）
+    1. <img alt="image-20240514183103652" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240514183103652.png" /></li>
+<li>Theta joins are associative in the following manner:
+    1. <img alt="image-20240514183115866" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240514183115866.png" /></li>
 </ol>
 </li>
 <li>
 <p>The <strong>selection</strong> operation distributes（分配）over the theta join operation under the following two conditions: </p>
-</li>
+<ol>
 <li>When all the attributes in <span class="arithmatex">\(\theta_0\)</span> involve only the attributes of  one of the expressions (<span class="arithmatex">\(E_1\)</span>) being joined.</li>
+</ol>
+</li>
 </ol>
 <p><img alt="image-20240514183216960" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240514183216960.png" /></p>
 <p>​   ii. When <span class="arithmatex">\(\theta_1\)</span> involves only the attributes of <span class="arithmatex">\(E_1\)</span> and <span class="arithmatex">\(\theta_2\)</span> involves only the attributes of <span class="arithmatex">\(E_2\)</span>.</p>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240514183423653.png" alt="image-20240514183423653" style="zoom:67%;" /></p>
 <ol>
-<li>The <strong>projection</strong> operation distributes（分配） over the theta join  operation as follows:</li>
+<li>The <strong>projection</strong> operation distributes（分配） over the theta join  operation as follows:<ol>
 <li>if <span class="arithmatex">\(\theta\)</span> involves only attributes from <span class="arithmatex">\(L_1 \cup L_2:\)</span></li>
+</ol>
+</li>
 </ol>
 <p><img alt="image-20240514183822733" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240514183822733.png" /></p>
 <p><img alt="image-20240514191428803" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240514191428803.png" /></p>
@@ -9526,8 +9534,10 @@
 <li><span class="arithmatex">\(b_r\)</span>     关系 <span class="arithmatex">\(r\)</span> 占用的块个数</li>
 <li><span class="arithmatex">\(l_r\)</span>      关系 <span class="arithmatex">\(r\)</span> 有多长（大小）</li>
 <li><span class="arithmatex">\(f_r\)</span>     关系 <span class="arithmatex">\(r\)</span> 占用的块，一块能放多少记录</li>
-<li><span class="arithmatex">\(V(A,r)\)</span>    关系 <span class="arithmatex">\(r\)</span> 在某个属性上有几个值</li>
+<li><span class="arithmatex">\(V(A,r)\)</span>    关系 <span class="arithmatex">\(r\)</span> 在某个属性上有几个值<ul>
 <li>比如性别有两个值</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240514191841721" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240514191841721.png" /></p>
 <h3 id="selection-size-estimation">Selection Size Estimation</h3>

@@ -3577,7 +3577,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9243,29 +9243,35 @@
 </blockquote>
 <h3 id="procedure-call-instructions">Procedure Call Instructions</h3>
 <ul>
-<li>Instruction for procedures: <code>jal ( jump-and-link )</code></li>
+<li>Instruction for procedures: <code>jal ( jump-and-link )</code><ul>
 <li>Address of following instruction put in x1</li>
 <li>Jumps to target address</li>
+</ul>
+</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>jal x1, ProcedureAddress;Caller 
 </code></pre></div>
 <ul>
-<li>Procedure return: <code>jalr (jump and link register)</code></li>
+<li>Procedure return: <code>jalr (jump and link register)</code><ul>
 <li>Like <code>jal</code>, but jumps to 0 + address in x1</li>
 <li>Use x0 as<code>rd</code> (x0 cannot be changed)</li>
 <li>Can also be used for computed jumps</li>
+</ul>
+</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>jalr x0, 0(x1);Callee
 </code></pre></div>
 <h3 id="stack">Stack</h3>
 <ul>
-<li>Registers for procedure calling</li>
+<li>Registers for procedure calling<ul>
 <li><code>a0 ~ a7(x10-x17)</code>: eight argument registers to <strong>pass  parameters &amp; return values</strong></li>
 <li><code>ra/x1</code>：one return address register to return to origin point<ul>
 <li>上面的caller就是用这个</li>
 </ul>
 </li>
-<li>Stack grow from higher address to lower address</li>
+</ul>
+</li>
+<li>Stack grow from higher address to lower address<ul>
 <li><strong>约定起始位置在高位，往低位扩张</strong></li>
 <li>Push: <span class="arithmatex">\(sp= sp - 8\)</span>      <code>addi sp,sp,-8; sd …,8(sp);</code></li>
 <li>Pop: <span class="arithmatex">\(sp = sp + 8\)</span>     <code>ld …,8(sp); addi sp,sp,8;</code><ul>
@@ -9273,6 +9279,8 @@
 </ul>
 </li>
 <li>Stack pointer <code>sp</code></li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240326194338299" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240326194338299.png" /></p>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240326194504182.png" alt="image-20240326194504182" style="zoom:80%;" /></p>
@@ -9332,8 +9340,10 @@
 <li>Text 存放所有的指令代码，PC从Text开始执行一条条指令</li>
 <li>Static data: global variables</li>
 <li>Dynamic data: heap</li>
-<li>Stack: automatic storage</li>
+<li>Stack: automatic storage<ul>
 <li>这就是为什么stack是从高位往低位扩展</li>
+</ul>
+</li>
 </ul>
 
 

@@ -3482,7 +3482,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9570,14 +9570,18 @@
 <h4 id="11-traditional-procedural-oriented-languages">1.1 Traditional Procedural-Oriented languages</h4>
 <p>Traditional procedural-oriented languages (such as C and Pascal) suffer some notable drawbacks in creating reusable software components:</p>
 <ol>
-<li>The programs are made up of functions. Functions are often not <em>reusable</em>. </li>
 <li>
-<p>It is very difficult to copy a function from one program and reuse in another program because the the function is likely to reference the headers, global variables and other functions. </p>
+<p>The programs are made up of functions. Functions are often not <em>reusable</em>. </p>
+<ol>
+<li>It is very difficult to copy a function from one program and reuse in another program because the the function is likely to reference the headers, global variables and other functions. </li>
+</ol>
 </li>
 <li>
 <p>The procedural languages are not suitable of <em>high-level abstraction</em> for solving real life problems.</p>
-</li>
+<ol>
 <li>Imagine using assembly codes, which is a very low level code, to write a computer soccer game. C is better but no much better.</li>
+</ol>
+</li>
 </ol>
 <p>In brief, the traditional procedural-languages <strong><em>separate</em> the data structures and algorithms of the software entities.</strong></p>
 <h4 id="12-object-oriented-programming-languages">1.2 Object-Oriented Programming Languages</h4>
@@ -9866,27 +9870,35 @@
 <p>除了头文件，class的定义也可以放在<code>.h</code></p>
 </blockquote>
 <ul>
-<li>C++98/03 does NOT allow you to assign an initial value to a data member (except <code>const static</code> members). Date members are to be initialized via the constructor. For example,</li>
-</ul>
+<li>
+<p>C++98/03 does NOT allow you to assign an initial value to a data member (except <code>const static</code> members). Date members are to be initialized via the constructor. For example,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">;</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">   </span><span class="c1">// error: ISO C++ forbids in-class initialization of non-const static member &#39;radius&#39;</span>
 </code></pre></div>
 <p>C++11 allows in-class initialization of data members.</p>
-<ul>
-<li>You can provide default value to function's arguments in the header. For example,</li>
+</li>
 </ul>
+<ul>
+<li>
+<p>You can provide default value to function's arguments in the header. For example,</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">Circle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">radius</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">);</span>
 </code></pre></div>
-<ul>
-<li>Header contains function prototype, the parameter names are ignored by the compiler, but good to serve as documentation. For example, you can leave out the parameter names in the prototype as follows:</li>
+</li>
 </ul>
+<ul>
+<li>
+<p>Header contains function prototype, the parameter names are ignored by the compiler, but good to serve as documentation. For example, you can leave out the parameter names in the prototype as follows:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">Circle</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;red&quot;</span><span class="p">);</span><span class="w">   </span><span class="c1">// without identifiers</span>
 <a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">   </span><span class="c1">// Identifiers not needed in prototype but good to serve as documentation</span>
 </code></pre></div>
+</li>
+</ul>
 <p>Header files shall contains constants, function prototypes, class/struct declarations.</p>
 <ul>
-<li>The compiler searches the headers in double quotes (such as <code>"Circle.h"</code>) in the <em>current directory</em> first, then the system's include directories. </li>
+<li>The compiler searches the headers in double quotes (such as <code>"Circle.h"</code>) in the <em>current directory</em> first, then the system's include directories. <ul>
 <li>For header in angle bracket (such as <code>&lt;iostream&gt;</code>), the compiler does NOT searches the current directory, but only the system's include directories.</li>
+</ul>
+</li>
 </ul>
 
 

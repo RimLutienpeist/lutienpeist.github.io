@@ -3592,7 +3592,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9272,11 +9272,15 @@
 <p>指令集并行</p>
 </blockquote>
 <ul>
-<li>To increase ILP</li>
+<li>To increase ILP<ul>
 <li>Deeper pipeline, as 5 stages in RISCV</li>
-<li>Multiple issue</li>
+</ul>
+</li>
+<li>Multiple issue<ul>
 <li>多条流水线组成一个处理器</li>
 <li>Start multiple instructions per clock cycle</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>多发 - Multiple issue ，同一时间<strong>安排</strong>多条指令</p>
@@ -9289,17 +9293,19 @@
 </blockquote>
 <p>如何同时安排多条inst开始跑，我们有两种方法</p>
 <ul>
-<li>Static multiple issue</li>
+<li>Static multiple issue<ul>
 <li>Compiler <strong>groups</strong> instructions to be issued together</li>
 <li>Packages them into “<strong>issue slots</strong>”</li>
-<li>
-<p>Compiler detects and avoids <strong>hazards</strong></p>
+<li>Compiler detects and avoids <strong>hazards</strong></li>
+</ul>
 </li>
-<li>
-<p>Dynamic multiple issue</p>
-</li>
+</ul>
+<ul>
+<li>Dynamic multiple issue<ul>
 <li>CPU examines instruction stream and chooses instructions to issue each cycle</li>
 <li>CPU resolves hazards</li>
+</ul>
+</li>
 </ul>
 <p>为了实现多路安排，我们需要前瞻——或者说预测—— insts 之间的依赖关系，且需要预测到很远，比prediction远很多。我们称之为Speculation</p>
 <blockquote>
@@ -9322,16 +9328,20 @@
 </blockquote>
 <h3 id="hazards-in-the-dual-issue">Hazards in the Dual-Issue</h3>
 <ul>
-<li>EX data hazard</li>
+<li>EX data hazard<ul>
 <li>Now can’t use ALU result in load/store in same packet</li>
 <li>Split into two packets, effectively a stall</li>
+</ul>
+</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>add x10, x0, x1
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>ld x2, 0(x10)
 </code></pre></div>
 <ul>
-<li>Load-use hazard</li>
+<li>Load-use hazard<ul>
 <li>Still one cycle use latency, but now two instructions</li>
+</ul>
+</li>
 </ul>
 <h4 id="compiler-schedule-example">Compiler Schedule Example:</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Loop: 

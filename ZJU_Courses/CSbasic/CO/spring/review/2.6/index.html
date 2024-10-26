@@ -3634,7 +3634,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9401,10 +9401,12 @@
 </blockquote>
 <h2 id="a-c-sort-example-to-put-it-all-together">A C Sort Example To Put it All Together</h2>
 <ul>
-<li>Three general steps for translating C procedures</li>
+<li>Three general steps for translating C procedures<ol>
 <li>Allocate registers to program variables</li>
 <li>Produce code for the body of the procedures</li>
 <li>Preserve registers across the procedures invocation</li>
+</ol>
+</li>
 </ul>
 <h3 id="procedure-swap">Procedure swap</h3>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">swap</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">v</span><span class="p">[</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">)</span>
@@ -9416,10 +9418,12 @@
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="p">}</span>
 </code></pre></div>
 <ul>
-<li>Register allocation for swap</li>
+<li>Register allocation for swap<ul>
 <li>v ---- x10 </li>
 <li>k ---- x11 </li>
 <li>temp ---- x5</li>
+</ul>
+</li>
 <li>swap is a leaf procedure, nothing to preserve</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>swap:
@@ -9442,14 +9446,18 @@
 <a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">}</span>
 </code></pre></div>
 <ul>
-<li>Register allocation for sort </li>
+<li>Register allocation for sort <ul>
 <li>v ---- x10 </li>
 <li>n ---- x11 </li>
 <li>i ---- x19 </li>
 <li>j ---- x20</li>
+</ul>
+</li>
 <li>Passing parameters in sort</li>
-<li>Preserving registers in sort</li>
+<li>Preserving registers in sort<ul>
 <li>x1 , x19, x20, x21, x22</li>
+</ul>
+</li>
 </ul>
 <p>这程序有嵌套循环，我们先看外循环</p>
 <p>对于循环，我们先不看内容，而是先实现骨架，内容直接跳转即可</p>
@@ -9518,9 +9526,11 @@
 <p>指针比array更高效</p>
 </blockquote>
 <ul>
-<li>Array indexing involves</li>
+<li>Array indexing involves<ul>
 <li>Multiplying index by element size</li>
 <li>Adding to array base address</li>
+</ul>
+</li>
 <li>Pointers correspond directly to memory  addresses</li>
 </ul>
 <p>指针可以直接操作物理地址，而数组需要计算出地址偏移量</p>

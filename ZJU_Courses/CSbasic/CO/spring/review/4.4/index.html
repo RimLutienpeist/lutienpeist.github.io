@@ -3592,7 +3592,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9270,10 +9270,14 @@
 <h2 id="exceptions-and-interrupts">Exceptions and Interrupts</h2>
 <p>“Unexpected” events requiring change in flow of control</p>
 <ul>
-<li>Exception: Arises <strong>within the CPU</strong></li>
+<li>Exception: Arises <strong>within the CPU</strong><ul>
 <li>异常是CPU内部引起的</li>
-<li>Interrupt: From an <strong>external I/O controller</strong></li>
+</ul>
+</li>
+<li>Interrupt: From an <strong>external I/O controller</strong><ul>
 <li>中断是外部IO引起的</li>
+</ul>
+</li>
 </ul>
 <h3 id="handling-exceptions">Handling Exceptions</h3>
 <h4 id="method-1">method-1</h4>
@@ -9282,15 +9286,21 @@
 <p>遇到问题，保存当前位置，将相关信息交给专门的程序去统一处理</p>
 </blockquote>
 <ol>
-<li>Save PC of offending (or interrupted) instruction</li>
+<li>Save PC of offending (or interrupted) instruction<ul>
 <li><strong>Supervisor Exception Program Counter  (SEPC)</strong> </li>
 <li>用于储存当前PC，保证在异常后能跳回来继续执行，以及告诉控制器哪里出错了</li>
-<li>Save indication of the problem</li>
+</ul>
+</li>
+<li>Save indication of the problem<ul>
 <li><strong>Supervisor Exception Cause Register (SCAUSE)</strong> </li>
 <li>一组reg，传递异常时的状态，交给OS去处理</li>
-<li>Jump to <strong>handler</strong></li>
+</ul>
+</li>
+<li>Jump to <strong>handler</strong><ul>
 <li>Assume at 0000 0000 1C09 0000hex</li>
 <li>异常处理程序的入口地址</li>
+</ul>
+</li>
 </ol>
 <h4 id="method-2">method-2</h4>
 <p>硬件处理，指用硬件判断异常情况</p>
@@ -9299,10 +9309,14 @@
 <ol>
 <li><strong>Read</strong> cause, and transfer to relevant  <strong>handler</strong></li>
 <li>Determine action required</li>
-<li>If restartable</li>
+<li>If restartable<ul>
 <li>Take corrective action，use <strong>SEPC</strong> to <strong>return to program</strong></li>
-<li>Otherwise</li>
+</ul>
+</li>
+<li>Otherwise<ul>
 <li>Terminate program，<strong>Report error</strong> using SEPC, SCAUSE, …</li>
+</ul>
+</li>
 </ol>
 <p>举个异常处理的例子：</p>
 <p>Consider malfunction on add in EX stage</p>

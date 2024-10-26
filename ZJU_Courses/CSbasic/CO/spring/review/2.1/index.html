@@ -3887,7 +3887,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9865,15 +9865,15 @@
 <ul>
 <li>
 <p>RISC-V has a 32 × 64-bit register file</p>
-</li>
-<li>
-<p>64-bit data is called a “<strong>doubleword</strong>”</p>
 <ul>
+<li>64-bit data is called a “<strong>doubleword</strong>”<ul>
 <li>32-bit data is called a “<strong>word</strong>”</li>
 </ul>
 </li>
-<li>
-<p>32 x 64-bit general purpose registers x0 to x31</p>
+</ul>
+<ul>
+<li>32 x 64-bit general purpose registers x0 to x31</li>
+</ul>
 </li>
 </ul>
 <p><img alt="image-20240319191621748" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240319191621748.png" /></p>
@@ -9883,10 +9883,12 @@
 <h3 id="operations">Operations</h3>
 <h4 id="arithmetic-operations">Arithmetic Operations</h4>
 <ul>
-<li>Only one operation per instruction</li>
+<li>Only one operation per instruction<ul>
 <li>Add and subtract, three operands</li>
+</ul>
+</li>
 <li>Two sources and one destination</li>
-<li>add a, b, c // a gets b + c</li>
+<li>add a, b, c // a gets b + c<ul>
 <li>a, b, c is <strong>address</strong> where stores number<ul>
 <li>用地址速度更快</li>
 <li>数据都存在寄存器里</li>
@@ -9894,27 +9896,31 @@
 </li>
 <li>All arithmetic operations have this form</li>
 </ul>
+</li>
+</ul>
 <p><img alt="image-20240319190806982" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240319190806982.png" /></p>
 <p><img alt="image-20240319190813394" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240319190813394.png" /></p>
 <h4 id="memory-operands">Memory Operands</h4>
 <ul>
 <li>
 <p>Memory is <strong>byte addressed</strong></p>
-</li>
-<li>
-<p>Each address identifies an 8-bit byte</p>
-</li>
+<ul>
+<li>Each address identifies an 8-bit byte</li>
 <li>64位 = 8byte，占8个地址为一组</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>RISC-V does not require words to be aligned in memory</p>
 <p>即一个地址一定指向8byte的空间，这是最小单元，不可分割</p>
 </blockquote>
 <ul>
-<li>RISC-V is <strong>Little Endian</strong></li>
+<li>RISC-V is <strong>Little Endian</strong><ul>
 <li>小端模式<ul>
 <li>如果一个数需要存储于多个byte，那么我们将小的位存放在小的地址指向的byte</li>
 <li>Least-significant byte at least address of a word</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -9937,12 +9943,14 @@
 <p>偏移量单位是byte。读取的时候也是以byte为单位。</p>
 <h3 id="constant-or-immediate-operands">Constant or immediate Operands</h3>
 <ul>
-<li>立即数 Immediate</li>
+<li>立即数 Immediate<ul>
 <li>Avoids the load instruction</li>
 <li>Constant zero: a register x0</li>
 <li>需要再指令后面加个 <code>i</code><ul>
 <li><strong>addi</strong> </li>
 <li>类似的有无符号数 addu </li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -9980,15 +9988,15 @@
 <p>注意我们学的都是RISC-V</p>
 </blockquote>
 <ul>
-<li>
-<p>All instructions in RISC-V <strong>have the same length 32-bit</strong></p>
-</li>
-<li>
-<p>RISC-V指令可分为以下几类</p>
-</li>
+<li>All instructions in RISC-V <strong>have the same length 32-bit</strong></li>
+</ul>
+<ul>
+<li>RISC-V指令可分为以下几类<ul>
 <li>R 型：Reg与Reg的交互</li>
 <li>I 型：Imm到Reg的交互</li>
 <li>S 型：Store，内存交互</li>
+</ul>
+</li>
 </ul>
 <h3 id="r-format-instructions">R-Format Instructions</h3>
 <p>R 型指令名称的由来是“Register-to-Register”的缩写，即“寄存器到寄存器”。</p>
@@ -9999,15 +10007,15 @@
 <li><strong>funct3</strong>: 3-bit function code (additional opcode) </li>
 <li><strong>rs1</strong>: the first source register number </li>
 <li><strong>rs2</strong>: the second source register number </li>
-<li>
-<p><strong>funct7</strong>: 7-bit function code (additional opcode)</p>
-</li>
-<li>
-<p>opcode + funct3 + func7 = add</p>
-</li>
-<li>opcode <span class="arithmatex">\(\neq\)</span> add, opcode &gt; add</li>
-<li>opcode $= $ add, sub, ...</li>
+<li><strong>funct7</strong>: 7-bit function code (additional opcode)</li>
 </ol>
+<ul>
+<li>opcode + funct3 + func7 = add</li>
+<li>opcode <span class="arithmatex">\(\neq\)</span> add, opcode &gt; add<ul>
+<li>opcode $= $ add, sub, ...</li>
+</ul>
+</li>
+</ul>
 <h4 id="r-format-example">R-format Example</h4>
 <blockquote>
 <p>包含add, sub等</p>
@@ -10025,8 +10033,10 @@
 </blockquote>
 <ul>
 <li>rs1: source or base address register number </li>
-<li>immediate: constant operand, or offset added to base address</li>
+<li>immediate: constant operand, or offset added to base address<ul>
 <li>2s-complement, sign extended</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240321200030775" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240321200030775.png" /></p>
 <h3 id="risc-v-s-format-instructions">RISC-V S-Format Instructions</h3>
@@ -10038,8 +10048,10 @@
 <ul>
 <li><strong>rs1</strong>: base address register number </li>
 <li><strong>rs2</strong>: source operand register number </li>
-<li><strong>immediate</strong>: offset added to base address </li>
+<li><strong>immediate</strong>: offset added to base address <ul>
 <li>Split as [15:11] and [4:0] so that rs1 and rs2 fields always in the same place</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>与下图的R型对比，可见是<code>funct7</code>, <code>rd</code>被替换为了<code>imm</code></p>
@@ -10064,12 +10076,16 @@
 <p>不管左移右移都是用<code>0</code>填充</p>
 <p>用来进行乘法与除法</p>
 <ul>
-<li><code>slli</code></li>
+<li><code>slli</code><ul>
 <li>shift left</li>
 <li>multiplies by <span class="arithmatex">\(2^i\)</span></li>
-<li><code>srli</code></li>
+</ul>
+</li>
+<li><code>srli</code><ul>
 <li>shift right</li>
 <li>devides by  <span class="arithmatex">\(2^i\)</span></li>
+</ul>
+</li>
 </ul>
 <h4 id="and">AND</h4>
 <p><code>and</code> 可以用于 提取/选取 数据</p>
@@ -10089,12 +10105,16 @@
 <p><img alt="image-20240321202840448" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240321202840448.png" /></p>
 <h2 id="instructions-for-making-decisions">Instructions for making decisions</h2>
 <ul>
-<li><strong>Branch</strong> instructions</li>
+<li><strong>Branch</strong> instructions<ul>
 <li>Branch to a labeled instruction if a condition is true </li>
 <li>Otherwise, continue sequentially</li>
-<li>Example</li>
+</ul>
+</li>
+<li>Example<ul>
 <li><code>beq rs1, rs2, L1</code> if (rs1 == rs2) branch to instruction labeled L1</li>
 <li><code>bne rs1, rs2, L1</code> if (rs1 != rs2) branch to instruction labeled L1</li>
+</ul>
+</li>
 </ul>
 <p><code>beq</code>, <code>bnq</code>可以实现以下逻辑</p>
 <h3 id="_1">各类逻辑的实现</h3>
@@ -10111,13 +10131,17 @@
 <p><img alt="image-20240406130816575" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240406130816575.png" /></p>
 <h3 id="more-conditional-operations">More Conditional Operations</h3>
 <ul>
-<li><code>blt rs1, rs2, L1</code> if(rs1&lt;rs2) L1</li>
+<li><code>blt rs1, rs2, L1</code> if(rs1&lt;rs2) L1<ul>
 <li>大于需要用EXIT实现</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240406131136504" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240406131136504.png" /></p>
 <ul>
-<li><code>bge rs1, rs2, L1</code> if(rs1<span class="arithmatex">\(\ge\)</span> rs2) L1</li>
+<li><code>bge rs1, rs2, L1</code> if(rs1<span class="arithmatex">\(\ge\)</span> rs2) L1<ul>
 <li>同上</li>
+</ul>
+</li>
 </ul>
 <h3 id="jump">Jump</h3>
 <p><code>jalr</code>即无判断直接跳转到寄存器</p>

@@ -3746,7 +3746,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9599,15 +9599,17 @@
 <p>知道一些条件可以确定唯一二项队列</p>
 <p><img alt="image-20240325101636475" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240325101636475.png" /></p>
 <ul>
-<li>在一个二项队列这个森林里，每一高度的树要不没有，要不只有一颗（有两颗必须合并）。</li>
+<li>在一个二项队列这个森林里，每一高度的树要不没有，要不只有一颗（有两颗必须合并）。<ul>
 <li>所以任意高度的树只有0个1两种情况</li>
-<li>
-<p>所以可以用二进制表示二项队列，并进行运算</p>
+<li>所以可以用二进制表示二项队列，并进行运算</li>
+</ul>
 </li>
-<li>
-<p>而二项树的总结点数正好满足<span class="arithmatex">\(2^k\)</span>的规律</p>
-</li>
+</ul>
+<ul>
+<li>而二项树的总结点数正好满足<span class="arithmatex">\(2^k\)</span>的规律<ul>
 <li>所以bin表示的dec即二项队列的总节点数</li>
+</ul>
+</li>
 </ul>
 <h3 id="_5">操作</h3>
 <h4 id="findmin">FindMin</h4>
@@ -9656,8 +9658,10 @@
 </blockquote>
 <p>二项树没有随机访问儿子的需求，所以这里选后者实现</p>
 <ul>
-<li>左儿子右兄弟</li>
+<li>左儿子右兄弟<ul>
 <li>每个node依旧两个指针，一个指向原来最左边的儿子，一个指向兄弟</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>不过还有个问题一直没解决，合并两个二项树的时候被合并的树应该放在左儿子还是右儿子的位置</p>

@@ -3663,7 +3663,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9412,9 +9412,11 @@
 <p><a href="https://classroom.zju.edu.cn/livingroom?course_id=58520&amp;sub_id=1123979&amp;tenant_code=112">高级数据结构与算法分析2024-05-27第3-5节 (zju.edu.cn)</a></p>
 <p><a href="C:\Users\89620\Desktop\Learning-Meterial\A1-ADS\PPT\ADS14Parallel_Stu.ppt">ADS14Parallel_Stu.ppt</a></p>
 <ul>
-<li>To describe a parallel algorithm</li>
+<li>To describe a parallel algorithm<ul>
 <li><strong>Parallel Random Access Machine (PRAM)</strong></li>
 <li><strong>Work-Depth (WD)</strong></li>
+</ul>
+</li>
 </ul>
 <h2 id="parallel-random-access-machine-pram">Parallel Random Access Machine (PRAM)</h2>
 <blockquote>
@@ -9428,7 +9430,7 @@
 </blockquote>
 <p>注意到并行执行的语句有相同处理对象的话可能会造成冲突，我们需要进行限制</p>
 <ul>
-<li>To resolve access conflicts</li>
+<li>To resolve access conflicts<ul>
 <li>Exclusive-Read Exclusive-Write (<strong>EREW</strong>)<ul>
 <li>禁止同一个mem读写数据，最安全最暴力</li>
 </ul>
@@ -9439,13 +9441,17 @@
 </li>
 <li>Concurrent-Read Concurrent-Write (<strong>CRCW</strong>)<ul>
 <li>可读可写</li>
-<li>如果造成冲突，我们可以</li>
+<li>如果造成冲突，我们可以<ul>
 <li>Priority rule (P with the smallest number)<ul>
 <li>给所有处理器一个优先级，优先级高的写，低的被覆盖</li>
 </ul>
 </li>
 <li>Common rule (if all the processors are trying to write the same value)<ul>
 <li>如果两个处理器写的相同就允许，不相同就都禁止</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -9483,8 +9489,10 @@
 <h2 id="measuring-the-performance">Measuring the performance</h2>
 <p>评价并行算法需要考虑两个因素</p>
 <ul>
-<li>Work load</li>
+<li>Work load<ul>
 <li>total number of operations: <strong>W(n)</strong></li>
+</ul>
+</li>
 <li>Worst-case running time: <strong>T(n)</strong></li>
 </ul>
 <blockquote>
@@ -9493,33 +9501,35 @@
 </blockquote>
 <p>由这两个因素我们得出以下的指标：</p>
 <ul>
-<li><strong>W(n)</strong> operations and <strong>T(n)</strong> time</li>
-<li>
-<p>T时间里完成的W工作量</p>
+<li><strong>W(n)</strong> operations and <strong>T(n)</strong> time<ul>
+<li>T时间里完成的W工作量</li>
+</ul>
 </li>
-<li>
-<p><strong>P(n) = W(n)/T(n)</strong> processors and <strong>T(n)</strong> time </p>
-</li>
+</ul>
+<ul>
+<li><strong>P(n) = W(n)/T(n)</strong> processors and <strong>T(n)</strong> time <ul>
 <li>T时间、P处理器数量</li>
-<li>
-<p>on a <strong>PRAM</strong>，不能用于WD模型</p>
+<li>on a <strong>PRAM</strong>，不能用于WD模型</li>
+</ul>
 </li>
-<li>
-<p><strong>W(n)/p</strong> time using any number of <strong>p ≤ W(n)/T(n)</strong> processors </p>
-</li>
+</ul>
+<ul>
+<li><strong>W(n)/p</strong> time using any number of <strong>p ≤ W(n)/T(n)</strong> processors <ul>
 <li>这个算法能支持W(n)/T(n)个处理器，但是手上没这么多处理器，只有p个</li>
-<li>
-<p>on a PRAM，不能用于WD模型</p>
+<li>on a PRAM，不能用于WD模型</li>
+</ul>
 </li>
-<li>
-<p><strong>W(n)/p + T(n)</strong> time using any number of <strong>p</strong> processors</p>
-</li>
+</ul>
+<ul>
+<li><strong>W(n)/p + T(n)</strong> time using any number of <strong>p</strong> processors<ul>
 <li>分情况<ul>
 <li>如果p很大，那么这个式子就是T(n)，表示算法支持的最大处理器数量下的耗时</li>
 <li>r如果p很小，那就是W(n)/p，同第三个</li>
 </ul>
 </li>
 <li>on a PRAM，不能用于WD模型</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>上面四个是 All asymptotically equivalent 渐进等价的</p>

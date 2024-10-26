@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9126,7 +9126,7 @@
 <h2 id="outline">Outline</h2>
 <ul>
 <li>数据库基本概念、基本特征、基本应用</li>
-<li>~~数据库发展历史~~（考试不考）</li>
+<li><del>数据库发展历史</del>（考试不考）</li>
 </ul>
 <h2 id="database">*何为Database</h2>
 <blockquote>
@@ -9145,7 +9145,7 @@
 <p>If data are to be shared among several users, the system must provide <strong>concurrency control</strong> mechanisms to avoid possible anomalous results.</p>
 <blockquote>
 <p>这里不考定义，了解内容</p>
-<p>~~有讨论要写，要举数据库例子~~</p>
+<p><del>有讨论要写，要举数据库例子</del></p>
 </blockquote>
 <h2 id="database-appiications">*Database AppIications</h2>
 <blockquote>
@@ -9156,13 +9156,19 @@
 <h2 id="purpose-of-database-systems">Purpose of Database Systems</h2>
 <p>In the early days, database applications were built directly on top of file systems, which leads to: </p>
 <ul>
-<li><strong>Data redundancy（数据冗余）</strong> and <strong>inconsistency（不一致）</strong></li>
+<li><strong>Data redundancy（数据冗余）</strong> and <strong>inconsistency（不一致）</strong><ul>
 <li>Multiple file formats, duplication of information in different files</li>
 <li>一处改了其它处也要改</li>
-<li><strong>Data isolation</strong> — multiple files and formats</li>
+</ul>
+</li>
+<li><strong>Data isolation</strong> — multiple files and formats<ul>
 <li>数据各自孤立，没有一个有效的统一结构</li>
-<li>Difficulty in <strong>accessing data（存取数据）</strong></li>
+</ul>
+</li>
+<li>Difficulty in <strong>accessing data（存取数据）</strong><ul>
 <li>Need to write a new program to carry out each new task</li>
+</ul>
+</li>
 </ul>
 <h3 id="_2">如果没有数据库系统</h3>
 <h4 id="integrity-problem">Integrity problem</h4>
@@ -9189,8 +9195,10 @@
 <li>Hard to provide user access to some, but not all, data</li>
 <li>Authentication（认证）</li>
 <li>Privilege（权限）</li>
-<li>Audit（审计）</li>
+<li>Audit（审计）<ul>
 <li>权力监督，监督管理员</li>
+</ul>
+</li>
 </ul>
 <h3 id="characteristics-of-databases">Characteristics of Databases</h3>
 <ul>
@@ -9214,7 +9222,9 @@
 <p><img alt="image-20240226143945870" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240226143945870.png" /></p>
 <p>优点：</p>
 <ul>
-<li>Hide the complexities </li>
+<li>
+<p>Hide the complexities </p>
+</li>
 <li>Enhance the adaptation to changes</li>
 </ul>
 <p>不同level间通过mapping连接。不同level有相对的独立性，增强了第二个优点</p>

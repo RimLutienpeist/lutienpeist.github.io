@@ -3664,7 +3664,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9417,13 +9417,19 @@
 </blockquote>
 <p>Hazards 指的是阻止下一个指令在下一个时钟周期完成的一些情况。主要分为三种：</p>
 <ul>
-<li>Structure hazards</li>
+<li>Structure hazards<ul>
 <li>一个被请求的资源仍处于忙碌状态</li>
 <li>一个组件不能被同时被两个指令同时利用</li>
-<li>Data hazards</li>
+</ul>
+</li>
+<li>Data hazards<ul>
 <li>需要等待上一个指令完成数据读写</li>
-<li>Control hazards</li>
+</ul>
+</li>
+<li>Control hazards<ul>
 <li>一些控制取决于上一条指令的结果</li>
+</ul>
+</li>
 </ul>
 <h3 id="structure-hazards">Structure hazards</h3>
 <p>比如，前一个指令在 <code>ID</code> 阶段的时候，会使用到其在 <code>IF</code> 阶段读出的指令的内容；但与此同时后一个指令已经运行到 <code>IF</code> 阶段并读出了新的指令，那么前一个指令就没的用了！</p>
@@ -9521,9 +9527,11 @@
 <p><strong>How to Stall the Pipeline</strong></p>
 <ul>
 <li>Force control values in ID/EX register to 0, EX, MEM and WB do nop (no-operation)</li>
-<li>Prevent update of PC and IF/ID register</li>
+<li>Prevent update of PC and IF/ID register<ul>
 <li>Using instruction is decoded again</li>
 <li>Following instruction is fetched again</li>
+</ul>
+</li>
 </ul>
 </blockquote>
 <p>还有一种办法是对指令进行等价换序，让某些指令尽量晚一点执行，以避免数据竞争。这种方法叫 code scheduling。</p>

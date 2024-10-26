@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9501,23 +9501,31 @@
 </blockquote>
 <h3 id="basic-steps-in-query-processing">Basic Steps in Query Processing</h3>
 <ol>
-<li>Parsing and translation</li>
+<li>Parsing and translation<ul>
 <li>语法检查</li>
 <li>转化为关系代数表达式</li>
-<li>Optimization</li>
+</ul>
+</li>
+<li>Optimization<ul>
 <li>查询优化</li>
 <li>最重要的一步、<ul>
 <li>关系代数等价变化化简</li>
-<li>对代数里的每个算子选择合适的算法</li>
+<li>对代数里的每个算子选择合适的算法<ul>
 <li>每一个算子都有不同的实现方法</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>得到execution plan<ul>
 <li>这个是数据库内部的计划语言</li>
 </ul>
 </li>
-<li>Evaluation</li>
+</ul>
+</li>
+<li>Evaluation<ul>
 <li>execution plan交给引擎，搜索语言</li>
+</ul>
+</li>
 </ol>
 <p><img alt="image-20240507142045146" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240507142045146.png" /></p>
 <p>给个例子语法检查和查询优化的</p>
@@ -9564,8 +9572,10 @@
 <p>还有一些细节</p>
 <ul>
 <li>We ignore CPU costs for simplicity</li>
-<li>We ignore cost to writing output to disk in our cost formulae</li>
+<li>We ignore cost to writing output to disk in our cost formulae<ul>
 <li>即我们约定忽略数据最终被写回磁盘的cost，因为流水线模式下数据不会被写回磁盘</li>
+</ul>
+</li>
 <li>We often use <strong>worst case</strong> estimates, assuming only <strong>the minimum amount of memory</strong> needed for the operation is available</li>
 </ul>
 <h2 id="algorithm">Algorithm</h2>
@@ -9580,8 +9590,10 @@
 </blockquote>
 <p>Scan each file block and test all records to see whether they satisfy the selection condition.</p>
 <ul>
-<li>worst cost = <span class="arithmatex">\(b_r * t_T + t_S\)</span></li>
+<li>worst cost = <span class="arithmatex">\(b_r * t_T + t_S\)</span><ul>
 <li><span class="arithmatex">\(b_r\)</span> denotes number of blocks containing records from relation r</li>
+</ul>
+</li>
 <li>average cost = <span class="arithmatex">\((b_r /2) t_T + t_S\)</span></li>
 </ul>
 <p>If selection is on a <strong>key attribute</strong>, can stop on finding record</p>
@@ -9616,12 +9628,14 @@
 <p>之前是等值查询，这里是比较查询</p>
 </blockquote>
 <ul>
-<li>分两种情况</li>
+<li>分两种情况<ul>
 <li>找出大于V的，那就index出第一个大于V的，剩下的顺序找到结尾可，不用index<ul>
 <li>Cost = <span class="arithmatex">\(h_i * (t_T + t_S) + t_S + t_T * b\)</span></li>
 </ul>
 </li>
 <li>找出小于V的，那都不用index了，直接从头找，找到大于V的停止即可</li>
+</ul>
+</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240507151937052.png" alt="image-20240507151937052" style="zoom: 80%;" /></p>
 <h4 id="implementation-of-complex-selections">Implementation of Complex Selections</h4>
@@ -9637,43 +9651,31 @@
 <p>mem有M个page</p>
 </blockquote>
 <ol>
-<li><strong>Create sorted runs(归并段)</strong></li>
+<li><strong>Create sorted runs(归并段)</strong><ol>
 <li>Let <span class="arithmatex">\(i\)</span> be <span class="arithmatex">\(0\)</span> initially. </li>
-<li>Repeatedly do the following till the end of the relation: <ol>
-<li>Read <span class="arithmatex">\(M\)</span> blocks of relation into memory</li>
-<li>Sort the in-memory blocks </li>
-<li>Write sorted data to run <span class="arithmatex">\(R_i\)</span> ; increment <span class="arithmatex">\(i\)</span>. </li>
+<li>Repeatedly do the following till the end of the relation: 
+    1. Read <span class="arithmatex">\(M\)</span> blocks of relation into memory
+    2. Sort the in-memory blocks 
+    3. Write sorted data to run <span class="arithmatex">\(R_i\)</span> ; increment <span class="arithmatex">\(i\)</span>. </li>
+<li>Let <span class="arithmatex">\(N\)</span> be the final value of <span class="arithmatex">\(i\)</span> 
+    - 这个N是指有几个run</li>
 </ol>
 </li>
-<li>Let <span class="arithmatex">\(N\)</span> be the final value of <span class="arithmatex">\(i\)</span> <ul>
-<li>这个N是指有几个run</li>
-</ul>
-</li>
-<li><strong>Merge the runs (N-way merge).</strong> </li>
-<li><strong>IF <span class="arithmatex">\(N &lt; M\)</span>, single merge pass is required (如果归并段少于可用内存页 )</strong><ol>
-<li>Use <span class="arithmatex">\(N\)</span> blocks of memory to buffer input runs, and 1 block to buffer <strong>output</strong>. Read the first block of each run into its buffer page</li>
-<li>repeat<ol>
-<li>Select the first record (in sort order) among all buffer pages</li>
-<li>Write the record to the output buffer. <ol>
-<li>If the output  buffer is full,  write it to disk</li>
-</ol>
-</li>
-<li>Delete the record from its input buffer page.<ol>
-<li>If the buffer page becomes empty then read the next block (if any) of the run into the  buffer</li>
-</ol>
-</li>
-</ol>
-</li>
-<li>until all input buffer pages are empty</li>
-</ol>
-</li>
-<li><strong>If <span class="arithmatex">\(N \ge M\)</span>, several merge passes are required.</strong><ol>
-<li>In each <strong>pass</strong>, contiguous groups of <span class="arithmatex">\(M - 1\)</span> runs are merged.</li>
-<li>A pass reduces the number of runs by a factor of <span class="arithmatex">\(M - 1\)</span>, and creates runs longer by the same factor. <ol>
-<li>E.g. If M=11, and there are 90 runs, one pass reduces the number of runs to 9, each 10 times the size of the  initial runs</li>
-</ol>
-</li>
-<li>Repeated passes are performed till all runs have been merged into one</li>
+<li><strong>Merge the runs (N-way merge).</strong> <ol>
+<li><strong>IF <span class="arithmatex">\(N &lt; M\)</span>, single merge pass is required (如果归并段少于可用内存页 )</strong>
+    1. Use <span class="arithmatex">\(N\)</span> blocks of memory to buffer input runs, and 1 block to buffer <strong>output</strong>. Read the first block of each run into its buffer page
+    2. repeat
+       1. Select the first record (in sort order) among all buffer pages
+       2. Write the record to the output buffer. 
+          1. If the output  buffer is full,  write it to disk
+       3. Delete the record from its input buffer page.
+          1. If the buffer page becomes empty then read the next block (if any) of the run into the  buffer
+    3. until all input buffer pages are empty</li>
+<li><strong>If <span class="arithmatex">\(N \ge M\)</span>, several merge passes are required.</strong>
+    1. In each <strong>pass</strong>, contiguous groups of <span class="arithmatex">\(M - 1\)</span> runs are merged.
+    2. A pass reduces the number of runs by a factor of <span class="arithmatex">\(M - 1\)</span>, and creates runs longer by the same factor. 
+       1. E.g. If M=11, and there are 90 runs, one pass reduces the number of runs to 9, each 10 times the size of the  initial runs
+    3. Repeated passes are performed till all runs have been merged into one</li>
 </ol>
 </li>
 </ol>
@@ -9688,21 +9690,19 @@
 <h3 id="join-operation">Join Operation</h3>
 <p>有五种典型算法</p>
 <ul>
-<li>
-<p>Nested-loop join </p>
-</li>
-<li>
-<p>Block nested-loop </p>
-</li>
-<li>
-<p>join Indexed </p>
-</li>
-<li>
-<p>nested-loop join </p>
-</li>
-<li>
-<p>Merge-join Hash-join</p>
-</li>
+<li>Nested-loop join </li>
+</ul>
+<ul>
+<li>Block nested-loop </li>
+</ul>
+<ul>
+<li>join Indexed </li>
+</ul>
+<ul>
+<li>nested-loop join </li>
+</ul>
+<ul>
+<li>Merge-join Hash-join</li>
 </ul>
 <h4 id="nested-loop-join">Nested-Loop Join</h4>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240511203351613.png" alt="image-20240511203351613" style="zoom: 80%;" /></p>
@@ -9735,9 +9735,11 @@
 <p>我们尝试通过索引替代内循环</p>
 </blockquote>
 <ul>
-<li>Index lookups can replace file scans if</li>
+<li>Index lookups can replace file scans if<ul>
 <li>join is an equi-join or natural join </li>
 <li>and an index is available on the inner relation’s join attribute</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>对于每个r的tuple，我们通过索引查找满足条件的s的tuple</p>
@@ -9745,8 +9747,10 @@
 <p>Worst case: buffer has space for only one page of r, and, for each  tuple in r, we perform an index lookup on s.</p>
 <p>Cost of the join: <span class="arithmatex">\(b_r (t_T + t_S) + n_r * c\)</span></p>
 <ul>
-<li>Where c is the cost of traversing index and fetching all matching s tuples for one tuple or r</li>
+<li>Where c is the cost of traversing index and fetching all matching s tuples for one tuple or r<ul>
 <li>c can be estimated as cost of a single selection on s using the join condition.</li>
+</ul>
+</li>
 </ul>
 <p>If indices are available on join attributes of both r and s, use the relation with fewer tuples as the outer relation.</p>
 <p><img alt="image-20240514093518067" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240514093518067.png" /></p>

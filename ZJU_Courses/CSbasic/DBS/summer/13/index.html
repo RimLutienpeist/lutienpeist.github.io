@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9549,7 +9549,7 @@
 <p>之前实验五的借书、还书都是一个个事务</p>
 </blockquote>
 <ul>
-<li>Two main issues to deal with: </li>
+<li>Two main issues to deal with: <ul>
 <li>Failures of various kinds, such as hardware failures and system crashes<ul>
 <li>事务错误如何恢复</li>
 </ul>
@@ -9559,9 +9559,11 @@
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <p>要完整描述一个事务，我们需要用到ACID Properties 这个概念</p>
 <ul>
-<li>ACID Properties</li>
+<li>ACID Properties<ul>
 <li>Atomicity （原子性） <ul>
 <li>构成事务的操作被看成一个整体看待，要么全部成功，要么全不执行</li>
 <li>数据库恢复功能能实现原子性</li>
@@ -9569,12 +9571,14 @@
 </li>
 <li>Consistency （一致性）<ul>
 <li>就是不会错误地修改数据库，相互关联的数据应该进行更新。比如转账转完总的钱应该不变</li>
-<li>consistency requirements include</li>
+<li>consistency requirements include<ul>
 <li>Explicitly （显式） specified integrity constraints : primary keys , foreign keys<ul>
 <li>就是定义表时人为定义的</li>
 </ul>
 </li>
 <li>Implicit （隐式）integrity constraints, e.g.– sum of balances of all accounts minus sum of loan amounts must equal value of cash-in-hand</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>Isolation （隔离性）<ul>
@@ -9589,6 +9593,8 @@
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <h2 id="a-simple-transaction-model">A Simple Transaction Model</h2>
 <blockquote>
 <p>这个model的数据库只支持读写两种操作</p>
@@ -9597,29 +9603,39 @@
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240521131527917.png" alt="image-20240521131527917" style="zoom:80%;" /></p>
 <h2 id="transaction-state">Transaction State</h2>
 <ul>
-<li><strong>Active</strong></li>
+<li><strong>Active</strong><ul>
 <li>the initial state</li>
 <li>it is executing</li>
-<li><strong>Partially committed</strong></li>
+</ul>
+</li>
+<li><strong>Partially committed</strong><ul>
 <li>after the final statement has been executed</li>
 <li>缓冲区，还没正式提交，可能会fail</li>
-<li><strong>Failed</strong></li>
+</ul>
+</li>
+<li><strong>Failed</strong><ul>
 <li>after the discovery that normal execution can no longer proceed</li>
-<li><strong>Aborted</strong></li>
+</ul>
+</li>
+<li><strong>Aborted</strong><ul>
 <li>after the transaction has been rolled back and the database  restored to its state prior to the start of the transaction</li>
 <li>Two options after  it has been aborted:<ul>
 <li>restart the transaction</li>
 <li>kill the transaction</li>
 </ul>
 </li>
-<li><strong>Committed</strong></li>
+</ul>
+</li>
+<li><strong>Committed</strong><ul>
 <li>after successful completion</li>
+</ul>
+</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240521135411583.png" alt="image-20240521135411583" style="zoom:67%;" /></p>
 <h2 id="concurrent-executions">Concurrent Executions</h2>
 <p>并行处理会遇到以下问题</p>
 <ul>
-<li>Anomalies in Concurrent Executions</li>
+<li>Anomalies in Concurrent Executions<ul>
 <li><strong>Lost Update( 丢失修改 )</strong><ul>
 <li>出现了交叉修改，其中一个被覆盖了</li>
 <li>比如两个人同时买票<img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240521140839789.png" alt="image-20240521140839789" style="zoom: 67%;" /></li>
@@ -9635,6 +9651,8 @@
 </li>
 <li><strong>Phantom Problem （幽灵问题）</strong><ul>
 <li>和上一个类似，不过这里是指T1里面的第二次select由于收到T2影响，多了一个entity<img alt="image-20240521141453651" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240521141453651.png" /></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -9658,18 +9676,20 @@
 <h2 id="serializability">Serializability</h2>
 <p>关于Serializability我们会从冲突的角度来看，先看看什么是冲突</p>
 <ul>
-<li>Conflicting Instructions </li>
+<li>Conflicting Instructions <ul>
 <li>两条操作对象相同的操作，只要不都是读，一定是冲突的</li>
 <li>或者说，操作对象相同，只要有写操作，就是冲突的</li>
-<li>
-<p>操作对象不相同肯定不冲突啦</p>
+<li>操作对象不相同肯定不冲突啦</li>
+</ul>
 </li>
-<li>
-<p><strong>Conflict Serializability （冲突可串行化）</strong></p>
-</li>
+</ul>
+<ul>
+<li><strong>Conflict Serializability （冲突可串行化）</strong><ul>
 <li>If a schedule S can be transformed into a schedule S´ by a series of <strong>swaps of non-conflicting instructions</strong>, we say that S and S´ are <strong>conflict equivalent</strong>.</li>
 <li>即，能通过交换非冲突指令变成另一个调度，就说这两调度是冲突等价的</li>
 <li>We say that a schedule S is <strong>conflict serializable</strong> if it is conflict  equivalent to a serial schedule</li>
+</ul>
+</li>
 </ul>
 <h4 id="testing-for-serializability">Testing for Serializability</h4>
 <p><strong>Precedence graph（前驱图）</strong>— a directed graph where the vertices are the transactions</p>
@@ -9694,8 +9714,10 @@
 <p>这里不管冲突的概念了</p>
 </blockquote>
 <ul>
-<li><strong>view serializability</strong></li>
+<li><strong>view serializability</strong><ul>
 <li>我们要求两个调度，只要读操作获得的数值一致，且写操作写出去的数值也是一样的即可</li>
+</ul>
+</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240521154807371.png" alt="image-20240521154807371" style="zoom:67%;" /></p>
 <blockquote>
@@ -9714,9 +9736,11 @@
 <p>可恢复与可串行是等级别的性质</p>
 </blockquote>
 <ul>
-<li>Recoverable schedule （可恢复调度）</li>
+<li>Recoverable schedule （可恢复调度）<ul>
 <li>比如，T1先写了A，T2再读了A，那么如果T1的commit先于T2，这就是可恢复调度</li>
 <li>如果T2先commit，那么T1如果rollback就会导致T2读的是不一致的</li>
+</ul>
+</li>
 </ul>
 <p>我们下面看一下这部分常见的问题</p>
 <h3 id="cascading-rollbacks">Cascading Rollbacks</h3>
@@ -9724,8 +9748,10 @@
 <p>cascade是连锁的意思</p>
 </blockquote>
 <ul>
-<li>Cascading rollback        </li>
+<li>Cascading rollback        <ul>
 <li>即多个事务都一个接一个读和写，第一个错了就会导致后面的全部都要rollback</li>
+</ul>
+</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240521201024303.png" alt="image-20240521201024303" style="zoom: 80%;" /></p>
 <blockquote>
@@ -9737,9 +9763,11 @@
 </blockquote>
 <h3 id="concurrency-control-serializability">Concurrency Control &amp; Serializability</h3>
 <ul>
-<li>数据库必须提供机制以保证调度都是</li>
+<li>数据库必须提供机制以保证调度都是<ul>
 <li>either conflict or view serializable</li>
 <li>recoverable and preferably cascadeless</li>
+</ul>
+</li>
 </ul>
 <h2 id="weak-levels-of-consistency">Weak Levels of Consistency</h2>
 <blockquote>
@@ -9749,13 +9777,19 @@
 <h3 id="transaction-isolation-levels">Transaction Isolation Levels</h3>
 <ol>
 <li>Serializable</li>
-<li>Repeatable read</li>
+<li>Repeatable read<ul>
 <li>only committed records to be read, repeated reads of same record must return same value.</li>
 <li>不关心幽灵问题</li>
-<li>Read committed</li>
+</ul>
+</li>
+<li>Read committed<ul>
 <li>不读脏数据</li>
-<li>Read uncommitted </li>
+</ul>
+</li>
+<li>Read uncommitted <ul>
 <li>能读脏数据</li>
+</ul>
+</li>
 </ol>
 <h3 id="concurrency-control-protocols">Concurrency Control Protocols</h3>
 <blockquote>
@@ -9763,29 +9797,33 @@
 </blockquote>
 <p><img alt="image-20240521202912831" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240521202912831.png" /></p>
 <ul>
-<li>Lock-Based Protocols</li>
+<li>Lock-Based Protocols<ul>
 <li>访问数据前需要申请相应的锁，一个数据同一时间只有一个锁<ul>
 <li>读数据申请共享锁</li>
 <li>写数据申请派那锁？</li>
 </ul>
 </li>
-<li>
-<p>共享锁之间可以容纳，其它情况不能相容</p>
+<li>共享锁之间可以容纳，其它情况不能相容</li>
+</ul>
 </li>
-<li>
-<p>Timestamp-Based Protocols</p>
-</li>
+</ul>
+<ul>
+<li>Timestamp-Based Protocols<ul>
 <li>给每个事务一个时间戳，类似出生日期，且十分精确</li>
 <li>根据时间戳决定次序</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>上面两种都是悲观的，即针对会出现问题的情况进行设计</p>
 <p>下面这个是乐观的</p>
 </blockquote>
 <ul>
-<li>Validation-Based Protocols</li>
+<li>Validation-Based Protocols<ul>
 <li>Each transaction must go through 3 phases: <ul>
 <li> Read phase  Validation phase  Write phase</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

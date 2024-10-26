@@ -3896,7 +3896,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9892,16 +9892,16 @@
 <p>可能会低几位有正好重复的，导致准确率降低，但是同时减少了reg的s/l开销</p>
 </blockquote>
 <ol>
-<li>
-<p>Stores outcome (taken/not taken)</p>
-</li>
-<li>
-<p>To execute a branch</p>
-</li>
+<li>Stores outcome (taken/not taken)</li>
+</ol>
+<ul>
+<li>To execute a branch<ul>
 <li>Check table, expect the same outcome</li>
 <li>Start fetching from fall-through or target</li>
 <li>If wrong, flush pipeline and flip prediction</li>
-</ol>
+</ul>
+</li>
+</ul>
 <h4 id="1-bit-predictor-shortcoming">1-Bit Predictor: Shortcoming</h4>
 <blockquote>
 <p>1-Bit Predictor 就只记上一次是否有branch</p>
@@ -9909,9 +9909,11 @@
 </blockquote>
 <p><img alt="image-20240428183208441" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240428183208441.png" /></p>
 <ul>
-<li>Inner loop branches mispredicted twice!</li>
+<li>Inner loop branches mispredicted twice!<ul>
 <li>Mispredict as taken on last iteration of inner loop. </li>
 <li>Then mispredict as not taken on first iteration of  inner loop next time around</li>
+</ul>
+</li>
 </ul>
 <h4 id="2-bit-predictor">2-Bit Predictor</h4>
 <blockquote>
@@ -9931,16 +9933,22 @@
 </blockquote>
 <ul>
 <li>Cache of target addresses</li>
-<li>Indexed by PC when instruction fetched</li>
+<li>Indexed by PC when instruction fetched<ul>
 <li>If hit and instruction is branch predicted taken, can fetch target immediately</li>
+</ul>
+</li>
 </ul>
 <h2 id="49-exceptions-and-interrupts">4.9 Exceptions and Interrupts</h2>
 <p>“Unexpected” events requiring change in flow of control</p>
 <ul>
-<li>Exception：Arises within the CPU</li>
+<li>Exception：Arises within the CPU<ul>
 <li>异常</li>
-<li>Interrupt：From an external I/O controller</li>
+</ul>
+</li>
+<li>Interrupt：From an external I/O controller<ul>
 <li>中断</li>
+</ul>
+</li>
 </ul>
 <h3 id="handling-exceptions">Handling Exceptions</h3>
 <h4 id="method-1">method-1</h4>
@@ -9949,12 +9957,18 @@
 <p>遇到问题，保存当前位置，将相关信息交给专门的程序去统一处理</p>
 </blockquote>
 <ol>
-<li>Save PC of offending (or interrupted) instruction</li>
+<li>Save PC of offending (or interrupted) instruction<ul>
 <li>Supervisor Exception Program Counter  (SEPC) 用于储存当前PC</li>
-<li>Save indication of the problem</li>
+</ul>
+</li>
+<li>Save indication of the problem<ul>
 <li>Supervisor Exception Cause Register (SCAUSE) 一组reg，传递异常时的状态，借给OS去处理</li>
-<li>Jump to handler</li>
+</ul>
+</li>
+<li>Jump to handler<ol>
 <li>Assume at 0000 0000 1C09 0000hex，异常处理程序的地址</li>
+</ol>
+</li>
 </ol>
 <h4 id="method-2">method-2</h4>
 <blockquote>
@@ -9962,23 +9976,33 @@
 <p>也是需要专门的程序，但是用硬件先判断是什么异常，根据情况跳到不同程序去分别处理</p>
 </blockquote>
 <ol>
-<li>Vectored Interrupts</li>
+<li>Vectored Interrupts<ul>
 <li>Handler address determined by the cause</li>
-<li>Exception vector address to be added to a vector table base register</li>
+</ul>
+</li>
+<li>Exception vector address to be added to a vector table base register<ul>
 <li>Undefined opcode 00 0100 0000two</li>
 <li>Hardware malfunction: 01 1000 0000two</li>
 <li>...</li>
-<li>Instructions either</li>
+</ul>
+</li>
+<li>Instructions either<ul>
 <li>Deal with the interrupt, or Jump to real handler</li>
+</ul>
+</li>
 </ol>
 <h3 id="handler-actions">Handler Actions</h3>
 <ol>
 <li>Read cause, and transfer to relevant  handler</li>
 <li>Determine action required</li>
-<li>If restartable</li>
+<li>If restartable<ul>
 <li>Take corrective action，use SEPC to return to program</li>
-<li>Otherwise</li>
+</ul>
+</li>
+<li>Otherwise<ul>
 <li>Terminate program，Report error using SEPC, SCAUSE, …</li>
+</ul>
+</li>
 </ol>
 <blockquote>
 <p>从这开始后面的课可以重新听一下</p>

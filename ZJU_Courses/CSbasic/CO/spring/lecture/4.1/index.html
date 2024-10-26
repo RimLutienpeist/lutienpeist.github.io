@@ -3671,7 +3671,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9458,41 +9458,45 @@
 <p><img alt="image-20240319190234353" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240319190234353.png" /></p>
 <h3 id="22-arithmetic-operations">2.2 Arithmetic Operations</h3>
 <ul>
-<li>Every computer should perform arithmetic</li>
+<li>Every computer should perform arithmetic<ul>
 <li>Only one operation per instruction</li>
 <li>Add and subtract, three operands</li>
-<li>
-<p>Two sources and one destination</p>
-<ul>
+<li>Two sources and one destination<ul>
 <li>add a, b, c // a gets b + c</li>
-<li>a, b, c is address where stores number</li>
+<li>a, b, c is address where stores number<ul>
 <li>用地址速度更快</li>
 <li>数据都存在寄存器里</li>
+</ul>
+</li>
 <li>All arithmetic operations have this form</li>
 </ul>
 </li>
-<li>
-<p><strong>Design Principle 1: Simplicity favors regularity</strong></p>
+</ul>
 </li>
+</ul>
+<ul>
+<li><strong>Design Principle 1: Simplicity favors regularity</strong><ul>
 <li>精简有利于规律化</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240319190806982" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240319190806982.png" /></p>
 <p><img alt="image-20240319190813394" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240319190813394.png" /></p>
 <h3 id="23-operands">2.3 Operands</h3>
 <ul>
 <li>Arithmetic instructions use register operands</li>
-<li>RISC-V has a 32 × 64-bit register file</li>
+<li>RISC-V has a 32 × 64-bit register file<ul>
 <li>Use for frequently accessed data</li>
 <li>64-bit data is called a “<strong>doubleword</strong>”<ul>
 <li>32 x 64-bit general purpose registers x0 to x31</li>
 </ul>
 </li>
-<li>
-<p>32-bit data is called a “word”</p>
+<li>32-bit data is called a “word”</li>
+</ul>
 </li>
-<li>
-<p><strong>Design Principle 2: Smaller is faster</strong></p>
-</li>
+</ul>
+<ul>
+<li><strong>Design Principle 2: Smaller is faster</strong></li>
 </ul>
 <h4 id="risc-v-registers">RISC-V Registers</h4>
 <blockquote>
@@ -9505,15 +9509,21 @@
 <p><img alt="image-20240319193920220" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240319193920220.png" /></p>
 <h4 id="memory-operands">Memory Operands</h4>
 <ul>
-<li>Main memory used for composite data‘</li>
+<li>Main memory used for composite data‘<ul>
 <li>e.g. Arrays, structures, dynamic data</li>
-<li>To apply arithmetic operations:</li>
+</ul>
+</li>
+<li>To apply arithmetic operations:<ul>
 <li>Load values from memory into registers</li>
 <li>Store result from register to memory</li>
-<li>Memory is <strong>byte addressed</strong></li>
+</ul>
+</li>
+<li>Memory is <strong>byte addressed</strong><ul>
 <li>Each address identifies an 8-bit byte</li>
 <li>64位8byte占8个地址</li>
-<li>RISC-V is Little Endian</li>
+</ul>
+</li>
+<li>RISC-V is Little Endian<ul>
 <li>小端模式<ul>
 <li>一个数存储于多个byte，约定最小位放在最小地址指向byte</li>
 </ul>
@@ -9521,10 +9531,14 @@
 <li>Least-significant byte at least address of a word</li>
 <li>Big Endian: most-significant byte at least address</li>
 </ul>
+</li>
+</ul>
 <p><img alt="image-20240319195434272" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240319195434272.png" /></p>
 <ul>
-<li>RISC-V does not require words to be aligned in  memory</li>
+<li>RISC-V does not require words to be aligned in  memory<ul>
 <li>Unlike some other ISAs</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240319195454495" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240319195454495.png" /></p>
 <p>Endianness/byte order</p>

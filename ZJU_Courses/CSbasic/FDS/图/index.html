@@ -3844,7 +3844,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9878,16 +9878,20 @@
 <li>简单路径：路径经过的所有顶点均不同。</li>
 <li>回路：起点终点一致。</li>
 <li>连通图：图中顶点均连通。</li>
-<li>连通分量：无向图的极大连通子图</li>
+<li>连通分量：无向图的极大连通子图<ul>
 <li>极大顶点数：再加1个顶点就不连通了</li>
 <li>极大边数</li>
+</ul>
+</li>
 </ul>
 <h4 id="_8">强连通</h4>
 <ul>
 <li>强连通：两顶点间存在双向路径</li>
 <li>强连通图</li>
-<li>强连通分量</li>
+<li>强连通分量<ul>
 <li>对于一个孤立的顶点，可认为其本身是强连通的</li>
+</ul>
+</li>
 </ul>
 <h2 id="shortest-path">最短路径问题（Shortest Path）</h2>
 <p>路径第一个顶点为源点（Source）</p>
@@ -9926,8 +9930,10 @@
 </blockquote>
 <ul>
 <li><code>S</code>：包含源点和所有确定了最短路径的顶点v</li>
-<li><code>dist</code>：对于未收录于S的顶点V，dist表示源点到V的暂时的最短路径——仅经过S目前所包含的顶点。</li>
+<li><code>dist</code>：对于未收录于S的顶点V，dist表示源点到V的暂时的最短路径——仅经过S目前所包含的顶点。<ul>
 <li>dist 初始化为 infinity</li>
+</ul>
+</li>
 </ul>
 <p>每次从未收录的顶点中选一个dist最小的收录（贪心算法思想）</p>
 <p><code>dist[W] = min{dist[W], dist[V]+&lt;v,w&gt;（权值）}</code></p>
@@ -9935,8 +9941,10 @@
 <p>这个问题不科学，取决于如何寻找未收录的顶点中选一个dist最小的</p>
 <ol>
 <li>直接扫描所有未收录顶点（<span class="arithmatex">\(O(V)\)</span>）：<span class="arithmatex">\(T=O(V^2+E)\)</span>，对于稠密图效果好</li>
-<li>将dist存储在最小堆（<span class="arithmatex">\(O(logV)\)</span>）：<span class="arithmatex">\(T=O(VlogV+ElogV) = T(ElogV)\)</span>，对于稀疏图效果好</li>
+<li>将dist存储在最小堆（<span class="arithmatex">\(O(logV)\)</span>）：<span class="arithmatex">\(T=O(VlogV+ElogV) = T(ElogV)\)</span>，对于稀疏图效果好<ol>
 <li>等式是因为一般边多于顶点</li>
+</ol>
+</li>
 </ol>
 <p><img alt="image-20240116161854793" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240116161854793.png" /></p>
 <h3 id="_14">多源最短路</h3>

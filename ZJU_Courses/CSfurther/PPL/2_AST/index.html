@@ -3482,7 +3482,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9774,10 +9774,12 @@
 <p>比如方程式里的 <span class="arithmatex">\(x\)</span>，在带入值之前是不确定的</p>
 </blockquote>
 <ul>
-<li>对于一个变量族，有以下概念：</li>
+<li>对于一个变量族，有以下概念：<ul>
 <li><span class="arithmatex">\(X\)</span> 上下文无关时，如果 <span class="arithmatex">\(x\in X\)</span>，则 <span class="arithmatex">\(x\)</span> 类别为 <span class="arithmatex">\(s\)</span></li>
 <li><span class="arithmatex">\(\forall s\)</span>，<span class="arithmatex">\(x\notin X_s\)</span>，则 <span class="arithmatex">\(x\)</span> 对 <span class="arithmatex">\(X\)</span> 来说是 新的 fresh</li>
 <li><span class="arithmatex">\(X,x\)</span> 中间的逗号表示，将 <span class="arithmatex">\(x\)</span> 加入 <span class="arithmatex">\(X\)</span>，这意味着 <span class="arithmatex">\(x\)</span> 所属类别 <span class="arithmatex">\(s\)</span> 对应的集合 <span class="arithmatex">\(X_s\)</span> 被加进了<span class="arithmatex">\(X\)</span></li>
+</ul>
+</li>
 </ul>
 <h4 id="_7">代换</h4>
 <blockquote>
@@ -9789,11 +9791,13 @@
 <p>当我们说一个变量被“绑定”时，通常是指这个变量在某个上下文中被定义，并且在 该上下文的范围内与某个值或表达式关联</p>
 <p>比如函数形参只在该函数内发挥作用</p>
 <ul>
-<li>绑定关系中的关键要素</li>
+<li>绑定关系中的关键要素<ul>
 <li>绑定点（Binding Site）：变量首次被定义或绑定的地方</li>
 <li>作用域（Scope）：作用域是指变量被绑定后可以被访问的代码区域</li>
 <li>自由变量（Free Variable）：自由变量是在当前上下文中未被绑定的变量</li>
 <li>约束变量（Bound Variable）：约束变量是已经在某个上下文中被绑定的变量。</li>
+</ul>
+</li>
 </ul>
 <h4 id="variable-capture-problem">变量捕获问题（Variable Capture Problem）</h4>
 <p>当一个变量在某个上下文中被绑定时，由于作用域或绑定关系不当，该变量意外地“捕获”了一个与其同名但定义在外部作用域的变量，导致程序行为不符合预期。</p>
@@ -9822,15 +9826,15 @@
 <ul>
 <li>
 <p>闭包的特性</p>
-</li>
-<li>
-<p>持久化的环境：闭包持有函数定义时的环境，因此即使外部作用域已经结束，函数仍然可以访问那些被捕获的变量。</p>
-</li>
-<li>
-<p>数据的封装性：闭包允许你将函数和它操作的数据封装在一起，创建一种“私有”的 状态。其他代码无法直接访问这些数据，只有通过闭包才能间接地访问或修改它们。</p>
-</li>
-<li>
-<p>延迟计算：闭包可以用于延迟执行某些操作，例如，当特定事件发生时才会计算或 处理某些数据。</p>
+<ul>
+<li>持久化的环境：闭包持有函数定义时的环境，因此即使外部作用域已经结束，函数仍然可以访问那些被捕获的变量。</li>
+</ul>
+<ul>
+<li>数据的封装性：闭包允许你将函数和它操作的数据封装在一起，创建一种“私有”的 状态。其他代码无法直接访问这些数据，只有通过闭包才能间接地访问或修改它们。</li>
+</ul>
+<ul>
+<li>延迟计算：闭包可以用于延迟执行某些操作，例如，当特定事件发生时才会计算或 处理某些数据。</li>
+</ul>
 </li>
 </ul>
 <h5 id="_9">闭包的应用场景</h5>
@@ -9865,9 +9869,11 @@
 <h3 id="lambda">为什么可以用树来表示Lambda演算</h3>
 <ul>
 <li>叶子节点：表示变量</li>
-<li>内部节点：</li>
+<li>内部节点：<ul>
 <li>抽象节点：表示lambda抽象，记录被绑定的变量和对应的函数体</li>
 <li>应用节点：表示函数应用，包含函数和参数两个子节点</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20241008230541695" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20241008230541695.png" /></p>
 <p>在树结构中，我们能清晰地区分 FV 和 BV</p>
@@ -9948,7 +9954,7 @@ $$</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-21T13:16:46+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-21</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-26T03:51:51+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-26</span>
   </span>
 
     
@@ -9958,7 +9964,7 @@ $$</p>
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-21T13:16:46+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-21</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-26T03:51:51+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-26</span>
   </span>
 
     

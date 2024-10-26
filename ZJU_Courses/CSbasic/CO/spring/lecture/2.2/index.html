@@ -3614,7 +3614,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9317,15 +9317,19 @@
 </blockquote>
 <h2 id="31-introduction">3.1 Introduction</h2>
 <ul>
-<li>Computer words are composed of bits;</li>
+<li>Computer words are composed of bits;<ul>
 <li>one word is a vector of binary numbers</li>
 <li>there are 32bit/word or 64bits/word in RISC-V</li>
 <li>32 bits, as a word, contains four bytes</li>
-<li>Generic Implementation of Arithmetic</li>
+</ul>
+</li>
+<li>Generic Implementation of Arithmetic<ul>
 <li>use <strong>program counter (PC)</strong> to link to instruction address</li>
 <li>fetch the instruction from memory</li>
 <li>the instruction tells what needs to be done</li>
 <li>ALU will perform the specified arithmetic operations</li>
+</ul>
+</li>
 </ul>
 <h2 id="32-unsigned-and-signed">3.2 unsigned and signed</h2>
 <p>在有符号数中，最高位所代表的值是- 2^ 31 ，而不是-1</p>

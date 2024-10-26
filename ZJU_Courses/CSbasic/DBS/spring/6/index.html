@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9120,10 +9120,14 @@
 <p><img alt="image-20240401133305034" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240401133305034.png" /></p>
 <ol>
 <li>规范地确定需求</li>
-<li>概念设计</li>
+<li>概念设计<ol>
 <li>E-R图</li>
-<li>逻辑设计</li>
+</ol>
+</li>
+<li>逻辑设计<ol>
 <li>例如使用面向对象或关系模式，将概念设计的实现</li>
+</ol>
+</li>
 <li>物理设计</li>
 </ol>
 <h4 id="e-r-diagram">E-R Diagram</h4>
@@ -9136,32 +9140,36 @@
 <h2 id="database-modeling">Database Modeling</h2>
 <h3 id="entity">entity</h3>
 <ul>
-<li>An <strong>entity</strong> is an object that <strong>exists</strong> and is <strong>distinguishable</strong> from other objects.</li>
+<li>An <strong>entity</strong> is an object that <strong>exists</strong> and is <strong>distinguishable</strong> from other objects.<ul>
 <li>比如一个蚂蚁，从信息关系角度是不可区分的，所以不能作为实体</li>
 <li>Example: specific person, company, event, plant</li>
 <li>Entities have <strong>attributes</strong><ul>
 <li>Example: people have names and addresses</li>
 </ul>
 </li>
-<li>
-<p>An entity set is a set of entities of <strong>the same type</strong> that share the <strong>same  properties</strong>. </p>
-<ul>
+<li>An entity set is a set of entities of <strong>the same type</strong> that share the <strong>same  properties</strong>. <ul>
 <li>Example: set of all persons, companies, trees, holidays</li>
 </ul>
 </li>
-<li>
-<p>A database can be modeled as</p>
+</ul>
 </li>
+</ul>
+<ul>
+<li>A database can be modeled as<ul>
 <li>a collection of <strong>entities</strong></li>
 <li><strong>relationship</strong> among entities</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240401141933029" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240401141933029.png" /></p>
 <h4 id="representing-entity-sets-in-er-diagram">Representing Entity sets in ER Diagram</h4>
 <ul>
-<li>Entity sets can be represented graphically as follows</li>
+<li>Entity sets can be represented graphically as follows<ul>
 <li>Rectangles represent entity sets. </li>
 <li>Attributes listed inside entity rectangle </li>
 <li><strong>Underline</strong> indicates primary key attributes</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240401142023829" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240401142023829.png" /></p>
 <h2 id="relationship-sets">Relationship Sets</h2>
@@ -9196,7 +9204,7 @@
 <p>An entity is represented by a set of attributes, that is descriptive  properties possessed by all members of an entity set.</p>
 <p>Domain – the set of permitted values for each attribute  Attribute types</p>
 <ul>
-<li>Attribute types:</li>
+<li>Attribute types:<ul>
 <li>Simple （简单）/ composite（复合）</li>
 <li>Single-valued（单值） / multivalued（多值）<ul>
 <li>Example: multivalued attribute: phone_numbers</li>
@@ -9205,6 +9213,8 @@
 <li>Derived（派生）<ul>
 <li>Can be computed from other attributes </li>
 <li>Example: age, given date_of_birth</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -9226,11 +9236,13 @@
 </blockquote>
 <p>Express the number of entities to which another entity can be  associated via a relationship set.</p>
 <ul>
-<li>For a binary relationship set the mapping cardinality must be one of  the following types:</li>
+<li>For a binary relationship set the mapping cardinality must be one of  the following types:<ul>
 <li>One to one </li>
 <li>One to many </li>
 <li>Many to one </li>
 <li>Many to many</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240401143001929" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240401143001929.png" /></p>
 <p><img alt="image-20240401143028035" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240401143028035.png" /></p>
@@ -9240,9 +9252,11 @@
 <p>箭头是单，直线是多</p>
 </blockquote>
 <ul>
-<li>We express cardinality constraints between the  relationship set and the entity set. by </li>
+<li>We express cardinality constraints between the  relationship set and the entity set. by <ul>
 <li>drawing either a directed line (→),  signifying “one,” </li>
 <li>or an undirected line (—), signifying “many,” </li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240401143202792" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240401143202792.png" /></p>
 <p><img alt="image-20240401143215042" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240401143215042.png" /></p>
@@ -9253,20 +9267,26 @@
 <p>total就是要求一一对应，元素全部参与组成关系；partial就不强求，可以有不参与关系组成的元素</p>
 </blockquote>
 <ul>
-<li>Total participation （=）</li>
+<li>Total participation （=）<ul>
 <li>indicated by double line</li>
 <li>every entity in the entity set participates in at least one relationship in the relationship set</li>
-<li>Partial participation（-）</li>
+</ul>
+</li>
+<li>Partial participation（-）<ul>
 <li>some entities may not participate in any relationship  in the relationship set</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240401143521566" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240401143521566.png" /></p>
 <h2 id="primary-key">Primary Key</h2>
 <p>Primary keys provide a way to specify how entities and relations are  distinguished. </p>
 <ul>
-<li>We will consider Primary key for: </li>
+<li>We will consider Primary key for: <ul>
 <li>Entity sets </li>
 <li>Relationship sets </li>
 <li>Weak entity sets</li>
+</ul>
+</li>
 </ul>
 <h4 id="primary-key-for-entity-sets">Primary key for Entity Sets</h4>
 <p>就之前讲的主键</p>
@@ -9281,9 +9301,11 @@
 <h4 id="weak-entity-sets">Weak Entity Sets（弱实体集）</h4>
 <p>An entity set that does <strong>not have a primary key</strong> is referred to as a  weak entity set.</p>
 <ul>
-<li>The existence of a weak entity set depends on the existence of a <strong>identifying entity set</strong>（标识性实体集）</li>
+<li>The existence of a weak entity set depends on the existence of a <strong>identifying entity set</strong>（标识性实体集）<ul>
 <li>It must relate to the identifying entity set via a total, one-to-many  relationship set from the identifying to the weak entity set </li>
 <li>Identifying relationship（标识性联系） depicted using a double  diamond</li>
+</ul>
+</li>
 </ul>
 <p>The discriminator (分辨符，or partial key) of a weak entity set is the  set of attributes that distinguishes among all the entities of a weak  entity set when the identifying entity they depend is known.</p>
 <p><img alt="image-20240403181127578" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240403181127578.png" /></p>
@@ -9307,11 +9329,15 @@
 <p>强实体直接转换，弱实体将所依赖的强实体的primary key拿过来和自己的组合</p>
 <p><img alt="image-20240403202246343" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240403202246343.png" /></p>
 <ul>
-<li>A strong entity set reduces to a schema with the same attributes</li>
+<li>A strong entity set reduces to a schema with the same attributes<ul>
 <li>course(course_id, title, credits)</li>
-<li>A weak entity set becomes a table that includes a column for the primary key of the identifying strong entity set</li>
+</ul>
+</li>
+<li>A weak entity set becomes a table that includes a column for the primary key of the identifying strong entity set<ul>
 <li>将其所依赖的primary key拿过来，和自己的partial key组合</li>
 <li>section ( course_id, sec_id, semester, year )</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>转化带有多值属性的实体，则将多值属性单独拆出来另外转换，怎么转换见后文</p>
@@ -9340,9 +9366,11 @@
 <p>就直接将里面的属性分别定义，他们的头头就不要了，在命名时注意一下就好</p>
 <p>例如一个组合属性：</p>
 <ul>
-<li>name</li>
+<li>name<ul>
 <li>first_name</li>
 <li>last_name</li>
+</ul>
+</li>
 </ul>
 <p>直接改成：</p>
 <ul>
@@ -9418,8 +9446,10 @@
 <p><img alt="image-20240404150349077" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240404150349077.png" /></p>
 <p>Use of phone as an entity <strong>allows extra information about phone numbers</strong> (plus multiple phone numbers)</p>
 <ul>
-<li>利：表达更多的属性、支持一对多关系</li>
+<li>利：表达更多的属性、支持一对多关系<ul>
 <li>比如不仅储存字符串，还储存int类型的，这样系统打电话更方便</li>
+</ul>
+</li>
 <li>弊：多了张表和对应的关系</li>
 </ul>
 <p>选哪个看具体情况</p>
@@ -9440,7 +9470,7 @@
 <p><img alt="image-20240404151436159" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240404151436159.png" /></p>
 <p>放到实体的话有个问题，就是一对多、多对多的情况下就有点麻烦了</p>
 <ul>
-<li>还有些其它的选择与权衡</li>
+<li>还有些其它的选择与权衡<ul>
 <li>Binary Vs. Non-Binary Relationships<ul>
 <li>Converting Non-Binary Relationships  to Binary Form</li>
 <li>就是插入关系，让三个联系变成三个关系</li>
@@ -9450,6 +9480,8 @@
 <li>Whether a real-world concept is best expressed by an entity set or  a relationship set. </li>
 <li>The use of a ternary relationship or binary relationships. </li>
 <li>The use of a strong or weak entity set.</li>
+</ul>
+</li>
 </ul>
 <h1 id="extended-er-features">Extended ER Features</h1>
 <blockquote>
@@ -9468,22 +9500,24 @@
 </ul>
 </blockquote>
 <ul>
-<li><strong>Specialization(特化)</strong> </li>
+<li><strong>Specialization(特化)</strong> <ul>
 <li><strong>Top-down</strong> design process; <ul>
 <li>we designate subgroupings within an entity set that are distinctive from other entities in the set. </li>
 </ul>
 </li>
-<li>
-<p>Attribute inheritance</p>
-<ul>
+<li>Attribute inheritance<ul>
 <li>a lower-level entity set inherits all the  attributes and relationship participation of the higher-level entity set to  which it is linked. </li>
 </ul>
 </li>
-<li>
-<p><strong>Generalization（概化）</strong> </p>
+</ul>
 </li>
+</ul>
+<ul>
+<li><strong>Generalization（概化）</strong> <ul>
 <li>A <strong>bottom-up</strong> design process <ul>
 <li>combine a number of entity sets that  share the same features into a higher-level entity set. </li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -9495,21 +9529,29 @@
 </blockquote>
 <h3 id="completeness-constraint">Completeness constraint （完全性约束）</h3>
 <ul>
-<li>Total（全部）</li>
+<li>Total（全部）<ul>
 <li>an entity <strong>must</strong> belong to one of the lower-level  entity sets </li>
-<li>Partial（部分）</li>
+</ul>
+</li>
+<li>Partial（部分）<ul>
 <li>an entity <strong>need not</strong> belong to one of the lowerlevel entity sets</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>partial是指，person可能是student和employee之外的，也可能两者都是</p>
 <p>total是指，employee要么是instructor，要么是secretary，且不能两者都都是</p>
 </blockquote>
 <ul>
-<li><strong>Disjoint(不相交)</strong></li>
+<li><strong>Disjoint(不相交)</strong><ul>
 <li>an entity can belong to <strong>only one</strong> lower-level entity set</li>
 <li>Noted in E-R diagram by having multiple lower-level entity sets link  to the same triangle</li>
-<li><strong>Overlapping（重叠）</strong></li>
+</ul>
+</li>
+<li><strong>Overlapping（重叠）</strong><ul>
 <li>an entity can belong to more than one lower-level entity set</li>
+</ul>
+</li>
 </ul>
 
 

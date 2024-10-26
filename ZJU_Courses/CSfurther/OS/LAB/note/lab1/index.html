@@ -3482,7 +3482,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9829,17 +9829,21 @@
 <ul>
 <li><code>sstatus</code>（Supervisor Status Register）中存在一个 <code>SIE</code>（Supervisor Interrupt Enable）比特位，当该比特位设置为 1 时，会<strong>响应</strong>所有的 S 态 trap，否则将会禁用所有 S 态 trap。</li>
 <li><code>sie</code>（Supervisor Interrupt Enable Register），在 RISC-V 中，interrupt 被划分为三类 software interrupt、timer interrupt、external interrupt。在开启了 <code>sstatus[SIE]</code> 之后，系统会根据 <code>sie</code> 中的相关比特位来决定是否对该 interrupt 进行<strong>处理</strong>。</li>
-<li><code>stvec</code>（Supervisor Trap Vector Base Address Register）即所谓的“中断向量表基址”。<code>stvec</code>有两种模式：</li>
+<li><code>stvec</code>（Supervisor Trap Vector Base Address Register）即所谓的“中断向量表基址”。<code>stvec</code>有两种模式：<ul>
 <li>Direct 模式，适用于系统中只有一个中断处理程序，其指向中断处理入口函数（本次实验中我们所用的模式）。</li>
 <li>Vectored 模式，指向中断向量表，适用于系统中有多个中断处理程序（该模式可以参考<a href="https://elixir.bootlin.com/linux/v6.11/source/arch/riscv/kernel/entry.S#L340"> RISC-V 内核源码</a>）。</li>
+</ul>
+</li>
 <li><code>scause</code>（Supervisor Cause Register），会记录 trap 发生的原因，还会记录该 trap 是 interrupt 还是 exception。</li>
 <li><code>sepc</code>（Supervisor Exception Program Counter），会记录触发 exception 的那条指令的地址。</li>
 </ul>
 <h5 id="_5">相关特权指令</h5>
 <ul>
-<li><code>ecall</code>（Environment Call）：</li>
+<li><code>ecall</code>（Environment Call）：<ul>
 <li>当我们在 S 态执行这条指令时，会触发一个 <code>ecall-from-s-mode-exception</code>，从而进入 M Mode 下的处理流程（如设置定时器等）</li>
 <li>当我们在 U 态执行这条指令时，会触发一个 <code>ecall-from-u-mode-exception</code>，从而进入 S Mode 下的处理流程（常用来进行系统调用）；</li>
+</ul>
+</li>
 <li><code>sret</code> 用于 S 态 trap 返回，通过 <code>sepc</code> 来设置 <code>pc</code> 的值，返回到之前程序继续运行。</li>
 </ul>
 </blockquote>
@@ -9952,17 +9956,19 @@
 <p>时钟中断需要 CPU 硬件的支持，CPU 以“时钟周期”为工作的基本时间单位，对逻辑门的时序电路进行同步，而时钟中断实际上就是“每隔若干个时钟周期执行一次的程序”</p>
 <p>下面介绍与时钟中断相关的寄存器以及如何产生时钟中断</p>
 <ul>
-<li><code>mtime</code> 与 <code>mtimecmp</code>（Machine Timer Register）：</li>
+<li><code>mtime</code> 与 <code>mtimecmp</code>（Machine Timer Register）：<ul>
 <li><code>mtime</code> 是一个实时计时器，由硬件以恒定的频率自增</li>
 <li><code>mtimecmp</code> 中保存着下一次时钟中断发生的时间点，当 <code>mtime</code> 的值大于或等于 <code>mtimecmp</code> 的值，系统就会触发一次时钟中断</li>
-<li>
-<p>因此我们只需要更新 <code>mtimecmp</code> 中的值，就可以设置下一次时钟中断的触发点。<span class="arithmatex">\(OpenSBI\)</span> 已经为我们提供了更新 <code>mtimecmp</code> 的接口 <code>sbi_set_timer</code></p>
+<li>因此我们只需要更新 <code>mtimecmp</code> 中的值，就可以设置下一次时钟中断的触发点。<span class="arithmatex">\(OpenSBI\)</span> 已经为我们提供了更新 <code>mtimecmp</code> 的接口 <code>sbi_set_timer</code></li>
+</ul>
 </li>
-<li>
-<p><code>mcounteren</code>（Counter-Enable Registers）：</p>
-</li>
+</ul>
+<ul>
+<li><code>mcounteren</code>（Counter-Enable Registers）：<ul>
 <li>由于 <code>mtime</code> 是属于 M 态的寄存器，我们在 S 态无法直接对其读写</li>
 <li>幸运的是 <span class="arithmatex">\(OpenSBI\)</span> 在 M 态已经通过设置 <code>mcounteren</code> 寄存器的 <code>TM</code> 比特位，让我们可以在 S 态中可以通过 <code>time</code> 这个<strong>只读</strong>寄存器读取到 <code>mtime</code> 的当前值，相关汇编指令是 <code>rdtime</code>。</li>
+</ul>
+</li>
 </ul>
 </blockquote>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;stdint.h&quot;</span>
@@ -10058,7 +10064,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-21T13:16:45+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-21</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-26T03:51:50+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-26</span>
   </span>
 
     
@@ -10068,7 +10074,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-21T13:16:45+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-21</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-26T03:51:50+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-26</span>
   </span>
 
     

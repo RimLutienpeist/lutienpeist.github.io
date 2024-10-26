@@ -3633,7 +3633,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9362,17 +9362,21 @@
 <li>根节点黑</li>
 <li>叶子节点黑，即哨兵是黑</li>
 <li>红节点儿子全黑</li>
-<li>For each node, all simple paths from the node to descendant leaves contain the same number of <strong>black</strong> nodes.</li>
+<li>For each node, all simple paths from the node to descendant leaves contain the same number of <strong>black</strong> nodes.<ol>
 <li>是到哨兵，不是到叶子节点</li>
+</ol>
+</li>
 </ol>
 <h3 id="_3">黑高</h3>
 <p>即从该节点到哨兵的黑色节点数，不算自己和哨兵</p>
 <h4 id="_4">黑高定理</h4>
 <ol>
 <li>A red-black tree with N internal nodes has height at most 2lg(N +1).</li>
-<li>bh(Tree) <span class="arithmatex">\(\textgreater\)</span> h(Tree) / 2  </li>
+<li>bh(Tree) <span class="arithmatex">\(\textgreater\)</span> h(Tree) / 2  <ol>
 <li>root的黑高大于高度的一半</li>
 <li>由性质四易得</li>
+</ol>
+</li>
 </ol>
 <h3 id="_5">操作</h3>
 <blockquote>
@@ -9391,12 +9395,10 @@
 <p><img alt="image-20240421104203609" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240421104203609.png" /></p>
 <p>所有真实的数据都被存储在叶子结点中，形成一个有序的数列。而非叶子结点中第 <code>i</code> 个键值等于其第 <code>i+1</code> 棵子树的最小值（在下图中表现为颜色相同的一对上下结点），因此非叶结点最多存 <code>M−1</code> 个值。</p>
 <ul>
-<li>
-<p>m阶B+数每个结点最多有m个子树，有m-1个数值。</p>
-</li>
-<li>
-<p>3阶B+数又称2-3树；4阶又称2-3-4树。</p>
-</li>
+<li>m阶B+数每个结点最多有m个子树，有m-1个数值。</li>
+</ul>
+<ul>
+<li>3阶B+数又称2-3树；4阶又称2-3-4树。</li>
 </ul>
 <h3 id="_7">操作</h3>
 <blockquote>

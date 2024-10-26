@@ -3553,7 +3553,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9208,22 +9208,20 @@
 <p><img alt="1.png" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/1654864713202-23520b16-be27-484e-8f08-39aa863679ba.png" /></p>
 <p>RISC-V 约定：</p>
 <ul>
-<li>
-<p><code>x5</code> - <code>x7</code> 以及 <code>x28</code> - <code>x31</code> 是 temp reg，如果需要的话 caller 保存；也就是说，不保证在经过过程调用之后这些寄存器的值不变。</p>
-</li>
-<li>
-<p><code>x8</code> - <code>x9</code> 和 <code>x18</code> - <code>x27</code> 是 saved reg，callee 需要保证调用前后这些寄存器的值不变；也就是说，如果 callee 要用到这些寄存器，必须保存一份，返回前恢复。</p>
-</li>
-<li>
-<p><code>x10</code> - <code>x17</code> 是 8 个参数寄存器，函数调用的前 8 个参数会放在这些寄存器中；如果参数超过 8 个的话就需要放到栈上（放在 <code>fp</code> 上方， <code>fp + 8</code> 是第 9 个参数， <code>fp + 16</code> 的第 10 个，以此类推）。同时，过程的结果也会放到这些寄存器中（当然，对于 C 语言这种只能有一个返回值的语言，可能只会用到 <code>x10</code> ）。</p>
-</li>
-<li>
-<p><code>x1</code> 用来保存返回地址，所以也叫 <code>ra</code> 。因此，伪指令 <code>ret</code> 其实就是 <code>jalr x0, 0(x1)</code> 。</p>
-</li>
+<li><code>x5</code> - <code>x7</code> 以及 <code>x28</code> - <code>x31</code> 是 temp reg，如果需要的话 caller 保存；也就是说，不保证在经过过程调用之后这些寄存器的值不变。</li>
+</ul>
+<ul>
+<li><code>x8</code> - <code>x9</code> 和 <code>x18</code> - <code>x27</code> 是 saved reg，callee 需要保证调用前后这些寄存器的值不变；也就是说，如果 callee 要用到这些寄存器，必须保存一份，返回前恢复。</li>
+</ul>
+<ul>
+<li><code>x10</code> - <code>x17</code> 是 8 个参数寄存器，函数调用的前 8 个参数会放在这些寄存器中；如果参数超过 8 个的话就需要放到栈上（放在 <code>fp</code> 上方， <code>fp + 8</code> 是第 9 个参数， <code>fp + 16</code> 的第 10 个，以此类推）。同时，过程的结果也会放到这些寄存器中（当然，对于 C 语言这种只能有一个返回值的语言，可能只会用到 <code>x10</code> ）。</li>
+</ul>
+<ul>
+<li><code>x1</code> 用来保存返回地址，所以也叫 <code>ra</code> 。因此，伪指令 <code>ret</code> 其实就是 <code>jalr x0, 0(x1)</code> 。</li>
+</ul>
+<ul>
 <li>
 <p>栈指针是</p>
-</li>
-</ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>x2
 </code></pre></div>
 <p>，也叫</p>
@@ -9233,16 +9231,16 @@
 <p>栈顶元素</p>
 <p>。栈从高地址向低地址增长。</p>
 <ul>
-<li>
-<p><code>addi sp, sp, -24</code> , <code>sd x5, 16(sp)</code> , <code>sd x6, 8(sp)</code> , <code>sd x20, 0(sp)</code> 可以实现将 x5, x6, x20 压栈。</p>
-</li>
-<li>
-<p>一些 RISC-V 编译器保留寄存器 <code>x3</code> 用来指向静态变量区，称为 global pointer <code>gp</code> 。</p>
-</li>
-<li>
-<p>一些 RISC-V 编译器使用</p>
+<li><code>addi sp, sp, -24</code> , <code>sd x5, 16(sp)</code> , <code>sd x6, 8(sp)</code> , <code>sd x20, 0(sp)</code> 可以实现将 x5, x6, x20 压栈。</li>
+</ul>
 </li>
 </ul>
+<ul>
+<li>一些 RISC-V 编译器保留寄存器 <code>x3</code> 用来指向静态变量区，称为 global pointer <code>gp</code> 。</li>
+</ul>
+<ul>
+<li>
+<p>一些 RISC-V 编译器使用</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>x8
 </code></pre></div>
 <p>指向 activation record 的第一个 dword，方便访问局部变量；因此</p>
@@ -9261,30 +9259,44 @@
 <ul>
 <li><code>fp</code> 的方便性在于在整个过程中对局部变量的所有引用相对于 <code>fp</code> 的偏移都是固定的，但是对 <code>sp</code> 不一定。当然，如果过程中没有什么栈的变化或者根本没有局部变量，那就没有必要用 <code>fp</code> 了。</li>
 </ul>
+</li>
+</ul>
 <p>至此，我们将所有寄存器及其用途总结如下：</p>
 <p><img alt="img" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/1654054605190-66992a62-3995-4285-8002-c28a0a8e9073.png" />其中 "preserved on call" 的意思是，是否保证调用前后这些寄存器的值不变。</p>
 <p><img alt="image.png" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/1654866071308-dc8851c8-a41c-404f-830d-3aae477775df.png" /></p>
 <h2 id="11-eight-great-ideas">1.1 Eight Great Ideas<a href="https://xuan-insr.github.io/computer_organization/1_prelude/#11-eight-great-ideas">¶</a></h2>
 <p>部分在实际题目中还挺难区分的，注意识别题目中的关键暗示。此外，先学习了之后的内容会对部分思想有更深刻的理解。</p>
 <ul>
-<li>Design for Moore’s Law （设计紧跟摩尔定律）</li>
+<li>Design for Moore’s Law （设计紧跟摩尔定律）<ul>
 <li><strong>Moore's Law</strong>: Integrated circuit resources double every 18-24 months.</li>
 <li>Design for where it will be when finishes rather than design for where it starts.</li>
-<li>Use Abstraction to Simplify Design (采用抽象简化设计)</li>
+</ul>
+</li>
+<li>Use Abstraction to Simplify Design (采用抽象简化设计)<ul>
 <li>层次化、模块化的设计</li>
+</ul>
+</li>
 <li>Make the Common Case Fast (加速大概率事件)</li>
 <li>Performance via Parallelism (通过并行提高性能)</li>
-<li>Performance via Pipelining (通过流水线提高性能)</li>
+<li>Performance via Pipelining (通过流水线提高性能)<ul>
 <li>换句话说就是，每个流程同时进行，只不过每一个流程工作的对象是时间上相邻的若干产品；</li>
 <li>相比于等一个产品完全生产完再开始下一个产品的生产，会快很多；</li>
 <li>希望每一个流程的时间是相对均匀的；</li>
-<li>Performance via Prediction (通过预测提高性能)</li>
+</ul>
+</li>
+<li>Performance via Prediction (通过预测提高性能)<ul>
 <li>例如先当作 <code>if()</code> 条件成立，执行完内部内容，如果后来发现确实成立，那么直接 apply，否则就再重新正常做；</li>
 <li>这么做就好在（又或者说只有这种情况适合预测），预测成功了就加速了，预测失败了纠正的成本也不高；</li>
-<li>Hierarchy of Memories (存储器层次)</li>
+</ul>
+</li>
+<li>Hierarchy of Memories (存储器层次)<ul>
 <li>Disk / Tape -&gt; Main Memory(DRAM) -&gt; L2-Cache(SRAM) -&gt; L1-Cache(On-Chip) -&gt; Registers</li>
-<li>Dependability via Redundancy (通过冗余提高可靠性)</li>
+</ul>
+</li>
+<li>Dependability via Redundancy (通过冗余提高可靠性)<ul>
 <li>类似于卡车的多个轮胎，一个模块 down 了以后不会剧烈影响整个系统；</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240511105028960" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240511105028960.png" /></p>
 <p><img alt="img" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/CO2022MidTermjpg.jpg" /></p>

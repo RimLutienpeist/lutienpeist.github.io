@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9625,22 +9625,30 @@
 <p>磁盘满是机械运动，有大量限制</p>
 </blockquote>
 <ul>
-<li>Read-write head </li>
+<li>Read-write head <ul>
 <li>Positioned very close to the platter surface (almost touching it) </li>
 <li>Reads or writes magnetically encoded information</li>
-<li>Surface of platter divided into circular <strong>tracks（磁道）</strong></li>
+</ul>
+</li>
+<li>Surface of platter divided into circular <strong>tracks（磁道）</strong><ul>
 <li>Over 50K-100K tracks per platter on typical hard disks</li>
-<li>Each track is divided into <strong>sectors（扇区）</strong>.</li>
+</ul>
+</li>
+<li>Each track is divided into <strong>sectors（扇区）</strong>.<ul>
 <li>A sector is the smallest unit of data that can be read or written. </li>
 <li>Sector size typically 512 bytes </li>
 <li>Typical sectors per track: 500 to 1000 (on inner tracks) to 1000 to 2000 (on  outer tracks)</li>
 <li>扇区就是一个块</li>
-<li>Disk controller(磁盘控制器) – interfaces between the computer system  and the disk drive hardware.</li>
+</ul>
+</li>
+<li>Disk controller(磁盘控制器) – interfaces between the computer system  and the disk drive hardware.<ul>
 <li>checksums：用于检测是否正确写入扇区，就是一种校验码</li>
+</ul>
+</li>
 </ul>
 <h4 id="performance-measures-of-disks">Performance Measures of Disks</h4>
 <ul>
-<li><strong>Access time(访问时间)</strong> – the time it takes from when a read or write  request is issued to when data transfer begins. Consists of:  </li>
+<li><strong>Access time(访问时间)</strong> – the time it takes from when a read or write  request is issued to when data transfer begins. Consists of:  <ul>
 <li><strong>Seek time（寻道时间）</strong> – time it takes to reposition the arm over the correct  <strong>track</strong>.  <ul>
 <li>Average seek time is 1/2 the worst case seek time. </li>
 <li>4 to 10 milliseconds on typical disks </li>
@@ -9651,84 +9659,102 @@
 <li>4 to 11 milliseconds on typical disks (5400 to 15000 r.p.m.) </li>
 </ul>
 </li>
-<li><strong>Data-transfer rate（数据传输率）</strong> – the rate at which data can be  retrieved from or stored to the disk. </li>
+</ul>
+</li>
+<li><strong>Data-transfer rate（数据传输率）</strong> – the rate at which data can be  retrieved from or stored to the disk. <ul>
 <li>25 to 100 <strong>MB per second max rate</strong>, lower for inner tracks Multiple disks may share a controller, so rate that controller can handle is  also important  </li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>顺序访问就是找到一个位置后顺着读取就完成了，随机访问就是读取多个不同位置</p>
 <p>我们尽量避免后者，且尽量将后者转化为前者</p>
 </blockquote>
 <ul>
-<li>Disk block is a logical unit for storage allocation and retrieval </li>
-<li>
-<p>4 to 16 kilobytes typically </p>
-<ul>
+<li>Disk block is a logical unit for storage allocation and retrieval <ul>
+<li>4 to 16 kilobytes typically <ul>
 <li>Smaller blocks: more transfers from disk </li>
 <li>Larger blocks: more space wasted due to partially filled blocks </li>
 </ul>
 </li>
-<li>
-<p><strong>Sequential access pattern(顺序访问模式)</strong> </p>
+</ul>
 </li>
+</ul>
+<ul>
+<li><strong>Sequential access pattern(顺序访问模式)</strong> <ul>
 <li>Successive requests are for successive disk blocks </li>
 <li>Disk seek required only for first block </li>
-<li><strong>Random access pattern（随机访问模式）</strong> </li>
+</ul>
+</li>
+<li><strong>Random access pattern（随机访问模式）</strong> <ul>
 <li>Successive requests are for blocks that can be anywhere on disk </li>
 <li>Each access requires a seek </li>
 <li>Transfer rates are low since a lot of time is wasted in seeks</li>
-<li><strong>I/O operations per second (IOPS ，每秒I/O操作数)</strong> </li>
+</ul>
+</li>
+<li><strong>I/O operations per second (IOPS ，每秒I/O操作数)</strong> <ul>
 <li>Number of random block reads that a disk can support per second 50 to 200 IOPS on current generation magnetic disks</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>还有可靠性，可能有故障</p>
 <p>为了应对故障，数据库的复杂度翻了一倍</p>
 </blockquote>
 <ul>
-<li><strong>Mean time to failure (MTTF，平均故障时间)</strong> – the average time the  disk is expected to run continuously without any failure. </li>
+<li><strong>Mean time to failure (MTTF，平均故障时间)</strong> – the average time the  disk is expected to run continuously without any failure. <ul>
 <li>Typically 3 to 5 years </li>
 <li>Probability of failure of new disks is quite low, corresponding to a “theoretical MTTF” of 500,000 to 1,200,000 hours （57 to 136  years）for a new disk </li>
 <li>An MTTF of 1,200,000 hours for a new disk means that given  1000 relatively new disks, on an average one will fail every 1200  hours(50 days) </li>
 <li>MTTF decreases as disk ages</li>
 </ul>
+</li>
+</ul>
 <h4 id="optimization-of-disk-block-access">Optimization of Disk-Block Access</h4>
 <ol>
 <li><strong>Buffering</strong>: in-memory buffer to cache disk blocks </li>
 <li><strong>Read-ahead(Prefetch)</strong>: Read extra blocks from a track in anticipation  that they will be requested soon </li>
-<li><strong>Disk-arm-scheduling algorithms</strong> re-order block requests so that disk  arm movement is minimized</li>
+<li><strong>Disk-arm-scheduling algorithms</strong> re-order block requests so that disk  arm movement is minimized<ul>
 <li>与controller相关</li>
+</ul>
+</li>
 <li><strong>elevator algorithm</strong></li>
 </ol>
 <p><img alt="image-20240422203758785" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240422203758785.png" /></p>
 <ol>
-<li><strong>File organization</strong> </li>
+<li>
+<p><strong>File organization</strong> </p>
+<ul>
 <li>Allocate blocks of a file in as contiguous a manner as possible </li>
 <li>Allocation in units of extents(盘区） </li>
-<li>
-<p>Files may get fragmented </p>
-<ul>
+<li>Files may get fragmented <ul>
 <li>E.g., if free blocks on disk are scattered, and newly created file  has its blocks scattered over the disk </li>
 <li>Sequential access to a fragmented file results in increased disk  arm movement </li>
 <li>Some systems have utilities to defragment the file system, in order to speed up file access</li>
 </ul>
 </li>
+</ul>
+</li>
 <li>
 <p><strong>Nonvolatile write buffers （非易失性写缓存）</strong> – speed up disk writes by writing  blocks to a non-volatile RAM buffer immediately </p>
-</li>
+<ul>
 <li>Non-volatile RAM: battery backed up RAM or flash memory  <ul>
 <li>Even if power fails, the data is safe and will be written to disk when power  returns </li>
 </ul>
 </li>
 <li>Controller then writes to disk whenever the disk has no other requests or request  has been pending for some time </li>
 <li>Database operations that require data to be safely stored before continuing can  continue without waiting for data to be written to disk </li>
-<li>
-<p>Writes can be reordered to minimize disk arm movement </p>
+<li>Writes can be reordered to minimize disk arm movement </li>
+</ul>
 </li>
 <li>
 <p><strong>Log disk（日志磁盘）</strong> – a disk devoted to writing a sequential log of block updates </p>
-</li>
+<ul>
 <li>Used exactly like nonvolatile RAM<ul>
 <li>Write to log disk is very fast since no seeks are required </li>
 <li>No need for special hardware (NV-RAM)</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
@@ -9795,8 +9821,10 @@
 <ol>
 <li><strong>Heap</strong> – record can be placed anywhere in the file where there is space</li>
 <li><strong>Sequential</strong> – store records in sequential order, based on the value of the search key of each record</li>
-<li>In a <strong>multitable clustering file organization</strong> records of several different relations can be stored in the same file</li>
+<li>In a <strong>multitable clustering file organization</strong> records of several different relations can be stored in the same file<ul>
 <li>Motivation: store related records on the same block to minimize I/O</li>
+</ul>
+</li>
 <li><strong>B+-tree file organization</strong> ordered storage even with inserts/deletes</li>
 <li><strong>Hashing</strong> – a hash function computed on search key; the result specifies in which block of the file the record should be placed</li>
 </ol>
@@ -9840,8 +9868,10 @@
 <ol>
 <li>Information about relations</li>
 <li>User and accounting information, including passwords</li>
-<li>Statistical and descriptive data</li>
+<li>Statistical and descriptive data<ul>
 <li>number of tuples in each relation</li>
+</ul>
+</li>
 <li>Physical file organization information</li>
 <li>Information about indices</li>
 </ol>
@@ -9869,13 +9899,13 @@
 <p>Programs call on the buffer manager when they need a block from disk.</p>
 <ol>
 <li>If the block is already in the buffer, buffer manager returns the <strong>address</strong> of the block in main  memory</li>
-<li>If the block is not in the buffer, the buffer manager </li>
-<li>Allocates space in the buffer for the block<ol>
-<li>Replacing (throwing out) some other  block, if required, to make space for the  new block.</li>
-<li>Replaced block written back to disk only if  it was modified since the most recent time  that it was written to/fetched from the disk.</li>
+<li>If the block is not in the buffer, the buffer manager <ol>
+<li>Allocates space in the buffer for the block
+    1. Replacing (throwing out) some other  block, if required, to make space for the  new block.
+    2. Replaced block written back to disk only if  it was modified since the most recent time  that it was written to/fetched from the disk.</li>
+<li>Reads the block from the disk to the buffer,  and returns the address of the block in main  memory to requester</li>
 </ol>
 </li>
-<li>Reads the block from the disk to the buffer,  and returns the address of the block in main  memory to requester</li>
 </ol>
 <h3 id="clock-an-approximation-of-lru">Clock: An approximation of LRU</h3>
 <p><img alt="image-20240423112457387" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240423112457387.png" /></p>

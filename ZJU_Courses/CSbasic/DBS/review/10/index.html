@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9721,53 +9721,79 @@
 <p>事务是一串SQL语句的执行序列，可以包含多条语句，用于完成一个目的，是要commit的</p>
 <p>要完整描述一个事务，我们需要用到ACID Properties 这个概念</p>
 <ul>
-<li>Atomicity （原子性） </li>
+<li>Atomicity （原子性） <ul>
 <li>构成事务的操作被看成一个整体看待，要么全部成功，要么全不执行</li>
 <li>数据库恢复功能能实现原子性</li>
-<li>Consistency （一致性）</li>
+</ul>
+</li>
+<li>Consistency （一致性）<ul>
 <li>不会错误地修改数据库，相互关联的数据应该进行更新。比如转账转完总的钱应该不变</li>
 <li>consistency requirements include<ul>
-<li>Explicitly （显式） specified integrity constraints : primary keys , foreign keys</li>
+<li>Explicitly （显式） specified integrity constraints : primary keys , foreign keys<ul>
 <li>就是定义表时人为定义的</li>
+</ul>
+</li>
 <li>Implicit （隐式）integrity constraints, e.g.– sum of balances of all accounts minus sum of loan amounts must equal value of cash-in-hand</li>
 </ul>
 </li>
-<li>Isolation （隔离性）</li>
+</ul>
+</li>
+<li>Isolation （隔离性）<ul>
 <li>要求各并行事务相互之间不能影响，就像虚拟内存的分块、</li>
 <li>会影响的就不要并行了，改串行</li>
-<li>Durability （持久性） </li>
+</ul>
+</li>
+<li>Durability （持久性） <ul>
 <li>对数据库的成功修改是永久性的，除非被其它事务再次修改</li>
 <li>even if there are software or hardware  failures</li>
 <li>出故障时，数据库恢复功能能实现持久性，比如用日志</li>
 </ul>
+</li>
+</ul>
 <h3 id="transaction-state">Transaction State</h3>
 <ul>
-<li><strong>Active</strong></li>
+<li><strong>Active</strong><ul>
 <li>初始状态，事务正在执行</li>
-<li><strong>Partially committed</strong></li>
+</ul>
+</li>
+<li><strong>Partially committed</strong><ul>
 <li>statement 执行完了，此时修改还在缓冲区没提交，可能会fail</li>
-<li><strong>Failed</strong></li>
+</ul>
+</li>
+<li><strong>Failed</strong><ul>
 <li>发现问题了</li>
-<li><strong>Aborted</strong></li>
+</ul>
+</li>
+<li><strong>Aborted</strong><ul>
 <li>回滚之后就是这个状态，之后要么清除事务，要么重新执行</li>
+</ul>
+</li>
 <li><strong>Committed</strong></li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240521135411583.png" alt="image-20240521135411583" style="zoom:67%;" /></p>
 <h2 id="concurrent-executions">Concurrent Executions</h2>
 <p>并行处理会遇到以下问题</p>
 <ul>
-<li><strong>Lost Update( 丢失修改 )</strong></li>
+<li><strong>Lost Update( 丢失修改 )</strong><ul>
 <li>出现了交叉修改，其中一个被覆盖了</li>
 <li>比如两个人同时买票<img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240521140839789.png" alt="image-20240521140839789" style="zoom: 67%;" /></li>
-<li><strong>Dirty Read （读脏数据）</strong></li>
+</ul>
+</li>
+<li><strong>Dirty Read （读脏数据）</strong><ul>
 <li>比如一个人预定票结果没钱退了，另一个人正好在买票</li>
+</ul>
+</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240521140958282.png" alt="image-20240521140958282" style="zoom:67%;" /></p>
 <ul>
-<li><strong>Unrepeatable Read（不可重复读）</strong></li>
+<li><strong>Unrepeatable Read（不可重复读）</strong><ul>
 <li>我们要求事务的隔离性，这里T1的第二次read被T2影响了，这是我们不希望出现的<img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240521141140280.png" alt="image-20240521141140280" style="zoom:67%;" /></li>
-<li><strong>Phantom Problem （幽灵问题）</strong></li>
+</ul>
+</li>
+<li><strong>Phantom Problem （幽灵问题）</strong><ul>
 <li>和上一个类似，不过这里是指T1里面的第二次select由于收到T2影响，多了一个entity</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240521141453651" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240521141453651.png" /></p>
 <h3 id="schedules">Schedules（调度）</h3>
@@ -9780,9 +9806,11 @@
 <p>这种能等价变化到串行调度的调度叫 <strong>Serializability( 可串行化 )</strong> 的</p>
 <h3 id="serializability">Serializability</h3>
 <ul>
-<li>Conflicting Instructions </li>
+<li>Conflicting Instructions <ul>
 <li>操作对象相同，只要有写，就是冲突</li>
 <li>操作对象不相同肯定不冲突</li>
+</ul>
+</li>
 </ul>
 <p><strong>Conflict Serializability （冲突可串行化）</strong></p>
 <p>能通过交换非冲突指令变成另一个调度，就说这两调度是冲突等价的</p>
@@ -9797,9 +9825,11 @@
 </blockquote>
 <h3 id="recoverable-schedules">Recoverable Schedules</h3>
 <ul>
-<li>Recoverable schedule （可恢复调度）</li>
+<li>Recoverable schedule （可恢复调度）<ul>
 <li>比如，T1先写了A，T2再读了A，那么如果T1的commit先于T2，这就是可恢复调度</li>
 <li>如果T2先commit，那么T1如果rollback就会导致T2读的是不一致的</li>
+</ul>
+</li>
 </ul>
 <p>Cascading rollback 即多个事务都一个接一个读和写，第一个错了就会导致后面的全部都要rollback</p>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240521201024303.png" alt="image-20240521201024303" style="zoom: 80%;" /></p>
@@ -9807,30 +9837,42 @@
 <h3 id="transaction-isolation-levels">Transaction Isolation Levels</h3>
 <ol>
 <li>Serializable</li>
-<li>Repeatable read</li>
+<li>Repeatable read<ul>
 <li>only committed records to be read, repeated reads of same record must return same value.</li>
 <li>不关心幽灵问题</li>
-<li>Read committed</li>
+</ul>
+</li>
+<li>Read committed<ul>
 <li>不读脏数据</li>
-<li>Read uncommitted </li>
+</ul>
+</li>
+<li>Read uncommitted <ul>
 <li>能读脏数据</li>
+</ul>
+</li>
 </ol>
 <h3 id="concurrency-control-protocols">Concurrency Control Protocols</h3>
 <ul>
-<li>Lock-Based Protocols</li>
+<li>Lock-Based Protocols<ul>
 <li>访问数据前需要申请相应的锁，一个数据同一时间只有一个锁</li>
-<li>Timestamp-Based Protocols</li>
+</ul>
+</li>
+<li>Timestamp-Based Protocols<ul>
 <li>给每个事务一个时间戳，类似出生日期，且十分精确</li>
 <li>根据时间戳决定次序</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>上面两种都是悲观的，即针对会出现问题的情况进行设计</p>
 <p>下面这个是乐观的</p>
 </blockquote>
 <ul>
-<li>Validation-Based Protocols</li>
+<li>Validation-Based Protocols<ul>
 <li>Each transaction must go through 3 phases: <ul>
 <li> Read phase  Validation phase  Write phase</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -9842,23 +9884,29 @@
 <p>下面的两种加强版保证了可恢复性</p>
 </blockquote>
 <ul>
-<li><strong>Strict two-phase locking（严格两阶段封锁）</strong></li>
+<li><strong>Strict two-phase locking（严格两阶段封锁）</strong><ul>
 <li>a transaction must hold all its <strong>exclusive locks</strong> till it commits/aborts</li>
-<li><strong>Rigorous two-phase locking（强两阶段封锁）</strong></li>
+</ul>
+</li>
+<li><strong>Rigorous two-phase locking（强两阶段封锁）</strong><ul>
 <li>a transaction must hold <strong>all locks</strong> till commit/abort</li>
 <li>很影响并发度</li>
+</ul>
+</li>
 </ul>
 <p>我们下面讲的是 basic 2PL protocol</p>
 <p>事务访问数据前需要申请相应的锁，锁加给被操作的数据</p>
 <ul>
-<li><code>exclusive (X)</code> </li>
-<li>
-<p>Data item can be both <strong>read</strong> as well as <strong>written</strong>. </p>
+<li><code>exclusive (X)</code> <ul>
+<li>Data item can be both <strong>read</strong> as well as <strong>written</strong>. </li>
+</ul>
 </li>
-<li>
-<p><code>shared (S)</code> </p>
-</li>
+</ul>
+<ul>
+<li><code>shared (S)</code> <ul>
 <li>Data item can only be <strong>read</strong>. </li>
+</ul>
+</li>
 </ul>
 <p>管理器通过相容矩阵判断一个事务能不能提供锁</p>
 <p><img alt="image-20240527134657907" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240527134657907.png" /></p>
@@ -9866,10 +9914,14 @@
 <p>这些协议是针对一个事务，而不是一个事务集</p>
 <p>例如，一个事务满足下面两个先后阶段即可，不用所有事务都需同时在一个phase里，一个事务集里事务的lock point可以不同</p>
 <ul>
-<li>Phase 1: Growing Phase</li>
+<li>Phase 1: Growing Phase<ul>
 <li>加锁阶段</li>
-<li>Phase 2: Shrinking Phase</li>
+</ul>
+</li>
+<li>Phase 2: Shrinking Phase<ul>
 <li>解锁阶段</li>
+</ul>
+</li>
 </ul>
 <p><img src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240527134953027.png" alt="image-20240527134953027" style="zoom: 80%;" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">-- Growing Phase</span>
@@ -9896,9 +9948,11 @@
 </ul>
 <p>以此我们得出新的可串行化协议：</p>
 <ul>
-<li><strong>Two-phase locking with lock conversions</strong></li>
+<li><strong>Two-phase locking with lock conversions</strong><ul>
 <li>第一阶段只能update</li>
 <li>第二阶段只能downgrade</li>
+</ul>
+</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240529124151066.png" alt="image-20240529124151066" style="zoom: 80%;" /></p>
 <h3 id="implementation-of-locking">Implementation of Locking</h3>
@@ -9914,9 +9968,11 @@
 <ol>
 <li>一个事务开始前给其打上所有今后需要的锁 (predeclaration) </li>
 <li>给数据访问操作进行合理的排序(graph-based protocol)</li>
-<li><strong>Timeout-Based Schemes</strong></li>
+<li><strong>Timeout-Based Schemes</strong><ul>
 <li>等半天都等不到对方释放锁，就别等了，tnnd直接整个事务回滚重开</li>
 <li>可能会 <strong>starvation</strong>，就在同一个地方反复回滚反复卡</li>
+</ul>
+</li>
 </ol>
 <h4 id="deadlock-detection">Deadlock Detection</h4>
 <p>Deadlocks can be described as a <strong>wait-for graph</strong></p>
@@ -9946,8 +10002,10 @@
 <p>如果 database graph是树，即只有一个根，那就能用这个协议</p>
 <ol>
 <li>该协议只有exclusive locks ，没有S锁</li>
-<li>对于一个事务来说，first lock 可以放在任意 data item 上</li>
+<li>对于一个事务来说，first lock 可以放在任意 data item 上<ol>
 <li>后续如果要加锁，<strong>数据的父节点必须有锁</strong>，否则该数据不能加锁</li>
+</ol>
+</li>
 <li>任意锁可在任意时间解锁</li>
 <li>对于一个事务，每个数据只能锁一次，unlock之后不能再lock了</li>
 </ol>
@@ -9957,22 +10015,32 @@
 <p>把每种数据看成一个颗粒，有粗有细，以此分为不同等级（<strong>hierarchy of data granularities</strong>），一个等级即一个粒度</p>
 <p>锁可以加在任意需要的颗粒上，比如锁一张表，锁一个B+树</p>
 <ul>
-<li><strong>fine granularity（细粒度）</strong></li>
+<li><strong>fine granularity（细粒度）</strong><ul>
 <li>lower in tree</li>
 <li>high concurrency, high locking  overhead </li>
-<li><strong>coarse granularity（粗粒度）</strong> </li>
+</ul>
+</li>
+<li><strong>coarse granularity（粗粒度）</strong> <ul>
 <li>higher in tree</li>
 <li>low locking overhead, low concurrency</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240529144127343" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240529144127343.png" /></p>
 <p>三个新锁对于基粒（最小的颗粒）不作用</p>
 <ul>
-<li><strong>intention-shared (IS)</strong></li>
+<li><strong>intention-shared (IS)</strong><ul>
 <li>一个事务意向给基粒加S锁，就给其所有祖父结点加IS锁，表有事务有意向访问该子树里的数据并给其加S锁</li>
-<li><strong>intention-exclusive (IX)</strong></li>
+</ul>
+</li>
+<li><strong>intention-exclusive (IX)</strong><ul>
 <li>同IS，不过既可以加S也可以加X</li>
-<li><strong>shared and intention-exclusive (SIX)</strong></li>
+</ul>
+</li>
+<li><strong>shared and intention-exclusive (SIX)</strong><ul>
 <li>表示里面的颗粒不需要加S锁也可以读，但是写还是要X锁</li>
+</ul>
+</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240529145437163.png" alt="image-20240529145437163" style="zoom:67%;" /></p>
 <h4 id="multiple-granularity-locking-scheme">Multiple Granularity Locking Scheme</h4>
@@ -9996,12 +10064,10 @@
 <p>我们可以多版本，修改后产生新版本，而不是进行覆盖</p>
 <p><img alt="image-20240529153133000" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240529153133000.png" /></p>
 <ul>
-<li>
-<p>Q1, Q2,...是数据，右边的数字是时间戳，反映新旧程度，越大表示越新</p>
-</li>
-<li>
-<p>一个数据有多个版本，这些版本共同组成一个整体，锁只能加在这个整体上</p>
-</li>
+<li>Q1, Q2,...是数据，右边的数字是时间戳，反映新旧程度，越大表示越新</li>
+</ul>
+<ul>
+<li>一个数据有多个版本，这些版本共同组成一个整体，锁只能加在这个整体上</li>
 </ul>
 <p>这个协议需要先声明一个事务是 read-only transactions 还是 update transactions，即只读和允许编辑</p>
 <p>只读不用加锁，直接读最新的</p>

@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9654,8 +9654,10 @@
 <p>All three kinds of variable are able to store a value that is appropriate to their defined type.</p>
 <ul>
 <li>Fields (member variables) are defined outside constructors and methods</li>
-<li>Fields are used to store data that persists throughout the life of an object. </li>
+<li>Fields are used to store data that persists throughout the life of an object. <ul>
 <li>they maintain the current state of an object. They have a lifetime that lasts as long as their object lasts.</li>
+</ul>
+</li>
 <li>Fields have class scope: their accessibility extends throughout the whole class</li>
 <li>Formal parameters：即传参变量</li>
 <li>Local variables ：即内部新定义的，若与外面的变量同名会屏蔽外面的</li>
@@ -9663,13 +9665,15 @@
 <h3 id="initialization-vs-assignment">Initialization vs. assignment</h3>
 <h4 id="initialization">初始化 (Initialization):</h4>
 <ul>
-<li>初始化是指在创建变量时为其指定初始值的过程。</li>
-</ul>
+<li>
+<p>初始化是指在创建变量时为其指定初始值的过程。</p>
 <p>初始化通常发生在以下场景：</p>
 <ul>
 <li>声明变量并为其指定值：<code>int x = 10;</code></li>
 <li>使用构造函数创建对象时：<code>MyClass obj(5);</code></li>
 <li>使用列表初始化语法创建集合类对象：<code>std::vector&lt;int&gt; numbers {1, 2, 3};</code></li>
+</ul>
+</li>
 </ul>
 <h4 id="assignment">赋值 (Assignment):</h4>
 <ul>

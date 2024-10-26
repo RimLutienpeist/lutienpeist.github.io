@@ -3482,7 +3482,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9537,24 +9537,30 @@
 <ol>
 <li>先压入参数，注意是逆序压入，先放 b 再放 a</li>
 <li>返回地址即 caller 对 callee 的调用代码的下一行代码的地址，用于 callee 结束时返回 caller </li>
-<li>然后压入 caller 的栈帧指针 <code>ebp</code></li>
+<li>然后压入 caller 的栈帧指针 <code>ebp</code><ul>
 <li>这个可以作为基地址，其加上偏移量可访问 retaddr，减去偏移量可访问 local var<ul>
 <li><img alt="image-20241013120134921" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20241013120134921.png" /></li>
 </ul>
 </li>
 <li>不用实时 ESP 是因为运行时其在动态变化</li>
+</ul>
+</li>
 <li>最后算 callee 的本地变量</li>
 </ol>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20241013115004381.png" alt="image-20241013115004381" style="zoom:67%;" /></p>
 <h3 id="stack-frame">Stack Frame</h3>
 <ul>
-<li>The <strong>stack pointer</strong> </li>
+<li>The <strong>stack pointer</strong> <ul>
 <li>points to the <strong>top</strong> of the stack</li>
 <li><code>RSP</code> in Intel x86-64, <code>ESP</code> in intel x86-32</li>
-<li>The <strong>frame pointer</strong> </li>
+</ul>
+</li>
+<li>The <strong>frame pointer</strong> <ul>
 <li>points to the <strong>end</strong> of the current frame</li>
 <li>also called <strong>the base pointer</strong></li>
 <li><code>RBP</code> in Intel x86-64, <code>EBP</code> in Intel x86-32</li>
+</ul>
+</li>
 </ul>
 <h3 id="caller-callee">caller &amp; callee</h3>
 <p><code>call</code> 指令用于调用，会先往栈压入返回值</p>
@@ -9592,11 +9598,13 @@
 </blockquote>
 <p>A buffer overflow occurs when data is written outside of the boundaries of the memory allocated to a particular data structure</p>
 <ul>
-<li>modify </li>
+<li>modify <ul>
 <li>return address on the stack </li>
 <li>function pointer </li>
 <li>local variable </li>
 <li>heap data structures</li>
+</ul>
+</li>
 </ul>
 <h3 id="smashing-the-stack">Smashing the Stack</h3>
 <p>Occurs when a buffer overflow overwrites data in the program stack</p>
@@ -9605,11 +9613,13 @@
 <p>因为本地变量是从低往高增长，所以我们有机会往高覆盖掉 ret addr</p>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20241013125030812.png" alt="image-20241013125030812" style="zoom:67%;" /></p>
 <ul>
-<li>The user input buffer will overwrite the return address on the stack </li>
+<li>The user input buffer will overwrite the return address on the stack <ul>
 <li>Case I: the overwritten return address is invalid -&gt; crash (why?) </li>
 <li>Case II: the overwritten return address is valid but in kernel space </li>
 <li>Case III: the overwritten return address is valid, but points to data </li>
 <li>Case IV: the overwritten return address happens to be a valid one </li>
+</ul>
+</li>
 </ul>
 <p>我们得精确地覆盖到 retaddr，且精确控制新的 retaddr 往哪跳</p>
 <h3 id="how-to-exploit">How To Exploit</h3>
@@ -9622,10 +9632,12 @@
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20241013132730338.png" alt="image-20241013132730338" style="zoom:67%;" /></p>
 <h2 id="defense">Defense</h2>
 <ul>
-<li>三种思路</li>
+<li>三种思路<ul>
 <li>避免程序本身有漏洞</li>
 <li>承认程序有漏洞，提高攻击代价</li>
 <li>限制权限，降低攻击效果</li>
+</ul>
+</li>
 </ul>
 <h3 id="aslr">ASLR</h3>
 <blockquote>
@@ -9636,8 +9648,10 @@
 <p>Put a canary between the return address</p>
 <ul>
 <li>Canary should be <strong>random</strong></li>
-<li>The canary value should not be on the stack</li>
+<li>The canary value should not be on the stack<ul>
 <li>to prevent it from being checked</li>
+</ul>
+</li>
 </ul>
 <p>When returned to the caller, the canary will be checked</p>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20241013133700243.png" alt="image-20241013133700243" style="zoom:67%;" /></p>
@@ -9665,7 +9679,7 @@
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1-2.1-2M12.5 7v5.2l4 2.4-1 1L11 13V7h1.5M11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2v1.8Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-21T13:16:46+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-21</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-26T03:51:52+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-26</span>
   </span>
 
     
@@ -9675,7 +9689,7 @@
     <span class="md-icon" title="Created">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3h-2Z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-21T13:16:46+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-21</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago"><span class="timeago" datetime="2024-10-26T03:51:52+02:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2024-10-26</span>
   </span>
 
     

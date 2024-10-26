@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9556,12 +9556,16 @@
 <h2 id="lock-based-protocols">Lock-Based Protocols</h2>
 <p>事务访问数据前需要申请相应的锁，锁加给被操作的数据</p>
 <ul>
-<li><code>exclusive (X)</code> mode</li>
+<li><code>exclusive (X)</code> mode<ul>
 <li>Data item can be both <strong>read</strong> as well as <strong>written</strong>. </li>
 <li><code>X-lock</code> is requested using lock-X instruction.</li>
-<li><code>shared (S)</code> mode</li>
+</ul>
+</li>
+<li><code>shared (S)</code> mode<ul>
 <li>Data item can only be read. </li>
 <li><code>S-lock is</code>  requested using lock-S instruction</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>锁不止这两种，我们只学这两种</p>
@@ -9580,12 +9584,16 @@
 <p>例如，一个事务满足下面两个先后阶段即可，不用所有事务都需同时在一个phase里，一个事务集里事务的lock point可以不同</p>
 </blockquote>
 <ul>
-<li>Phase 1: Growing Phase</li>
+<li>Phase 1: Growing Phase<ul>
 <li>加锁阶段</li>
 <li>这个阶段事务可以获得锁，不能释放锁</li>
-<li>Phase 2: Shrinking Phase</li>
+</ul>
+</li>
+<li>Phase 2: Shrinking Phase<ul>
 <li>解锁阶段</li>
 <li>可以释放锁，不能获得锁</li>
+</ul>
+</li>
 </ul>
 <p><img src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240527134953027.png" alt="image-20240527134953027" style="zoom: 80%;" /></p>
 <blockquote>
@@ -9603,10 +9611,12 @@
 <a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="n">display</span><span class="p">(</span><span class="n">A</span><span class="o">+</span><span class="n">B</span><span class="p">)</span>
 </code></pre></div>
 <ul>
-<li>Two-Phase Locking Protocol assures serializability. </li>
+<li>Two-Phase Locking Protocol assures serializability. <ul>
 <li>这种协议保证了可串行性</li>
 <li>the transactions can be serialized <strong>in the order of their lock points</strong><ul>
 <li>不是只能按照LP顺序串行，而是这样一定可以，其它的也有可能</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -9622,15 +9632,17 @@
 <p>下面的两种加强版保证了可恢复性</p>
 </blockquote>
 <ul>
-<li><strong>Strict two-phase locking（严格两阶段封锁）</strong></li>
-<li>
-<p>a transaction must hold all its <strong>exclusive locks</strong> till it commits/aborts</p>
+<li><strong>Strict two-phase locking（严格两阶段封锁）</strong><ul>
+<li>a transaction must hold all its <strong>exclusive locks</strong> till it commits/aborts</li>
+</ul>
 </li>
-<li>
-<p><strong>Rigorous two-phase locking（强两阶段封锁）</strong></p>
-</li>
+</ul>
+<ul>
+<li><strong>Rigorous two-phase locking（强两阶段封锁）</strong><ul>
 <li>a transaction must hold <strong>all locks</strong> till commit/abort</li>
 <li>很影响并发度</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>Two-phase locking is not a necessary condition for serializability.</p>
@@ -9652,15 +9664,19 @@
 </ul>
 <p>以此我们得出新的可串行化协议：</p>
 <ul>
-<li><strong>Two-phase locking with lock conversions</strong></li>
+<li><strong>Two-phase locking with lock conversions</strong><ul>
 <li>第一阶段只能update</li>
 <li>第二阶段只能downgrade</li>
+</ul>
+</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240529124151066.png" alt="image-20240529124151066" style="zoom: 80%;" /></p>
 <h3 id="implementation-of-locking">Implementation of Locking</h3>
 <ul>
-<li><strong>lock manager</strong>：独立的进程，管理所有的锁</li>
+<li><strong>lock manager</strong>：独立的进程，管理所有的锁<ul>
 <li>所有的锁都集中在一个地方，而不是真的物理上放在数据上</li>
+</ul>
+</li>
 </ul>
 <p>lock manager maintains a data-structure called a lock table to record granted locks and pending requests</p>
 <h4 id="lock-table">Lock Table</h4>
@@ -9681,16 +9697,22 @@
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240529125708719.png" alt="image-20240529125708719" style="zoom: 80%;" /></p>
 <h4 id="deadlock-prevention-protocols">Deadlock prevention protocols</h4>
 <ol>
-<li>Require that each transaction locks all its data items before it begins execution </li>
+<li>Require that each transaction locks all its data items before it begins execution <ul>
 <li>一个事务开始前给其打上所有今后需要的锁(predeclaration)    </li>
-<li>Impose partial ordering of all data items </li>
+</ul>
+</li>
+<li>Impose partial ordering of all data items <ul>
 <li>给数据访问操作进行合理的排序(graph-based protocol)</li>
-<li><strong>Timeout-Based Schemes</strong></li>
+</ul>
+</li>
+<li><strong>Timeout-Based Schemes</strong><ul>
 <li>a transaction waits for a lock only for a specified amount of time</li>
 <li>等半天都等不到对方释放锁，就别等了，tnnd直接整个事务回滚重开</li>
 <li>有个问题，有些本来就设计上要等很久，所以得把控最多等多久</li>
 <li>simple to implement; but <strong>starvation</strong> is possible.<ul>
 <li><strong>starvation</strong>：就在同一个地方反复回滚反复卡</li>
+</ul>
+</li>
 </ul>
 </li>
 </ol>
@@ -9732,8 +9754,10 @@
 </blockquote>
 <ol>
 <li>该协议只有exclusive locks ，没有S锁</li>
-<li>对于一个事务来说，first lock 可以放在任意 data item 上</li>
+<li>对于一个事务来说，first lock 可以放在任意 data item 上<ol>
 <li>后续如果要加锁，<strong>数据的父节点必须有锁</strong>，否则该数据不能加锁</li>
+</ol>
+</li>
 <li>任意锁可在任意时间解锁</li>
 <li>对于一个事务，每个数据只能锁一次，unlock之后不能再lock了</li>
 </ol>
@@ -9742,16 +9766,18 @@
 <p>The tree protocol ensures <strong>conflict serializability</strong> as well as freedom from <strong>deadlock</strong></p>
 </blockquote>
 <ul>
-<li>Advantages</li>
-<li>
-<p><strong>Unlocking may occur earlier</strong> than two-phase locking protocol, shorter waiting times, increase in concurrency</p>
+<li>Advantages<ul>
+<li><strong>Unlocking may occur earlier</strong> than two-phase locking protocol, shorter waiting times, increase in concurrency</li>
+</ul>
 </li>
-<li>
-<p>Disadvantages</p>
-</li>
+</ul>
+<ul>
+<li>Disadvantages<ul>
 <li>not guarantee <strong>recoverability</strong> or cascade freedom</li>
 <li>may <strong>lock more</strong> data items than needed<ul>
 <li>父节点不一定是需要的数据</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -9765,7 +9791,7 @@
 <p>锁的对象是信息</p>
 </blockquote>
 <ul>
-<li>Granularity of locking (level in tree where locking is done): </li>
+<li>Granularity of locking (level in tree where locking is done): <ul>
 <li><strong>fine granularity（细粒度）</strong><ul>
 <li>lower in tree</li>
 <li>high concurrency, high locking  overhead </li>
@@ -9777,21 +9803,29 @@
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <p><img alt="image-20240529144127343" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240529144127343.png" /></p>
 <blockquote>
 <p>注意到上图除了S、X锁多了三种新锁，用于快速判断一个数据能否加锁</p>
 </blockquote>
 <p>下面三个新锁对于基粒（最小的颗粒）不作用</p>
 <ul>
-<li><strong>intention-shared (IS)</strong></li>
+<li><strong>intention-shared (IS)</strong><ul>
 <li>indicates explicit locking at a lower level of the tree but only with shared locks.</li>
 <li>一个事务意向给基粒加S锁，就给其所有祖父结点加IS锁，表有事务有意向访问该节点里面的一个数据并给其加S锁</li>
-<li><strong>intention-exclusive (IX)</strong></li>
+</ul>
+</li>
+<li><strong>intention-exclusive (IX)</strong><ul>
 <li>indicates explicit locking at a lower level with exclusive or shared locks</li>
 <li>同IS，不过既可以加S也可以加X</li>
-<li><strong>shared and intention-exclusive (SIX)</strong></li>
+</ul>
+</li>
+<li><strong>shared and intention-exclusive (SIX)</strong><ul>
 <li>the subtree rooted by that node is locked explicitly in shared mode and explicit locking is being done at a lower level with exclusive-mode locks.</li>
 <li>表示里面的颗粒不需要加S锁也可以读，但是写还是要X锁</li>
+</ul>
+</li>
 </ul>
 <p>下面是相容性矩阵</p>
 <blockquote>
@@ -9808,18 +9842,30 @@
 </blockquote>
 <p>Transaction Ti can lock a node Q, using the following rules:</p>
 <ol>
-<li>The lock compatibility matrix must be observed.</li>
+<li>The lock compatibility matrix must be observed.<ul>
 <li>严格遵循相容矩阵</li>
-<li>The root of the tree must be locked first, and may be locked in any mode.</li>
+</ul>
+</li>
+<li>The root of the tree must be locked first, and may be locked in any mode.<ul>
 <li>根需要第一个被锁，随便选一种锁就行</li>
-<li>Q can be locked by Ti in <strong>S or IS</strong> mode only if the parent of Q is currently locked by Ti in <strong>either IX or IS</strong> mode.</li>
+</ul>
+</li>
+<li>Q can be locked by Ti in <strong>S or IS</strong> mode only if the parent of Q is currently locked by Ti in <strong>either IX or IS</strong> mode.<ul>
 <li><strong>IX/IS -&gt; S/IS</strong></li>
-<li>Q can be locked by Ti in <strong>X, SIX, or IX</strong> mode only if the parent  of Q is currently locked by Ti in <strong>either IX or SIX</strong> mode</li>
+</ul>
+</li>
+<li>Q can be locked by Ti in <strong>X, SIX, or IX</strong> mode only if the parent  of Q is currently locked by Ti in <strong>either IX or SIX</strong> mode<ul>
 <li><strong>IX/SIX -&gt; X/SIX/IX</strong></li>
-<li>Ti can lock a node only if it has not previously unlocked any node  (that is, <strong>Ti is two-phase</strong>).</li>
+</ul>
+</li>
+<li>Ti can lock a node only if it has not previously unlocked any node  (that is, <strong>Ti is two-phase</strong>).<ul>
 <li>要求事务遵循两阶段锁协议</li>
-<li>Ti can unlock a node Q only if none of the children of Q are currently locked by Ti .</li>
+</ul>
+</li>
+<li>Ti can unlock a node Q only if none of the children of Q are currently locked by Ti .<ul>
 <li>要求从下往上依次解锁，不能跳跃</li>
+</ul>
+</li>
 </ol>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240529150143142.png" alt="image-20240529150143142" style="zoom:80%;" /></p>
 <blockquote>
@@ -9828,12 +9874,16 @@
 </blockquote>
 <h2 id="insert-and-delete-operations">Insert and Delete Operations</h2>
 <ul>
-<li>如果是two-phase locking</li>
+<li>如果是two-phase locking<ul>
 <li>delete就往要删的tuple加X锁</li>
 <li>insert就往刚插入的tuple加一个X锁</li>
-<li>我们需要保证的是</li>
+</ul>
+</li>
+<li>我们需要保证的是<ul>
 <li>reads/writes conflict with deletes</li>
 <li>Inserted tuple is not accessible by other transactions until the transaction that inserts the tuple commits</li>
+</ul>
+</li>
 </ul>
 <h3 id="handling-phantoms">Handling Phantoms</h3>
 <p>Insertions and deletions can lead to the <strong>phantom phenomenon.</strong></p>

@@ -3482,7 +3482,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9540,31 +9540,33 @@
 <ul>
 <li>
 <p>我们需要五个连接词来描述复合命题</p>
-</li>
-<li>
-<p>negation：<code>¬</code></p>
-</li>
-<li>
-<p>conjunction：<code>∧</code>，合取符号</p>
-</li>
-<li>
-<p>disjunction：<code>∨</code>，析取符号</p>
-</li>
-<li>
-<p>implication：<code>→</code></p>
-</li>
-<li>
-<p>biconditional：<code>p ↔ q</code>: p if and only if q</p>
 <ul>
+<li>negation：<code>¬</code></li>
+</ul>
+<ul>
+<li>conjunction：<code>∧</code>，合取符号</li>
+</ul>
+<ul>
+<li>disjunction：<code>∨</code>，析取符号</li>
+</ul>
+<ul>
+<li>implication：<code>→</code></li>
+</ul>
+<ul>
+<li>biconditional：<code>p ↔ q</code>: p if and only if q<ul>
 <li><code>≡</code></li>
 </ul>
 </li>
-<li>
-<p>优先级</p>
+</ul>
 </li>
+</ul>
+<ul>
+<li>优先级<ol>
 <li>否定优先</li>
 <li>交并次之</li>
 <li>推断最后</li>
+</ol>
+</li>
 </ul>
 <blockquote>
 <p>tautology: 同义反复，即命题的左右式本质上是一样的
@@ -9617,8 +9619,10 @@
 <li>析取范式（disjunctive normal form (DNF)）
   先 ∧  再 ∨ </li>
 <li>合取范式（ conjunctive normal form (CNF)）
-  先 ∨   再 ∧  。</li>
+  先 ∨   再 ∧  。<ul>
 <li>这个我们忽略不学，因为这个表示的是极大项，我们主要考虑极小项</li>
+</ul>
+</li>
 </ul>
 <p>两种范式里面，否定只能放在原子命题上，不能加在公式上</p>
 <p>在这里，最小单元叫 literal，包括否定符号和原子命题</p>
@@ -9637,9 +9641,11 @@
 </blockquote>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240601214440095.png" alt="image-20240601214440095" style="zoom:80%;" /></p>
 <ul>
-<li>获取极小值公式步骤</li>
+<li>获取极小值公式步骤<ol>
 <li>先求范式</li>
 <li>再用双重否定和分配律凑，如下图</li>
+</ol>
+</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240601214809789.png" alt="image-20240601214809789" style="zoom:80%;" /></p>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240601214850287.png" alt="image-20240601214850287" style="zoom: 67%;" /></p>

@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9420,7 +9420,7 @@
 <p>Index files are typically much smaller than the original file </p>
 </blockquote>
 <ul>
-<li>Two basic kinds of indices: </li>
+<li>Two basic kinds of indices: <ul>
 <li>Ordered indices: search keys are stored in sorted order <ul>
 <li>就像按首字母顺序找书</li>
 </ul>
@@ -9432,13 +9432,17 @@
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <h3 id="ordered-indices">Ordered Indices</h3>
 <h4 id="primary-index-secondary-index">Primary index&amp; Secondary index</h4>
 <p>In an ordered index, index entries are stored sorted on the search key  value. </p>
 <ul>
-<li><strong>Primary index（主索引）</strong>: in a sequentially ordered file, the index whose search key specifies the sequential order of the file. </li>
+<li><strong>Primary index（主索引）</strong>: in a sequentially ordered file, the index whose search key specifies the sequential order of the file. <ul>
 <li>Also called <strong>clustering index（聚集索引）</strong></li>
 <li>The search key of a primary index is usually but not necessarily the  primary key</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>即，源文件中的record已经按照某attribute的顺序排下来，这个attribute上的index就是primary index</p>
@@ -9447,8 +9451,10 @@
 <p>对一个物理文件，基本上最多只有一个主索引</p>
 </blockquote>
 <ul>
-<li><strong>Secondary index（辅助索引）</strong>: an index whose search key specifies an order different from the sequential order of the file. </li>
+<li><strong>Secondary index（辅助索引）</strong>: an index whose search key specifies an order different from the sequential order of the file. <ul>
 <li>Also called non-clustering index.</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>search key次序与物理文件排放次序不一样</p>
@@ -9515,8 +9521,10 @@
 <li>每个record的大小</li>
 <li>每个block可以放多少个record</li>
 <li>n个record需要多少个block</li>
-<li>fan-out是什么玩意不知道</li>
+<li>fan-out是什么玩意不知道<ul>
 <li>哦哦，是一个node多少个pointer，即多少阶</li>
+</ul>
+</li>
 </ul>
 </blockquote>
 <p><img alt="image-20240430103134532" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240430103134532.png" /></p>

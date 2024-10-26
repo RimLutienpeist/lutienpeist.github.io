@@ -3587,7 +3587,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9292,12 +9292,16 @@
 <p><img alt="image-20240314193405465" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240314193405465.png" /></p>
 <p><img alt="image-20240314193947521" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240314193947521.png" /></p>
 <ul>
-<li>除法不能并行处理，因为 “除尽” 这件事不确定，下一位的运算依赖上一位的余数</li>
+<li>除法不能并行处理，因为 “除尽” 这件事不确定，下一位的运算依赖上一位的余数<ul>
 <li>可以predict一下，比如查表</li>
+</ul>
+</li>
 <li>至于除数是0的情况，可以通过软件避免，所以硬件没有涉及</li>
-<li>溢出也没涉及</li>
+<li>溢出也没涉及<ul>
 <li>common fast，没必要为了除法增加硬件</li>
 <li>根据阿姆达尔定理，主要加快加法即可</li>
+</ul>
+</li>
 </ul>
 <p>上面的算法都是针对int，实际上用的更多的是浮点数</p>
 <h2 id="36-floating-point-numbers">3.6 Floating point numbers</h2>
@@ -9309,8 +9313,10 @@
 <ul>
 <li>因为这样计数第一位肯定是1，所以直接省略了第一位的1</li>
 <li>summary是如何得到一个浮点数的真值</li>
-<li><strong>注意有个bias：</strong></li>
+<li><strong>注意有个bias：</strong><ul>
 <li><strong>单精度要加127，双精度要加1023，这样就都是正数了</strong></li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240314200015365" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240314200015365.png" /></p>
 <p><img alt="image-20240314200248035" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240314200248035.png" /></p>

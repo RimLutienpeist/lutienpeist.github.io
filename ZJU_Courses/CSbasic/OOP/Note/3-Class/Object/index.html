@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9413,12 +9413,16 @@
 <p>The struct variables mentioned before are just objects in C++.</p>
 <h3 id="object-vs-class">Object vs. Class</h3>
 <ul>
-<li>Objects   (cat)</li>
+<li>Objects   (cat)<ul>
 <li>Represent things, events, or concepts</li>
 <li>Respond to messages at run-time</li>
-<li>Classes   (cat class)</li>
+</ul>
+</li>
+<li>Classes   (cat class)<ul>
 <li>Define properties of instances</li>
 <li>Act like <strong>types</strong> in C++</li>
+</ul>
+</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240422121214511.png" alt="image-20240422121214511" style="zoom:50%;" /></p>
 <h3 id="oop-characteristics">OOP Characteristics</h3>
@@ -9458,11 +9462,13 @@
 <p>The header is a contract between you and the user  of your code.</p>
 <p><img alt="image-20240426123934968" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240426123934968.png" /></p>
 <ul>
-<li>Only  declarations are allowed to be in .h  </li>
+<li>Only  declarations are allowed to be in .h  <ul>
 <li>extern</li>
 <li>variables</li>
 <li>function prototypes class/struct </li>
 <li>declaration</li>
+</ul>
+</li>
 </ul>
 <p><code>#include &lt;xx&gt;</code>:same as <code>#include &lt;xx.h&gt;</code></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">//Standard header file structure</span>
@@ -9472,11 +9478,13 @@
 <a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="cp">#endif </span><span class="c1">//HEADER_FLAG</span>
 </code></pre></div>
 <ul>
-<li>Tips  for header</li>
+<li>Tips  for header<ol>
 <li>One class declaration per header file</li>
 <li>Associated with one source file in the same prefix of file name.</li>
 <li>The contents of a header file is surrounded with #ifndef #define…  #endif</li>
 <li><code>#pragma</code> once equivalent to <code>#ifndef…#endif</code></li>
+</ol>
+</li>
 </ul>
 
 

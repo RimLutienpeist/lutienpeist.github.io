@@ -3577,7 +3577,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9239,15 +9239,15 @@
 </div>
 <h2 id="representing-instructions">Representing Instructions</h2>
 <ul>
-<li>
-<p>All instructions in RISC-V <strong>have the same length 32-bit</strong></p>
-</li>
-<li>
-<p>RISC-V指令可分为以下几类</p>
-</li>
+<li>All instructions in RISC-V <strong>have the same length 32-bit</strong></li>
+</ul>
+<ul>
+<li>RISC-V指令可分为以下几类<ul>
 <li>R 型：Reg与Reg的交互</li>
 <li>I 型：Imm到Reg的交互</li>
 <li>S 型：Store，内存交互</li>
+</ul>
+</li>
 </ul>
 <h3 id="r-format-instructions">R-Format Instructions</h3>
 <blockquote>
@@ -9261,16 +9261,16 @@
 <li><strong>funct3</strong>: 3-bit function code (additional opcode) </li>
 <li><strong>rs1</strong>: the first source register number </li>
 <li><strong>rs2</strong>: the second source register number </li>
-<li>
-<p><strong>funct7</strong>: 7-bit function code (additional opcode)</p>
-</li>
-<li>
-<p>关于操作选取</p>
-</li>
+<li><strong>funct7</strong>: 7-bit function code (additional opcode)</li>
+</ol>
+<ul>
+<li>关于操作选取<ul>
 <li>add &lt;- opcode + funct3 + func7</li>
 <li>opcode <span class="arithmatex">\(\neq\)</span> add, opcode &gt; add</li>
 <li>opcode $= $ add + sub + ...</li>
-</ol>
+</ul>
+</li>
+</ul>
 <blockquote>
 <p>为什么要拆开为<code>funct7</code> ,<code>funct3</code>, <code>opcode</code>三个部分共同决定操作？</p>
 <p>因为这样硬件设计更简单，还能归纳电路（一小块电路被多个系统公用），让运行速度更快</p>
@@ -9287,8 +9287,10 @@
 </blockquote>
 <ul>
 <li>rs1: source or base address register number </li>
-<li>immediate: constant operand, or offset added to base address</li>
+<li>immediate: constant operand, or offset added to base address<ul>
 <li>2s-complement, sign extended</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240321200030775" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240321200030775.png" /></p>
 <h3 id="s-format-instructions">S-Format Instructions</h3>
@@ -9299,8 +9301,10 @@
 <ul>
 <li><strong>rs1</strong>: base address register number </li>
 <li><strong>rs2</strong>: source operand register number </li>
-<li><strong>immediate</strong>: offset added to base address </li>
+<li><strong>immediate</strong>: offset added to base address <ul>
 <li>Split as [15:11] and [4:0] so that rs1 and rs2 fields always in the same place</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>与下图的R型对比，可见是<code>funct7</code>, <code>rd</code>被替换为了<code>imm</code></p>

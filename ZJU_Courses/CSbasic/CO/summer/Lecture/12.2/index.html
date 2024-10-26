@@ -3632,7 +3632,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9363,9 +9363,11 @@
 <p>faults 即 cache 的 miss</p>
 </blockquote>
 <ul>
-<li>Page faults: the data is not in memory, retrieve it from disk</li>
+<li>Page faults: the data is not in memory, retrieve it from disk<ul>
 <li>huge miss penalty, thus pages should be fairly large (4KB))</li>
 <li>using write-through is too expensive so we use write back</li>
+</ul>
+</li>
 </ul>
 <p>因为fault的开销太大了，我们用fully associate</p>
 <h3 id="page-tables">Page Tables</h3>
@@ -9373,13 +9375,17 @@
 <p>fully associate 设计并行检测，但是虚拟内存太大了，所以我们引入一个叫页表的东西</p>
 </blockquote>
 <ul>
-<li><strong>Page Table</strong> : Virtual to physical address </li>
+<li><strong>Page Table</strong> : Virtual to physical address <ul>
 <li>保存的就是虚拟内存到物理内存的映射</li>
+</ul>
+</li>
 <li>Stored into the memory, indexed by the <strong>virtual page number</strong></li>
 <li>Each Entry in the table contains the <strong>physical page number</strong> for that virtual pages if  the page is current in memory </li>
-<li>Page table, Program counter and the <strong>page table register,</strong> specifies the state of the  program. Each process has one page table. </li>
+<li>Page table, Program counter and the <strong>page table register,</strong> specifies the state of the  program. Each process has one page table. <ul>
 <li>每个进程有单独的页表，不是操作系统维护</li>
 <li>page table register 存了页表的基地址，用于寻找需要的页表</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>TLB

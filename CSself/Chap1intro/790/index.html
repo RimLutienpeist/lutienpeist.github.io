@@ -3692,7 +3692,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9504,10 +9504,12 @@
 <p>IP+TCP的协议组合被称为 <strong>TCP/IP</strong>。TCP也有UDP中的端口号和校验和，不过还有很多更高级的功能，例如：</p>
 <ul>
 <li>TCP数据包包含 <strong>序号（sequential number）</strong> 以保证数据包接收后按序号重新排好序号</li>
-<li>TCP要求发送方一点一点发送数据包。接收方收到数据包并检查校验和后给会发送方发一个 <strong>确认码（acknowledgement/ACK）</strong> ，表示收到了正确的数据包。收到ACK后发送方才会发出下一个数据包。</li>
+<li>TCP要求发送方一点一点发送数据包。接收方收到数据包并检查校验和后给会发送方发一个 <strong>确认码（acknowledgement/ACK）</strong> ，表示收到了正确的数据包。收到ACK后发送方才会发出下一个数据包。<ul>
 <li>如果一段时间后还没收到ACK，发送方会重新发出数据包。</li>
 <li>如果未收到ACK是因为ACK路上丢失，也不用担心重复的数据包，接收方会根据序列号来排列数据包，重复的就丢弃。</li>
 <li>ACK码的成功率和来回时间还可以推测网络拥堵程度</li>
+</ul>
+</li>
 </ul>
 <p>实际上TCP并不是一个一个发送数据包，也可以一组一组发，ACK也一组一组地接受。</p>
 <p><img alt="image-20240126122056861" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240126122056861.png" /></p>

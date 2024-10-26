@@ -3482,7 +3482,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9407,14 +9407,18 @@
 <p>A library is a collection of pre-compiled object files that can be linked into your programs via the linker. Examples are the system functions such as <code>printf()</code> and <code>sqrt()</code>.</p>
 <p>There are two types of external libraries: <em>static library</em> and <em>shared library</em>.</p>
 <ol>
-<li>A static library has file extension of "<code>.a</code>" (archive file) in Unixes or "<code>.lib</code>" (library) in Windows.</li>
+<li>A static library has file extension of "<code>.a</code>" (archive file) in Unixes or "<code>.lib</code>" (library) in Windows.<ol>
 <li>When your program is linked against a static library, the machine code of external functions used in your program is copied into the executable.</li>
 <li>A static library can be created via the <em>archive</em> program "<code>ar.exe</code>".</li>
-<li>A shared library has file extension of "<code>.so</code>" (shared objects) in Unixes or "<code>.dll</code>" (dynamic link library) in Windows. </li>
+</ol>
+</li>
+<li>A shared library has file extension of "<code>.so</code>" (shared objects) in Unixes or "<code>.dll</code>" (dynamic link library) in Windows. <ol>
 <li>When your program is linked against a shared library, only a small table is created in the executable. Before the executable starts running, the operating system loads the machine code needed for the external functions - a process known as <em>dynamic linking</em>. </li>
 <li>Dynamic linking makes executable files smaller and saves disk space, because one copy of a library can be shared between multiple programs. </li>
 <li>Furthermore, most operating systems allows one copy of a shared library in memory to be used by all running programs, thus, saving memory.</li>
 <li>The shared library codes can be upgraded without the need to recompile your program.</li>
+</ol>
+</li>
 </ol>
 <h2 id="2-gnu-make">2. GNU Make</h2>
 <p>The "<code>make</code>" utility automates the mundane aspects of building executable from source code. "<code>make</code>" uses a so-called <code>makefile</code>, which contains rules on how to build the executables.</p>

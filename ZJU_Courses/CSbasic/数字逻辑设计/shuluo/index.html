@@ -3646,7 +3646,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9452,16 +9452,20 @@
 <h2 id="codes">编码 | Codes</h2>
 <p>二进制编码主要分为这么几种：</p>
 <ul>
-<li>Numeric</li>
+<li>Numeric<ul>
 <li>必须表达一定范围内的数字；</li>
 <li>能够支持简单且普遍的计算；</li>
 <li>和二进制数值本身有较大关联；</li>
-<li>Non-numeric</li>
+</ul>
+</li>
+<li>Non-numeric<ul>
 <li>相对灵活，因为不需要适配普遍的运算法则；<ul>
 <li>灵活是指，保证编码映射关系是唯一的的情况下都可以称为合法编码；</li>
 </ul>
 </li>
 <li>和二进制数值本身未必有关系；</li>
+</ul>
+</li>
 </ul>
 <h3 id="_2">独热码 &amp; 独冷码</h3>
 <p><strong>独热码(one-hot)</strong> 要求比特向量中只有一位是 <code>1</code>；对应的还有 <strong>独冷码(one-cold)</strong>。</p>
@@ -9591,8 +9595,10 @@ $$
 </ul>
 <p>对于一个二值表达式来说，两种 <strong>表达</strong> 都是充要。</p>
 <ul>
-<li>最小项与最大项求反可得到同一下标的对方</li>
+<li>最小项与最大项求反可得到同一下标的对方<ul>
 <li>可知 <span class="arithmatex">\(F\)</span> 的 <span class="arithmatex">\(SOM\)</span> 下标与 其反函数 的 <span class="arithmatex">\(POM\)</span> 下标一样</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240101183559175" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240101183559175.png" /></p>
 <h2 id="_17">电路实现与优化</h2>
@@ -9698,9 +9704,11 @@ $$
 <p><strong>蕴含项(implicant)</strong> 分为 <strong>主蕴含项(prime implicant)</strong> 和 <strong>基本主蕴含项(essential prime implicant)</strong>。</p>
 <ul>
 <li>在卡诺图中，一个蕴含项就是任意一个包含 <span class="arithmatex">\(2^n\)</span> 个 <code>1</code> 的单元；</li>
-<li>主蕴含项则是在卡诺图中的 <strong>极大</strong> 蕴含项；</li>
+<li>主蕴含项则是在卡诺图中的 <strong>极大</strong> 蕴含项；<ul>
 <li>对于存在 Dont'cares 的 K-map，如果我们关注的是 <code>1</code>，那我们积极地将他们当作 <code>1</code> 来处理，反之亦然；</li>
 <li>但是单独的 <code>X</code> 不会被认为是主蕴含项；</li>
+</ul>
+</li>
 <li>基本主蕴含项是包含 只被它(基本主蕴含项)覆盖的 <code>1</code> 的主蕴含项；</li>
 </ul>
 <blockquote>
@@ -9708,11 +9716,15 @@ $$
 <h2 id="introduction">introduction</h2>
 <p>按照功能，逻辑电路分为两类：</p>
 <ul>
-<li>组合电路(Combinational Circuit)</li>
+<li>组合电路(Combinational Circuit)<ul>
 <li>拥有 m 个输入和 n 个输出，其中包含了 <span class="arithmatex">\(2^{2m}\)</span> 种输入组合，以及对应的 n 个不同的函数；</li>
 <li>最关键的是，它的 <strong>输出只依赖于这 m 个输入的组合</strong>（不包含回路）；</li>
-<li>时序电路(Sequential Logic Cirtuit)</li>
+</ul>
+</li>
+<li>时序电路(Sequential Logic Cirtuit)<ul>
 <li>与之对应的，时序电路具有记忆功能，即它的输出可能会依赖之前的结果；</li>
+</ul>
+</li>
 </ul>
 </blockquote>
 <h1 id="chap3-combinational-logic-design">Chap3 Combinational Logic Design</h1>
@@ -9981,7 +9993,7 @@ $$
 <h3 id="hierarchical-design">分层设计(Hierarchical Design)</h3>
 <ul>
 <li>内容：将复杂问题模块化分解为若干层次，然后逐个抽象解决</li>
-<li>方法</li>
+<li>方法<ul>
 <li><strong>Top-down</strong>: 将电路拆分成小模块(block)，将小模块拆成更小的模块<ul>
 <li>What are we building?(从需求出发) + controls complexity</li>
 </ul>
@@ -9992,6 +10004,8 @@ $$
 </li>
 <li>无法继续拆分的模块叫 primitive block</li>
 <li>所有的模块——包括未拆分的模块——的集合，称为 hierarchy</li>
+</ul>
+</li>
 <li>设计时一般两头并进</li>
 </ul>
 <p><strong>EXP   </strong>9-input parity generator</p>
@@ -10052,10 +10066,14 @@ $$
 </table>
 <h4 id="_28">扇入扇出</h4>
 <ul>
-<li>扇入描述了一个门能够接受的最多输入量</li>
+<li>扇入描述了一个门能够接受的最多输入量<ul>
 <li>如一个四输入与非门的扇入就是 4</li>
-<li>扇出描述的则是一个门的输出(栅极输出)在不降低工作性能的情况下能够负载多少门</li>
+</ul>
+</li>
+<li>扇出描述的则是一个门的输出(栅极输出)在不降低工作性能的情况下能够负载多少门<ul>
 <li>例如一个非门的输出能够同时负载 4 个非门并且都能正常工作，则其扇出为 4</li>
+</ul>
+</li>
 </ul>
 <p><strong>标准负载</strong>：所谓的标准负载，是衡量“负载”的一个“单位砝码”。其大小等于一个非门(逆变器)贡献的负载压力。</p>
 <blockquote>
@@ -10093,8 +10111,10 @@ $$
 </ul>
 <p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/37.png" /></p>
 <ul>
-<li>惯性延迟(inertial delay): 引入了 <strong>拒绝时间(rejection time)</strong>，只有当输入达到一定能量后，才会触发栅极输出。小于临界值的变化都无法触发输出</li>
+<li>惯性延迟(inertial delay): 引入了 <strong>拒绝时间(rejection time)</strong>，只有当输入达到一定能量后，才会触发栅极输出。小于临界值的变化都无法触发输出<ul>
 <li>与传输延迟的显著区别在于，在这种模型下，噪音等会被过滤</li>
+</ul>
+</li>
 </ul>
 <p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/38.png" /></p>
 <p>下图展示了无延迟、传输延迟、惯性延迟的时序图</p>
@@ -10111,10 +10131,14 @@ $$
 <h2 id="_35">验证正确性</h2>
 <p>最基本的验证正确性方法有：</p>
 <ul>
-<li>人工逻辑分析(Manual Logic Analysis)：</li>
+<li>人工逻辑分析(Manual Logic Analysis)：<ul>
 <li>找到最终电路的真值表或布尔代数式，判断其是否和预期行为一致；</li>
-<li>仿真(Simulation)：</li>
+</ul>
+</li>
+<li>仿真(Simulation)：<ul>
 <li>在仿真环境中，使用合适的测试输入（激励信号）来测试最终电路（或其网表，可能编写为 HDL），通过观察其响应结果来判断是否实现预期行为；</li>
+</ul>
+</li>
 </ul>
 <h1 id="chap3-codermultiplexer">Chap3 组合逻辑 coder+multiplexer</h1>
 <h3 id="_36">基本逻辑函数</h3>
@@ -10122,8 +10146,10 @@ $$
 <li><strong>常量函数(Value-Fixing)</strong>：<span class="arithmatex">\(F=0\)</span> or $F=1  $ | 输出定值；</li>
 <li><strong>传输函数(Transferring)</strong>：<span class="arithmatex">\(F=X\)</span>  | 直接输出输入值；</li>
 <li><strong>逆变函数(Inverting)</strong>：<span class="arithmatex">\(F=\overline{X}\)</span> | 输出输入的相反；</li>
-<li><strong>使能函数(Enabling)</strong>：$F=X\cdot En $ or <span class="arithmatex">\(F=X+\overline{En}\)</span> | 通过使能控制输出是否可变</li>
+<li><strong>使能函数(Enabling)</strong>：$F=X\cdot En $ or <span class="arithmatex">\(F=X+\overline{En}\)</span> | 通过使能控制输出是否可变<ul>
 <li>分为两种，比如与的形式中，只有 <span class="arithmatex">\(En\)</span>为 <code>1</code> 时，<span class="arithmatex">\(F\)</span>表现为  <span class="arithmatex">\(X\)</span> 的值；反之输出必定为 <code>0</code>；</li>
+</ul>
+</li>
 </ul>
 <h3 id="_37">基本功能块</h3>
 <ul>
@@ -10320,10 +10346,14 @@ $$</p>
 <p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/86.png" /></p>
 <h3 id="_56">触发器的基本描述方法</h3>
 <ul>
-<li>理论分析中：</li>
+<li>理论分析中：<ul>
 <li>状态表(Characteristic Table, or State Table)用输入和当前状态来描述下一状态；</li>
-<li>工程设计中：</li>
+</ul>
+</li>
+<li>工程设计中：<ul>
 <li>激励表(Excitation Table)用当前状态和下一状态来描述输入（展示从当前状态转移到下一状态所需要的输入）；</li>
+</ul>
+</li>
 </ul>
 <h2 id="_57">时序电路分析</h2>
 <p>为了分析时序电路，我们需要一些工具来表示时序电路的一些特征与逻辑。观察时序电路和组合电路的区别，发现最核心的就是逻辑运算过程中出现了「状态」参与运算。因此，我们需要在各个组合电路分析中采用的表示方法中，添加表示「状态」的信息。</p>
@@ -10464,22 +10494,26 @@ $$</p>
 </ul>
 <p>而主要的设计过程和组合逻辑电路的设计是类似的，如下：</p>
 <ol>
-<li>确定系统的行为；</li>
+<li>确定系统的行为；<ol>
 <li>描述系统行为过程中，要注意状态的复用（不过并非状态越少成本就越小，这里有触发器数量和组合逻辑电路的 trade-off）；</li>
-<li>确定电路的初始状态（<strong>复位状态(reset state)</strong>，通过给定复位(reset)信号实现）；<ul>
-<li>复位一般可以是异步的；</li>
-</ul>
+<li>确定电路的初始状态（<strong>复位状态(reset state)</strong>，通过给定复位(reset)信号实现）；
+    - 复位一般可以是异步的；</li>
+</ol>
 </li>
 <li>阐述输入和输出之间的逻辑关系，并用真值表或逻辑表达式表达出来；</li>
-<li>给设计好的状态编码赋值，得到具体的状态表；</li>
+<li>给设计好的状态编码赋值，得到具体的状态表；<ol>
 <li>我们可以使用 按计数顺序、 按格雷码、用独热码 来给状态赋值，更系统的方法比较复杂，不做讨论；</li>
 <li>其中还有一种情况是所需要的状态不能完整填充 <span class="arithmatex">\(2^n\)</span> 种情况，需要设计无效状态，这种时候可以不考虑它们；</li>
+</ol>
+</li>
 <li>根据状态表确定使用的触发器及其输入方程；</li>
 <li>根据状态表确定输出方程；</li>
 <li>优化输入方程和输出方程；</li>
 <li>将优化后的逻辑设计工艺映射到硬件实现上；</li>
-<li>验证正确性（在仿真环境中）；</li>
+<li>验证正确性（在仿真环境中）；<ul>
 <li>主要就是看能不能复现状态图；</li>
+</ul>
+</li>
 </ol>
 <h2 id="_62">延时分析</h2>
 <p>首先，自上而下的给出观念，时序电路的延时分析有两个主要部分和一个次要部分：</p>
@@ -10524,8 +10558,10 @@ $$</p>
 <p>本章内容主要关于数字逻辑的硬件实现，分别介绍 <strong>设计空间(The Design Space)</strong> 和 <strong>可编程技术(Programmable Implementation Technologies)</strong>：</p>
 <ul>
 <li>在数字逻辑的设计空间中，COMS 凭借其较高的抗噪性能和较低的能耗，成为目前应用最广泛的硬件技术之一；</li>
-<li>可编程技术使得硬件在出厂后，能够根据用户的需求进一步编辑硬件，从而实现特定的逻辑功能；</li>
+<li>可编程技术使得硬件在出厂后，能够根据用户的需求进一步编辑硬件，从而实现特定的逻辑功能；<ul>
 <li>更进一步地，可编程技术又可以分为永久(permanent)编程技术和可重(reprogrammable)编程技术；</li>
+</ul>
+</li>
 </ul>
 </blockquote>
 <h2 id="_66">设计空间</h2>
@@ -10553,14 +10589,18 @@ $$</p>
 <hr />
 <p>可编程技术在硬件层面主要有三种实现手段：</p>
 <ul>
-<li>控制连接(Control Connections)：</li>
+<li>控制连接(Control Connections)：<ul>
 <li>Mask programing</li>
 <li>Fuse（类似于保险丝，通过高电压来切断部分电路来实现）</li>
 <li>Anti-fuse（Fuse 的反操作，通过高电压来联通部分电路来实现）</li>
 <li>Single-bit storage element</li>
-<li>查找表(Lookup Tables)：</li>
+</ul>
+</li>
+<li>查找表(Lookup Tables)：<ul>
 <li>Storage elements for the function<ul>
 <li>比如使用一个 <code>MUX</code>，并将输入端接内存，通过修改内存的值来修改 <code>MUX</code> 的行为，进而实现函数重编程</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>控制晶体管开关(Control Transistor Switching)</li>
@@ -10568,11 +10608,13 @@ $$</p>
 <hr />
 <p>进一步地，可编程技术可以分为 <strong>永久编程技术</strong> 和 <strong>可重编程技术</strong> ：</p>
 <ul>
-<li>永久(permanent)编程技术：出厂后经过一次编程，便永久成型；</li>
+<li>永久(permanent)编程技术：出厂后经过一次编程，便永久成型；<ul>
 <li>Mask programming</li>
 <li>Fuse</li>
 <li>Anti-fuse</li>
-<li>可重(reprogrammable)编程技术：允许重复进行编程；</li>
+</ul>
+</li>
+<li>可重(reprogrammable)编程技术：允许重复进行编程；<ul>
 <li>Volatile：断电后编程信息会丢失；<ul>
 <li>Single-bit storage element</li>
 </ul>
@@ -10582,14 +10624,18 @@ $$</p>
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <h3 id="_69">常见的可编程技术</h3>
 <p>课程中介绍的可编程技术主要有如下四种：</p>
 <ul>
 <li>只读内存 Read Only Memory (ROM)</li>
 <li>可编程阵列逻辑 Programmable Array Logic (PAL<span class="arithmatex">\(^Ⓡ\)</span>)</li>
 <li>可编程逻辑阵列 Programmable Logic Array (PLA)</li>
-<li>Complex Programmable Logic Device (CPLD) </li>
+<li>Complex Programmable Logic Device (CPLD) <ul>
 <li>or Field-Programmable Gate Array(FPGA)</li>
+</ul>
+</li>
 </ul>
 <p>前三者都只能编程一次（属于永久编程技术），如下是它们的可编程内容：</p>
 <p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/51.png" /></p>
@@ -10602,9 +10648,11 @@ $$</p>
 <p>在可编程逻辑电路中，线的连接不再只有单纯的连通和不连通的关系：</p>
 <p>对于两条相交导线：</p>
 <ul>
-<li>如果没有特殊符号，则表示这个交叉点 is not connected ；</li>
-</ul>
+<li>
+<p>如果没有特殊符号，则表示这个交叉点 is not connected ；</p>
 <p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/53.png" /></p>
+</li>
+</ul>
 <ul>
 <li>如果有一个 ❌，则表示这个交叉点 is connected and <strong>programmable</strong>；</li>
 </ul>
@@ -10634,8 +10682,10 @@ $$</p>
 <p>PAL 与 ROM 恰恰相反，其具有固定的 OR 和一批可编程的 AND。</p>
 <ul>
 <li>PAL 不需要像 ROM 那样列出所有最小项，这就意味着 PAL 是可优化的，因此 PAL 在很多时候比 ROM 更高效更节约；</li>
-<li>但也正是因为它不像 ROM 那样能够枚举最小项来实现所有逻辑，PAL 不一定能表达所有逻辑；</li>
+<li>但也正是因为它不像 ROM 那样能够枚举最小项来实现所有逻辑，PAL 不一定能表达所有逻辑；<ul>
 <li>一种改进方法是，通过将一个既有的 PAL 输出当作输入，输入到另外一个函数中，来弥补项不足的问题，例如下图的<em>W</em>；</li>
+</ul>
+</li>
 </ul>
 <p><strong>eg</strong></p>
 <p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/129.png" /></p>
@@ -10647,8 +10697,10 @@ $$</p>
 <ul>
 <li>PLA 具有可编程的 AND 和 OR，因此比起 PAL 和 ROM 更具灵活性；</li>
 <li>但是灵活性带来的弊端是，PLA 的优化会变得更加复杂，这对于优化软件有着更高的要求；</li>
-<li>此外，PLA 和 PAL 具有一样的问题，就是无法表达所有逻辑函数；</li>
+<li>此外，PLA 和 PAL 具有一样的问题，就是无法表达所有逻辑函数；<ul>
 <li>一种改进方法是，在输出的时候再做一次异或（不用非门体现了可编程的思想），以产生新的项，来弥补项不足的问题；</li>
+</ul>
+</li>
 </ul>
 <p><strong>eg</strong></p>
 <p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/130.png" /></p>
@@ -10669,12 +10721,18 @@ $$</p>
 <p><img alt="img" src="https://note.isshikih.top/cour_note/D2QD_DigitalDesign/img/65.png" /></p>
 <p>其主要分为三个组成部分：</p>
 <ul>
-<li>CLB(Configurable Logic Block)</li>
+<li>CLB(Configurable Logic Block)<ul>
 <li>大量存储 <code>LUT</code></li>
-<li>SM(Switch Matrix)</li>
+</ul>
+</li>
+<li>SM(Switch Matrix)<ul>
 <li>可编程的交换矩阵</li>
-<li>IOB(Input &amp; Output Block)</li>
+</ul>
+</li>
+<li>IOB(Input &amp; Output Block)<ul>
 <li>可编程的输入输出单元</li>
+</ul>
+</li>
 </ul>
 <h4 id="clb">CLB</h4>
 <p>CLB 是 <code>FPGA</code> 中的基础逻辑单元。</p>
@@ -10755,12 +10813,18 @@ $$</p>
 </blockquote>
 <p>设计寄存器单元时，我们需要对寄存器单元进行定义。而指定(Specify)一个寄存器单元的功能的主要有这些方面：</p>
 <ul>
-<li>寄存器的功能函数；</li>
+<li>寄存器的功能函数；<ul>
 <li>一般指寄存器传输；</li>
-<li>控制信号构成；</li>
+</ul>
+</li>
+<li>控制信号构成；<ul>
 <li>有哪些控制信号、是否编码、如何决定是否 Load 等；</li>
-<li>寄存器的输入数据；</li>
+</ul>
+</li>
+<li>寄存器的输入数据；<ul>
 <li>有哪些输入数据、是否需要预先处理等；</li>
+</ul>
+</li>
 </ul>
 <p>在实际实现时，分为 <code>MUX</code> 实现 和 时序逻辑实现 两种方法。</p>
 <ul>
@@ -10815,11 +10879,15 @@ $$</p>
 <blockquote>
 <p>与 <code>MUX</code> 实现对比</p>
 <ul>
-<li>优势：</li>
+<li>优势：<ul>
 <li>电路更精简，成本更低，随着寄存器增加这个特点更加明显；</li>
-<li>劣势：</li>
+</ul>
+</li>
+<li>劣势：<ul>
 <li>同一时刻内总线只能传输一个数据，即只有一个数据源(source)；<ul>
 <li>同一时钟周期内只有一个数据能传输到别的地方，例如交换操作就需要至少两个时钟才能实现；</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -10877,7 +10945,7 @@ $$</p>
 <p>看起来有点复杂，但是实际上逻辑还是很清晰的。</p>
 <ul>
 <li>纵向观察右侧的四个 <code>FF</code>，可以发现基本上就是串行移位实现，只不过其输入不再是直接从上一个 <code>FF</code> 那边拿来的；</li>
-<li>四个 <code>FF</code> 的输入是类似的，所以我们仅关注最上面的那三个与门和一个或门，表示数据输入有三个可能的来源；</li>
+<li>四个 <code>FF</code> 的输入是类似的，所以我们仅关注最上面的那三个与门和一个或门，表示数据输入有三个可能的来源；<ol>
 <li>第一个与门， <span class="arithmatex">\(F_i=Shift\cdot SI\)</span>（对于后面几个 <code>FF</code> ，则是<span class="arithmatex">\(F_i=Shift\cdot FF_{i-1}\)</span>），可以发现，此时电路的行为与<strong>串行移位</strong>实现一致；<ul>
 <li>即 <span class="arithmatex">\(Shift\)</span> 为 <code>1</code> 时，<code>SHR</code> 表现为「<strong>每个周期执行一次移位</strong>」；</li>
 </ul>
@@ -10889,6 +10957,8 @@ $$</p>
 <li>第三个与门，<span class="arithmatex">\(F_i=\overline{Shift}\cdot \overline{Load}\cdot Q_i\)</span> ，此时电路的行为是保持上一周期的结果；<ul>
 <li>即 <span class="arithmatex">\(\overline{Shift}\cdot \overline{Load}\)</span> 为 <code>1</code> 时，<code>SHR</code> 表现为「<strong>保持</strong>」；</li>
 </ul>
+</li>
+</ol>
 </li>
 </ul>
 <p>总和来说，就是：
@@ -10971,8 +11041,10 @@ $$
 <li>确定系统的行为(specification)；</li>
 <li>定义外部的输入、输出，以及控制单元(control unit)和数据通路(datapath)需要的寄存器；</li>
 <li>设计状态机；</li>
-<li>定义内部的控制信号、状态信号；</li>
+<li>定义内部的控制信号、状态信号；<ul>
 <li>用这些信号来分配输出条件(output condition)、输出行为(output actions)等，包括寄存器传输(register transfer)（个人理解是设计内部信号来进一步设计状态机，包括设计 TC、OC、OA 等）；</li>
+</ul>
+</li>
 <li>绘制框图(block diagram)；</li>
 <li>设计控制单元和数据通路的寄存器传输逻辑(register transfer logic)；</li>
 <li>设计控制单元逻辑(control unit logic)；</li>

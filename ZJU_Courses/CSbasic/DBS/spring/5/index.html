@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9839,17 +9839,19 @@
 <h2 id="triggers">Triggers</h2>
 <p>A trigger is a statement that is executed automatically by  the system as a side effect of a modification to the  database.</p>
 <ul>
-<li>Trigger - ECA rule </li>
+<li>Trigger - ECA rule <ul>
 <li>E: Event （ insert, delete ，update） </li>
 <li>C: Condition  </li>
-<li>
-<p>A: Action</p>
+<li>A: Action</li>
+</ul>
 </li>
-<li>
-<p>To design a trigger mechanism, we must: </p>
-</li>
+</ul>
+<ul>
+<li>To design a trigger mechanism, we must: <ul>
 <li>Specify the conditions under which the trigger is to be  executed. </li>
 <li>Specify the actions to be taken when the trigger  executes.</li>
+</ul>
+</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">account_log</span><span class="p">(</span><span class="n">account</span><span class="p">,</span><span class="w"> </span><span class="n">amount</span><span class="p">,</span><span class="w"> </span><span class="n">datetime</span><span class="p">)</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
@@ -9889,9 +9891,11 @@
 </code></pre></div>
 <h3 id="when-not-to-use-triggers">When Not To Use Triggers</h3>
 <ul>
-<li>Triggers were used earlier for tasks such as</li>
+<li>Triggers were used earlier for tasks such as<ul>
 <li>maintaining summary data </li>
 <li><strong>There are better ways of doing these now</strong></li>
+</ul>
+</li>
 </ul>
 <h2 id="recursive-queries">Recursive Queries</h2>
 <blockquote>

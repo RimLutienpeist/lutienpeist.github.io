@@ -3746,7 +3746,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9584,61 +9584,71 @@
 <p>跳转让优化变得很困难，因为跳转是未知的、不确定的。</p>
 <p>为了方面预测并优化，将指令集合分为多个basic block，每个block里面不会进行jump，还有一些其它的性质：</p>
 <ul>
-<li>A basic block is <strong>a sequence of instructions</strong> with</li>
+<li>A basic block is <strong>a sequence of instructions</strong> with<ul>
 <li>No embedded branches (except at end)</li>
 <li>No branch targets (except at beginning)</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240326193313016" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240326193313016.png" /></p>
 <h2 id="28-supporting-procedures">2.8 Supporting Procedures</h2>
 <h3 id="procedurefunction">Procedure/function</h3>
 <ul>
-<li><strong>Procedure/function</strong> be used to structure  programs</li>
+<li><strong>Procedure/function</strong> be used to structure  programs<ul>
 <li>A stored subroutine that performs <strong>a specific task</strong> based on the <strong>parameters</strong> with which it is provided</li>
-<li>
-<p>Six step</p>
+<li>Six step</li>
+</ul>
 </li>
-<li>
-<p>Place Parameters in a place where the procedure can access  them</p>
-</li>
+</ul>
+<ol>
+<li>Place Parameters in a place where the procedure can access  them</li>
 <li>Transfer control to the procedure(jump to)</li>
 <li>Acquire the storage resources needed for the procedure</li>
 <li>Perform the desired task</li>
 <li>Place the result value in a place where the calling program can  access it</li>
 <li>Return control to the point of origin </li>
-</ul>
+</ol>
 <h3 id="procedure-call-instructions">Procedure Call Instructions</h3>
 <ul>
-<li>Instruction for procedures: <code>jal ( jump-and-link )</code></li>
+<li>Instruction for procedures: <code>jal ( jump-and-link )</code><ul>
 <li>Address of following instruction put in x1</li>
 <li>Jumps to target address</li>
+</ul>
+</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Caller jal x1, ProcedureAddress
 </code></pre></div>
 <ul>
-<li>Procedure return:<code>jalr (jump and link register)</code></li>
+<li>Procedure return:<code>jalr (jump and link register)</code><ul>
 <li>Like jal, but jumps to 0 + address in x1</li>
 <li>Use x0 as rd (x0 cannot be changed)</li>
 <li>Can also be used for computed jumps</li>
+</ul>
+</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Callee jalr x0, 0(x1)
 </code></pre></div>
 <h3 id="using-more-registers">Using More Registers</h3>
 <ul>
-<li>Registers for procedure calling</li>
+<li>Registers for procedure calling<ul>
 <li><code>a0 ~ a7(x10-x17)</code>: eight argument registers to <strong>pass  parameters &amp; return values</strong></li>
-<li>
-<p><code>ra/x1</code>：one return address register to return to origin point</p>
+<li><code>ra/x1</code>：one return address register to return to origin point</li>
+</ul>
 </li>
-<li>
-<p>Stack</p>
-</li>
+</ul>
+<ul>
+<li>Stack<ul>
 <li>ideal data structure for spilling registers</li>
 <li>Stack pointer sp</li>
-<li>Stack grow from higher address to lower address</li>
+</ul>
+</li>
+<li>Stack grow from higher address to lower address<ul>
 <li><strong>约定起始位置在高位，往低位扩张</strong></li>
 <li>Push: sp= sp - 8  <code>addi sp,sp,-8 sd …,8(sp)</code></li>
 <li>Pop: sp = sp + 8 <code>ld …,8(sp) addi sp,sp,</code></li>
 <li>8 是字长</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240326194338299" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240326194338299.png" /></p>
 <h3 id="example">Example</h3>
@@ -9674,8 +9684,10 @@
 <p><img alt="image-20240326200950507" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240326200950507.png" /></p>
 <h2 id="29-communicating-with-people-character-data">2.9 Communicating with People Character Data</h2>
 <ul>
-<li>Byte-encoded character sets</li>
+<li>Byte-encoded character sets<ul>
 <li>ASCII ( American Standard Code for Information Interchange )</li>
+</ul>
+</li>
 <li>Unicode: 32-bit character set</li>
 </ul>
 <h3 id="bytehalfwordword-operations">Byte/Halfword/Word Operations</h3>

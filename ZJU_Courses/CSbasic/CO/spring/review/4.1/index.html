@@ -3559,7 +3559,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9294,8 +9294,10 @@
 <p><strong>注意：</strong></p>
 <ol>
 <li><strong>没用到的mux的信号要写X，表示无关值，不能写0或1，算错</strong></li>
-<li><strong>menWrite和menRead默认情况下都要强制置零</strong></li>
+<li><strong>menWrite和menRead默认情况下都要强制置零</strong><ol>
 <li>前者为了避免误写入（这是不可逆的），后者实际上其实无所谓，但是后面会提到与cache有关</li>
+</ol>
+</li>
 <li><strong>branch也是强制置零</strong>，防止pc被改掉</li>
 </ol>
 <p>controller各信号各值的影响：</p>

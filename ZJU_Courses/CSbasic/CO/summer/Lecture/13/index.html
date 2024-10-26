@@ -3803,7 +3803,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9695,28 +9695,36 @@
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240523111250371.png" alt="image-20240523111250371" style="zoom: 67%;" /></p>
 <h3 id="three-characters-of-io">Three Characters of I/O</h3>
 <ul>
-<li>Behavior</li>
+<li>Behavior<ul>
 <li>行为</li>
 <li>Input (read once)</li>
 <li>output (write only, cannot read)</li>
 <li>storage (can be reread and usually rewritten)</li>
-<li>Partner</li>
+</ul>
+</li>
+<li>Partner<ul>
 <li>对象</li>
 <li>Either a human or a machine is at the other end of  the I/O device</li>
 <li>either feeding data to input or  reading data from output</li>
-<li>Data rate</li>
+</ul>
+</li>
+<li>Data rate<ul>
 <li>The peak rate at which data are transferred between the I/O device and the main memory or processor</li>
+</ul>
+</li>
 </ul>
 <h3 id="io-performance-depends-on-the-application">I/O Performance Depends on the Application</h3>
 <p>三种评价方式</p>
 <ul>
-<li>Throughput</li>
+<li>Throughput<ul>
 <li>I/O bandwidth can be measured in two different ways<ul>
 <li>即，I/O的吞吐量分为了两类：数据和操作次数</li>
 </ul>
 </li>
 <li>How much data can be transferred in a certain time</li>
 <li>How many I/O operations can be performed per unit time</li>
+</ul>
+</li>
 <li>Response time</li>
 <li>Both throughput and response time</li>
 </ul>
@@ -9725,38 +9733,56 @@
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240523113306942.png" alt="image-20240523113306942" style="zoom: 50%;" /></p>
 <h2 id="a2-disk-storage-and-dependability">A.2 Disk Storage and Dependability</h2>
 <ul>
-<li>Magnetic disks</li>
+<li>Magnetic disks<ul>
 <li>磁盘存储密度很高，持久性高，数据恢复性高，但是很慢</li>
-<li>SSD(Solid State Drive)</li>
+</ul>
+</li>
+<li>SSD(Solid State Drive)<ul>
 <li>持久性差，一年不上电会丢失</li>
+</ul>
+</li>
 </ul>
 <h3 id="the-organization-of-hard-disk">The Organization of Hard Disk</h3>
 <p>Disks are organized into platters, tracks, and sectors</p>
 <ul>
-<li>platters</li>
+<li>platters<ul>
 <li>each has <strong>two</strong> recordable disk surfaces</li>
-<li>tracks</li>
+</ul>
+</li>
+<li>tracks<ul>
 <li>each disk surface is divided into concentric circles</li>
-<li>sectors</li>
+</ul>
+</li>
+<li>sectors<ul>
 <li>扇区</li>
 <li>each track is in turn divided into sectors</li>
 <li>the smallest unit that can be read or written</li>
+</ul>
+</li>
 </ul>
 <p><img src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240523142250918.png" alt="image-20240523142250918" style="zoom: 50%;" /></p>
 <h4 id="to-access-data-on-disk">To Access Data on Disk</h4>
 <p>Access time包含以下四个部分</p>
 <ol>
-<li>Seek (time): position read/write head over the proper track</li>
+<li>Seek (time): position read/write head over the proper track<ul>
 <li>寻道时间</li>
 <li>average seek time (3 to 14 ms)</li>
 <li>seek time 比较费时</li>
-<li>Rotational latency: wait for desired sectors</li>
+</ul>
+</li>
+<li>Rotational latency: wait for desired sectors<ul>
 <li>寻找扇区的时间</li>
 <li><img src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240523142626179.png" alt="image-20240523142626179" style="zoom: 50%;" /></li>
-<li>Transfer time</li>
+</ul>
+</li>
+<li>Transfer time<ul>
 <li>time to transfer a sector (1 KB/sector) of data</li>
-<li>Disk controller</li>
+</ul>
+</li>
+<li>Disk controller<ul>
 <li>control the transfer between the disk and the memory</li>
+</ul>
+</li>
 </ol>
 <p><img alt="image-20240523143412289" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240523143412289.png" /></p>
 <h3 id="flash-storage">Flash Storage</h3>
@@ -9769,26 +9795,34 @@
 </ul>
 <h4 id="flash-types">Flash Types</h4>
 <ul>
-<li>NOR flash: bit cell like a NOR gate</li>
+<li>NOR flash: bit cell like a NOR gate<ul>
 <li>Random read/write access</li>
 <li>每个块都引一条线，可以随机访问（RAM）</li>
-<li>NAND flash: bit cell like a NAND gate</li>
+</ul>
+</li>
+<li>NAND flash: bit cell like a NAND gate<ul>
 <li>每个块串联，只能一页一页地写</li>
+</ul>
+</li>
 </ul>
 <h3 id="disk-performance-issues">Disk Performance Issues</h3>
 <h3 id="dependability-reliability-availability">Dependability, Reliability, Availability</h3>
 <ul>
-<li>Dependability</li>
+<li>Dependability<ul>
 <li>Reliability: 多久才坏，出错的概率</li>
 <li>Availability: 可正常使用的总时间</li>
+</ul>
+</li>
 </ul>
 <h4 id="measure">Measure</h4>
 <ul>
 <li>MTTF (Mean Time to Failure)</li>
 <li>MTTR (Mean Time to Repair)</li>
 <li>MTBF (Mean Time Between Failures) = MTTF+ MTTR</li>
-<li>Availability = (MTTF) / (MTTF+MTTR)</li>
+<li>Availability = (MTTF) / (MTTF+MTTR)<ul>
 <li>反映能用的时间占总时间的多少</li>
+</ul>
+</li>
 </ul>
 <h4 id="array-reliability">Array Reliability</h4>
 <blockquote>
@@ -9796,39 +9830,53 @@
 </blockquote>
 <ul>
 <li>Reliability of N disks = Reliability of 1 Disk ÷ N</li>
-<li>AFR (annual failure rate) = percentage of devices to fail per year</li>
-<li>
-<p>AFR = 8760/time to fail for 1 disk</p>
+<li>AFR (annual failure rate) = percentage of devices to fail per year<ul>
+<li>AFR = 8760/time to fail for 1 disk</li>
+</ul>
 </li>
-<li>
-<p>“nines of availability” per year</p>
-</li>
+</ul>
+<ul>
+<li>“nines of availability” per year</li>
 </ul>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240523145524599.png" alt="image-20240523145524599" style="zoom:67%;" /></p>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240523145635475.png" alt="image-20240523145635475" style="zoom:67%;" /></p>
 <h4 id="three-ways-to-improve-mttf">Three Ways to Improve MTTF</h4>
 <ul>
-<li>Fault avoidance</li>
+<li>Fault avoidance<ul>
 <li>preventing fault occurrence by construction</li>
-<li>Fault tolerance</li>
+</ul>
+</li>
+<li>Fault tolerance<ul>
 <li>using redundancy</li>
 <li>出错的情况下还能正常运行</li>
-<li>Fault forecasting</li>
+</ul>
+</li>
+<li>Fault forecasting<ul>
 <li>预测错误</li>
+</ul>
+</li>
 </ul>
 <h3 id="redundant-arrays-of-inexpensive-disks">Redundant Arrays of (Inexpensive) Disks</h3>
 <blockquote>
 <p><strong>RAID</strong> 底层本冗余阵列实现大容量磁盘</p>
 </blockquote>
 <ul>
-<li>Files are "striped" across multiple disks</li>
+<li>Files are "striped" across multiple disks<ul>
 <li>文件分为多份，存在不同的磁盘上</li>
-<li>Redundancy yields high data availability</li>
+</ul>
+</li>
+<li>Redundancy yields high data availability<ul>
 <li>从冗余盘恢复信息</li>
-<li>Disks will still fail</li>
+</ul>
+</li>
+<li>Disks will still fail<ul>
 <li>会坏了但不怕</li>
-<li>Contents reconstructed from data redundantly stored in the array</li>
+</ul>
+</li>
+<li>Contents reconstructed from data redundantly stored in the array<ul>
 <li>从冗余盘恢复信息</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240523150438480" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240523150438480.png" /></p>
 <p><img src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240523150443672.png" alt="image-20240523150443672" style="zoom:80%;" /></p>
@@ -9889,30 +9937,32 @@
 </blockquote>
 <h2 id="a4-buses-and-other-connections-between-processors-memory-and-io-devices">A.4 Buses and Other Connections between  Processors Memory, and I/O Devices</h2>
 <ul>
-<li>南桥北桥</li>
+<li>南桥北桥<ul>
 <li>实际是一个控制器</li>
 <li>高速设备挂北桥</li>
 <li>低速设备挂南桥</li>
 </ul>
+</li>
+</ul>
 <p><img alt="image-20240523162635775" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240523162635775.png" /></p>
 <ul>
-<li><strong>Bus</strong>: Shared communication link (one or more wires)</li>
-<li>
-<p>即，总线就是一个被不同设备共享的通路</p>
+<li><strong>Bus</strong>: Shared communication link (one or more wires)<ul>
+<li>即，总线就是一个被不同设备共享的通路</li>
+</ul>
 </li>
-<li>
-<p>A bus contains two types of lines</p>
-</li>
-<li>Control lines</li>
-<li>
-<p>Data lines:</p>
+</ul>
 <ul>
+<li>A bus contains two types of lines<ul>
+<li>Control lines</li>
+<li>Data lines:<ul>
 <li>别忘了地址也是数据</li>
 </ul>
 </li>
-<li>
-<p>Bus transaction</p>
+</ul>
 </li>
+</ul>
+<ul>
+<li>Bus transaction<ul>
 <li>Include two parts<ul>
 <li>sending the <strong>address</strong></li>
 <li>receiving or sending the <strong>data</strong></li>
@@ -9922,6 +9972,8 @@
 <li>input: receiving data from the device to <strong>memory</strong></li>
 <li>output: sending data to a device from <strong>memory</strong></li>
 <li>都是和内存打交道</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -9940,14 +9992,18 @@
 <p>不同之间的设备建立连接</p>
 </blockquote>
 <ul>
-<li>Synchronous bus</li>
+<li>Synchronous bus<ul>
 <li>所有设备工作频率相同</li>
 <li>但是对于工作频率慢的设备不合理</li>
-<li>Asynchronous bus</li>
+</ul>
+</li>
+<li>Asynchronous bus<ul>
 <li>请求过来的时候处理器才开始处理</li>
 <li>使用握手协议处理</li>
 <li>Handshaking protocol<ul>
 <li>A serial of steps used to coordinate asynchronous bus transfers</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -9977,10 +10033,12 @@
 <p>显然同步总线速度快，但CPU占有率高</p>
 <p><img alt="image-20240529211625963" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240529211625963.png" /></p>
 <ul>
-<li>同步取数据过程三大过程</li>
+<li>同步取数据过程三大过程<ul>
 <li>发送地址</li>
 <li>内存找数据</li>
 <li>数据发过来</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240529211953339" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240529211953339.png" /></p>
 <p>握手协议一共7步</p>

@@ -3710,7 +3710,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9550,33 +9550,37 @@
 </ul>
 <p>由这两个因素我们得出以下的指标：</p>
 <ol>
-<li><strong>W(n)</strong> operations and <strong>T(n)</strong> time</li>
 <li>
-<p>T时间里完成的W工作量</p>
+<p><strong>W(n)</strong> operations and <strong>T(n)</strong> time</p>
+<ul>
+<li>T时间里完成的W工作量</li>
+</ul>
 </li>
 <li>
 <p><strong>P(n) = W(n)/T(n)</strong> processors and <strong>T(n)</strong> time </p>
-</li>
+<ul>
 <li>T时间、P处理器数量</li>
-<li>
-<p>on a <strong>PRAM</strong>，不能用于WD模型</p>
+<li>on a <strong>PRAM</strong>，不能用于WD模型</li>
+</ul>
 </li>
 <li>
 <p><strong>W(n)/p</strong> time using any number of <strong>p ≤ W(n)/T(n)</strong> processors </p>
-</li>
+<ul>
 <li>这个算法能支持W(n)/T(n)个处理器，但是手上没这么多处理器，只有p个</li>
-<li>
-<p>on a PRAM，不能用于WD模型</p>
+<li>on a PRAM，不能用于WD模型</li>
+</ul>
 </li>
 <li>
 <p><strong>W(n)/p + T(n)</strong> time using any number of <strong>p</strong> processors</p>
-</li>
+<ul>
 <li>分情况<ul>
 <li>如果p很大，那么这个式子就是T(n)，表示算法支持的最大处理器数量下的耗时</li>
 <li>r如果p很小，那就是W(n)/p，同第三个</li>
 </ul>
 </li>
 <li>on a PRAM，不能用于WD模型</li>
+</ul>
+</li>
 </ol>
 <p>后面三个只能用于PRAM，因为PRAM将所有处理器平等对待的，工作量相等的，而WD模型会根据处理器情况，让好的多干点</p>
 <p><strong>Partitioning</strong></p>

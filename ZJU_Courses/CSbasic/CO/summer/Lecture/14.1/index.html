@@ -3614,7 +3614,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9318,7 +9318,7 @@
 </blockquote>
 <p><strong>Bus masters</strong> initiate and control all bus requests</p>
 <ul>
-<li>Four bus arbitration schemes</li>
+<li>Four bus arbitration schemes<ul>
 <li>daisy chain (not very fair) <ul>
 <li>菊花链，不同的I/O被串成一条，需要顺序访问</li>
 <li>这导致离处理器近的I/O成功率高，形成了优先级</li>
@@ -9334,6 +9334,8 @@
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <p><img alt="image-20240529212816245" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240529212816245.png" /></p>
 <p><img alt="image-20240529212825655" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240529212825655.png" /></p>
 <p><img alt="image-20240529214043373" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240529214043373.png" /></p>
@@ -9341,14 +9343,16 @@
 <p><img alt="image-20240529214058305" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240529214058305.png" /></p>
 <p><img alt="image-20240529214416114" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240529214416114.png" /></p>
 <ul>
-<li>Increasing the Bus Bandwidth </li>
+<li>Increasing the Bus Bandwidth <ul>
 <li>p Increasing data bus width </li>
 <li>p Use separate address and data lines </li>
 <li>p Transfer multiple words</li>
 </ul>
+</li>
+</ul>
 <h2 id="a5-interfacing-io-devices-to-the-memory-processor-and-operating-system">A.5 Interfacing I/O Devices to the Memory,  Processor, and Operating System</h2>
 <ul>
-<li>Three characteristics of I/O systems</li>
+<li>Three characteristics of I/O systems<ul>
 <li>shared by multiple programs using the processor<ul>
 <li>I/O被多个程序共享</li>
 </ul>
@@ -9357,22 +9361,24 @@
 <li>使用中断来交换信息</li>
 </ul>
 </li>
-<li>
-<p>The low-level control of an I/O devices is complex</p>
-<ul>
+<li>The low-level control of an I/O devices is complex<ul>
 <li>低级控制很复杂</li>
 </ul>
 </li>
-<li>
-<p>Three types of communication are required</p>
+</ul>
 </li>
+</ul>
+<ul>
+<li>Three types of communication are required<ul>
 <li>The <strong>OS</strong> must be able to give commands to the I/O devices.</li>
 <li>The <strong>device</strong> must be able to <strong>notify the OS</strong>, when I/O device  completed an operation or has encountered an error.</li>
 <li><strong>Data</strong> must be transferred between memory and an I/O device</li>
 </ul>
+</li>
+</ul>
 <h2 id="giving-commands-to-io-devices">Giving Commands to I/O Devices</h2>
 <ul>
-<li>Two methods used to address the device</li>
+<li>Two methods used to address the device<ul>
 <li>memory-mapped I/O<ul>
 <li>把一部分内存地址划出来专门给一个IO设备使用</li>
 <li>这样可以通过内存地址区分是哪个IO设备在工作，以及可以通过内存寻址去访问对应的IO</li>
@@ -9380,17 +9386,25 @@
 </li>
 <li>special I/O instructions</li>
 </ul>
+</li>
+</ul>
 <h3 id="communication-with-the-processor">Communication with the Processor</h3>
 <p>大部分设备有事情找处理器都是通过中断的方式进行，当然还有其它的选择：</p>
 <ul>
-<li>Polling</li>
+<li>Polling<ul>
 <li>CPU每隔一段时间检查有没有新的IO操作</li>
 <li>和同步一样的问题，像鼠标一秒几百次操作，CPU都看的话太浪费了</li>
-<li>Interrupt</li>
+</ul>
+</li>
+<li>Interrupt<ul>
 <li>IO有事情就让处理器中断</li>
 <li>When an I/O device wants to notify processor that it has completed some operation or needs attentions, <strong>it causes processor to be interrupted</strong></li>
-<li>DMA(direct memory access)</li>
+</ul>
+</li>
+<li>DMA(direct memory access)<ul>
 <li>单独设计一个控制器叫DMA，磁盘和内存的数据传输交给DMA专门负责，不需要CPU</li>
+</ul>
+</li>
 </ul>
 <h4 id="interrupt-driven-io-mode">Interrupt-Driven I/O Mode</h4>
 <p>这个模式好处是可以并行操作</p>
@@ -9409,10 +9423,12 @@
 <p>DMA一开始通过黄色的线中断以被CPU配置，然后剩下的事情都是红</p>
 </blockquote>
 <ul>
-<li>A DMA transfer need three steps</li>
+<li>A DMA transfer need three steps<ul>
 <li>The processor sets up the DMA by supplying some information,  including the identity of the device, the operation, the memory  address that is the source or destination of the data to be  transferred, and the number of bytes to transfer</li>
 <li>The DMA starts the operation on the device and arbitrates for the  bus. If the request requires more than one transfer on the bus, the  DMA unit generates the next memory address and initiates the  next transfer</li>
 <li>Once the DMA transfer is complete, the controller interrupts the  processor, which then examines whether errors occur.</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240529220814651" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240529220814651.png" /></p>
 <p><img alt="image-20240529220820981" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240529220820981.png" /></p>

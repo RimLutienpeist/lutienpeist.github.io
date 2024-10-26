@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9513,7 +9513,7 @@
 <p><strong>Identification numbers</strong> like CS101 that can <strong>be broken up into parts</strong></p>
 </blockquote>
 <ul>
-<li>Normal Forms(NF): </li>
+<li>Normal Forms(NF): <ol>
 <li>1NF <ol>
 <li>表中无表，即每个属性都是不可分割的。</li>
 <li>不满足第一范式的数据库就不是关系型数据库，所以说能在MySql建立的表肯定满足第一范式。</li>
@@ -9522,17 +9522,17 @@
 <li>2NF <ol>
 <li>满足第一范式基础上，非主属性必须完全依赖于主属性。</li>
 <li>即主键的整体才能确定一个非主属性。</li>
-<li>如果主键的部分属性就确定了一个非主属性就不满足第二范式。<ol>
-<li>例如，一个表为 R (<strong>学号，课程号</strong>，成绩，姓名， 老师，老师职称)</li>
-<li>我们现在要新增一个学生，该学生还没有选课，因此就不能新增。课程号是关键码，又必须添加，产生了冲突。这是因为知道学号，姓名就确定一个学生，并不需要课程号。</li>
-<li>这个R就不是第二范式</li>
-</ol>
-</li>
+<li>如果主键的部分属性就确定了一个非主属性就不满足第二范式。
+    1. 例如，一个表为 R (<strong>学号，课程号</strong>，成绩，姓名， 老师，老师职称)
+    2. 我们现在要新增一个学生，该学生还没有选课，因此就不能新增。课程号是关键码，又必须添加，产生了冲突。这是因为知道学号，姓名就确定一个学生，并不需要课程号。
+    3. 这个R就不是第二范式</li>
 </ol>
 </li>
 <li>3NF</li>
 <li>BCNF</li>
 <li>4NF </li>
+</ol>
+</li>
 </ul>
 <blockquote>
 <p>一个关系模式，如果只有key能够决定所有的属性，就达到了BCNF</p>

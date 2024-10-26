@@ -3830,7 +3830,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9825,17 +9825,25 @@
 <p><img alt="image-20240422190750643" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240422190750643.png" /></p>
 <h4 id="detecting-the-need-to-forward">Detecting the Need to Forward</h4>
 <ul>
-<li>Pass register numbers along pipeline</li>
+<li>Pass register numbers along pipeline<ul>
 <li>e.g., ID/EX.RegisterRs1 = register number for Rs1 sitting  in ID/EX pipeline register</li>
-<li>ALU operand register numbers in EX stage are given by</li>
+</ul>
+</li>
+<li>ALU operand register numbers in EX stage are given by<ul>
 <li>ID/EX.RegisterRs1, ID/EX.RegisterRs2</li>
+</ul>
+</li>
 </ul>
 <p><img alt="image-20240422191217873" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240422191217873.png" /></p>
 <ul>
-<li>But only if forwarding instruction will write to a register!</li>
+<li>But only if forwarding instruction will write to a register!<ul>
 <li>EX/MEM.RegWrite, MEM/WB.RegWrite</li>
-<li>And only if Rd for that instruction is not x0</li>
+</ul>
+</li>
+<li>And only if Rd for that instruction is not x0<ul>
 <li>EX/MEM.RegisterRd ≠ 0, MEM/WB.RegisterRd ≠ 0</li>
+</ul>
+</li>
 </ul>
 <h4 id="forwarding-paths">Forwarding Paths</h4>
 <p><img alt="image-20240422191643125" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240422191643125.png" /></p>

@@ -3731,7 +3731,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9599,18 +9599,24 @@
 <h3 id="handling-cache-hit-and-misses">Handling Cache hit and Misses</h3>
 <h4 id="read-missestwo-kinds-of-misses">Read misses—two kinds of misses</h4>
 <ul>
-<li>instruction cache miss</li>
+<li>instruction cache miss<ul>
 <li>遇到时processor会将PC-4这个地址交给mem，将相应的inst重新读入inst cache，再重新操作</li>
+</ul>
+</li>
 <li>data cache miss</li>
 </ul>
 <h4 id="write-hits">Write hits</h4>
 <p>Different Strategies</p>
 <ul>
-<li>write-back: Cause Inconsistent</li>
+<li>write-back: Cause Inconsistent<ul>
 <li>只更新cache，不更新mem</li>
 <li>很快，但会导致不一致，但是可以多次写出在一起写入mem，减少mem操作</li>
-<li>write-through: Ensuring Consistency</li>
+</ul>
+</li>
+<li>write-through: Ensuring Consistency<ul>
 <li>写入cache和mem，但是比较慢</li>
+</ul>
+</li>
 </ul>
 <h4 id="write-misses">Write misses</h4>
 <blockquote>
@@ -9629,15 +9635,21 @@
 </ol>
 <h4 id="q1-block-placement">Q1: Block Placement</h4>
 <ul>
-<li>Direct mapped</li>
+<li>Direct mapped<ul>
 <li>Block can only go in one place in the cache</li>
-<li>Fully associative </li>
+</ul>
+</li>
+<li>Fully associative <ul>
 <li>Block can go anywhere in cache. </li>
-<li>Set associative</li>
+</ul>
+</li>
+<li>Set associative<ul>
 <li>Block can go in one of a set of places in the cache.</li>
 <li>A set is a group of blocks in the cache.</li>
 <li>fully associative is m-way set-associative (for a cache with m blocks)<ul>
 <li>Note that direct mapped is the same as 1-way set associative</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -9649,10 +9661,12 @@
 </ul>
 <h4 id="the-format-of-the-physical-address">The Format of the Physical Address</h4>
 <ul>
-<li>index</li>
+<li>index<ul>
 <li>The set, in case of a set-associative cache</li>
 <li>The block, in case of a direct-mapped cache</li>
 <li>Has as many bits as log2(#sets) for set-associative caches, or  log2(#blocks) for direct-mapped caches</li>
+</ul>
+</li>
 <li>The Byte Offset field selects</li>
 <li>The Tag</li>
 </ul>
@@ -9675,39 +9689,49 @@
 </blockquote>
 <ul>
 <li>Random replacement</li>
-<li>Least-recently used (LRU) </li>
+<li>Least-recently used (LRU) <ul>
 <li>就是将最久没用的换出去，刚进来的不换</li>
-<li>MRU</li>
-<li>
-<p>LRU反过来</p>
+</ul>
 </li>
-<li>
-<p>First in,first out(FIFO)</p>
+<li>MRU<ul>
+<li>LRU反过来</li>
+</ul>
 </li>
+</ul>
+<ul>
+<li>First in,first out(FIFO)</li>
 </ul>
 <h4 id="q4-write-strategy">Q4: Write Strategy</h4>
 <ul>
-<li>write-back cache </li>
+<li>write-back cache <ul>
 <li>有个问题是cache里数据写了还没放回mem，需要进行保护</li>
 <li>我们加一个dirty bit来标记这种entity</li>
 <li>即，write-back cache 比 write-through cache 多一bit</li>
 <li>效率更高，但是设计更复杂</li>
+</ul>
+</li>
 <li>write-through cache </li>
 </ul>
 <h4 id="write-stall">Write Stall</h4>
 <ul>
-<li>Write stall --When the CPU must wait for writes to complete  during write through</li>
+<li>Write stall --When the CPU must wait for writes to complete  during write through<ul>
 <li>Write buffers </li>
 <li>即CPU和mem之间加一个small cache</li>
 <li>CPU写出会往 cache 和 Write buffers 一起写，让这个buffer消化写出操作</li>
 <li>经常用于 write-through cache </li>
 </ul>
+</li>
+</ul>
 <h4 id="write-misses_1">Write Misses</h4>
 <ul>
-<li>Write allocate</li>
+<li>Write allocate<ul>
 <li>需要先从mem读入cache，再写</li>
-<li>Write around / No write allocate</li>
+</ul>
+</li>
+<li>Write around / No write allocate<ul>
 <li>不写cache，用 Write buffers 直接写入mem</li>
+</ul>
+</li>
 </ul>
 <h4 id="memory-system">Memory system</h4>
 <p>Make reading multiple words easier by using banks of  memory</p>
@@ -9724,17 +9748,19 @@
 <p>Reducing the <strong>miss penalty</strong> using multilevel caches</p>
 </blockquote>
 <ul>
-<li>
-<p>Average Memory Assess Time (<strong>AMAT</strong>) 
+<li>Average Memory Assess Time (<strong>AMAT</strong>) 
   = hit time + miss time 
-  = hit time + miss rate × miss penalty</p>
-</li>
-<li>
-<p><strong>Hit time</strong>: The time to access the upper level of the memory hierarchy, which includes the time needed to determine whether the access is a hit or a miss.</p>
-</li>
+  = hit time + miss rate × miss penalty</li>
+</ul>
+<ul>
+<li><strong>Hit time</strong>: The time to access the upper level of the memory hierarchy, which includes the time needed to determine whether the access is a hit or a miss.<ul>
 <li>find if hit or miss + cache to CPU</li>
-<li><strong>miss penalty</strong>: The time to replace a block in the upper level with the corresponding block from the lower level,  plus the time to deliver this block to the processor.</li>
+</ul>
+</li>
+<li><strong>miss penalty</strong>: The time to replace a block in the upper level with the corresponding block from the lower level,  plus the time to deliver this block to the processor.<ul>
 <li>mem to cache + cache to CPU</li>
+</ul>
+</li>
 </ul>
 <h3 id="measuring-cache-performance">Measuring cache performance</h3>
 <blockquote>
@@ -9743,13 +9769,11 @@
 <p>"# of"通常表示“<strong>数量</strong>”或“<strong>总数</strong>”。</p>
 </blockquote>
 <ul>
-<li>
-<p>CPU time = CPU execution clock cycles + Memory-stall clock cycles</p>
-</li>
-<li>
-<p>Memory-stall clock cycles = # of (mem) instructions × miss ratio × miss penalty
-                                             = Read-stall cycles + Write-stall cycles</p>
-</li>
+<li>CPU time = CPU execution clock cycles + Memory-stall clock cycles</li>
+</ul>
+<ul>
+<li>Memory-stall clock cycles = # of (mem) instructions × miss ratio × miss penalty
+                                             = Read-stall cycles + Write-stall cycles</li>
 </ul>
 <p><img alt="image-20240520095021065" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240520095021065.png" /></p>
 <blockquote>

@@ -3713,7 +3713,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9518,27 +9518,27 @@
 <ul>
 <li>
 <p>Provides information for building a complete program from the pieces</p>
-</li>
-<li>
-<p><strong>Header</strong>: described contents of object module </p>
-</li>
-<li>
-<p><strong>Text</strong> segment: translated instructions </p>
 <ul>
+<li><strong>Header</strong>: described contents of object module </li>
+</ul>
+<ul>
+<li><strong>Text</strong> segment: translated instructions <ul>
 <li>就是程序本身，包含程序的所有指令</li>
 </ul>
 </li>
-<li>
-<p>Static data segment: data allocated for the life of the  program </p>
-</li>
-<li>
-<p>Relocation info: for contents that depend on absolute  location of loaded program</p>
-</li>
-<li>
-<p>Symbol table: global definitions and external refs </p>
-</li>
-<li>
-<p>Debug info: for associating with source code</p>
+</ul>
+<ul>
+<li>Static data segment: data allocated for the life of the  program </li>
+</ul>
+<ul>
+<li>Relocation info: for contents that depend on absolute  location of loaded program</li>
+</ul>
+<ul>
+<li>Symbol table: global definitions and external refs </li>
+</ul>
+<ul>
+<li>Debug info: for associating with source code</li>
+</ul>
 </li>
 </ul>
 <p><img alt="image-20240404155026929" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240404155026929.png" /></p>
@@ -9548,7 +9548,7 @@
 <h4 id="link">Link</h4>
 <p>将 Object modules(including library routine) → executable program</p>
 <ul>
-<li>3 steps of Link</li>
+<li>3 steps of Link<ul>
 <li>Place code and data modules symbolically in memory<ul>
 <li>是什么东西就放到什么位置</li>
 </ul>
@@ -9559,10 +9559,12 @@
 </li>
 <li>Patch both the internal and external references (Address of invoke)</li>
 </ul>
+</li>
+</ul>
 <p><img alt="image-20240404155638431" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240404155638431.png" /></p>
 <h4 id="loading-a-program">Loading a Program</h4>
 <ul>
-<li>Load from image file on disk into memory</li>
+<li>Load from image file on disk into memory<ul>
 <li><strong>Read header</strong> to determine segment sizes</li>
 <li>Create virtual address space</li>
 <li>Copy text and initialized data into memory<ul>
@@ -9572,6 +9574,8 @@
 <li>Set up arguments on stack</li>
 <li>Initialize registers (including sp, fp, gp)</li>
 <li>Jump to startup routine</li>
+</ul>
+</li>
 </ul>
 <h4 id="dynamic-linking">Dynamic Linking</h4>
 <blockquote>
@@ -9584,7 +9588,7 @@
 <p>这个程序用于复习本章的内容</p>
 </blockquote>
 <ul>
-<li>Three general steps for translating C procedures</li>
+<li>Three general steps for translating C procedures<ol>
 <li>Allocate registers to program variables<ul>
 <li>分配寄存器给变量</li>
 </ul>
@@ -9596,6 +9600,8 @@
 <li>Preserve registers across the procedures invocation<ul>
 <li>?</li>
 </ul>
+</li>
+</ol>
 </li>
 </ul>
 <h4 id="procedure-swap">Procedure swap</h4>
@@ -9641,9 +9647,11 @@
 <p>指针比array更高效</p>
 </blockquote>
 <ul>
-<li>Array indexing involves</li>
+<li>Array indexing involves<ul>
 <li>Multiplying index by element size</li>
 <li>Adding to array base address</li>
+</ul>
+</li>
 <li>Pointers correspond directly to memory  addresses</li>
 </ul>
 <p>指针可以直接操作物理地址，而数组需要计算出地址偏移量</p>
@@ -9664,20 +9672,28 @@
 </blockquote>
 <h3 id="fallacies">Fallacies</h3>
 <ol>
-<li>Powerful instruction → higher performance</li>
+<li>Powerful instruction → higher performance<ul>
 <li>Compilers are good at making fast code from simple instructions</li>
-<li>Use assembly code for high performance</li>
+</ul>
+</li>
+<li>Use assembly code for high performance<ul>
 <li>modern compilers are better at dealing with modern processors</li>
 <li>More lines of code Þ more errors and less productivity</li>
+</ul>
+</li>
 <li>Backward compatibility → instruction set  doesn’t change</li>
 </ol>
 <h3 id="pitfalls">Pitfalls</h3>
 <ol>
-<li>Sequential words are not at sequential addresses</li>
+<li>Sequential words are not at sequential addresses<ol>
 <li>Increment by 4, not by 1!</li>
-<li>Keeping a pointer to an automatic variable  after procedure returns</li>
+</ol>
+</li>
+<li>Keeping a pointer to an automatic variable  after procedure returns<ol>
 <li>Pointer becomes invalid when stack popped</li>
 <li>e.g., passing pointer back via an argument</li>
+</ol>
+</li>
 </ol>
 <h2 id="chap4-the-processor-part1">Chap4    The Processor-Part1</h2>
 <blockquote>
@@ -9687,13 +9703,17 @@
 </blockquote>
 <h3 id="instruction-execution-overview">Instruction Execution Overview</h3>
 <ol>
-<li>For every instruction, the first two step are identical</li>
+<li>For every instruction, the first two step are identical<ol>
 <li>Fetch the instruction from the memory</li>
 <li>Decode and read the registers</li>
-<li>Next steps depend on the instruction class</li>
+</ol>
+</li>
+<li>Next steps depend on the instruction class<ol>
 <li>Memory-reference</li>
 <li>Arithmetic-logical </li>
 <li>branches</li>
+</ol>
+</li>
 </ol>
 <p><img alt="image-20240404165003332" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240404165003332.png" /></p>
 <h3 id="an-overview-of-implementation">An overview of Implementation</h3>

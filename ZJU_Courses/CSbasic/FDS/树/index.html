@@ -3949,7 +3949,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9999,16 +9999,20 @@
 <h3 id="_3">分类</h3>
 <ol>
 <li>斜二叉树 skewed binary tree：全都只有左child或全都只有右child</li>
-<li>完美二叉树/满二叉树 perfect binary tree/full binary tree</li>
+<li>完美二叉树/满二叉树 perfect binary tree/full binary tree<ol>
 <li>depth = k &amp;&amp; node = <span class="arithmatex">\(2^{k-1}\)</span></li>
+</ol>
+</li>
 <li>完全二叉树 complete binary tree/<strong>CBT</strong></li>
 </ol>
 <h3 id="_4">性质</h3>
 <ol>
 <li>level = <span class="arithmatex">\(i\)</span> --&gt; <code>max number of node in this level</code>  = <span class="arithmatex">\(2^{i-1}\)</span></li>
 <li>depth = k --&gt; <code>max number of  node in this tree</code> = <span class="arithmatex">\(2^{k-1}\)</span></li>
-<li><code>number of leaf</code> = <span class="arithmatex">\(n_0\)</span> , <code>number of node with degree 2</code> = <span class="arithmatex">\(n_2\)</span> --&gt; <span class="arithmatex">\(n_0 = n_2+1\)</span></li>
+<li><code>number of leaf</code> = <span class="arithmatex">\(n_0\)</span> , <code>number of node with degree 2</code> = <span class="arithmatex">\(n_2\)</span> --&gt; <span class="arithmatex">\(n_0 = n_2+1\)</span><ol>
 <li><span class="arithmatex">\(n_2+n_1+n_0=0*n_0+1*n_1+2*n_2+1\)</span></li>
+</ol>
+</li>
 </ol>
 <h4 id="_5">普通树转二叉树</h4>
 <ol>
@@ -10217,9 +10221,11 @@
 <h3 id="_12">堆的特性</h3>
 <ul>
 <li>结构性：用Array表示的CBT</li>
-<li>有序性：任意结点的关键字是其子树所有结点的最值</li>
+<li>有序性：任意结点的关键字是其子树所有结点的最值<ul>
 <li>最大值则为 <strong>最大堆（MaxHeap）</strong></li>
 <li>最小值则为 <strong>最小堆（MinHeap）</strong></li>
+</ul>
+</li>
 <li>Array的第0个地址不存放</li>
 </ul>
 <blockquote>

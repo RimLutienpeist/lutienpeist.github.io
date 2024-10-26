@@ -3484,7 +3484,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9356,12 +9356,10 @@
 比较的顺序是<strong>从前向后</strong>比较，<strong>遇到不相等的字符就按这个位置上的两个字符的比较结果确定两个字符串的大小(前减后)</strong>
 同时，string (“aaaa”) &lt;string(aaaaa)。    </li>
 <li>另一个功能强大的比较函数是成员函数compare()。他支持多参数处理，支持用索引值和长度定位子串来进行比较。 
-    他返回一个整数来表示比较结果，返回值意义如下：<ol>
-<li>0：相等 </li>
-<li>1：大于 </li>
-<li>-1：小于 </li>
-</ol>
-</li>
+    他返回一个整数来表示比较结果，返回值意义如下：
+    1. 0：相等 
+    2. 1：大于 
+    3. -1：小于 </li>
 </ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">test3</span><span class="p">()</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>

@@ -3826,7 +3826,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9747,9 +9747,11 @@
 <ol>
 <li>N只为正整数</li>
 <li>只讨论基于比较的排序</li>
-<li>只讨论内部排序</li>
+<li>只讨论内部排序<ol>
 <li>即数据能够一次性进入内容完成排序</li>
 <li>外部排序即数据量大于内存时的操作</li>
+</ol>
+</li>
 <li>没有全能的排序，学的排序都是有存在的理由的</li>
 </ol>
 <h3 id="_4">一些概念</h3>
@@ -9805,9 +9807,11 @@
 <h3 id="_12">逆序对定理</h3>
 <ul>
 <li>任意 <span class="arithmatex">\(N\)</span> 个不同元素组成的序列，平均具有 <span class="arithmatex">\(\frac{N(N-1)}4\)</span> 个 <span class="arithmatex">\(inversion\)</span></li>
-<li>任何 <strong>仅以交换相邻元素</strong> 来排序的算法，其平均时间复杂度为 <span class="arithmatex">\(\Omega (N^2)\)</span></li>
+<li>任何 <strong>仅以交换相邻元素</strong> 来排序的算法，其平均时间复杂度为 <span class="arithmatex">\(\Omega (N^2)\)</span><ul>
 <li>为了改进，需要实现每轮消去多个 <span class="arithmatex">\(inversion\)</span><ul>
 <li>例如，一种思路是将两个较远的元素进行交换</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

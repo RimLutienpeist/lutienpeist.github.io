@@ -3824,7 +3824,7 @@
         
   
   <span class="md-ellipsis">
-    5.2
+    5.2 cahce
   </span>
   
 
@@ -9742,22 +9742,28 @@
 <p>sd - &gt;store</p>
 <p><strong>Register vs. Memory</strong></p>
 <ul>
-<li>Operating on memory data requires loads  and stores</li>
+<li>Operating on memory data requires loads  and stores<ul>
 <li>More instructions to be executed</li>
-<li>Compiler must use registers for variables as  much as possible</li>
+</ul>
+</li>
+<li>Compiler must use registers for variables as  much as possible<ul>
 <li>Only spill to memory for less frequently used  variables</li>
 <li>Register optimization is important!</li>
+</ul>
+</li>
 </ul>
 </blockquote>
 <h3 id="constant-or-immediate-operands">Constant or immediate Operands</h3>
 <h4 id="immediate">Immediate</h4>
 <ul>
-<li>立即数</li>
+<li>立即数<ul>
 <li>Avoids the load instruction</li>
 <li>Constant zero: a register x0</li>
 <li>Offer versions of the instruction<ul>
 <li>addi x22, x22, 4 // x22= x22+ 4</li>
 <li>类指令还有 addu 无符号数</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><strong>Design Principle 3: Make common case fast</strong></li>
@@ -9774,15 +9780,19 @@
 <p><img alt="image-20240321193413245" src="C:\Users\89620\AppData\Roaming\Typora\typora-user-images\image-20240321193413245.png" /></p>
 <h2 id="25-representing-instructions">2.5 Representing Instructions</h2>
 <ul>
-<li>Mapping registers into numbers</li>
+<li>Mapping registers into numbers<ul>
 <li>map registers x0 to x31 onto registers 0 to 31</li>
-<li>RISC-V instructions</li>
+</ul>
+</li>
+<li>RISC-V instructions<ul>
 <li>Encoded as 32-bit instruction words<ul>
 <li>All instructions in RISC-V <strong>have the same length</strong></li>
 </ul>
 </li>
 <li>Small number of formats encoding operation code (opcode),  register numbers</li>
 <li>Regularity</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>接下来介绍RISC-V的几类指令：R型、I型</p>
@@ -9799,7 +9809,7 @@
 </blockquote>
 <p><img alt="image-20240321194718909" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240321194718909.png" /></p>
 <ul>
-<li>Instruction field</li>
+<li>Instruction field<ul>
 <li><strong>opcode</strong>: operation code </li>
 <li><strong>rd</strong>: destination register number </li>
 <li><strong>funct3</strong>: 3-bit function code (additional opcode) </li>
@@ -9811,13 +9821,17 @@
 </ul>
 </li>
 </ul>
+</li>
+</ul>
 <blockquote>
 <p>为什么要拆开为三个部分共同决定操作</p>
 <p>因为这样硬件设计更简单，还能归纳电路，让运行速度更快</p>
 </blockquote>
 <ul>
-<li>Design Principle 3 </li>
+<li>Design Principle 3 <ul>
 <li>Good design demands good compromises</li>
+</ul>
+</li>
 </ul>
 <h4 id="example-translating-assembly-code">Example: Translating Assembly Code</h4>
 <p><img alt="image-20240321193922137" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240321193922137.png" /></p>
@@ -9838,15 +9852,17 @@
 <p><img alt="image-20240321195807284" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240321195807284.png" /></p>
 <ul>
 <li>rs1: source or base address register number </li>
-<li>immediate: constant operand, or offset added to base address</li>
-<li>
-<p>2s-complement, sign extended</p>
+<li>immediate: constant operand, or offset added to base address<ul>
+<li>2s-complement, sign extended</li>
+</ul>
 </li>
-<li>
-<p>Design Principle 3: Good design demands good compromises </p>
-</li>
+</ul>
+<ul>
+<li>Design Principle 3: Good design demands good compromises <ul>
 <li>Different formats complicate decoding, but allow 32-bit instructions  uniformly </li>
 <li>Keep formats as similar as possible</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>可见立即数是<span class="arithmatex">\(2^{12}\)</span>的</p>
@@ -9866,8 +9882,10 @@
 <ul>
 <li><strong>rs1</strong>: base address register number </li>
 <li><strong>rs2</strong>: source operand register number </li>
-<li><strong>immediate</strong>: offset added to base address </li>
+<li><strong>immediate</strong>: offset added to base address <ul>
 <li>Split as [15:11] and [4:0] so that rs1 and rs2 fields always in the same place</li>
+</ul>
+</li>
 </ul>
 <blockquote>
 <p>目标是内存，所以没有rd</p>
@@ -9909,12 +9927,16 @@
 <p><img alt="image-20240321202840448" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240321202840448.png" /></p>
 <h2 id="27-instructions-for-making-decisions">2.7 Instructions for making decisions</h2>
 <ul>
-<li><strong>Branch</strong> instructions</li>
+<li><strong>Branch</strong> instructions<ul>
 <li>Branch to a labeled instruction if a condition is true </li>
 <li>Otherwise, continue sequentially</li>
-<li>exp</li>
+</ul>
+</li>
+<li>exp<ul>
 <li><code>beq rs1, rs2, L1</code>: if (rs1 == rs2) branch to instruction labeled L1</li>
 <li><code>bne rs1, rs2, L1</code>: if (rs1 != rs2) branch to instruction labeled L1</li>
+</ul>
+</li>
 </ul>
 <h3 id="compiling-an-if-statement">Compiling an if statement</h3>
 <p><img alt="image-20240321203203477" src="https://raw.githubusercontent.com/RimLutienpeist/image-hosting/main/image-20240321203203477.png" /></p>

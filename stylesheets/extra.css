@@ -7,3 +7,9 @@ body {
   /* Screen version */
   /* font-family: "LXGW WenKai Screen", sans-serif; */
 }
+
+[data-md-color-scheme="youtube"] {
+  --md-primary-fg-color:        #EE0F0F;
+  --md-primary-fg-color--light: #ECB7B7;
+  --md-primary-fg-color--dark:  #90030C;
+}
